@@ -1,0 +1,82 @@
+server:
+  port: 8206
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: gateway-service
+  redis:
+    host: localhost
+    password:
+    port: 6379
+  cloud:
+    consul: #Consul服务注册发现配置
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+    globalcors: #网关支持跨域问题
+      cors-configurations:
+        '[/**]':
+          allowedOrigins: "*" # * 表示所有
+          allowedMethods:
+            - GET
+            - POST
+            - PUT
+    gateway:
+      enabled: true  #开启网关
+      discovery:
+        locator:
+          enabled: true #开启自动路由,以服务id建立路由，服务id默认大写
+          lower-case-service-id: true #服务id设置为小写
+      routes:
+
+        - id: order_routh #order_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          #          uri: http://localhost:9206          #匹配后提供服务的路由地址
+          uri: lb://order-service #匹配后提供服务的路由地址
+          predicates:
+            - Path=/order/**      # 断言，路径相匹配的进行路由
+          filters:
+            - StripPrefix=1   #代表截取路径的个数
+            #熔断过滤器
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+            #限流过滤器
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@ipKeyResolver}' # 限流規則
+                # 每秒最大访问次数（放令牌桶的速率）
+                redis-rate-limiter.replenishRate: 10
+                # 令牌桶最大容量（令牌桶的大小）
+                redis-rate-limiter.burstCapacity: 10
+
+
+        - id: commodity_routh #commodity_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          #          uri: http://localhost:7206          #匹配后提供服务的路由地址
+          uri: lb://commodity-service #匹配后提供服务的路由地址
+          predicates:
+            - Path=/commodity/**      # 断言，路径相匹配的进行路由
+          filters:
+            - StripPrefix=1   #代表截取路径的个数
+
+
+#熔断器配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 3000
+  shareSecurityContext: true
+
+#网关日志输出
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG

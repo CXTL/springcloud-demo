@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dupake.commodity.mapper.SysUserMapper">
+
+
+    <resultMap id="authUserMap" type="com.dupake.commodity.entity.SysUser">
+        <id column="id" property="id"></id>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+
+    </resultMap>
+
+    <sql id="authUser_sql">
+        id,
+        username ,
+        password ,
+        create_time,
+        update_time
+    </sql>
+
+    <select id="findInfoById" resultMap="authUserMap">
+        select
+        <include refid="authUser_sql"/>
+        from t_user where id = #{id}
+    </select>
+
+    <select id="findList" resultMap="authUserMap">
+        select
+        <include refid="authUser_sql"/>
+        from t_user
+    </select>
+
+
+    <!--新增-->
+    <insert id="save" parameterType="com.dupake.commodity.entity.SysUser" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_user(
+        <trim suffixOverrides=",">
+            <if test="createTime != null">
+                create_time ,
+            </if>
+            <if test="updateTime != null">
+                update_time ,
+            </if>
+            <if test="username != null and username != ''">
+                username ,
+            </if>
+            <if test="password != null and password != ''">
+                password ,
+            </if>
+        </trim>
+        )
+        values (
+        <trim suffixOverrides=",">
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="username != null and username != ''">
+                #{username},
+            </if>
+            <if test="password != null and password != ''">
+                #{password},
+            </if>
+        </trim>
+
+        )
+    </insert>
+
+
+    <!--    <insert id="saveBatch" parameterType="list" useGeneratedKeys="true" keyProperty="id">-->
+    <!--        insert into t_user(-->
+    <!--        `name` ,`create_time` ,`create_name` ,`create_id` , `username` , `password` , `phone` , `is_del` , `email` , `expired_time` , `user_url` , `salt` , `state`-->
+    <!--        ) values-->
+    <!--        <foreach collection="list" item="item" separator=",">-->
+    <!--            (-->
+    <!--            #{item.name}, #{item.createTime}, #{item.createName}, #{item.createId}, #{item.username}, #{item.password}, #{item.phone}, #{item.isDel}, #{item.email},-->
+    <!--            #{item.expiredTime}, #{item.userUrl}, #{item.salt}, #{item.state} )-->
+    <!--        </foreach>-->
+    <!--    </insert>-->
+
+    <update id="update" parameterType="com.dupake.commodity.entity.SysUser">
+        update t_user
+        <set>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from t_user where id = {id}
+    </delete>
+
+    <!--    <update id="updateBatch" parameterType="list">-->
+    <!--        update t_user-->
+    <!--        <trim prefix="set" suffixOverrides=",">-->
+    <!--            <trim prefix="is_del=case" suffix="end,">-->
+    <!--                <foreach collection="list" item="detail">-->
+    <!--                    <if test="detail.isDel != null">-->
+    <!--                        when id = #{detail.id} then #{detail.isDel}-->
+    <!--                    </if>-->
+    <!--                </foreach>-->
+    <!--            </trim>-->
+    <!--        </trim>-->
+    <!--        <where>-->
+    <!--            <foreach collection="list" item="detail" separator="or">-->
+    <!--                id = #{detail.id}-->
+    <!--            </foreach>-->
+    <!--        </where>-->
+    <!--    </update>-->
+
+</mapper>
