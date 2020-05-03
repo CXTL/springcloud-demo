@@ -323,3 +323,206 @@
 2020-04-25 21:31:19.426 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: _org.springframework.integration.errorLogger.handler
 2020-04-25 21:31:19.428 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2020-04-25 21:31:19.471 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-04-25 21:40:48.911 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ea966ee3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:40:49.734 [main] INFO  c.d.c.HmCommodityApplication - No active profile set, falling back to default profiles: default
+2020-04-25 21:40:55.946 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-04-25 21:40:55.950 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-04-25 21:40:56.064 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76ms. Found 0 repository interfaces.
+2020-04-25 21:40:57.850 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$aa9d12f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:40:58.464 [main] INFO  o.s.c.c.scope.GenericScope - BeanFactory id=e06b3829-aba2-3e22-ae0e-99aaa7691159
+2020-04-25 21:40:58.498 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-04-25 21:40:58.517 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-04-25 21:40:58.524 [main] INFO  c.d.g.HmGatewayApplication - No active profile set, falling back to default profiles: default
+2020-04-25 21:40:58.543 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-04-25 21:40:59.198 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$c440040b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:40:59.694 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ce7c6be6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.387 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.515 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$396e2715] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.561 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration' of type [org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration$$EnhancerBySpringCGLIB$$15003235] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.580 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration' of type [org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration$$EnhancerBySpringCGLIB$$4de7db02] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.599 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mbeanServer' of type [com.sun.jmx.mbeanserver.JmxMBeanServer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:00.889 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ea966ee3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:01.037 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-04-25 21:41:01.044 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-04-25 21:41:01.183 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38ms. Found 0 repository interfaces.
+2020-04-25 21:41:02.002 [main] INFO  o.s.c.c.scope.GenericScope - BeanFactory id=88050471-6c04-3ade-885d-ffc40b73bbde
+2020-04-25 21:41:02.190 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$aa9d12f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:02.234 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 7206 (http)
+2020-04-25 21:41:02.393 [main] INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7206"]
+2020-04-25 21:41:02.433 [main] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+2020-04-25 21:41:02.436 [main] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-04-25 21:41:02.954 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2020-04-25 21:41:02.955 [main] INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 13154 ms
+2020-04-25 21:41:03.095 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:03.104 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:03.586 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:03.661 [main] INFO  c.n.c.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@75dbe490
+2020-04-25 21:41:09.186 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2020-04-25 21:41:09.187 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2020-04-25 21:41:09.187 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2020-04-25 21:41:09.187 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2020-04-25 21:41:09.188 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2020-04-25 21:41:09.194 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2020-04-25 21:41:09.195 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2020-04-25 21:41:09.196 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2020-04-25 21:41:09.197 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2020-04-25 21:41:09.200 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBodyPredicateFactory]
+2020-04-25 21:41:09.201 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2020-04-25 21:41:09.233 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2020-04-25 21:41:09.234 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2020-04-25 21:41:12.623 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 21:41:15.732 [main] INFO  o.s.b.w.e.n.NettyWebServer - Netty started on port(s): 8206
+2020-04-25 21:41:15.857 [main] INFO  o.s.c.c.s.ConsulServiceRegistry - Registering service with consul: NewService{id='gateway-service-8206', name='gateway-service', tags=[secure=false], address='192.168.31.124', meta=null, port=8206, enableTagOverride=null, check=Check{script='null', interval='10s', ttl='null', http='http://192.168.31.124:8206/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null'}, checks=null}
+2020-04-25 21:41:16.076 [main] INFO  c.d.g.HmGatewayApplication - Started HmGatewayApplication in 21.273 seconds (JVM running for 24.657)
+2020-04-25 21:41:16.131 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2020-04-25 21:41:22.092 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3170b954] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:22.609 [main] INFO  c.d.o.HmOrderApplication - No active profile set, falling back to default profiles: default
+2020-04-25 21:41:24.501 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-25 21:41:24.727 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-04-25 21:41:25.208 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:25.467 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-25 21:41:25.913 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-04-25 21:41:25.917 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-04-25 21:41:25.954 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2020-04-25 21:41:26.693 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 21:41:26.943 [main] INFO  o.s.c.c.scope.GenericScope - BeanFactory id=4fcdd452-b462-31b2-a692-b4aacc54422d
+2020-04-25 21:41:26.960 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2020-04-25 21:41:26.968 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2020-04-25 21:41:26.976 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2020-04-25 21:41:27.257 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.retry.annotation.RetryConfiguration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$b1a4e7c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:27.418 [main] INFO  o.s.c.s.m.DirectWithAttributesChannel - Channel 'application-1.input' has 1 subscriber(s).
+2020-04-25 21:41:27.579 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1556b657] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:27.822 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel errorChannel
+2020-04-25 21:41:27.864 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:27.954 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$80487186] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:27.995 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration' of type [org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration$$EnhancerBySpringCGLIB$$5bda7ca6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:28.048 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel input
+2020-04-25 21:41:28.056 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration' of type [org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration$$EnhancerBySpringCGLIB$$94c22573] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:28.112 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mbeanServer' of type [com.sun.jmx.mbeanserver.JmxMBeanServer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:28.244 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel nullChannel
+2020-04-25 21:41:28.287 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3170b954] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:28.375 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageHandler errorLogger
+2020-04-25 21:41:28.435 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@6c418f0b
+2020-04-25 21:41:28.609 [main] INFO  o.s.i.e.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-04-25 21:41:28.609 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'application-1.errorChannel' has 1 subscriber(s).
+2020-04-25 21:41:28.609 [main] INFO  o.s.i.e.EventDrivenConsumer - started _org.springframework.integration.errorLogger
+2020-04-25 21:41:28.877 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ea966ee3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:29.564 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 9206 (http)
+2020-04-25 21:41:29.623 [main] INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9206"]
+2020-04-25 21:41:29.660 [main] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+2020-04-25 21:41:29.662 [main] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-04-25 21:41:29.701 [main] INFO  o.s.c.s.b.r.p.RabbitExchangeQueueProvisioner - declaring queue for inbound: studyExchange.spectrumrpcA, bound to: studyExchange
+2020-04-25 21:41:29.706 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 21:41:29.851 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7405e77f:0/SimpleConnection@74974165 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53630]
+2020-04-25 21:41:30.031 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel studyExchange.spectrumrpcA.errors
+2020-04-25 21:41:30.174 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2020-04-25 21:41:30.174 [main] INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 7517 ms
+2020-04-25 21:41:30.347 [main] INFO  o.s.c.s.b.BinderErrorChannel - Channel 'application-1.studyExchange.spectrumrpcA.errors' has 1 subscriber(s).
+2020-04-25 21:41:30.349 [main] INFO  o.s.c.s.b.BinderErrorChannel - Channel 'application-1.studyExchange.spectrumrpcA.errors' has 2 subscriber(s).
+2020-04-25 21:41:30.431 [main] INFO  o.s.i.a.i.AmqpInboundChannelAdapter - started inbound.studyExchange.spectrumrpcA
+2020-04-25 21:41:30.437 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-04-25 21:41:30.471 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-04-25 21:41:30.532 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-04-25 21:41:30.536 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:30.553 [main] INFO  c.n.c.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@37665305
+2020-04-25 21:41:30.878 [main] INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7206"]
+2020-04-25 21:41:30.985 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 7206 (http) with context path ''
+2020-04-25 21:41:31.060 [main] INFO  o.s.c.c.s.ConsulServiceRegistry - Registering service with consul: NewService{id='commodity-service-7206', name='commodity-service', tags=[secure=false], address='192.168.31.124', meta=null, port=7206, enableTagOverride=null, check=Check{script='null', interval='10s', ttl='null', http='http://192.168.31.124:7206/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null'}, checks=null}
+2020-04-25 21:41:31.123 [main] INFO  c.d.c.HmCommodityApplication - Started HmCommodityApplication in 45.574 seconds (JVM running for 49.633)
+2020-04-25 21:41:31.750 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 21:41:31.765 [RMI TCP Connection(6)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-25 21:41:31.768 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-25 21:41:31.817 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2c731a16:0/SimpleConnection@7289fb0c [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53636]
+2020-04-25 21:41:31.858 [RMI TCP Connection(7)-127.0.0.1] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2020-04-25 21:41:31.861 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 92 ms
+2020-04-25 21:41:32.473 [RMI TCP Connection(7)-127.0.0.1] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2020-04-25 21:41:33.221 [parallel-1] INFO  i.l.core.EpollProvider - Starting without optional epoll library
+2020-04-25 21:41:33.224 [parallel-1] INFO  i.l.core.KqueueProvider - Starting without optional kqueue library
+2020-04-25 21:41:33.983 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2020-04-25 21:41:36.177 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-25 21:41:36.363 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-04-25 21:41:36.691 [main] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-25 21:41:36.849 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-25 21:41:38.160 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 21:41:38.734 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel errorChannel
+2020-04-25 21:41:38.809 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel output
+2020-04-25 21:41:38.858 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageChannel nullChannel
+2020-04-25 21:41:38.882 [main] INFO  o.s.i.m.IntegrationMBeanExporter - Registering MessageHandler errorLogger
+2020-04-25 21:41:38.920 [main] INFO  o.s.i.e.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-04-25 21:41:38.920 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'application-1.errorChannel' has 1 subscriber(s).
+2020-04-25 21:41:38.920 [main] INFO  o.s.i.e.EventDrivenConsumer - started _org.springframework.integration.errorLogger
+2020-04-25 21:41:39.025 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3170b954] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-25 21:41:39.374 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 21:41:39.449 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#435a13ac:0/SimpleConnection@70376c6 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53648]
+2020-04-25 21:41:39.513 [main] INFO  o.s.c.s.m.DirectWithAttributesChannel - Channel 'application-1.output' has 1 subscriber(s).
+2020-04-25 21:41:39.525 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-04-25 21:41:39.566 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-04-25 21:41:39.713 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-04-25 21:41:39.787 [main] INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9206"]
+2020-04-25 21:41:39.864 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 9206 (http) with context path ''
+2020-04-25 21:41:39.887 [main] INFO  o.s.c.c.s.ConsulServiceRegistry - Registering service with consul: NewService{id='hm-order-9206', name='hm-order', tags=[secure=false], address='192.168.31.124', meta=null, port=9206, enableTagOverride=null, check=Check{script='null', interval='10s', ttl='null', http='http://192.168.31.124:9206/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null'}, checks=null}
+2020-04-25 21:41:39.987 [main] INFO  c.d.o.HmOrderApplication - Started HmOrderApplication in 22.776 seconds (JVM running for 28.625)
+2020-04-25 21:41:40.065 [http-nio-9206-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-25 21:41:40.066 [http-nio-9206-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-25 21:41:40.087 [http-nio-9206-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 20 ms
+2020-04-25 21:41:40.305 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 21:41:40.325 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3ec62141:0/SimpleConnection@386820aa [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53654]
+2020-04-25 21:41:40.370 [RMI TCP Connection(3)-127.0.0.1] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2020-04-25 21:41:40.806 [RMI TCP Connection(3)-127.0.0.1] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2020-04-25 21:41:41.329 [parallel-1] INFO  i.l.core.EpollProvider - Starting without optional epoll library
+2020-04-25 21:41:41.331 [parallel-1] INFO  i.l.core.KqueueProvider - Starting without optional kqueue library
+2020-04-25 23:36:50.715 [lettuce-eventExecutorLoop-1-4] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was localhost/127.0.0.1:6379
+2020-04-25 23:36:50.741 [lettuce-eventExecutorLoop-1-4] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was /127.0.0.1:6379
+2020-04-25 23:36:50.761 [lettuce-nioEventLoop-4-2] INFO  i.l.c.p.ReconnectionHandler - Reconnected to localhost:6379
+2020-04-25 23:36:50.791 [lettuce-nioEventLoop-4-2] INFO  i.l.c.p.ReconnectionHandler - Reconnected to 127.0.0.1:6379
+2020-04-25 23:36:55.836 [lettuce-eventExecutorLoop-1-4] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was 127.0.0.1:6379
+2020-04-25 23:36:55.913 [lettuce-eventExecutorLoop-1-2] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was localhost:6379
+2020-04-25 23:36:59.104 [studyExchange.spectrumrpcA-1] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Restarting Consumer@37d12d0e: tags=[[amq.ctag-jN0G7784TRknEqn-nkZ-pg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@28e12bc5 Shared Rabbit Connection: SimpleConnection@74974165 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53630], acknowledgeMode=AUTO local queue size=0
+2020-04-25 23:36:59.112 [studyExchange.spectrumrpcA-2] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:04.215 [studyExchange.spectrumrpcA-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Restarting Consumer@17d5732d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2020-04-25 23:37:04.217 [studyExchange.spectrumrpcA-3] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:08.307 [lettuce-eventExecutorLoop-1-1] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was localhost:6379
+2020-04-25 23:37:08.338 [lettuce-eventExecutorLoop-1-3] INFO  i.l.c.p.ConnectionWatchdog - Reconnecting, last destination was 127.0.0.1:6379
+2020-04-25 23:37:09.304 [studyExchange.spectrumrpcA-3] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Restarting Consumer@5cdb58e2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2020-04-25 23:37:09.305 [studyExchange.spectrumrpcA-4] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:13.163 [http-nio-7206-exec-4] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:14.385 [studyExchange.spectrumrpcA-4] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Restarting Consumer@10d54ebc: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2020-04-25 23:37:14.386 [studyExchange.spectrumrpcA-5] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:14.755 [http-nio-9206-exec-4] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:19.454 [studyExchange.spectrumrpcA-5] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Restarting Consumer@4d6183f7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2020-04-25 23:37:19.461 [studyExchange.spectrumrpcA-6] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2020-04-25 23:37:19.532 [Thread-6] INFO  o.s.i.e.EventDrivenConsumer - Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-04-25 23:37:19.535 [Thread-8] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2020-04-25 23:37:19.535 [Thread-8] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2020-04-25 23:37:19.535 [Thread-8] INFO  o.s.i.a.i.AmqpInboundChannelAdapter - stopped inbound.studyExchange.spectrumrpcA
+2020-04-25 23:37:19.537 [Thread-6] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'application-1.errorChannel' has 0 subscriber(s).
+2020-04-25 23:37:19.537 [Thread-6] INFO  o.s.i.e.EventDrivenConsumer - stopped _org.springframework.integration.errorLogger
+2020-04-25 23:37:19.552 [Thread-8] INFO  o.s.c.s.b.BinderErrorChannel - Channel 'application-1.studyExchange.spectrumrpcA.errors' has 1 subscriber(s).
+2020-04-25 23:37:19.552 [Thread-8] INFO  o.s.c.s.b.BinderErrorChannel - Channel 'application-1.studyExchange.spectrumrpcA.errors' has 0 subscriber(s).
+2020-04-25 23:37:19.582 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 23:37:19.589 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-25 23:37:19.639 [Thread-8] INFO  o.s.c.c.s.ConsulServiceRegistry - Deregistering service with consul: commodity-service-7206
+2020-04-25 23:37:19.708 [Thread-5] INFO  o.s.c.c.s.ConsulServiceRegistry - Deregistering service with consul: gateway-service-8206
+2020-04-25 23:37:19.721 [Thread-5] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 23:37:19.758 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2020-04-25 23:37:19.922 [Thread-6] INFO  o.s.i.e.EventDrivenConsumer - Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2020-04-25 23:37:19.924 [Thread-6] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'application-1.errorChannel' has 0 subscriber(s).
+2020-04-25 23:37:19.925 [Thread-6] INFO  o.s.i.e.EventDrivenConsumer - stopped _org.springframework.integration.errorLogger
+2020-04-25 23:37:19.960 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'catalogWatchTaskScheduler'
+2020-04-25 23:37:19.986 [Thread-8] INFO  o.s.c.c.s.ConsulServiceRegistry - Deregistering service with consul: hm-order-9206
+2020-04-25 23:37:20.059 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-25 23:37:20.105 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2020-04-25 23:37:20.186 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: errorChannel
+2020-04-25 23:37:20.186 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: studyExchange.spectrumrpcA.errors
+2020-04-25 23:37:20.186 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: input
+2020-04-25 23:37:20.187 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: nullChannel
+2020-04-25 23:37:20.187 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: _org.springframework.integration.errorLogger.handler
+2020-04-25 23:37:20.187 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: org.springframework.cloud.stream.binding.StreamListenerMessageHandler@6c418f0b
+2020-04-25 23:37:20.189 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-04-25 23:37:20.464 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: errorChannel
+2020-04-25 23:37:20.464 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: output
+2020-04-25 23:37:20.464 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: nullChannel
+2020-04-25 23:37:20.464 [Thread-8] INFO  o.s.i.m.IntegrationMBeanExporter - Summary on shutdown: _org.springframework.integration.errorLogger.handler
+2020-04-25 23:37:20.470 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-04-25 23:37:22.161 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-04-25 23:37:23.414 [Thread-8] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

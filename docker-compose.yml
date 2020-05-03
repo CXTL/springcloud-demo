@@ -1,0 +1,65 @@
+version: '3.3'
+services:
+
+  eureka:
+    image: eureka
+    build: ./eureka
+    container_name: eureka
+    deploy:
+      replicas: 1
+    ports:
+      - '8761:8761'
+    networks:
+      - unicorn
+  unicorn:
+    image: unicorn
+    build: ./unicorn
+    container_name: unicorn
+    deploy:
+      replicas: 1
+    depends_on:
+      - eureka
+
+    links:
+      - eureka
+
+    ports:
+      - '2030:2030'
+    networks:
+      - unicorn
+
+  unicorn2:
+    image: unicorn2
+    build: ./unicorn
+    container_name: unicorn2
+    deploy:
+      replicas: 1
+    depends_on:
+      - eureka
+    links:
+      - eureka
+    ports:
+      - '2031:2030'
+    networks:
+      - unicorn
+
+
+  hacker:
+    image: hacker
+    build: ./hacker
+    container_name: hacker
+    deploy:
+      replicas: 1
+    depends_on:
+      - eureka
+    links:
+      - eureka
+    ports:
+      - '2020:2020'
+    networks:
+      - unicorn
+
+
+networks:
+  unicorn:
+    driver: bridge

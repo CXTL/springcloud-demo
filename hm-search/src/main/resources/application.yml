@@ -1,0 +1,19 @@
+server:
+  port: 7406
+spring:
+  application:
+    name: search-service
+  redis:
+    host: localhost
+    password:
+    port: 6379
+  cloud:
+    consul: #Consul服务注册发现配置
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+es:
+  host: 127.0.0.1
+  port: 9200
+  scheme: http

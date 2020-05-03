@@ -56,3 +56,858 @@
 2020-04-25 21:30:56.794 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
 2020-04-25 21:31:06.807 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
 2020-04-25 21:31:16.912 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:41:19.701 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:41:30.098 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:41:40.172 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:41:50.193 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:00.204 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:10.213 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:20.222 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:30.231 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:40.242 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:42:50.255 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:00.263 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:10.269 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:20.278 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:30.289 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:40.295 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:43:50.302 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:00.311 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:10.319 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:20.328 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:30.337 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:40.343 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:44:50.351 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:00.358 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:10.364 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:20.374 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:30.379 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:40.388 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:45:50.397 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:00.404 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:10.415 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:20.420 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:30.428 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:40.435 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:46:50.441 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:00.452 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:10.459 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:20.471 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:30.482 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:40.490 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:47:50.499 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:00.505 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:10.511 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:20.519 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:30.526 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:40.537 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:48:50.548 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:00.558 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:10.566 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:20.572 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:30.578 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:40.584 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:49:50.605 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:00.614 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:10.622 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:20.630 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:30.635 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:40.643 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:50:50.656 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:00.667 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:10.676 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:20.686 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:30.694 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:40.701 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:51:50.710 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:00.718 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:10.724 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:20.733 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:30.739 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:40.750 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:52:50.763 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:00.770 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:10.774 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:20.782 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:30.788 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:40.795 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:53:50.801 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:00.809 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:10.821 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:20.827 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:30.836 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:40.843 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:54:50.857 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:00.863 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:10.873 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:20.884 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:30.896 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:40.903 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:55:50.911 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:00.919 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:10.928 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:20.933 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:30.941 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:40.949 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:56:50.957 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:00.963 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:10.971 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:20.978 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:30.983 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:40.991 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:57:50.999 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:01.007 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:11.019 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:21.025 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:31.036 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:41.045 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:58:51.050 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:01.058 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:11.076 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:21.086 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:31.098 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:41.104 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 21:59:51.113 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:01.119 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:11.126 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:21.134 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:31.145 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:41.150 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:00:51.157 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:01.165 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:11.171 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:21.177 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:31.188 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:41.194 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:01:51.201 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:01.208 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:11.222 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:21.229 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:31.239 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:41.247 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:02:51.254 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:01.258 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:11.268 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:21.280 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:31.285 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:41.293 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:03:51.302 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:01.307 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:11.319 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:21.325 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:31.335 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:41.345 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:04:51.353 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:01.379 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:11.387 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:21.395 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:31.402 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:41.412 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:05:51.424 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:01.430 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:11.466 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:21.478 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:31.483 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:41.491 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:06:51.499 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:01.507 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:11.536 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:21.546 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:31.556 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:41.562 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:07:51.568 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:01.574 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:11.581 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:21.592 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:31.599 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:41.623 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:08:51.642 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:01.660 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:11.717 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:21.738 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:31.747 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:41.761 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:09:51.769 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:01.775 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:11.781 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:21.786 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:31.791 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:41.797 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:10:51.802 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:01.808 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:11.850 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:21.866 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:31.872 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:41.877 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:11:51.882 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:01.891 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:11.896 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:21.906 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:31.915 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:41.920 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:12:51.925 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:01.933 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:11.943 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:21.948 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:31.956 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:41.963 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:13:51.971 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:01.980 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:11.985 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:21.993 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:32.000 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:42.004 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:14:52.011 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:02.018 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:12.024 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:22.031 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:32.036 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:42.041 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:15:52.049 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:02.055 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:12.061 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:22.071 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:32.079 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:42.083 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:16:52.092 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:02.099 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:12.112 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:22.123 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:32.131 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:42.138 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:17:52.143 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:02.149 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:12.160 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:22.165 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:32.171 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:42.176 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:18:52.193 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:02.202 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:12.210 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:22.222 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:32.232 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:42.239 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:19:52.244 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:02.253 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:12.258 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:22.264 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:32.272 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:42.278 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:20:52.287 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:02.295 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:12.302 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:22.306 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:32.316 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:42.324 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:21:52.332 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:02.338 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:12.345 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:22.354 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:32.360 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:42.370 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:22:52.382 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:02.392 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:12.399 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:22.405 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:32.412 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:42.426 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:23:52.439 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:02.454 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:12.460 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:22.466 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:32.473 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:42.481 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:24:52.487 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:02.492 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:12.499 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:22.505 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:32.510 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:42.517 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:25:52.522 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:02.527 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:12.532 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:22.548 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:32.561 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:42.569 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:26:52.579 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:02.595 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:12.602 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:22.610 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:32.620 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:42.629 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:27:52.636 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:02.646 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:12.655 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:22.663 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:32.671 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:42.676 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:28:52.683 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:02.697 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:12.708 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:22.716 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:32.722 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:42.730 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:29:52.736 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:02.744 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:12.749 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:22.755 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:32.763 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:42.770 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:30:52.775 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:02.783 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:12.791 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:22.798 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:32.803 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:42.812 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:31:52.818 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:02.822 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:12.829 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:22.833 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:32.839 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:42.847 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:32:52.852 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:02.859 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:12.866 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:22.872 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:32.877 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:42.883 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:33:52.890 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:02.898 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:12.905 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:22.916 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:32.923 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:42.933 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:34:52.940 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:02.947 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:12.954 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:22.962 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:32.969 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:42.975 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:35:52.982 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:02.988 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:12.996 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:23.003 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:33.007 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:43.018 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:36:53.027 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:03.036 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:13.042 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:23.048 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:33.058 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:43.063 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:37:53.068 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:03.073 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:13.080 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:23.087 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:33.095 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:43.100 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:38:53.105 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:03.116 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:13.124 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:23.129 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:33.135 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:43.139 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:39:53.145 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:03.150 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:13.156 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:23.164 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:33.171 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:43.179 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:40:53.193 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:03.200 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:13.208 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:23.214 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:33.225 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:43.232 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:41:53.237 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:03.244 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:13.250 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:23.258 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:33.262 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:43.267 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:42:53.274 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:03.281 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:13.286 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:23.292 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:33.298 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:43.307 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:43:53.314 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:03.320 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:13.325 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:23.335 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:33.349 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:43.358 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:44:53.364 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:03.375 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:13.381 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:23.388 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:33.395 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:43.400 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:45:53.408 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:03.414 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:13.422 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:23.428 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:33.435 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:43.444 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:46:53.454 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:03.460 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:13.465 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:23.470 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:33.479 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:43.486 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:47:53.492 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:03.499 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:13.510 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:23.520 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:33.529 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:43.536 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:48:53.545 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:03.551 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:13.558 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:23.568 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:33.576 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:43.581 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:49:53.592 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:03.600 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:13.605 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:23.612 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:33.616 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:43.625 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:50:53.634 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:03.641 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:13.646 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:23.652 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:33.659 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:43.664 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:51:53.673 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:52:03.681 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:52:13.692 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:52:23.703 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:52:55.009 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:53:05.019 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:53:15.029 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:53:25.040 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:53:35.047 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:01.610 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:11.553 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:21.561 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:31.568 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:41.575 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:58:51.581 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:01.587 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:11.596 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:21.601 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:31.609 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:41.618 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 22:59:51.627 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:01.632 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:11.641 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:21.645 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:31.651 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:41.659 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:00:51.665 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:01.672 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:11.676 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:21.684 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:31.691 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:41.698 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:01:51.706 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:01.714 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:11.720 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:21.726 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:31.731 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:41.735 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:02:51.740 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:01.744 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:11.753 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:21.759 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:31.766 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:41.772 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:03:51.778 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:01.782 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:11.792 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:21.799 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:31.803 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:41.807 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:04:51.816 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:01.821 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:11.830 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:21.840 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:31.845 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:41.854 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:05:51.861 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:01.868 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:11.874 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:21.881 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:31.886 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:41.893 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:06:51.902 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:01.908 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:11.914 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:21.923 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:31.930 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:41.938 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:07:51.947 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:01.954 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:11.962 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:21.969 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:31.978 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:41.983 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:08:51.989 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:01.994 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:12.000 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:22.007 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:32.015 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:42.025 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:09:52.029 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:02.038 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:12.047 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:22.053 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:32.058 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:42.064 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:10:52.072 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:02.083 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:12.093 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:22.102 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:32.110 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:42.115 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:11:52.120 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:02.126 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:12.132 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:22.144 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:32.150 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:42.156 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:12:52.163 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:02.168 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:12.173 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:22.178 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:32.184 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:42.193 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:13:52.200 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:02.211 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:12.219 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:22.228 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:32.233 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:42.239 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:14:52.247 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:02.252 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:12.258 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:22.262 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:32.267 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:42.273 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:15:52.277 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:02.285 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:12.289 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:22.294 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:32.300 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:42.305 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:16:52.309 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:02.313 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:12.318 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:22.325 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:32.329 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:42.334 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:17:52.344 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:02.348 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:12.355 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:22.361 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:32.369 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:42.377 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:18:52.386 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:02.391 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:12.396 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:22.401 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:32.406 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:42.412 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:19:52.422 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:02.430 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:12.443 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:22.449 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:32.453 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:42.460 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:20:52.468 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:02.472 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:12.477 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:22.482 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:32.489 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:42.493 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:21:52.498 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:02.502 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:12.507 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:22.513 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:32.519 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:42.527 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:22:52.535 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:02.545 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:12.550 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:22.556 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:32.561 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:42.570 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:23:52.575 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:02.582 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:12.589 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:22.599 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:32.606 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:42.613 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:24:52.618 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:02.623 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:12.627 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:22.635 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:32.642 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:42.648 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:25:52.652 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:02.668 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:12.674 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:22.683 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:32.688 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:42.695 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:26:52.705 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:02.712 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:12.720 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:22.727 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:32.734 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:42.742 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:27:52.759 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:02.765 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:12.773 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:22.779 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:32.791 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:42.803 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:28:52.815 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:02.828 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:12.837 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:22.844 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:32.849 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:42.855 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:29:52.858 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:02.871 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:12.879 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:22.887 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:32.903 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:42.911 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:30:52.923 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:02.929 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:12.933 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:22.945 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:32.953 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:42.960 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:31:52.966 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:02.973 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:12.977 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:22.983 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:32.989 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:42.995 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:32:53.004 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:03.013 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:13.020 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:23.025 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:33.030 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:43.037 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:33:53.047 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:03.052 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:13.061 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:23.066 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:33.080 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:43.095 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:34:53.103 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:03.112 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:13.116 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:23.122 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:33.127 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:43.131 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:35:53.136 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:03.143 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:13.154 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:23.169 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:33.173 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:43.179 [reactor-http-nio-2] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:53.207 [reactor-http-nio-3] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:36:58.878 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:36:58.888 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:36:58.879 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:36:58.891 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:36:58.888 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:36:58.891 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Channel shutdown: connection error
+2020-04-25 23:37:03.249 [reactor-http-nio-4] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:37:13.263 [reactor-http-nio-1] ERROR c.d.g.e.JsonExceptionHandler - [全局异常处理]异常请求路径:/actuator/health,记录异常信息:404 NOT_FOUND
+2020-04-25 23:37:24.531 [http-nio-7206-exec-4] ERROR o.s.c.c.d.h.DiscoveryClientHealthIndicator - Error
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.cloud.consul.discovery.ConsulDiscoveryClientConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'consulClient' defined in class path resource [org/springframework/cloud/consul/ConsulAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ecwid.consul.v1.ConsulClient]: Factory method 'consulClient' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultValidator' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/validation.xml]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:392)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1467)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1322)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1209)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:430)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfAvailable(DefaultListableBeanFactory.java:1883)
+	at org.springframework.cloud.client.discovery.health.DiscoveryClientHealthIndicator.health(DiscoveryClientHealthIndicator.java:68)
+	at org.springframework.cloud.client.discovery.health.DiscoveryCompositeHealthIndicator$Holder.health(DiscoveryCompositeHealthIndicator.java:67)
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:95)
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:95)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:50)
+	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:53)
+	at jdk.internal.reflect.GeneratedMethodAccessor183.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:76)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:278)
+	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:334)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'consulClient' defined in class path resource [org/springframework/cloud/consul/ConsulAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ecwid.consul.v1.ConsulClient]: Factory method 'consulClient' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultValidator' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/validation.xml]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$ShortcutDependencyDescriptor.resolveShortcut(AutowiredAnnotationBeanPostProcessor.java:749)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1183)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.resolvedCachedArgument(AutowiredAnnotationBeanPostProcessor.java:554)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.access$000(AutowiredAnnotationBeanPostProcessor.java:118)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:584)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	... 110 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.ecwid.consul.v1.ConsulClient]: Factory method 'consulClient' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultValidator' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/validation.xml]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 129 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultValidator' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/validation.xml]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver$1.getTarget(ContextAnnotationAutowireCandidateResolver.java:90)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:192)
+	at com.sun.proxy.$Proxy92.forExecutables(Unknown Source)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:99)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at org.springframework.cloud.consul.ConsulProperties$$EnhancerBySpringCGLIB$$162b1b7d.getPort(<generated>)
+	at org.springframework.cloud.consul.ConsulAutoConfiguration.consulClient(ConsulAutoConfiguration.java:56)
+	at org.springframework.cloud.consul.ConsulAutoConfiguration$$EnhancerBySpringCGLIB$$319572a4.CGLIB$consulClient$0(<generated>)
+	at org.springframework.cloud.consul.ConsulAutoConfiguration$$EnhancerBySpringCGLIB$$319572a4$$FastClassBySpringCGLIB$$3076ff28.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.springframework.cloud.consul.ConsulAutoConfiguration$$EnhancerBySpringCGLIB$$319572a4.consulClient(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 130 common frames omitted
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/validation.xml]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1385)
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResourceAsStream(WebappClassLoaderBase.java:1115)
+	at org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath(ResourceLoaderHelper.java:61)
+	at org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream(ValidationXmlParser.java:121)
+	at org.hibernate.validator.internal.xml.config.ValidationXmlParser.parseValidationXml(ValidationXmlParser.java:69)
+	at org.hibernate.validator.internal.engine.ConfigurationImpl.getBootstrapConfiguration(ConfigurationImpl.java:426)
+	at org.hibernate.validator.internal.engine.ConfigurationImpl.parseValidationXml(ConfigurationImpl.java:540)
+	at org.hibernate.validator.internal.engine.ConfigurationImpl.buildValidatorFactory(ConfigurationImpl.java:337)
+	at org.springframework.validation.beanvalidation.LocalValidatorFactoryBean.afterPropertiesSet(LocalValidatorFactoryBean.java:309)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
+	... 156 common frames omitted

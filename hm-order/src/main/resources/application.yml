@@ -1,5 +1,5 @@
 server:
-  port: 9206
+  port: 7106
 spring:
   application:
     name: hm-order

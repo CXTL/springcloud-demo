@@ -25,11 +25,11 @@
 
 
 <modules>
-<!--    <module>hm-common</module>-->
-<!--    <module>gateway-server</module>-->
+    <module>../hm-search</module>
+    <module>../hm-commodity</module>
     <module>../hm-order</module>
-<!--    <module>hm-gateway</module>-->
-<!--    <module>hn-common</module>-->
+    <module>../hm-common</module>
+    <module>../hm-common</module>
 </modules>
 
 
