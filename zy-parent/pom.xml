@@ -12,7 +12,7 @@
 </parent>
 
 <groupId>org.dupake</groupId>
-<artifactId>hm-parent</artifactId>
+<artifactId>zy-parent</artifactId>
 <version>1.0-SNAPSHOT</version>
 
 <properties>
@@ -30,6 +30,7 @@
     <module>../zy-order</module>
     <module>../zy-common</module>
     <module>../zy-common</module>
+    <module>../zy-system</module>
 </modules>
 
 

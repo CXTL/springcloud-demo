@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dupake</groupId>
-    <artifactId>hm-search</artifactId>
+    <artifactId>zy-search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hm-search</name>
+    <name>zy-search</name>
     <description>Search project for Spring Boot</description>
     <packaging>jar</packaging>
 
