@@ -17,11 +17,31 @@ public class TestController {
 
 
 
-    @ApiOperation(value = "redis测试", notes = "redis测试 - for-web")
-    @GetMapping("/testRedis")
-    public void testRedis() {
-
+    /**任何人都能访问
+     * @return
+     */
+    @ApiOperation(value = "权限测试", notes = "权限测试 - for-web")
+    @GetMapping("/publicMsg")
+    public String getMsg(){
+        return "you get the message!";
     }
+
+    /**登录的用户才能访问
+     * @return
+     */
+    @GetMapping("/innerMsg")
+    public String innerMsg(){
+        return "you get the message!";
+    }
+
+    /**管理员(admin)才能访问
+     * @return
+     */
+    @GetMapping("/secret")
+    public String secret(){
+        return "you get the message!";
+    }
+
 
 
 }
