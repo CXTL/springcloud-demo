@@ -1,0 +1,15 @@
+# datasource config
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dupake?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+# mybatis config
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.dupake.demo.model
+  global-config:
+    db-config:
+      id-type: auto

@@ -1,0 +1,65 @@
+create table if not exists t_user
+(
+	id bigint auto_increment
+		primary key,
+	username varchar(50) null comment '账户',
+	password varchar(50) null comment '密码',
+    nick_name varchar(50) null comment '昵称',
+    phone varchar(50) null comment '手机号码',
+    email varchar(50) null comment '邮箱',
+    is_deleted int(2) null comment '是否删除 0：否 1：是',
+    sex int(2) null comment '性别 0：男 1：女',
+    enabled int(2) NULL DEFAULT NULL COMMENT '状态：1启用、0禁用',
+	create_time bigint null comment '创建时间',
+	update_time bigint null comment '修改时间'
+)
+    ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = Compact;
+
+
+create table if not exists t_role
+(
+    id bigint auto_increment
+        primary key,
+    name varchar(50) null comment '角色名称',
+    is_deleted int(2) null comment '是否删除 0：否 1：是',
+    create_time bigint null comment '创建时间',
+    update_time bigint null comment '修改时间'
+)
+    ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色表' ROW_FORMAT = Compact;
+
+
+create table if not exists t_user_role
+(
+    `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+    `role_id` bigint(20) NOT NULL COMMENT '角色ID'
+)
+    ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户角色表' ROW_FORMAT = Compact;
+
+
+
+create table if not exists t_menu
+(
+    id bigint auto_increment
+        primary key,
+    name varchar(50) null comment '菜单名称',
+    path varchar(100) null comment '链接地址',
+    `pid` bigint(20) NOT NULL COMMENT '上级菜单ID',
+    `sort` bigint(20) NOT NULL COMMENT '排序',
+    `hidden` bit(1) NULL DEFAULT b'0' COMMENT '是否隐藏',
+    is_deleted int(2) null comment '是否删除 0：否 1：是',
+    `permission` varchar(255)  NULL COMMENT '权限',
+    `type` int(11) NULL DEFAULT NULL COMMENT '类型',
+    create_time bigint null comment '创建时间',
+    update_time bigint null comment '修改时间'
+)
+    ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '菜单表' ROW_FORMAT = Compact;
+
+
+
+
+create table if not exists t_role_menu
+(
+    `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
+    `role_id` bigint(20) NOT NULL COMMENT '角色ID'
+)
+    ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色菜单表' ROW_FORMAT = Compact;

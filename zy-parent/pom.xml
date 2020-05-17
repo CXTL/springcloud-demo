@@ -31,6 +31,7 @@
     <module>../zy-common</module>
     <module>../zy-common</module>
     <module>../zy-system</module>
+    <module>../zy-generator</module>
 </modules>
 
 
