@@ -2,7 +2,7 @@ server:
   port: 7506
 spring:
   application:
-    name: hm-order
+    name: zy-system
   cloud:
     consul: #Consul服务注册发现配置
       host: localhost
@@ -56,8 +56,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   config-location: classpath:/mybatis/mybatis-spring.xml
-
-#熔断配置
 feign:
   hystrix:
     enabled: true
