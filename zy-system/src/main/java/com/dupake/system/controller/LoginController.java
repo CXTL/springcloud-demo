@@ -7,17 +7,22 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author dupake
@@ -119,4 +124,25 @@ public class LoginController {
         return "操作成功，清理session共" + count + "个";
     }
 
+
+    @GetMapping("/me")
+    @ResponseBody
+    public Object me(@AuthenticationPrincipal UserDetails userDetails) {
+        return userDetails;
+    }
+
+
+    @RequestMapping("/sms/code")
+    @ResponseBody
+    public void sms(String mobile, HttpSession session) {
+        int code = (int) Math.ceil(Math.random() * 9000 + 1000);
+
+        Map<String, Object> map = new HashMap<>(16);
+        map.put("mobile", mobile);
+        map.put("code", code);
+
+        session.setAttribute("smsCode", map);
+
+        logger.info("{}：为 {} 设置短信验证码：{}", session.getId(), mobile, code);
+    }
 }
