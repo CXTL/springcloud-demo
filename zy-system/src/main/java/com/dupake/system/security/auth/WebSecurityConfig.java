@@ -4,6 +4,7 @@ import com.dupake.system.security.sms.SmsCodeAuthenticationSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -36,11 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
-
-    @Autowired
-    private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 
     @Autowired
     private CustomLogoutSuccessHandler logoutSuccessHandler;
@@ -48,10 +44,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setHideUserNotFoundExceptions(false);
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new PasswordEncoder() {
             @Override
             public String encode(CharSequence charSequence) {
                 return charSequence.toString();
@@ -61,11 +65,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             public boolean matches(CharSequence charSequence, String s) {
                 return s.equals(charSequence.toString());
             }
-        });
+        };
     }
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//
+//
+//        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
+//
+//            @Override
+//            public String encode(CharSequence charSequence) {
+//                return charSequence.toString();
+//            }
+//
+//            @Override
+//            public boolean matches(CharSequence charSequence, String s) {
+//                return s.equals(charSequence.toString());
+//            }
+//        });
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.authenticationProvider(authenticationProvider());
+
         http.apply(smsCodeAuthenticationSecurityConfig).and().authorizeRequests()
                 // 如果有允许匿名的url，填在下面
                 .antMatchers("/sms/**").permitAll()
@@ -84,6 +110,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/signout")
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessHandler(logoutSuccessHandler);
+
+
     }
 
     @Override
@@ -113,11 +141,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     *
+     *修改用户不存在时返回值
      * @return
      */
     @Bean
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
     }
+
+
 }
