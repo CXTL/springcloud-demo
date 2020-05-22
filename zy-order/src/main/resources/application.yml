@@ -2,7 +2,7 @@ server:
   port: 7106
 spring:
   application:
-    name: hm-order
+    name: zy-order
   cloud:
     consul: #Consul服务注册发现配置
       host: localhost
