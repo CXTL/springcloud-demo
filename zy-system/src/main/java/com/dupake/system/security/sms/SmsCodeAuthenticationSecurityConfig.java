@@ -1,7 +1,7 @@
 package com.dupake.system.security.sms;
 
-import com.dupake.system.security.auth.CustomAuthenticationFailureHandler;
-import com.dupake.system.security.auth.CustomAuthenticationSuccessHandler;
+import com.dupake.system.security.MyAuthenticationFailHandler;
+import com.dupake.system.security.MyAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -22,9 +22,9 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
     @Autowired
     private UserDetailsService userDetailsService;
     @Autowired
-    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+    private MyAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     @Autowired
-    private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
+    private MyAuthenticationFailHandler customAuthenticationFailureHandler;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {

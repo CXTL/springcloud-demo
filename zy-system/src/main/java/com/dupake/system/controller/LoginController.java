@@ -1,9 +1,13 @@
 package com.dupake.system.controller;
 
+import com.dupake.system.entity.SysUser;
+import com.dupake.system.security.Result;
+import com.dupake.system.security.StatusCode;
+import com.dupake.system.service.LoginRequest;
+import com.dupake.system.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
@@ -13,6 +17,7 @@ import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,25 +36,31 @@ import java.util.Map;
  * @Description TODO
  * @createTime 2020年05月17日 23:08:00
  */
-@Controller
+@RestController
+@RequestMapping("/user")
 public class LoginController {
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private SessionRegistry sessionRegistry;
 
-    @RequestMapping("/")
-    public String showHome() {
-        String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        logger.info("当前登陆用户：" + name);
 
-        return "home.html";
-    }
+    @Autowired
+    private LoginService loginService;
 
-    @RequestMapping("/login")
-    public String showLogin() {
-        return "login.html";
-    }
+
+//    @GetMapping("/")
+//    public String showHome() {
+//        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+//        logger.info("当前登陆用户：" + name);
+//
+//        return "home.html";
+//    }
+//
+//    @GetMapping("/login")
+//    public String showLogin() {
+//        return "login.html";
+//    }
 
 //    @RequestMapping("/admin")
 //    @ResponseBody
@@ -58,29 +69,27 @@ public class LoginController {
 //        return "如果你看见这句话，说明你有ROLE_ADMIN角色";
 //    }
 
-    @RequestMapping("/user")
-    @ResponseBody
+    @GetMapping("/user")
     @PreAuthorize("hasRole('ROLE_USER')")
     public String printUser() {
         return "如果你看见这句话，说明你有ROLE_USER角色";
     }
 
 
-    @RequestMapping("/admin")
-    @ResponseBody
+    @GetMapping("/admin")
     @PreAuthorize("hasPermission('/admin','r')")
     public String printAdminR() {
         return "如果你看见这句话，说明你访问/admin路径具有r权限";
     }
 
-    @RequestMapping("/admin/c")
-    @ResponseBody
+    @GetMapping("/admin/c")
+    
     @PreAuthorize("hasPermission('/admin','c')")
     public String printAdminC() {
         return "如果你看见这句话，说明你访问/admin路径具有c权限";
     }
 
-    @RequestMapping("/login/error")
+    @GetMapping("/login/error")
     public void loginError(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=utf-8");
         AuthenticationException exception =
@@ -92,15 +101,13 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/login/invalid")
+    @GetMapping("/login/invalid")
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ResponseBody
     public String invalid() {
         return "Session 已过期，请重新登录";
     }
 
     @GetMapping("/kick")
-    @ResponseBody
     public String removeUserSessionByUsername(@RequestParam String username) {
         int count = 0;
 
@@ -126,14 +133,12 @@ public class LoginController {
 
 
     @GetMapping("/me")
-    @ResponseBody
     public Object me(@AuthenticationPrincipal UserDetails userDetails) {
         return userDetails;
     }
 
 
-    @RequestMapping("/sms/code")
-    @ResponseBody
+    @GetMapping("/sms/code")
     public void sms(String mobile, HttpSession session) {
         int code = (int) Math.ceil(Math.random() * 9000 + 1000);
 
@@ -145,4 +150,21 @@ public class LoginController {
 
         logger.info("{}：为 {} 设置短信验证码：{}", session.getId(), mobile, code);
     }
+
+    /**
+     * 登录返回token
+     */
+    @PostMapping("/login")
+    public Result login(LoginRequest loginRequest) {
+
+        try {
+            Map map = loginService.login(loginRequest);
+            return Result.create(StatusCode.OK, "登录成功", map);
+        } catch (UsernameNotFoundException e) {
+            return Result.create(StatusCode.LOGINERROR, "登录失败，用户名或密码错误");
+        } catch (RuntimeException re) {
+            return Result.create(StatusCode.LOGINERROR, re.getMessage());
+        }
+    }
+
 }

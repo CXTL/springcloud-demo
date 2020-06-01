@@ -1,11 +1,13 @@
 package com.dupake.system.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author dupake
@@ -26,4 +28,12 @@ public class SysUser implements Serializable {
     private String name;
 
     private String password;
+
+    private String username;
+
+    // 用户状态，0-封禁，1-正常
+    private Integer state;
+
+    @JsonIgnore
+    private List<SysRole> roles;
 }

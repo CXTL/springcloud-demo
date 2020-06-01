@@ -2,7 +2,10 @@ package com.dupake.system.mapper;
 
 import com.dupake.system.entity.SysRole;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author dupake
@@ -18,4 +21,9 @@ public interface SysRoleMapper {
 
     @Select("SELECT * FROM sys_role WHERE name = #{name}")
     SysRole selectByName(String name);
+
+    @Select("select s.* from sys_role s\n" +
+            "left join sys_user_role su on s.id = role_id\n" +
+            "where su.user_id = #{userId}")
+    List<SysRole> selectByUserId(Integer userId);
 }
