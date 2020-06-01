@@ -6,8 +6,9 @@ package com.dupake.system;
  * @Author dupake
  * @Date 2020/5/25 9:55
  */
+
 import com.dupake.system.security.JwtConfig;
-import com.dupake.system.service.MyUserDetailsService;
+import com.dupake.system.security.MyUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

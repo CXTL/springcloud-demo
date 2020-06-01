@@ -3,8 +3,6 @@ package com.dupake.system.security;
 import com.dupake.system.security.auth.CustomLogoutSuccessHandler;
 import com.dupake.system.security.auth.CustomPermissionEvaluator;
 import com.dupake.system.security.sms.SmsCodeAuthenticationSecurityConfig;
-import com.dupake.system.service.MyUserDetailsService;
-import com.dupake.system.utils.MD5Util;
 import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +18,6 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
-import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -40,11 +37,11 @@ import javax.sql.DataSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     //Spring会自动寻找同样类型的具体类注入
-    @Resource
+    @Autowired
     private MyUserDetailsService userDetailsService;
 
     //自动登录
-    @Resource
+    @Autowired
     private DataSource dataSource;
 
     @Autowired
@@ -90,28 +87,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+
+    /**
+     * 从容器中取出 AuthenticationManagerBuilder，执行方法里面的逻辑之后，放回容器
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
     @Autowired
     public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder
-                // 设置UserDetailsService 获取user对象
-                .userDetailsService(userDetailsService)
-                // 自定义密码验证方法
-                .passwordEncoder(new PasswordEncoder() {
-                    //这个方法没用
-                    @Override
-                    public String encode(CharSequence charSequence) {
-                        return "";
-                    }
-
-                    //自定义密码验证方法,charSequence:用户输入的密码，s:我们查出来的数据库密码
-                    @Override
-                    public boolean matches(CharSequence charSequence, String s) {
-                        String pass = MD5Util.string2MD5(charSequence.toString());
-                        System.out.println("用户输入密码:" + charSequence + "与数据库相同？" + s.equals(pass));
-                        return s.equals(pass);
-                    }
-                });
-
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
 

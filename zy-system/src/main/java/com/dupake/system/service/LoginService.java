@@ -3,6 +3,7 @@ package com.dupake.system.service;
 import com.dupake.system.JwtTokenUtil;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.security.JwtConfig;
+import com.dupake.system.security.MyUserDetailsService;
 import com.dupake.system.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -38,20 +39,19 @@ public class LoginService {
     MyUserDetailsService userDetailsService;
 
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+     RedisTemplate<String, String> redisTemplate;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+     JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    private JwtConfig jwtConfig;
+     JwtConfig jwtConfig;
 
-    public Map login(LoginRequest loginRequest) throws RuntimeException{
+    public Map login(LoginRequest loginRequest) throws UsernameNotFoundException{
         SysUser dbUser = this.findUserByName(loginRequest.getUsername());
         // 用户不存在 或者 密码错误
-        System.out.println(MD5Util.string2MD5(dbUser.getPassword()) + "============"+ loginRequest.getPassword());
-        System.out.println(dbUser.getName() + "============"+ loginRequest.getUsername());
-        if (dbUser == null || !dbUser.getName().equals(loginRequest.getUsername()) || !MD5Util.string2MD5(loginRequest.getPassword()).equals(dbUser.getPassword())) {
+        if (dbUser == null || !dbUser.getName().equals(loginRequest.getUsername())
+                || !MD5Util.string2MD5(loginRequest.getPassword()).equals(dbUser.getPassword())) {
             throw new UsernameNotFoundException("用户名或密码错误");
         }
 

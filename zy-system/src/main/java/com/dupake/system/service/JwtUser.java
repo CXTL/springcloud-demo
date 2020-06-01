@@ -16,7 +16,7 @@ public class JwtUser implements UserDetails {
     //权限
     private Collection<? extends GrantedAuthority> authorities;
 
-    JwtUser(String username, String password, List<SimpleGrantedAuthority> authorities){
+    public JwtUser(String username, String password, List<SimpleGrantedAuthority> authorities){
         this.username = username;
         this.password = password;
         this.authorities = authorities ;
