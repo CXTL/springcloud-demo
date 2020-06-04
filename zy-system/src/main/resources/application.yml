@@ -49,6 +49,17 @@ spring:
         max-idle: 8 # 连接池中的最大空闲连接
   main:
     allow-bean-definition-overriding: true
+  #邮件信息
+  mail:
+    host: smtp.163.com
+    # 邮件的发送者 163邮箱(开发测试时使用)
+    username: hb_cxtl@163.com
+    # SMTP授权密码
+    password: AKXPGSLFFMPZJHEH
+    port: 25
+    protocol: smtp
+    default-encoding: UTF-8
+
   session:
     store-type: redis
     #rocketmq:
