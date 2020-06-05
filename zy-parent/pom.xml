@@ -21,6 +21,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     <docker.image.prefix>springboot</docker.image.prefix>
+    <hutool.version>5.2.5</hutool.version>
+    <swagger.version>2.9.2</swagger.version>
+    <jjwt.version>0.10.6</jjwt.version>
+    <fastjson.version>1.2.54</fastjson.version>
 </properties>
 
 
@@ -32,6 +36,7 @@
     <module>../zy-common</module>
     <module>../zy-system</module>
     <module>../zy-generator</module>
+    <module>../zy-tools</module>
 </modules>
 
 
@@ -185,6 +190,20 @@
         <version>1.2.29</version>
     </dependency>
 
+
+    <!--mybatis plus-->
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>3.1.2</version>
+    </dependency>
+
+    <!--工具包-->
+    <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+    </dependency>
 
 </dependencies>
 

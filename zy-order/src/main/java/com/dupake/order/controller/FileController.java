@@ -3,7 +3,6 @@ package com.dupake.order.controller;
 import com.dupake.common.dto.UserDTO;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.Result;
-import com.dupake.common.utils.LoggerTool;
 import com.dupake.order.utils.ExportExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -74,7 +73,7 @@ public class FileController {
             exportEquipExcelUtil.exportExcel(fileName, columnNames, list, os, ExportExcelUtil.EXCEl_FILE_2007);
             return Result.ok(os.toByteArray());
         } catch (Exception e) {
-            LoggerTool.error(e.getMessage());
+//            LoggerTool.error(e.getMessage());
         } finally {
             os.close();
         }
@@ -147,7 +146,7 @@ public class FileController {
             }
 
         } catch (Exception e) {
-            LoggerTool.error("数据导入异常", e);
+//            LoggerTool.error("数据导入异常", e);
         }
 
         return Result.ok(buffer.toString());
