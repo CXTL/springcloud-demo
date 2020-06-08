@@ -1,7 +1,6 @@
 /**
  * Copyright (C) 2018-2020
  * All rights reserved, Designed By www.yixiang.co
-
  */
 package com.dupake.tools.utils;
 
@@ -15,6 +14,7 @@ import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -22,16 +22,15 @@ import java.util.concurrent.TimeUnit;
  * @author /
  */
 @Component
-@SuppressWarnings({"unchecked","all"})
+@SuppressWarnings({"unchecked", "all"})
 public class RedisUtils {
 
+    @Resource
     private RedisTemplate<Object, Object> redisTemplate;
+
     @Value("${jwt.online-key}")
     private String onlineKey;
 
-    public RedisUtils(RedisTemplate<Object, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     // =============================common============================
 
@@ -106,7 +105,7 @@ public class RedisUtils {
                 continue;
             }
             // 获取到满足条件的数据后,就可以退出了
-            if(tmpIndex >=toIndex) {
+            if (tmpIndex >= toIndex) {
                 break;
             }
             tmpIndex++;

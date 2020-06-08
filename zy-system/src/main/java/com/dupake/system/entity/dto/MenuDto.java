@@ -8,6 +8,7 @@
 */
 package com.dupake.system.entity.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ import java.util.List;
 * @author dupake
 * @date 2020-05-14
 */
+@Builder
 @Data
 public class MenuDto implements Serializable {
 
