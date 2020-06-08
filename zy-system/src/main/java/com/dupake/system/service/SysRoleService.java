@@ -1,35 +1,20 @@
 package com.dupake.system.service;
 
 import com.dupake.system.entity.SysRole;
-import com.dupake.system.mapper.SysRoleMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * <p>
+ * 角色表 服务类
+ * </p>
+ *
  * @author dupake
- * @version 1.0.0
- * @ClassName SysRoleService.java
- * @Description TODO
- * @createTime 2020年05月17日 23:07:00
+ * @since 2020-06-08
  */
-@Service
-public class SysRoleService {
+public interface SysRoleService {
 
-    @Resource
-    private SysRoleMapper roleMapper;
+    SysRole selectByName(String roleName);
 
-    public SysRole selectById(Integer id) {
-        return roleMapper.selectById(id);
-    }
-
-    public SysRole selectByName(String name) {
-        return roleMapper.selectByName(name);
-    }
-
-    public List<SysRole> findUserRoles(Integer id) {
-        return roleMapper.selectByUserId(id);
-    }
+    List<SysRole> findUserRoles(Long id);
 }

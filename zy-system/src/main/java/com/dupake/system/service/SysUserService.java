@@ -1,34 +1,16 @@
 package com.dupake.system.service;
 
 import com.dupake.system.entity.SysUser;
-import com.dupake.system.mapper.SysUserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
+ * <p>
+ * 用户表 服务类
+ * </p>
+ *
  * @author dupake
- * @version 1.0.0
- * @ClassName SysUserService.java
- * @Description TODO
- * @createTime 2020年05月17日 23:07:00
+ * @since 2020-06-08
  */
-@Service
-public class SysUserService {
-    @Resource
-    private SysUserMapper userMapper;
+public interface SysUserService  {
 
-    public SysUser selectById(Integer id) {
-        return userMapper.selectById(id);
-    }
-
-    public SysUser selectByName(String name) {
-        return userMapper.selectByName(name);
-    }
-
-    public SysUser findUserByName(String name) {
-        return userMapper.selectByName(name);
-    }
+    SysUser findUserByName(String name);
 }
-

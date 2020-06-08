@@ -2,7 +2,7 @@ package com.dupake.system.controller;
 
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.Result;
-import com.dupake.system.service.LoginRequest;
+import com.dupake.common.vo.LoginVO;
 import com.dupake.system.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.session.SessionInformation;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -124,10 +121,10 @@ public class LoginController {
      * 登录返回token
      */
     @PostMapping("/login")
-    public Result login(LoginRequest loginRequest) {
+    public Result login(LoginVO loginVO) {
 
         try {
-            Map map = loginService.login(loginRequest);
+            Map map = loginService.login(loginVO);
             return Result.ok(BaseResult.SUCCESS.getCode(), "登录成功", map);
         } catch (UsernameNotFoundException e) {
             return Result.error(BaseResult.ERROR.getCode(), "登录失败，用户名或密码错误");

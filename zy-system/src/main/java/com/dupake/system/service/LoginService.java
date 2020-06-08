@@ -1,5 +1,6 @@
 package com.dupake.system.service;
 
+import com.dupake.common.vo.LoginVO;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.security.JwtConfig;
 import com.dupake.system.security.JwtTokenUtil;
@@ -45,24 +46,24 @@ public class LoginService {
     @Autowired
     JwtConfig jwtConfig;
 
-    public Map login(LoginRequest loginRequest) throws UsernameNotFoundException {
-        SysUser dbUser = this.findUserByName(loginRequest.getUsername());
+    public Map login(LoginVO loginVO) throws UsernameNotFoundException {
+        SysUser dbUser = this.findUserByName(loginVO.getUsername());
         // 用户不存在 或者 密码错误
-        if (dbUser == null || !dbUser.getName().equals(loginRequest.getUsername())
-                || !MD5Util.string2MD5(loginRequest.getPassword()).equals(dbUser.getPassword())) {
+        if (dbUser == null || !dbUser.getUsername().equals(loginVO.getUsername())
+                || !MD5Util.string2MD5(loginVO.getPassword()).equals(dbUser.getPassword())) {
             throw new UsernameNotFoundException("用户名或密码错误");
         }
 
         // 用户已被封禁
-        if (0 == dbUser.getState()) {
+        if (0 == dbUser.getStatus()) {
             throw new RuntimeException("你已被封禁");
         }
 
         // 用户名 密码匹配，获取用户详细信息（包含角色Role）
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginVO.getUsername());
 
         // 根据用户详细信息生成token
-        final String token = JwtTokenUtil.createToken(loginRequest.getUsername(), userDetails.getAuthorities().toString());
+        final String token = JwtTokenUtil.createToken(loginVO.getUsername(), userDetails.getAuthorities().toString());
         Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
         List<String> roles = new ArrayList<>();
         for (GrantedAuthority authority : authorities) { // SimpleGrantedAuthority是GrantedAuthority实现类
@@ -74,12 +75,12 @@ public class LoginService {
         Map<String, Object> map = new HashMap<>(3);
 
         map.put("token", jwtConfig.getPrefix() + token);
-        map.put("name", loginRequest.getUsername());
+        map.put("name", loginVO.getUsername());
         map.put("roles", roles);
 
         //将token存入redis(TOKEN_username, Bearer + token, jwt存放五天 过期时间) jwtConfig.time 单位[s]
         redisTemplate.opsForValue().
-                set(JwtConfig.REDIS_TOKEN_KEY_PREFIX + loginRequest.getUsername(), jwtConfig.getPrefix() + token, jwtConfig.getTime(), TimeUnit.SECONDS);
+                set(JwtConfig.REDIS_TOKEN_KEY_PREFIX + loginVO.getUsername(), jwtConfig.getPrefix() + token, jwtConfig.getTime(), TimeUnit.SECONDS);
 
         return map;
 

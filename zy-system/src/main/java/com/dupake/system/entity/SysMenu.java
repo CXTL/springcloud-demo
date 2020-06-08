@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 角色表
+ * 菜单表 
  * </p>
  *
  * @author dupake
@@ -20,7 +20,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Builder
-public class SysRole implements Serializable {
+public class SysMenu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,14 +36,39 @@ public class SysRole implements Serializable {
     private String name;
 
     /**
-     * 级别
+     * 父ID
      */
-    private Integer level;
+    private Long pid;
 
     /**
-     * 备注
+     * 排序
      */
-    private String remak;
+    private Integer sort;
+
+    /**
+     * 图标
+     */
+    private String icon;
+
+    /**
+     * 路径
+     */
+    private String path;
+
+    /**
+     * 是否隐藏 0:未隐藏1:已隐藏
+     */
+    private Integer hidden;
+
+    /**
+     * 权限
+     */
+    private String permision;
+
+    /**
+     * 类型 0:菜单权限1:按钮权限
+     */
+    private Integer type;
 
     /**
      * 创建人
@@ -69,5 +94,11 @@ public class SysRole implements Serializable {
      * 是否删除 0:未删除1:已删除
      */
     private String isDeleted;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
 
 }

@@ -2,7 +2,6 @@ package com.dupake.system.security;
 
 import com.dupake.system.entity.SysRole;
 import com.dupake.system.entity.SysUser;
-import com.dupake.system.service.JwtUser;
 import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

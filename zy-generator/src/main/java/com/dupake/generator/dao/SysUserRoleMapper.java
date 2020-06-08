@@ -1,8 +1,7 @@
-package com.dupake.system.mapper;
+package com.dupake.generator.dao;
 
+import com.dupake.generator.entity.SysUserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dupake.system.entity.SysUserRole;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -12,7 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @author dupake
  * @since 2020-06-08
  */
-@Mapper
 public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
 
 }

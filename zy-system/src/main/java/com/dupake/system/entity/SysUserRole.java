@@ -1,25 +1,58 @@
 package com.dupake.system.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.*;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
+ * <p>
+ * 用户角色关联表 
+ * </p>
+ *
  * @author dupake
- * @version 1.0.0
- * @ClassName SysUserRole.java
- * @Description TODO
- * @createTime 2020年05月17日 23:04:00
+ * @since 2020-06-08
  */
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class SysUserRole {
-    static final long serialVersionUID = 1L;
+@AllArgsConstructor
+@ToString
+@Builder
+public class SysUserRole implements Serializable {
 
-    private Integer userId;
+    private static final long serialVersionUID = 1L;
 
-    private Integer roleId;
+    /**
+     * id
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 用户ID
+     */
+    private Long userId;
+
+    /**
+     * 角色ID
+     */
+    private Long roleId;
+
+    /**
+     * 更新人
+     */
+    private Long updateId;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+
+    /**
+     * 是否删除 0:未删除1:已删除
+     */
+    private String isDeleted;
+
 }
