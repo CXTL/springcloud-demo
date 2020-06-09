@@ -2,7 +2,7 @@ package com.dupake.system.security;
 
 import cn.hutool.json.JSONUtil;
 import com.dupake.common.message.BaseResult;
-import com.dupake.common.message.Result;
+import com.dupake.common.message.CommonResult;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
@@ -22,7 +22,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control", "no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(Result.error(BaseResult.UNAUTHORIZED.getCode(), BaseResult.UNAUTHORIZED.getMessage())));
+        response.getWriter().println(JSONUtil.parse(CommonResult.failed(BaseResult.UNAUTHORIZED.getCode(), BaseResult.UNAUTHORIZED.getMessage())));
         response.getWriter().flush();
     }
 }

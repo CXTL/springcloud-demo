@@ -7,6 +7,7 @@ package com.dupake.system.security;
  * @Date 2020/5/25 15:45
  */
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,16 +34,19 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Resource
     UserDetailsServiceImpl userDetailsServiceImpl;
 
-    private String tokenHeader = "Authorization";
-    private String tokenHead = "Bearer ";
+    @Value("jwt.header")
+    private String header;
+
+    @Value("jwt.prefix")
+    private String prefix;
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         System.out.println("进入token过滤器");
-        String authHeader = httpServletRequest.getHeader(tokenHeader);
+        String authHeader = httpServletRequest.getHeader(header);
 
-        if (authHeader != null && authHeader.startsWith(tokenHead)) {
-            String authToken = authHeader.substring(tokenHead.length());
+        if (authHeader != null && authHeader.startsWith(prefix)) {
+            String authToken = authHeader.substring(prefix.length());
             String username = JwtTokenUtil.getUsername(authToken);
             System.out.println("username:" + username);
             //验证token,具体怎么验证看需求，可以只验证token不查库，把权限放在jwt中即可

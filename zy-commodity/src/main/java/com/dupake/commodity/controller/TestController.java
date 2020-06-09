@@ -1,6 +1,5 @@
 package com.dupake.commodity.controller;
 
-import com.dupake.common.message.Result;
 import com.dupake.commodity.feign.OrderFeignService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

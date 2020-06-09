@@ -86,13 +86,17 @@ logging:
 ### jwt
 jwt:
   ###过期时间 单位s
-  time: 1800
+  time: 86400 #60*60*24
   ###安全密钥
-  secret: "BlogSecret"
+  secret: "dupake_secret"
   ###token前缀
   prefix: "Bearer "
   ###http头key
   header: "Authorization"
+  ###签名主题
+  subject: "dupake"
+  ###角色权限声明
+  claims: "role"
 
 
 secure:

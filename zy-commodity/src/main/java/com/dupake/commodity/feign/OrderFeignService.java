@@ -1,6 +1,5 @@
 package com.dupake.commodity.feign;
 
-import com.dupake.common.message.Result;
 import com.dupake.commodity.feign.hystrix.HystrixClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

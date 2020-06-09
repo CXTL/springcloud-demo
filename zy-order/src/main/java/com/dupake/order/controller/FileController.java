@@ -1,8 +1,7 @@
 package com.dupake.order.controller;
 
-import com.dupake.common.dto.UserDTO;
+import com.dupake.common.dto.res.UserDTO;
 import com.dupake.common.message.BaseResult;
-import com.dupake.common.message.Result;
 import com.dupake.order.utils.ExportExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

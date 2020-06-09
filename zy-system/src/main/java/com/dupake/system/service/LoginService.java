@@ -1,88 +1,92 @@
 package com.dupake.system.service;
 
-import com.dupake.common.vo.LoginVO;
+import com.dupake.common.constatnts.UserConstant;
+import com.dupake.common.dto.req.LoginRequest;
+import com.dupake.common.dto.res.MenuDTO;
+import com.dupake.common.dto.res.UserDTO;
+import com.dupake.common.enums.UserStatusEnum;
+import com.dupake.common.message.BaseResult;
+import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysUser;
-import com.dupake.system.security.JwtConfig;
 import com.dupake.system.security.JwtTokenUtil;
 import com.dupake.system.security.UserDetailsServiceImpl;
 import com.dupake.system.utils.MD5Util;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.core.GrantedAuthority;
+import com.dupake.tools.exception.BadRequestException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName LoginService
- * @Description TODO
+ * @Description 登录 逻辑类
  * @Author dupake
  * @Date 2020/5/25 11:18
  */
 
-/**
- * @Description:
- * @Author: Mt.Li
- */
 
 @Service
-public class LoginService {
+@Slf4j
+public class LoginService extends BaseService{
 
-    @Autowired
+    @Resource
     SysUserService userService;
 
-    @Autowired
-    SysRoleService roleService;
+    @Resource
+    SysMenuService sysMenuService;
 
-    @Autowired
+    @Resource
     UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    RedisTemplate<String, String> redisTemplate;
+    @Value("jwt.prefix")
+    String prefix;
 
-    @Autowired
-    JwtConfig jwtConfig;
 
-    public Map login(LoginVO loginVO) throws UsernameNotFoundException {
-        SysUser dbUser = this.findUserByName(loginVO.getUsername());
+    public CommonResult<Map<String, Object>> login(LoginRequest loginRequest, HttpServletRequest req){
+        SysUser dbUser = this.findUserByName(loginRequest.getUsername());
+
         // 用户不存在 或者 密码错误
-        if (dbUser == null || !dbUser.getUsername().equals(loginVO.getUsername())
-                || !MD5Util.string2MD5(loginVO.getPassword()).equals(dbUser.getPassword())) {
-            throw new UsernameNotFoundException("用户名或密码错误");
+        if (dbUser == null || !dbUser.getUsername().equals(loginRequest.getUsername())
+                || !MD5Util.string2MD5(loginRequest.getPassword()).equals(dbUser.getPassword())) {
+            throw new BadRequestException(BaseResult.SYS_USERNAME_PASSWORD_ERROR.getCode(),
+                    BaseResult.SYS_USERNAME_PASSWORD_ERROR.getMessage());
         }
 
-        // 用户已被封禁
-        if (0 == dbUser.getStatus()) {
-            throw new RuntimeException("你已被封禁");
+        // 账号状态异常
+        if (UserStatusEnum.ACTIVATED.getValue().compareTo(dbUser.getStatus()) != 0) {
+            throw new BadRequestException(BaseResult.SYS_USERNAME_PASSWORD_ERROR.getCode(),
+                    "账号状态" + UserStatusEnum.getEnumValue(dbUser.getStatus()).getDesc() + ",请联系管理员");
         }
 
         // 用户名 密码匹配，获取用户详细信息（包含角色Role）
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginVO.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
 
         // 根据用户详细信息生成token
-        final String token = JwtTokenUtil.createToken(loginVO.getUsername(), userDetails.getAuthorities().toString());
-        Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
-        List<String> roles = new ArrayList<>();
-        for (GrantedAuthority authority : authorities) { // SimpleGrantedAuthority是GrantedAuthority实现类
-            // GrantedAuthority包含类型为String的获取权限的getAuthority()方法
-            // 提取角色并放入List中
-            roles.add(authority.getAuthority());
-        }
-
+        final String token = JwtTokenUtil.createToken(loginRequest.getUsername(), userDetails.getAuthorities().toString());
         Map<String, Object> map = new HashMap<>(3);
 
-        map.put("token", jwtConfig.getPrefix() + token);
-        map.put("name", loginVO.getUsername());
-        map.put("roles", roles);
+        //查询用户权限 todo redis优化
+        List<MenuDTO> menus = sysMenuService.listByUserId(dbUser.getId());
 
-        //将token存入redis(TOKEN_username, Bearer + token, jwt存放五天 过期时间) jwtConfig.time 单位[s]
-        redisTemplate.opsForValue().
-                set(JwtConfig.REDIS_TOKEN_KEY_PREFIX + loginVO.getUsername(), jwtConfig.getPrefix() + token, jwtConfig.getTime(), TimeUnit.SECONDS);
+        map.put(UserConstant.SYS_TOKEN, prefix.concat(token));
+        map.put(UserConstant.SYS_NAME, loginRequest.getUsername());
+        map.put(UserConstant.SYS_MENU, menus);
 
-        return map;
+       //将用户信息 存入redis
+        super.setUsers(
+                UserDTO.builder()
+                        .id(dbUser.getId())
+                        .username(dbUser.getUsername())
+                        .email(dbUser.getEmail()).build()
+                ,req);
+
+        return CommonResult.success(map);
 
     }
 

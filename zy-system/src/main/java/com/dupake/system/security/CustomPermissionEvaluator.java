@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @ClassName CustomPermissionEvaluator
- * @Description TODO
+ * @Description 自定义权限校验
  * @Author dupake
  * @Date 2020/6/8 16:02
  */
@@ -45,7 +45,7 @@ public class CustomPermissionEvaluator implements PermissionEvaluator {
             for (SysMenu sysPermission : permissionList) {
                 // 获取权限集
                 // 如果访问的Url和权限用户符合的话，返回true
-                if (targetUrl.equals(sysPermission.getPermision())) {
+                if (targetUrl.equals(sysPermission.getPermission())) {
                     return true;
                 }
             }

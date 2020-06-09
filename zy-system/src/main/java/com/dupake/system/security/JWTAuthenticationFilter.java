@@ -61,7 +61,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.setContentType("application/json; charset=utf-8");
         // 在请求头里返回创建成功的token
         // 设置请求头为带有"Bearer "前缀的token字符串
-        response.setHeader("token", JwtTokenUtil.TOKEN_PREFIX + token);
+        response.setHeader("token", JwtTokenUtil.prefix + token);
 
         // 处理编码方式 防止中文乱码
         response.setContentType("text/json;charset=utf-8");

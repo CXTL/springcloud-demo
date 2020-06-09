@@ -1,5 +1,6 @@
 package com.dupake.system.service.impl;
 
+import com.dupake.common.dto.res.MenuDTO;
 import com.dupake.system.entity.SysMenu;
 import com.dupake.system.service.SysMenuService;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,11 @@ public class SysMenuServiceImpl  implements SysMenuService {
 
     @Override
     public List<SysMenu> listByRoleId(Long roleId) {
+        return null;
+    }
+
+    @Override
+    public List<MenuDTO> listByUserId(Long id) {
         return null;
     }
 }

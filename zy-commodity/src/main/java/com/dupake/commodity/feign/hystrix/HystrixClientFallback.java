@@ -1,6 +1,5 @@
 package com.dupake.commodity.feign.hystrix;
 
-import com.dupake.common.message.Result;
 import com.dupake.commodity.feign.OrderFeignService;
 import org.springframework.stereotype.Component;
 

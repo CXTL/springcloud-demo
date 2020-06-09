@@ -1,29 +1,38 @@
 /**
  * Copyright (C) 2018-2020
  * All rights reserved, Designed By www.yixiang.co
-
  */
 package com.dupake.tools.exception;
 
-import lombok.Getter;
-import org.springframework.http.HttpStatus;
+import com.dupake.common.message.BaseResult;
 
 /**
  * @author dupake
  * @date 2018-11-23
- * 统一异常处理
+ * 自定义 异常处理
  */
-@Getter
-public class BadRequestException extends RuntimeException{
+public class BadRequestException extends RuntimeException {
 
-    private Integer status = HttpStatus.BAD_REQUEST.value();
+    //自定义错误码
+    private Integer code;
 
-    public BadRequestException(String msg){
+    //自定义构造器，只保留一个，让其必须输入错误码及内容
+    public BadRequestException(int code, String msg) {
         super(msg);
+        this.code = code;
     }
 
-    public BadRequestException(HttpStatus status, String msg){
+    public BadRequestException(String msg) {
         super(msg);
-        this.status = status.value();
+        this.code = BaseResult.FAILED.getCode();
+    }
+
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 }

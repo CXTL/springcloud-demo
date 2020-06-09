@@ -48,12 +48,17 @@ public class SysUser implements Serializable {
     /**
      * 性别
      */
-    private Integer untitled2;
+    private Integer sex;
 
     /**
      * 手机号
      */
-    private String untitled1;
+    private String phone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 创建人
@@ -63,7 +68,7 @@ public class SysUser implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Long createTime;
 
     /**
      * 更新人
@@ -73,7 +78,7 @@ public class SysUser implements Serializable {
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private Long updateTime;
 
     /**
      * 是否删除 0:未删除1:已删除

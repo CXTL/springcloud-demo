@@ -139,12 +139,6 @@
         <version>2.7.0</version>
     </dependency>
 
-    <!--分頁-->
-    <dependency>
-        <groupId>com.github.pagehelper</groupId>
-        <artifactId>pagehelper-spring-boot-starter</artifactId>
-        <version>1.2.5</version>
-    </dependency>
 
 
     <!--/poi -->

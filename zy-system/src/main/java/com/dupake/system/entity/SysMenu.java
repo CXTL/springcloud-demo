@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 菜单表 
+ * 菜单表
  * </p>
  *
  * @author dupake
@@ -63,7 +63,7 @@ public class SysMenu implements Serializable {
     /**
      * 权限
      */
-    private String permision;
+    private String permission;
 
     /**
      * 类型 0:菜单权限1:按钮权限
@@ -99,6 +99,4 @@ public class SysMenu implements Serializable {
      * 备注
      */
     private String remark;
-
-
 }

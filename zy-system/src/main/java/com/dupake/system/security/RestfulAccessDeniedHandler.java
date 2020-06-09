@@ -11,7 +11,7 @@ package com.dupake.system.security;
 
 import cn.hutool.json.JSONUtil;
 import com.dupake.common.message.BaseResult;
-import com.dupake.common.message.Result;
+import com.dupake.common.message.CommonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 @Component
@@ -33,7 +32,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(Result.error(BaseResult.FORBIDDEN.getCode(), BaseResult.FORBIDDEN.getMessage())));
+        response.getWriter().println(JSONUtil.parse(CommonResult.failed(BaseResult.FORBIDDEN.getCode(), BaseResult.FORBIDDEN.getMessage())));
         response.getWriter().flush();
     }
 }

@@ -1,8 +1,7 @@
 package com.dupake.system.controller;
 
-import com.dupake.common.message.BaseResult;
-import com.dupake.common.message.Result;
-import com.dupake.common.vo.LoginVO;
+import com.dupake.common.message.CommonResult;
+import com.dupake.common.dto.req.LoginRequest;
 import com.dupake.system.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,10 +81,10 @@ public class LoginController {
     public void loginError(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=utf-8");
         AuthenticationException exception =
-                (AuthenticationException)request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+                (AuthenticationException) request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
         try {
             response.getWriter().write(exception.toString());
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -121,16 +119,8 @@ public class LoginController {
      * 登录返回token
      */
     @PostMapping("/login")
-    public Result login(LoginVO loginVO) {
-
-        try {
-            Map map = loginService.login(loginVO);
-            return Result.ok(BaseResult.SUCCESS.getCode(), "登录成功", map);
-        } catch (UsernameNotFoundException e) {
-            return Result.error(BaseResult.ERROR.getCode(), "登录失败，用户名或密码错误");
-        } catch (RuntimeException re) {
-            return Result.error(BaseResult.ERROR.getCode(), re.getMessage());
-        }
+    public CommonResult<Map<String, Object>> login(LoginRequest loginRequest,HttpServletRequest request) {
+        return loginService.login(loginRequest,request);
     }
 
 }

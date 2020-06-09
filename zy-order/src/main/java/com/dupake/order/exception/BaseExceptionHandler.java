@@ -1,7 +1,5 @@
 package com.dupake.order.exception;
 
-import com.dupake.common.message.Result;
-import com.dupake.common.message.UserResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

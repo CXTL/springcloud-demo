@@ -1,6 +1,6 @@
 package com.dupake.order.service.impl;
 
-import com.dupake.common.dto.OrderDTO;
+import com.dupake.common.dto.res.OrderDTO;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.order.entity.Order;
 import com.dupake.order.entity.TransactionLog;

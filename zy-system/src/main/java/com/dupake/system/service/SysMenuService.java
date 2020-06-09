@@ -1,5 +1,6 @@
 package com.dupake.system.service;
 
+import com.dupake.common.dto.res.MenuDTO;
 import com.dupake.system.entity.SysMenu;
 
 import java.util.List;
@@ -15,4 +16,6 @@ import java.util.List;
 public interface SysMenuService {
 
     List<SysMenu> listByRoleId(Long roleId);
+
+    List<MenuDTO> listByUserId(Long id);
 }
