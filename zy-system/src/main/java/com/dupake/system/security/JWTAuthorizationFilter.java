@@ -35,10 +35,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response,FilterChain chain) throws IOException, ServletException {
-        String tokenHeader = request.getHeader(JwtTokenUtil.header);
+        String tokenHeader = request.getHeader(JwtConfig.getHeader());
 
         // 若请求头中没有Authorization信息 或是Authorization不以Bearer开头 则直接放行
-        if (tokenHeader == null || !tokenHeader.startsWith(JwtTokenUtil.prefix))
+        if (tokenHeader == null || !tokenHeader.startsWith(JwtConfig.getPrefix()))
         {
             chain.doFilter(request, response);
             return;
@@ -57,7 +57,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
      */
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader) {
         // 去掉前缀 获取Token字符串
-        String token = tokenHeader.replace(JwtTokenUtil.prefix, "");
+        String token = tokenHeader.replace(JwtConfig.getPrefix(), "");
         // 从Token中解密获取用户名
         String username = JwtTokenUtil.getUsername(token);
         // 从Token中解密获取用户角色
