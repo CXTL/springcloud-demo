@@ -42,9 +42,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("进入token过滤器");
         String authHeader = httpServletRequest.getHeader(header);
-
         if (authHeader != null && authHeader.startsWith(prefix)) {
             String authToken = authHeader.substring(prefix.length());
             String username = JwtTokenUtil.getUsername(authToken);
