@@ -6,26 +6,26 @@
 
 ###  初始化脚本
 
-> * 00-Dubhe-DB.sql ：数据库创建脚本
-> * 01-Dubhe-DDL.sql ： 数据操纵语言DML脚本
-> * 02-Dubhe-DML.sql：数据定义语言DDL脚本
+> * 00-ZC-DB.sql ：数据库创建脚本
+> * 01-ZC-DDL.sql ： 数据操纵语言DML脚本
+> * 02-ZC-DML.sql：数据定义语言DDL脚本
 
 > 注：数据初始化时使用
 
 ### 热更脚本
 
-> * 09-Dubhe-Patch.sql：热更脚本
+> * 09-ZC-Patch.sql：热更脚本
 
 > 注：新增数据时，需同步DDL/DML脚本
 
 ## 2 执行顺序
 
-> 脚本初始化时执行： 00-Dubhe-DB.sql -> 01-Dubhe-DDL.sql -> 02-Dubhe-DML.sql
+> 脚本初始化时执行： 00-ZC-DB.sql -> 01-ZC-DDL.sql -> 02-ZC-DML.sql
 
 ## 3 热更脚本
 
 > * 热更脚本中 字段新增、修改、数据新增时需要备注 更新人与 更新时间
-> * 热更脚本中 新增数据后， 需与 01-Dubhe-DDL.sql 和 02-Dubhe-DML.sql 数据同步
+> * 热更脚本中 新增数据后， 需与 01-ZC-DDL.sql 和 02-ZC-DML.sql 数据同步
 
 ## 4 版本
 
