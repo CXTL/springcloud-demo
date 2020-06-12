@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
  * @date 2020/4/16 17:00
  * @description
  */
-@Mapper
+
 public interface PointMapper {
 
     int getByOrderNo(@Param("orderNo") String orderNo);

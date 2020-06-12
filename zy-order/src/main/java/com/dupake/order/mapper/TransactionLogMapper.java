@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
  * @date 2020/4/21 14:28
  * @description
  */
-@Mapper
+
 public interface TransactionLogMapper {
 
     void insert(TransactionLog log);

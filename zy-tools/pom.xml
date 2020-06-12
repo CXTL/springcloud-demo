@@ -54,12 +54,6 @@
             <version>3.8.1</version>
         </dependency>
 
-        <!--mybatis plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.1.2</version>
-        </dependency>
         <!--分頁-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>

@@ -11,7 +11,7 @@ import java.util.List;
  * @date 2020/4/16 17:00
  * @description
  */
-@Mapper
+
 public interface OrderMapper {
     Order findInfoById(Integer id);
 
