@@ -13,8 +13,8 @@ import com.dupake.system.entity.SysUser;
 import com.dupake.system.event.EmailEventPublisher;
 import com.dupake.system.security.JwtTokenUtil;
 import com.dupake.system.security.UserDetailsServiceImpl;
-import com.dupake.system.utils.MD5Util;
 import com.dupake.tools.exception.BadRequestException;
+import com.dupake.tools.utils.RSAEncrypt;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -45,11 +45,18 @@ public class LoginServiceImpl extends BaseService implements LoginService {
     @Resource
     UserDetailsServiceImpl userDetailsService;
 
-    @Value("jwt.prefix")
+    @Value("${jwt.prefix}")
     String prefix;
 
     @Resource
     EmailEventPublisher publisher;
+
+    @Value("${rsa.private_key}")
+    String privateKey;
+
+    @Value("${rsa.public_key}")
+    String publicKey;
+
 
     /**
      * 登录
@@ -60,11 +67,23 @@ public class LoginServiceImpl extends BaseService implements LoginService {
      */
     @Override
     public CommonResult<Map<String, Object>> login(LoginRequest loginRequest, HttpServletRequest req) {
+
+
         SysUser dbUser = this.findUserByName(loginRequest.getUsername());
+
+        String decryptPassword = RSAEncrypt.decrypt(loginRequest.getPassword(), privateKey);
+
+        String admin = RSAEncrypt.encrypt("admin", publicKey);
+        String decrypt = RSAEncrypt.decrypt(admin, privateKey);
+        System.out.println(admin);
+        System.out.println(decrypt);
+
+        String dbPassword = RSAEncrypt.decrypt(dbUser.getPassword(), privateKey);
+
 
         // 用户不存在 或者 密码错误
         if (dbUser == null || !dbUser.getUsername().equals(loginRequest.getUsername())
-                || !MD5Util.string2MD5(loginRequest.getPassword()).equals(dbUser.getPassword())) {
+                || !decryptPassword.equals(dbPassword)) {
             throw new BadRequestException(BaseResult.SYS_USERNAME_PASSWORD_ERROR.getCode(),
                     BaseResult.SYS_USERNAME_PASSWORD_ERROR.getMessage());
         }
@@ -89,13 +108,13 @@ public class LoginServiceImpl extends BaseService implements LoginService {
         map.put(UserConstant.SYS_NAME, loginRequest.getUsername());
         map.put(UserConstant.SYS_MENU, menus);
 
+
+        long l = Long.parseLong(time);
         //将用户信息 存入redis
-        super.setUsers(
-                UserDTO.builder()
-                        .id(dbUser.getId())
-                        .username(dbUser.getUsername())
-                        .email(dbUser.getEmail()).build()
-                , req);
+        redisUtil.hset(token, token, UserDTO.builder()
+                .id(dbUser.getId())
+                .username(dbUser.getUsername())
+                .email(dbUser.getEmail()).build(), l);
 
         return CommonResult.success(map);
 

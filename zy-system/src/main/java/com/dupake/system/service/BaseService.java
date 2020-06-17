@@ -25,24 +25,15 @@ import javax.servlet.http.HttpServletRequest;
 public class BaseService {
 
 
-    @Value("jwt.prefix")
-    String prefix;
+    @Value("${jwt.prefix}")
+    public String prefix;
 
-    @Value("jwt.time")
+    @Value("${jwt.time}")
     String time;
 
     @Resource
-    RedisUtil redisUtil;
+    public RedisUtil redisUtil;
 
-    /**
-     * 设置用户信息到 redis
-     *
-     * @param userDTO
-     */
-    public void setUsers(UserDTO userDTO, HttpServletRequest req) {
-        String token = getToken(req);
-        redisUtil.hset(token, token, userDTO, Long.parseLong(time));
-    }
 
     /**
      * 获取用户信息

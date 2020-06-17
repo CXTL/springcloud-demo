@@ -23,8 +23,13 @@ public class SysMenuServiceImpl  implements SysMenuService {
         return null;
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @Override
-    public List<MenuDTO> listByUserId(Long id) {
+    public List<MenuDTO> listByUserId(Long userId) {
         return null;
     }
 }

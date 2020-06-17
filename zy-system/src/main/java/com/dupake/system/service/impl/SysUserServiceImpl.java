@@ -84,7 +84,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
      */
     @Override
     public CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable) {
-
+        log.info(JSONObject.toJSONString(pageable));
         return null;
     }
 

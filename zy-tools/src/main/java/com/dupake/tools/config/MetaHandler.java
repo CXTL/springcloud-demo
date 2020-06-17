@@ -42,8 +42,8 @@ public class MetaHandler implements MetaObjectHandler {
         if (Objects.isNull(getFieldValByName("createId", metaObject))) {
             this.setFieldValByName("createId", getUserId(), metaObject);
         }
-        if (Objects.isNull(getFieldValByName("deleted", metaObject))) {
-            this.setFieldValByName("deleted", YesNoSwitchEnum.NO.getValue(), metaObject);
+        if (Objects.isNull(getFieldValByName("isDeleted", metaObject))) {
+            this.setFieldValByName("isDeleted", YesNoSwitchEnum.NO.getValue(), metaObject);
         }
     }
 

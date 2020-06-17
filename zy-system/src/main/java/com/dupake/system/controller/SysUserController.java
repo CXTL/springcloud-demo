@@ -45,7 +45,7 @@ public class SysUserController {
 
 
     @ApiOperation("根据用户名或姓名分页获取用户列表")
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/listByPage")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query", value = "10"),
             @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query", value = "1"),

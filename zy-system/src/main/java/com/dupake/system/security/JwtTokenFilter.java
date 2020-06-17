@@ -25,7 +25,7 @@ import java.io.IOException;
 /**
  * token 过滤器，在这里解析token，拿到该用户角色，设置到springsecurity的上下文环境中，让springsecurity自动判断权限
  * 所有请求最先进入此过滤器，包括登录接口，而且在springsecurity的密码验证之前执行
- * * GYB
+ * *
  * * 20190220
  */
 @Component
