@@ -2,7 +2,6 @@ package com.dupake.system.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
@@ -14,7 +13,6 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @Author dupake
  * @Date 2020/6/4 12:35
  */
-@EnableAsync
 @Configuration
 class TaskPoolConfig {
 

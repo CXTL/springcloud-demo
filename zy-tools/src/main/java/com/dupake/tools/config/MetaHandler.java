@@ -36,11 +36,11 @@ public class MetaHandler implements MetaObjectHandler {
         if (Objects.isNull(getFieldValByName("updateTime", metaObject))) {
             this.setFieldValByName("updateTime", DateUtil.getCurrentTimestamp(), metaObject);
         }
-        if (Objects.isNull(getFieldValByName("updateUserId", metaObject))) {
-            this.setFieldValByName("updateUserId", getUserId(), metaObject);
+        if (Objects.isNull(getFieldValByName("updateId", metaObject))) {
+            this.setFieldValByName("updateId", getUserId(), metaObject);
         }
-        if (Objects.isNull(getFieldValByName("createUserId", metaObject))) {
-            this.setFieldValByName("createUserId", getUserId(), metaObject);
+        if (Objects.isNull(getFieldValByName("createId", metaObject))) {
+            this.setFieldValByName("createId", getUserId(), metaObject);
         }
         if (Objects.isNull(getFieldValByName("deleted", metaObject))) {
             this.setFieldValByName("deleted", YesNoSwitchEnum.NO.getValue(), metaObject);
