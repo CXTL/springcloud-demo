@@ -3,6 +3,7 @@ package com.dupake.system.controller;
 import com.dupake.common.dto.req.LoginRequest;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.service.LoginServiceImpl;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin")
+@Api(tags = "系统：登录管理")
 public class LoginController {
 
     @Resource
