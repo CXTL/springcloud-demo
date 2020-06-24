@@ -9,7 +9,7 @@ package com.dupake.common.constatnts;
 public class UserConstant {
 
 
-    public final static String SYS_NAME = "name";
+    public final static String SYS_NAME = "tokenHead";
     public final static String SYS_MENU = "menus";
     public final static String SYS_TOKEN = "token";
 

@@ -1,11 +1,15 @@
 package com.dupake.system.controller;
 
+import com.dupake.common.annotation.SubmitToken;
+import com.dupake.common.message.CommonResult;
+import com.dupake.system.utils.CacheUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 /**
  * @author dupake
@@ -18,34 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "test")
 public class TestController {
 
-
-
-    /**任何人都能访问
+    /**
+     * 获取唯一ID
+     *
      * @return
      */
-    @ApiOperation(value = "权限测试", notes = "权限测试 - for-web")
-    @GetMapping("/publicMsg")
-    @PreAuthorize("hasPermission('/admin','r')")
-    public String getMsg(){
-        return "you get the message!";
+    @ApiOperation(value = "获取唯一ID", notes = "获取唯一ID - for-web")
+    @GetMapping("/getSubmitToken")
+    public CommonResult getSubmitToken() {
+        String submitToken = UUID.randomUUID().toString();
+        //将事务请求唯一ID放入缓存池
+        CacheUtil.addCache(submitToken, "false");
+        return CommonResult.success(submitToken);
     }
 
-    /**登录的用户才能访问
-     * @return
-     */
-    @GetMapping("/innerMsg")
-    public String innerMsg(){
-        return "you get the message!";
+    @SubmitToken
+    @ApiOperation(value = "测试防重复提交", notes = "测试防重复提交 - for-web")
+    @GetMapping("/testSubmit")
+    public CommonResult testSubmit() {
+        System.out.println("test");
+        return CommonResult.success();
     }
-
-    /**管理员(admin)才能访问
-     * @return
-     */
-    @GetMapping("/secret")
-    public String secret(){
-        return "you get the message!";
-    }
-
 
 
 }

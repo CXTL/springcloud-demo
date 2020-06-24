@@ -22,7 +22,7 @@ public interface SysUserService {
 
     SysUser findUserByName(String name);
 
-    CommonResult<UserDTO> getUserInfo(Long userId);
+    CommonResult<UserDTO> getUserInfo(HttpServletRequest request);
 
     CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable);
 

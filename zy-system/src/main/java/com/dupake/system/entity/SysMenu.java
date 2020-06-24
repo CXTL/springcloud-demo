@@ -51,6 +51,13 @@ public class SysMenu implements Serializable {
     private String icon;
 
     /**
+     * 菜单标题
+     */
+    private String title;
+
+    private String level;
+
+    /**
      * 路径
      */
     private String path;

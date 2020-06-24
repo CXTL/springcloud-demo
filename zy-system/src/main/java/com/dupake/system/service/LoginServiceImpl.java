@@ -108,9 +108,9 @@ public class LoginServiceImpl extends BaseService implements LoginService {
             //查询用户权限 todo redis优化
             List<MenuDTO> menus = sysMenuService.listByUserId(dbUser.getId());
 
-            map.put(UserConstant.SYS_TOKEN, prefix.concat(token));
-            map.put(UserConstant.SYS_NAME, loginRequest.getUsername());
-            map.put(UserConstant.SYS_MENU, menus);
+            map.put(UserConstant.SYS_TOKEN, token);
+            map.put(UserConstant.SYS_NAME, prefix);
+//            map.put(UserConstant.SYS_MENU, menus);
 
 
             long l = Long.parseLong(time);

@@ -1,5 +1,6 @@
 package com.dupake.system.service;
 
+import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysRole;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface SysRoleService {
     SysRole selectByName(String roleName);
 
     List<SysRole> findUserRoles(Long id);
+
+    List<SysMenu> getMenuList(Long id);
 }

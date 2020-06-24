@@ -63,6 +63,11 @@ public class SysUser implements Serializable {
     private String email;
 
     /**
+     * 昵称
+     */
+    private String nickName;
+
+    /**
      * 创建人
      */
     @TableField(value = "create_time",fill = FieldFill.INSERT)

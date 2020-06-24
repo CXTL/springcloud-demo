@@ -12,8 +12,10 @@ import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysUser;
+import com.dupake.system.mapper.SysRoleMapper;
 import com.dupake.system.mapper.SysUserMapper;
 import com.dupake.system.service.BaseService;
+import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserService;
 import com.dupake.tools.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +26,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
@@ -39,6 +43,9 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 
     @Resource
     private SysUserMapper sysUserMapper;
+
+    @Resource
+    private SysRoleService sysRoleService;
 
     /**
      * 根据名称查询用户信息
@@ -57,22 +64,38 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     /**
      * 根据用户ID查询用户信息
      *
-     * @param userId
+     * @param request
      * @return
      */
     @Override
-    public CommonResult<UserDTO> getUserInfo(Long userId) {
-        SysUser sysUser = sysUserMapper.selectOne(
-                new LambdaQueryWrapper<SysUser>()
-                        .eq(SysUser::getId, userId)
-                        .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        );
-        if (!ObjectUtil.isNull(sysUser)) {
-            log.error("SysUserServiceImpl getUserInfo user is not exist userId:{}", userId);
-            return CommonResult.failed(BaseResult.SYS_USER_IS_NOT_EXIST.getCode(),
-                    BaseResult.SYS_USER_IS_NOT_EXIST.getMessage());
-        }
-        BeanUtils.copyProperties(sysUser, UserDTO.builder());
+    public CommonResult<UserDTO> getUserInfo(HttpServletRequest request) {
+//
+//        UserDTO users = super.getUsers(request);
+//        if (ObjectUtil.isNull(users)) {
+//            log.error("users is null");
+//            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+//        }
+//
+//        SysUser sysUser = sysUserMapper.selectOne(
+//                new LambdaQueryWrapper<SysUser>()
+//                        .eq(SysUser::getId, users.getId())
+//                        .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue())
+//        );
+//        if (!ObjectUtil.isNull(sysUser)) {
+//            log.error("SysUserServiceImpl getUserInfo user is not exist userId:{}", users.getId());
+//            return CommonResult.failed(BaseResult.SYS_USER_IS_NOT_EXIST.getCode(),
+//                    BaseResult.SYS_USER_IS_NOT_EXIST.getMessage());
+//        }
+//        BeanUtils.copyProperties(sysUser, UserDTO.builder());
+
+
+        SysUser sysUser = SysUser.builder().username("test").build();
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", sysUser.getUsername());
+        data.put("roles", new String[]{"TEST"});
+        data.put("menus", sysRoleService.getMenuList(sysUser.getId()));
+        data.put("icon", "http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180607/timg.jpg");
+
         return CommonResult.success();
     }
 

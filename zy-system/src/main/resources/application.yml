@@ -90,7 +90,7 @@ jwt:
   ###安全密钥
   secret: "dupake_secret"
   ###token前缀
-  prefix: "Bearer "
+  prefix: "Bearer"
   ###http头key
   header: "Authorization"
   ###签名主题
@@ -118,6 +118,7 @@ secure:
       - /actuator/**
       - /druid/**
       - /admin/login
+      - /test/**
       - /admin/register
       - /admin/info
       - /admin/logout

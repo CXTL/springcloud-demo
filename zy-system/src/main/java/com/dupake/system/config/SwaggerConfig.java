@@ -31,10 +31,15 @@ public class SwaggerConfig {
                 .globalOperationParameters(defaultHeader())
                 ;
     }
-    private static List<Parameter> defaultHeader(){ ParameterBuilder appToken = new ParameterBuilder();
-        appToken.name("Authorization").description("令牌").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+    private static List<Parameter> defaultHeader(){
+        ParameterBuilder appToken = new ParameterBuilder();
+        appToken.name("Authorization").description("登录令牌").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+        ParameterBuilder appSubmitTolken = new ParameterBuilder();
+        appSubmitTolken.name("SubmitToken").description("重复提交令牌").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+
         List<Parameter> pars = new ArrayList<>();
         pars.add(appToken.build());
+        pars.add(appSubmitTolken.build());
         return pars;
     }
 

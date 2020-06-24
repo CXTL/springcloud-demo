@@ -38,9 +38,9 @@ public class SysUserController {
 
 
     @ApiOperation(value = "获取当前登录用户信息")
-    @GetMapping(value = "/getUserInfo")
-    public CommonResult<UserDTO> getUserInfo(@Param(value = "userId") Long userId) {
-        return sysUserService.getUserInfo(userId);
+    @GetMapping(value = "/info")
+    public CommonResult<UserDTO> getUserInfo(HttpServletRequest request) {
+        return sysUserService.getUserInfo(request);
     }
 
 

@@ -2,6 +2,7 @@ package com.dupake.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
+import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysRole;
 import com.dupake.system.mapper.SysRoleMapper;
 import com.dupake.system.service.SysRoleService;
@@ -31,7 +32,6 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     *
      * @param userId
      * @return
      */
@@ -39,5 +39,16 @@ public class SysRoleServiceImpl implements SysRoleService {
     public List<SysRole> findUserRoles(Long userId) {
         List<SysRole> sysRoles = sysRoleMapper.selectListByUserId(userId);
         return sysRoles;
+    }
+
+    /**
+     * 根据用户ID查询权限
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public List<SysMenu> getMenuList(Long id) {
+        return null;
     }
 }

@@ -35,8 +35,11 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response,FilterChain chain) throws IOException, ServletException {
-        String tokenHeader = request.getHeader(JwtConfig.getHeader());
-
+        String requestURI = request.getRequestURI();
+        String header = JwtConfig.getHeader();
+        String authorization = request.getHeader("Authorization");
+        String Referer = request.getHeader("Referer");
+        String tokenHeader = request.getHeader(header);
         // 若请求头中没有Authorization信息 或是Authorization不以Bearer开头 则直接放行
         if (tokenHeader == null || !tokenHeader.startsWith(JwtConfig.getPrefix()))
         {
