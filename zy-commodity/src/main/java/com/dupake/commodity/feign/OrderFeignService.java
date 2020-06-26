@@ -1,6 +1,7 @@
 package com.dupake.commodity.feign;
 
 import com.dupake.commodity.feign.hystrix.HystrixClientFallback;
+import com.dupake.common.message.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -14,5 +15,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface OrderFeignService {
 
     @GetMapping("/test/hello")
-    Result hello();
+    CommonResult hello();
 }
