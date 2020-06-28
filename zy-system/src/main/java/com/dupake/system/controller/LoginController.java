@@ -20,7 +20,7 @@ import java.util.Map;
  * @createTime 2020年05月17日 23:08:00
  */
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/admin/api")
 @Api(tags = "系统：登录管理")
 public class LoginController {
 

@@ -11,15 +11,15 @@ import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
+import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysUser;
-import com.dupake.system.mapper.SysRoleMapper;
 import com.dupake.system.mapper.SysUserMapper;
 import com.dupake.system.service.BaseService;
+import com.dupake.system.service.SysMenuService;
 import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserService;
 import com.dupake.tools.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +47,9 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     @Resource
     private SysRoleService sysRoleService;
 
+    @Resource
+    private SysMenuService sysMenuService;
+
     /**
      * 根据名称查询用户信息
      *
@@ -64,11 +67,10 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     /**
      * 根据用户ID查询用户信息
      *
-     * @param request
      * @return
      */
     @Override
-    public CommonResult<UserDTO> getUserInfo(HttpServletRequest request) {
+    public CommonResult<Map<String, Object>> getUserInfo() {
 //
 //        UserDTO users = super.getUsers(request);
 //        if (ObjectUtil.isNull(users)) {
@@ -88,15 +90,16 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 //        }
 //        BeanUtils.copyProperties(sysUser, UserDTO.builder());
 
+        //todo token获取用户信息
+        SysUser sysUser = SysUser.builder().username("test").id(1L).build();
 
-        SysUser sysUser = SysUser.builder().username("test").build();
         Map<String, Object> data = new HashMap<>();
         data.put("username", sysUser.getUsername());
         data.put("roles", new String[]{"TEST"});
-        data.put("menus", sysRoleService.getMenuList(sysUser.getId()));
+        data.put("menus", sysMenuService.getMenuListByUserId(sysUser.getId()));
         data.put("icon", "http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180607/timg.jpg");
 
-        return CommonResult.success();
+        return CommonResult.success(data);
     }
 
     /**

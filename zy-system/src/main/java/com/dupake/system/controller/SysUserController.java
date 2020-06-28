@@ -19,6 +19,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Map;
 
 /**
  * <p>
@@ -39,8 +40,8 @@ public class SysUserController {
 
     @ApiOperation(value = "获取当前登录用户信息")
     @GetMapping(value = "/info")
-    public CommonResult<UserDTO> getUserInfo(HttpServletRequest request) {
-        return sysUserService.getUserInfo(request);
+    public CommonResult<Map<String, Object>> getUserInfo() {
+        return sysUserService.getUserInfo();
     }
 
 

@@ -9,6 +9,7 @@ import com.dupake.system.entity.SysUser;
 import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,7 +23,7 @@ public interface SysUserService {
 
     SysUser findUserByName(String name);
 
-    CommonResult<UserDTO> getUserInfo(HttpServletRequest request);
+    CommonResult<Map<String, Object>> getUserInfo();
 
     CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable);
 

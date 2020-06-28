@@ -43,7 +43,7 @@ public class SysRole implements Serializable {
     /**
      * 备注
      */
-    private String remak;
+    private String remark;
 
     /**
      * 创建人

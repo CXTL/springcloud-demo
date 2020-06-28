@@ -1,5 +1,6 @@
 package com.dupake.system.service;
 
+import com.dupake.common.dto.res.MenuDTO;
 import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysRole;
 
@@ -19,5 +20,5 @@ public interface SysRoleService {
 
     List<SysRole> findUserRoles(Long id);
 
-    List<SysMenu> getMenuList(Long id);
+    List<MenuDTO> getMenuListByUserId(Long id);
 }

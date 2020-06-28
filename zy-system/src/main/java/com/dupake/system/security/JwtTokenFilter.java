@@ -34,17 +34,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Resource
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
-    @Value("jwt.header")
-    private String header;
-
-    @Value("jwt.prefix")
-    private String prefix;
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        String authHeader = httpServletRequest.getHeader(header);
-        if (authHeader != null && authHeader.startsWith(prefix)) {
-            String authToken = authHeader.substring(prefix.length());
+        String authHeader = httpServletRequest.getHeader(JwtConfig.getHeader());
+        if (authHeader != null && authHeader.startsWith(JwtConfig.getPrefix())) {
+            String authToken = authHeader.substring(JwtConfig.getPrefix().length());
             String username = JwtTokenUtil.getUsername(authToken);
             System.out.println("username:" + username);
             //验证token,具体怎么验证看需求，可以只验证token不查库，把权限放在jwt中即可

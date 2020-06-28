@@ -117,9 +117,10 @@ secure:
       - /webjars/springfox-swagger-ui/**
       - /actuator/**
       - /druid/**
-      - /admin/login
+      - /admin/api/login
       - /test/**
-      - /admin/register
-      - /admin/info
-      - /admin/logout
+      - /admin/api/register
+      - /api/users/info
+      - /admin/api/logout
+      - /api/**
       - /minio/upload

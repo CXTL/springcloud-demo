@@ -55,7 +55,6 @@ public class SysMenu implements Serializable {
      */
     private String title;
 
-    private String level;
 
     /**
      * 路径

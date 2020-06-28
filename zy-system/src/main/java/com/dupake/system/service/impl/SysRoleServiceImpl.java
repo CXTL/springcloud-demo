@@ -1,6 +1,7 @@
 package com.dupake.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.dupake.common.dto.res.MenuDTO;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysRole;
@@ -48,7 +49,7 @@ public class SysRoleServiceImpl implements SysRoleService {
      * @return
      */
     @Override
-    public List<SysMenu> getMenuList(Long id) {
+    public List<MenuDTO> getMenuListByUserId(Long id) {
         return null;
     }
 }

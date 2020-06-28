@@ -1,6 +1,11 @@
 package com.dupake.common.dto.res;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * @ClassName PermissionDTO
@@ -9,6 +14,9 @@ import lombok.Data;
  * @Date 2020/6/9 15:31
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MenuDTO {
 
     /**
@@ -50,5 +58,10 @@ public class MenuDTO {
      * 类型 0:菜单权限1:按钮权限
      */
     private Integer type;
+
+    /**
+     * 子菜单权限
+     */
+    private List<MenuDTO> children;
 
 }
