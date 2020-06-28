@@ -1,6 +1,7 @@
 package com.dupake.commodity.controller;
 
 import com.dupake.commodity.feign.OrderFeignService;
+import com.dupake.common.message.CommonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class TestController {
 
     @ApiOperation(value = "查询用户信息", notes = "查询用户信息 - for-web")
     @GetMapping(value = "/hello")
-    public Result hello() {
+    public CommonResult hello() {
         return orderFeignService.hello();
     }
 
