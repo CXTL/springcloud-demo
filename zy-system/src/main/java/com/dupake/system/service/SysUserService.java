@@ -1,8 +1,8 @@
 package com.dupake.system.service;
 
-import com.dupake.common.dto.req.user.UserAddRequest;
-import com.dupake.common.dto.req.user.UserUpdateRequest;
-import com.dupake.common.dto.res.UserDTO;
+import com.dupake.common.pojo.dto.req.user.UserAddRequest;
+import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
+import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysUser;

@@ -1,7 +1,6 @@
 package com.dupake.system.service;
 
-import com.dupake.common.dto.res.MenuDTO;
-import com.dupake.system.entity.SysMenu;
+import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.system.entity.SysRole;
 
 import java.util.List;

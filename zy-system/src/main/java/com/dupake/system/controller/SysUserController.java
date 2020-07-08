@@ -1,9 +1,9 @@
 package com.dupake.system.controller;
 
 
-import com.dupake.common.dto.req.user.UserAddRequest;
-import com.dupake.common.dto.req.user.UserUpdateRequest;
-import com.dupake.common.dto.res.UserDTO;
+import com.dupake.common.pojo.dto.req.user.UserAddRequest;
+import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
+import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.service.SysUserService;
@@ -11,7 +11,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;

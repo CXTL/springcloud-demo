@@ -1,7 +1,7 @@
 package com.dupake.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.dupake.common.dto.res.MenuDTO;
+import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysMenu;
@@ -13,7 +13,6 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,9 +1,8 @@
 package com.dupake.system.config;
 
-import com.dupake.common.annotation.SubmitToken;
+import com.dupake.common.exception.BadRequestException;
 import com.dupake.system.utils.CacheUtil;
-import com.dupake.tools.exception.BadRequestException;
-import com.dupake.tools.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;

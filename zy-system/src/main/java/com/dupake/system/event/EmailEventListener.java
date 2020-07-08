@@ -1,9 +1,9 @@
 package com.dupake.system.event;
 
-import com.dupake.common.dto.res.EmailDTO;
+import com.dupake.common.pojo.dto.res.EmailDTO;
 import com.dupake.common.message.BaseResult;
 import com.dupake.system.service.MailService;
-import com.dupake.tools.exception.BadRequestException;
+import com.dupake.common.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;

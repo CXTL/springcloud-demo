@@ -1,7 +1,7 @@
 package com.dupake.system.controller;
 
 
-import com.dupake.common.dto.res.MenuDTO;
+import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.service.SysMenuService;
 import io.swagger.annotations.Api;

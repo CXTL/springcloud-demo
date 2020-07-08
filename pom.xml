@@ -14,7 +14,6 @@
         <module>zy-system</module>
         <module>zy-gateway</module>
         <module>zy-order</module>
-        <module>zy-tools</module>
         <module>zy-search</module>
         <module>zy-commodity</module>
         <module>zy-common</module>
@@ -51,17 +50,6 @@
 
 
     <dependencies>
-        <!--公共依赖-->
-        <dependency>
-            <groupId>com.dupake</groupId>
-            <artifactId>zy-common</artifactId>
-            <version>${zy-common.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dupake</groupId>
-            <artifactId>zy-tools</artifactId>
-            <version>${zy-tools.version}</version>
-        </dependency>
 
         <!--security-->
         <dependency>

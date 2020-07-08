@@ -1,6 +1,6 @@
 package com.dupake.system.service;
 
-import com.dupake.common.dto.req.LoginRequest;
+import com.dupake.common.pojo.dto.req.LoginRequest;
 import com.dupake.common.message.CommonResult;
 
 import javax.servlet.http.HttpServletRequest;

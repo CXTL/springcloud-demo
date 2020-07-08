@@ -1,14 +1,10 @@
 package com.dupake.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.dupake.common.dto.res.MenuDTO;
-import com.dupake.common.enums.YesNoSwitchEnum;
-import com.dupake.system.entity.SysMenu;
+import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.system.entity.SysRole;
 import com.dupake.system.mapper.SysRoleMapper;
 import com.dupake.system.service.SysRoleService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;

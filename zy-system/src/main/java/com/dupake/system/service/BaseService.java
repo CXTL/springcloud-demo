@@ -1,13 +1,13 @@
 package com.dupake.system.service;
 
 import com.dupake.common.constatnts.UserConstant;
-import com.dupake.common.dto.res.UserDTO;
+import com.dupake.common.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
+import com.dupake.common.pojo.dto.res.UserDTO;
+import com.dupake.common.utils.ObjectUtil;
 import com.dupake.system.utils.RedisUtil;
-import com.dupake.tools.exception.BadRequestException;
-import com.dupake.tools.utils.ObjectUtil;
-import com.dupake.tools.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 

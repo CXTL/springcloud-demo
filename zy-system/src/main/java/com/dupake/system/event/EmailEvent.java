@@ -1,6 +1,6 @@
 package com.dupake.system.event;
 
-import com.dupake.common.dto.res.EmailDTO;
+import com.dupake.common.pojo.dto.res.EmailDTO;
 
 /**
  * @ClassName EmailEvent

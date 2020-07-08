@@ -1,6 +1,6 @@
 package com.dupake.system.controller;
 
-import com.dupake.common.dto.req.LoginRequest;
+import com.dupake.common.pojo.dto.req.LoginRequest;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.service.LoginServiceImpl;
 import io.swagger.annotations.Api;

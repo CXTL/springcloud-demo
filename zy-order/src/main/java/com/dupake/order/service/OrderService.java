@@ -1,6 +1,6 @@
 package com.dupake.order.service;
 
-import com.dupake.common.dto.res.OrderDTO;
+import com.dupake.common.pojo.dto.res.OrderDTO;
 import com.dupake.order.entity.Order;
 import com.github.pagehelper.PageInfo;
 

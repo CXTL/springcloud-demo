@@ -1,7 +1,7 @@
 package com.dupake.system.event;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dupake.common.dto.res.EmailDTO;
+import com.dupake.common.pojo.dto.res.EmailDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Async;

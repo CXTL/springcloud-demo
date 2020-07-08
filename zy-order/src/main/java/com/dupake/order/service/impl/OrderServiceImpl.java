@@ -1,6 +1,6 @@
 package com.dupake.order.service.impl;
 
-import com.dupake.common.dto.res.OrderDTO;
+import com.dupake.common.pojo.dto.res.OrderDTO;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.order.entity.Order;
 import com.dupake.order.entity.TransactionLog;
@@ -8,7 +8,7 @@ import com.dupake.order.mapper.OrderMapper;
 import com.dupake.order.mapper.TransactionLogMapper;
 import com.dupake.order.service.IdGeneratorService;
 import com.dupake.order.service.OrderService;
-import com.dupake.tools.utils.IdUtil;
+import com.dupake.common.utils.IdUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;

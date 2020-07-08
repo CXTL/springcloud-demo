@@ -21,11 +21,6 @@
                 <artifactId>zy-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
-            <dependency>
-                <groupId>com.dupake</groupId>
-                <artifactId>zy-tools</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
         </dependencies>
 
         <build>
