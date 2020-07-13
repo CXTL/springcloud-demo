@@ -56,7 +56,7 @@ public class OrderServiceImpl implements OrderService {
         BeanUtils.copyProperties(orderDTO, order);
         order.setCreateTime(System.currentTimeMillis());
         order.setUpdateTime(System.currentTimeMillis());
-        orderMapper.insert(order);
+        orderMapper.insertOrder(order);
 
         //2.写入事务日志
         TransactionLog log = new TransactionLog();
@@ -97,7 +97,7 @@ public class OrderServiceImpl implements OrderService {
     public Order insert(Order order) {
         order.setCreateTime(System.currentTimeMillis());
         order.setUpdateTime(System.currentTimeMillis());
-        orderMapper.insert(order);
+        orderMapper.insertOrder(order);
         return order;
     }
 

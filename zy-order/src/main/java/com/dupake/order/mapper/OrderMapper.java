@@ -1,5 +1,6 @@
 package com.dupake.order.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dupake.order.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,12 +13,12 @@ import java.util.List;
  * @description
  */
 
-public interface OrderMapper {
+public interface OrderMapper extends BaseMapper<Order> {
     Order findInfoById(Integer id);
 
     List<Order> findList();
 
-    void insert(Order user);
+    void insertOrder(Order user);
 
     void update(Order user);
 
