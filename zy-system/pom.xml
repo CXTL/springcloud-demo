@@ -63,7 +63,7 @@
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
-                    <dockerHost>http://localhost:2375</dockerHost>
+                    <dockerHost>http://118.89.173.93:2376</dockerHost>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
