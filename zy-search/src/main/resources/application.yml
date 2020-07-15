@@ -3,7 +3,7 @@ server:
 spring:
   application:
     name: search-service
-  data:
-    elasticsearch:
-      cluster-name: my-application
-      cluster-nodes: 127.0.0.1:9300
+  elasticsearch:
+    rest:
+      scheme: http
+      ip-address: 127.0.0.1:9200
