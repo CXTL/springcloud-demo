@@ -2,14 +2,14 @@ package com.dupake.system.controller;
 
 import com.dupake.common.annotation.SubmitToken;
 import com.dupake.common.message.CommonResult;
+import com.dupake.system.feign.HelloService;
 import com.dupake.system.utils.CacheUtil;
+import com.dupake.system.utils.UUIDUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
+import javax.annotation.Resource;
 
 /**
  * @author dupake
@@ -22,6 +22,10 @@ import java.util.UUID;
 @RequestMapping(value = "test")
 public class TestController {
 
+
+    @Resource
+    private HelloService helloService;
+
     /**
      * 获取唯一ID
      *
@@ -30,7 +34,7 @@ public class TestController {
     @ApiOperation(value = "获取唯一ID", notes = "获取唯一ID - for-web")
     @GetMapping("/getSubmitToken")
     public CommonResult getSubmitToken() {
-        String submitToken = UUID.randomUUID().toString();
+        String submitToken = UUIDUtil.genId();
         //将事务请求唯一ID放入缓存池
         CacheUtil.addCache(submitToken, "false");
         return CommonResult.success(submitToken);
@@ -42,6 +46,13 @@ public class TestController {
     public CommonResult testSubmit() {
         System.out.println("test");
         return CommonResult.success();
+    }
+
+    @ApiOperation(value = "测试feign/sentinel", notes = "测试feign和融断 - for-web")
+    @GetMapping("/hello-feign/{str}")
+    public CommonResult feign(@PathVariable String str)  {
+        String hello = helloService.hello(str);
+        return CommonResult.success(hello);
     }
 
 

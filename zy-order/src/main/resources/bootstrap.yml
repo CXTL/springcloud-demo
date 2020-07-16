@@ -2,7 +2,7 @@ server:
   port: 7106
 spring:
   application:
-    name: zy_order
+    name: order
 
   cloud:
     nacos:

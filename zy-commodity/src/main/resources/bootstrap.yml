@@ -1,8 +1,8 @@
 server:
-  port: 7506
+  port: 7806
 spring:
   application:
-    name: system
+    name: commodity
 
   cloud:
     nacos:

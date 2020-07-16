@@ -6,7 +6,10 @@ import com.dupake.order.service.IdGeneratorService;
 import com.dupake.order.utils.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,6 +24,7 @@ import java.util.concurrent.Executors;
  */
 @RestController
 @Api(tags = "Test控制器")
+@Slf4j
 public class TestController {
 
 
@@ -81,5 +85,16 @@ public class TestController {
 
         return messageProvider.send();
     }
+
+    @GetMapping(value = "/hello/{str}", produces = "application/json")
+    public String hello(@PathVariable String str) {
+        log.info("-----------收到消费者请求-----------");
+        log.info("收到消费者传递的参数：" + str);
+        String result = "我是服务提供者，见到你很高兴==>" + str;
+        log.info("提供者返回结果：" + result);
+        return result;
+    }
+
+
 
 }
