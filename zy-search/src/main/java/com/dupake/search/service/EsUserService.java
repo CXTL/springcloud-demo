@@ -21,7 +21,7 @@ import java.util.List;
  * @author star
  */
 @Service
-public class UserService {
+public class EsUserService {
 
     private static final String ES_INDEX = "test";
 

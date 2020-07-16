@@ -1,7 +1,7 @@
 package com.dupake.search.controller;
 
 import com.dupake.search.entity.User;
-import com.dupake.search.service.UserService;
+import com.dupake.search.service.EsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,21 +15,21 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
-public class UserResource {
+public class UserController {
 
     @Autowired
-    private UserService userService;
+    private EsUserService esUserService;
 
     @PostMapping("/users")
     public ResponseEntity<Void> saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+        esUserService.saveUser(user);
 
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/users/batch")
     public ResponseEntity<Void> saveBatchUser(@RequestBody List<User> users) {
-        userService.saveAllUser(users);
+        esUserService.saveAllUser(users);
 
         return ResponseEntity.ok().build();
     }
@@ -37,7 +37,7 @@ public class UserResource {
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable("id") String id) {
-        User user = userService.getUser(id);
+        User user = esUserService.getUser(id);
 
         return ResponseEntity.ok(user);
 
@@ -45,21 +45,21 @@ public class UserResource {
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> searchUserByName(@RequestParam String name) {
-        List<User> users = userService.searchUserByName(name);
+        List<User> users = esUserService.searchUserByName(name);
 
         return ResponseEntity.ok(users);
     }
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") String id) {
-        userService.deleteUser(id);
+        esUserService.deleteUser(id);
 
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/user/{name}")
     public ResponseEntity<Void> deleteUserByName(@PathVariable("name") String name) {
-        userService.deleteUserByName(name);
+        esUserService.deleteUserByName(name);
 
         return ResponseEntity.ok().build();
 

@@ -1,7 +1,7 @@
 package com;
 
 import com.dupake.search.entity.User;
-import com.dupake.search.service.UserService;
+import com.dupake.search.service.EsUserService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -24,7 +24,7 @@ import java.util.List;
 public class UserServiceTest {
 
     @Autowired
-    private UserService userService;
+    private EsUserService esUserService;
 
     private static final int ID = 1;
 
@@ -44,8 +44,8 @@ public class UserServiceTest {
     public void test1SaveUser() {
         User user = this.mockUser();
         // 保存数据
-        userService.saveUser(user);
-        User newUser = userService.getUser(user.getId().toString());
+        esUserService.saveUser(user);
+        User newUser = esUserService.getUser(user.getId().toString());
         // 验证结果
         Assert.assertEquals(user.getId(), newUser.getId());
         Assert.assertEquals(user.getName(), newUser.getName());
@@ -55,7 +55,7 @@ public class UserServiceTest {
 
     @Test
     public void test2SearchUserByName() {
-        List<User> users = userService.searchUserByName(USER_NAME);
+        List<User> users = esUserService.searchUserByName(USER_NAME);
         // 验证结果
         Assert.assertNotNull(users);
         Assert.assertTrue(users.size() > 0);
@@ -66,9 +66,9 @@ public class UserServiceTest {
         String id = String.valueOf(ID);
 
         // 删除数据
-        userService.deleteUser(id);
+        esUserService.deleteUser(id);
 
-        User newUser = userService.getUser(id);
+        User newUser = esUserService.getUser(id);
         // 验证结果
         Assert.assertNull(newUser);
     }

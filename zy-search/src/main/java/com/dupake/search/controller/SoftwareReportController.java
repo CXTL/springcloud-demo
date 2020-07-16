@@ -18,7 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
-public class SoftwareReportResource {
+public class SoftwareReportController {
 
     @Autowired
     private SoftwareReportService softwareReportService;
