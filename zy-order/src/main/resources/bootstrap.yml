@@ -3,7 +3,14 @@ server:
 spring:
   application:
     name: order
-
+  zipkin:
+    discoveryClientEnabled: false
+    base-url: http://localhost:9411/ # 服务端地址
+    sender:
+      type: web                      # 数据传输方式，web 表示以 HTTP 报文的形式向服务端发送数据
+  sleuth:
+    sampler:
+      probability: 1.0               # 收集数据百分比，默认 0.1（10%）
   cloud:
     nacos:
       discovery:
