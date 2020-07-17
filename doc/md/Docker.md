@@ -6,7 +6,7 @@
 
 > 1. 卸载旧版本
 
-``````c
+``````kotlin
  $ sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
@@ -265,38 +265,107 @@ $ docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-serv
 $ docker run -itd -p 8088:8080 -p 50000:50000 --name jenkins --privileged=true  -v $PWD/jenkis:/var/jenkins_home jenkins/jenkins:2.222.3
 ``````
 
-#### es
+#### elk
 
-``````c
-$ docker pull elasticsearch:7.2.0 //安装es
-  
-$ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -d elasticsearch:7.2.0 //启动es http://localhost:9200
-  
-$ docker exec -it elasticsearch /bin/bash //修改配置，解决跨域访问问题
-$ cd /usr/share/elasticsearch/config/
-$ vi elasticsearch.yml
-  //在elasticsearch.yml的文件末尾加上:
-$ http.cors.enabled: true
-  http.cors.allow-origin: "*"
-    
-$ docker restart elasticsearch
+> ``````kotlin
+> // 拉取镜像
+> 
+> $ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.1.1 //下载elasticsearch
+> $ docker pull docker.elastic.co/logstash/logstash:7.1.1 //下载logstash
+> $ docker pull docker.elastic.co/kibana/kibana:7.1.1 //下载kibana
+> $ docker run --name head -d -p 9100:9100 docker.io/mobz/elasticsearch-head:5
+>     
+> ``````
 
-    
-    
-$ docker run --name logstash -d -p 5044:5044 -p 9600:9600 logstash:7.2.0 
-  
-$ docker pull kibana:7.2.0 //启动kibana
 
-$ docker run --name kibana --link=elasticsearch:test  -p 5601:5601 -d kibana:7.2.0
 
-$ docker start kibana //http://localhost:5601
-  
-  
-``````
+> ``````kotlin
+> //容器配置
+> $ vi docker-compose.yml
+> 
+> version: '2.2'
+> services:
+> elasticsearch:
+> image: docker.elastic.co/elasticsearch/elasticsearch:7.1.1
+> container_name: elasticsearch7.1.1
+> environment:
+> - discovery.type=single-node
+> - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+> volumes:
+> - esdata:/usr/share/elasticsearch/data
+> hostname: elasticsearch
+> restart: always
+> ports:
+> - 9200:9200
+> - 9300:9300
+> kibana:
+> image: docker.elastic.co/kibana/kibana:7.1.1
+> container_name: kibana7.1.1
+> environment:
+> - elasticsearch.hosts=http://elasticsearch:9200
+> hostname: kibana
+> depends_on:
+> - elasticsearch
+> restart: always
+> ports:
+> - "5601:5601"
+> logstash:
+> image: docker.elastic.co/logstash/logstash:7.1.1
+> container_name: logstash7.1.1
+> hostname: logstash
+> restart: always
+> depends_on:
+> - elasticsearch
+> ports:
+> - 9600:9600
+> - 5044:5044
+> volumes:
+> esdata:
+> driver: local
+> 
+> 
+> $ docker-compose up -d
+> $ docker-compose logs   //http://IP:5601/
+> ``````
+
+
+
+> ``````kotlin
+> 
+> //修改head链接es
+> $ sudo docker cp head:/usr/src/app/Gruntfile.js /home/xt/data/docker/
+> $ connect: {
+>     server: {
+>         options: {
+>             hostname: '0.0.0.0',
+>             port: 9100,
+>             base: '.',
+>             keepalive: true
+>         }
+>     }
+> }
+> 
+> $ sudo docker cp Gruntfile.js head:/usr/src/app
+> 
+> $ sudo docker exec -it es /bin/bash
+> $ vi ./config/elasticsearch.yml
+> //文件加入
+> http.cors.enabled: true
+> http.cors.allow-origin: "*"
+> //http://localhost:9100/
+> ``````
+
+> `````kotlin
+> //IK
+> $ sudo docker exec -it es /bin/bash
+> $ ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip
+> `````
+>
+> 
 
 #### registry
 
-> ``````
+> ``````kotlin
 > $  docker pull registry
 > 
 > $  sudo docker run -d -p 5000:5000 --restart=always --name registry registry
@@ -305,7 +374,14 @@ $ docker start kibana //http://localhost:5601
 > 
 > ``````
 >
-> 
+
+#### zipkin
+
+``````kotlin
+$ docker run -d --name zipkin -p 9411:9411 openzipkin/zipkin
+``````
+
+
 
 ### 容器命令
 
@@ -388,5 +464,116 @@ $ docker exec -it 'id' /bin/bash
 > $ sudo systemctl restart docker
 > ``````
 >
+
+### 仓库加速配置
+
+> ``````kotlin
+> $ echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://f2d6cb40.m.daocloud.io\"" | sudo tee -a /etc/default/docker 
 > 
+> $ sudo vim /etc/docker/daemon.json
+> 
+> $ 
+> {
+> "registry-mirrors": ["https://registry.docker-cn.com","http://hub-mirror.c.163.com"]
+> }
+> 
+> $ sudo systemctl daemon-reload
+> 
+> $ sudo systemctl restart docker
+> 
+> ``````
+
+### Docker Compose
+
+> ``````kotlin
+> $ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+> 
+> $ sudo chmod +x /usr/local/bin/docker-compose
+> 
+> $ docker-compose --version
+> ``````
+
+### idea多服务
+
+``````kotlin
+<component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+``````
+
+``````
+下载elasticsearch
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.1.1
+下载logstash
+docker pull docker.elastic.co/logstash/logstash:7.1.1
+下载kibana
+docker pull docker.elastic.co/kibana/kibana:7.1.1
+
+#进入elkDocker目录 
+cd /opt/elkDocker
+#新建docker-compose.yml文件
+vi docker-compose.yml
+version: '2.2'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.1.1
+    container_name: es
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    hostname: elasticsearch
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.1.1
+    container_name: kibana
+    environment:
+      - elasticsearch.hosts=http://elasticsearch:9200
+    hostname: kibana
+    depends_on:
+      - elasticsearch
+    restart: always
+    ports:
+      - "5601:5601"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.1.1
+    container_name: logstash
+    hostname: logstash
+    restart: always
+    depends_on:
+      - elasticsearch
+    ports:
+      - 9600:9600
+      - 5044:5044
+volumes:
+  esdata:
+    driver: local
+#:wq保存文件
+#在yml文件所在目录执行
+docker-compose up -d
+#如果都出现done那就创建完成了
+#可以执行一下命令查看日志（分别输出elk三个服务的日志）
+docker-compose logs
+#执行docker ps可以看到三个服务的运行状态（如下图）
+``````
+
+
 

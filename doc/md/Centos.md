@@ -117,3 +117,20 @@ $ sudo  node  -v
 $ sudo npm  -v
 ``````
 
+### git
+
+``````
+$ ssh-keygen -t rsa -C "youremail@example.com" //把id_rsa.pub内容添加到github的SSH keys页面
+$ ssh -T git@github.com
+$ git config --global user.name "Your Name"  
+$ git config --global user.email "youremail@domain.com"
+$ git config --list 
+$ git revert <commit ID> //生成一个新的提交来撤销某次提交
+``````
+
+### python
+
+``````kotlin
+$ sudo ln -s /usr/bin/python2.7 /usr/bin/python
+``````
+
