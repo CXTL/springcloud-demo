@@ -3,6 +3,8 @@ package com.dupake.system.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
 import com.dupake.common.pojo.dto.res.UserDTO;
@@ -103,14 +105,26 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 
     /**
      * 分页查询用户列表
+     * 指定页数 和每页显示数量 将此句话放入查询前面 IPage<MchBasePermission> page = new Page<>(pageNum, pageSize);
+     *   总条数  userIPage.getTotal()
+     *   当前页数 userIPage.getCurrent()
+     *   当前每页显示数 userIPage.getSize()
+     *
      *
      * @param pageable
      * @return
      */
     @Override
-    public CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable) {
+    public CommonResult listByPage(Pageable pageable) {
         log.info(JSONObject.toJSONString(pageable));
-        return null;
+
+        IPage<SysUser> page = new Page<>(pageable.getPageSize(), pageable.getPageNumber());
+        LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<SysUser>()
+                .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue());
+
+        IPage<SysUser> sysUserIPage = sysUserMapper.selectPage(page, wrapper);
+
+        return CommonResult.success(sysUserIPage);
     }
 
     /**
@@ -137,11 +151,6 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
             //落地用户信息
             UserDTO dto = super.getUsers(request);
             int insert = sysUserMapper.insert(SysUser.builder()
-                    .createId(dto.getId())
-                    .createTime(System.currentTimeMillis())
-                    .updateId(dto.getId())
-                    .updateTime(System.currentTimeMillis())
-                    .isDeleted(YesNoSwitchEnum.NO.getValue())
                     .email(userAddRequest.getEmail())
                     .username(userAddRequest.getUsername())
                     .password(userAddRequest.getPassword())
@@ -184,8 +193,6 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
         try {
             //修改用户信息
             int i = sysUserMapper.updateById(SysUser.builder()
-                    .updateId(super.getUsers(request).getId())
-                    .updateTime(System.currentTimeMillis())
                     .phone(userUpdateRequest.getPhone())
                     .email(userUpdateRequest.getEmail())
                     .username(userUpdateRequest.getUsername())
@@ -223,8 +230,6 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
         try {
             sysUserMapper.updateById(SysUser.builder()
                     .id(userId)
-                    .updateId(super.getUsers(request).getId())
-                    .updateTime(System.currentTimeMillis())
                     .isDeleted(YesNoSwitchEnum.YES.getValue()).build());
         } catch (Exception e) {
             log.error("SysUserServiceImpl delete user error , param:{}, error:{}", userId, e);

@@ -52,7 +52,7 @@ public class SysUserController {
             @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
                     value = "id desc")
     })
-    public CommonResult<CommonPage<UserDTO>> listByPage(@ApiIgnore Pageable pageable) {
+    public CommonResult listByPage(@ApiIgnore Pageable pageable) {
         return sysUserService.listByPage(pageable);
     }
 
