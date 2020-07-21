@@ -1,7 +1,7 @@
 package com.dupake.system.security;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.dupake.system.config.IgnoreUrlsConfig;
-import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.util.ObjectUtils;
 
 import javax.sql.DataSource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author dupake
@@ -43,6 +46,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtTokenFilter jwtTokenFilter;
 
+    @Autowired
+    IgnoreUrlsConfig ignoreUrlsConfig;
+
+
+//    @Bean
+//    public IgnoreUrlsConfig ignoreUrlsConfig() {
+//        return new IgnoreUrlsConfig();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -72,14 +83,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
                 .authorizeRequests();
 
-
         //不需要保护的资源路径允许访问
-        for (String url : ignoreUrlsConfig().getUrls()) {
+        for (String url : ignoreUrlsConfig.getUrls()) {
             registry.antMatchers(url).permitAll();
         }
 
@@ -135,10 +147,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return handler;
     }
 
-    @Bean
-    public IgnoreUrlsConfig ignoreUrlsConfig() {
-        return new IgnoreUrlsConfig();
-    }
+
 
 
 }

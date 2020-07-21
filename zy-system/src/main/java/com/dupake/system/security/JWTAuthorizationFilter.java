@@ -6,6 +6,8 @@ package com.dupake.system.security;
  * @Author dupake
  * @Date 2020/5/25 16:52
  */
+
+import com.dupake.system.config.IgnoreUrlsConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +15,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +23,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * 登录成功后 走此类进行鉴权操作
  */
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
+
+    @Resource
+    private IgnoreUrlsConfig ignoreUrlsConfig;
 
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
@@ -40,7 +47,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         String authorization = request.getHeader("Authorization");
         String Referer = request.getHeader("Referer");
         String tokenHeader = request.getHeader(header);
-        // 若请求头中没有Authorization信息 或是Authorization不以Bearer开头 则直接放行
+        // 若请求头中没有Authorization信息 或是Authorization不以Bearer开头 或请求路径白名单的 则直接放行
+
+
         if (tokenHeader == null || !tokenHeader.startsWith(JwtConfig.getPrefix()))
         {
             chain.doFilter(request, response);

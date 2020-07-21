@@ -47,4 +47,13 @@ public class LoginController {
     }
 
 
+    /**
+     * 登出
+     */
+    @ApiOperation("登出")
+    @PostMapping("/logout")
+    public CommonResult logout() {
+        return CommonResult.success();
+    }
+
 }
