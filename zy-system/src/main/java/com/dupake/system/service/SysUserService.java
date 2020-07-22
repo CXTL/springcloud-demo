@@ -28,9 +28,9 @@ public interface SysUserService {
 
     CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable);
 
-    CommonResult add(UserAddRequest userAddRequest, HttpServletRequest request);
+    CommonResult addUser(UserAddRequest userAddRequest);
 
-    CommonResult update(UserUpdateRequest userUpdateRequest, HttpServletRequest request);
+    CommonResult updateUser(UserUpdateRequest userUpdateRequest, HttpServletRequest request);
 
     CommonResult delete(Long userId, HttpServletRequest request);
 }

@@ -1,6 +1,8 @@
 package com.dupake.system.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
@@ -65,5 +67,16 @@ public class SysUser extends BaseEntity implements Serializable {
      */
     private String nickName;
 
+    /**
+     * 头像
+     */
+    private String headUrl;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    @TableField(value = "is_deleted",fill = FieldFill.INSERT_UPDATE)
     private Integer isDeleted;
 }

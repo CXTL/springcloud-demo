@@ -58,23 +58,22 @@ public class SysUserController {
 
 
     @ApiOperation("新增指定用户信息")
-    @PostMapping(value = "/add")
-    public CommonResult add(@Valid @RequestBody UserAddRequest userAddRequest, HttpServletRequest request) {
-        return sysUserService.add(userAddRequest,request);
+    @PostMapping(value = "/addUser")
+    public CommonResult addUser(@Valid @RequestBody UserAddRequest userAddRequest) {
+        return sysUserService.addUser(userAddRequest);
     }
 
 
 
     @ApiOperation("修改指定用户信息")
-    @PostMapping(value = "/update")
-    public CommonResult update(@Valid @RequestBody UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
-        return sysUserService.update(userUpdateRequest,request);
+    @PostMapping(value = "/updateUser")
+    public CommonResult updateUser(@Valid @RequestBody UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
+        return sysUserService.updateUser(userUpdateRequest,request);
     }
 
 
     @ApiOperation("删除指定用户信息")
     @PostMapping(value = "/delete")
-    @ResponseBody
     public CommonResult delete(@RequestParam(value = "userId") Long userId, HttpServletRequest request) {
         return sysUserService.delete(userId,request);
     }

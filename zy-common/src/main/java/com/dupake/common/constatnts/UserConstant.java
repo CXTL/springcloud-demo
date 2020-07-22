@@ -23,6 +23,9 @@ public class UserConstant {
      */
     //用户信息
     public final static String USER_INFO_TOKEN = "user:info:token:";
-
+    /**
+     * 初始化管理员ID
+     */
+    public final static int ADMIN_USER_ID = 1;
 
 }

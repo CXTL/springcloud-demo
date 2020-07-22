@@ -53,6 +53,20 @@ public class UserDTO {
     private Long createTime;
 
     /**
+     * 头像
+     */
+    private String headUrl;
+
+    /**
+     * 昵称
+     */
+    private String nickName;
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
      * 用户所属角色
      */
     private List<RoleDTO> roleList;

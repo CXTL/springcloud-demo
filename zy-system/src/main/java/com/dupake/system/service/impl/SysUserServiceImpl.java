@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.dupake.common.constatnts.UserConstant;
 import com.dupake.common.enums.UserStatusEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.exception.BadRequestException;
@@ -144,12 +145,11 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
      * 用户新增
      *
      * @param userAddRequest
-     * @param request
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult add(UserAddRequest userAddRequest, HttpServletRequest request) {
+    public CommonResult addUser(UserAddRequest userAddRequest) {
 
 
         //唯一性校验
@@ -162,12 +162,13 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 
         try {
             //落地用户信息
-            UserDTO dto = super.getUsers(request);
             int insert = sysUserMapper.insert(SysUser.builder()
                     .email(userAddRequest.getEmail())
                     .username(userAddRequest.getUsername())
                     .password(userAddRequest.getPassword())
                     .status(userAddRequest.getStatus())
+                    .nickName(userAddRequest.getNickName())
+                    .remark(userAddRequest.getRemark())
                     .sex(userAddRequest.getSex())
                     .phone(userAddRequest.getPhone()).build());
         } catch (Exception e) {
@@ -180,7 +181,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult update(UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
+    public CommonResult updateUser(UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
 
         //校验用户是否存在
         SysUser sysUser = sysUserMapper.selectById(userUpdateRequest.getId());
@@ -209,8 +210,9 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
                     .phone(userUpdateRequest.getPhone())
                     .email(userUpdateRequest.getEmail())
                     .username(userUpdateRequest.getUsername())
-                    .sex(userUpdateRequest.getSex())
                     .status(userUpdateRequest.getStatus())
+                    .remark(userUpdateRequest.getRemark())
+                    .nickName(userUpdateRequest.getNickName())
                     .password(userUpdateRequest.getPassword()).build());
         } catch (Exception e) {
             log.error("SysUserServiceImpl update user error , param:{}, error:{}", JSONObject.toJSONString(userUpdateRequest), e);
@@ -230,7 +232,15 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult delete(Long userId, HttpServletRequest request) {
+
+        Long adminId = Long.valueOf(UserConstant.ADMIN_USER_ID);
+        if (userId.compareTo(adminId) == 0) {
+            return CommonResult.failed(BaseResult.SYS_USER_CANNOT_DELETE.getCode(),
+                    BaseResult.SYS_USER_CANNOT_DELETE.getMessage());
+        }
+
         //校验用户是否存在
+
         SysUser sysUser = sysUserMapper.selectById(userId);
         if (ObjectUtil.isNull(sysUser)) {
             log.error("user is not exist");
@@ -248,7 +258,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
             log.error("SysUserServiceImpl delete user error , param:{}, error:{}", userId, e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
-        return null;
+        return CommonResult.success();
     }
 
     /**
@@ -290,7 +300,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
                         .eq(SysUser::getPhone, phone)
                         .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue())
         );
-        if (ObjectUtil.isNull(sysUser)) {
+        if (!ObjectUtil.isNull(sysUser)) {
             log.error("SysUserServiceImpl getUserInfo email is  exist param:{}", phone);
             return CommonResult.failed(BaseResult.SYS_PHONE_IS_EXIST.getCode(),
                     BaseResult.SYS_PHONE_IS_EXIST.getMessage());

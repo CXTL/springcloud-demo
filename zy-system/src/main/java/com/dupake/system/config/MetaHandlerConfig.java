@@ -15,7 +15,7 @@
  * =============================================================
  */
 
-package com.dupake.common.config;
+package com.dupake.system.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.dupake.common.constatnts.StringConstant;
@@ -46,21 +46,21 @@ public class MetaHandlerConfig implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         if (Objects.isNull(getFieldValByName(StringConstant.CREATE_TIME, metaObject))) {
-            this.setFieldValByName(StringConstant.CREATE_TIME, DateUtil.getCurrentTimestamp(), metaObject);
+            this.setFieldValByName("createTime", DateUtil.getCurrentTimeMillis(), metaObject);
         }
         if (Objects.isNull(getFieldValByName(StringConstant.UPDATE_TIME, metaObject))) {
-            this.setFieldValByName(StringConstant.UPDATE_TIME, DateUtil.getCurrentTimestamp(), metaObject);
+            this.setFieldValByName("updateTime", DateUtil.getCurrentTimeMillis(), metaObject);
         }
         synchronized (LOCK_USER_ID){
             if (Objects.isNull(getFieldValByName(StringConstant.UPDATE_USER_ID, metaObject))) {
-                this.setFieldValByName(StringConstant.UPDATE_USER_ID, getUserId(), metaObject);
+                this.setFieldValByName("updateId", getUserId(), metaObject);
             }
             if (Objects.isNull(getFieldValByName(StringConstant.CREATE_USER_ID, metaObject))) {
-                this.setFieldValByName(StringConstant.CREATE_USER_ID, getUserId(), metaObject);
+                this.setFieldValByName("createId", getUserId(), metaObject);
             }
         }
         if (Objects.isNull(getFieldValByName(StringConstant.DELETED, metaObject))) {
-            this.setFieldValByName(StringConstant.DELETED, YesNoSwitchEnum.NO.getValue(),metaObject);
+            this.setFieldValByName("isDeleted", YesNoSwitchEnum.NO.getValue(),metaObject);
         }
     }
 
@@ -72,10 +72,10 @@ public class MetaHandlerConfig implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         if (Objects.isNull(getFieldValByName(StringConstant.UPDATE_TIME, metaObject))) {
-            this.setFieldValByName(StringConstant.UPDATE_TIME, DateUtil.getCurrentTimestamp(), metaObject);
+            this.setFieldValByName("updateTime", DateUtil.getCurrentTimeMillis(), metaObject);
         }
         if (Objects.isNull(getFieldValByName(StringConstant.UPDATE_USER_ID, metaObject))) {
-            this.setFieldValByName(StringConstant.UPDATE_USER_ID, getUserId(), metaObject);
+            this.setFieldValByName("updateId", getUserId(), metaObject);
         }
 
     }

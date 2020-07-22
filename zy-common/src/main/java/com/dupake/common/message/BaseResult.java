@@ -17,6 +17,7 @@ public enum BaseResult implements IErrorCode {
     SYS_PHONE_IS_EXIST(10004, "手机号已存在"),
     SYS_USERNAME_PASSWORD_ERROR(10005, "账号或密码错误"),
     SYS_USERNAME_ERROR(10005, "账号异常"),
+    SYS_USER_CANNOT_DELETE(20014, "系统默认用户不可删除!"),
 
     /***************************************订单模块枚举***************************************/
 

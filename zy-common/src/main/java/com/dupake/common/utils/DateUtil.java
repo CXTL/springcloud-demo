@@ -19,4 +19,13 @@ public class DateUtil {
         return Timestamp.valueOf(LocalDateTime.now());
     }
 
+    /**
+     * 获取当前时间戳
+     *
+     * @return
+     */
+    public static long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
 }

@@ -22,6 +22,11 @@ public class UserAddRequest {
      */
     @NotEmpty(message = "用户名不能为空")
     private String username;
+    /**
+     * 昵称
+     */
+    @NotEmpty(message = "昵称不能为空")
+    private String nickName;
 
     /**
      * 密码
@@ -39,7 +44,6 @@ public class UserAddRequest {
     /**
      * 性别 0:男1:女
      */
-    @NotEmpty(message = "性别不能为空")
     private Integer sex;
 
     /**
@@ -56,4 +60,9 @@ public class UserAddRequest {
     @Email(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])",
             message = "邮箱格式有误")
     private String email;
+
+    /**
+     * 备注
+     */
+    private String remark;
 }

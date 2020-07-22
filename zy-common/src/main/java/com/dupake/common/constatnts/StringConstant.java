@@ -26,10 +26,10 @@ public final class StringConstant {
 	/**
 	 * 公共字段
 	 */
-	public static final String CREATE_TIME = "createTime";
-	public static final String UPDATE_TIME = "updateTime";
-	public static final String UPDATE_USER_ID = "createId";
-	public static final String CREATE_USER_ID = "updateId";
-	public static final String DELETED = "isDeleted";
+	public static final String CREATE_TIME = "create_time";
+	public static final String UPDATE_TIME = "update_time";
+	public static final String UPDATE_USER_ID = "create_id";
+	public static final String CREATE_USER_ID = "update_id";
+	public static final String DELETED = "is_deleted";
 
 }
