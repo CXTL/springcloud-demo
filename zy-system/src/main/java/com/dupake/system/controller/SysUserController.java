@@ -47,12 +47,12 @@ public class SysUserController {
     @ApiOperation("根据用户名或姓名分页获取用户列表")
     @GetMapping(value = "/listByPage")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query", value = "10"),
-            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query", value = "1"),
+            @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query", value = "1"),
+            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query", value = "10"),
             @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
                     value = "id desc")
     })
-    public CommonResult listByPage(@ApiIgnore Pageable pageable) {
+    public CommonResult<CommonPage<UserDTO>> listByPage(@ApiIgnore Pageable pageable) {
         return sysUserService.listByPage(pageable);
     }
 

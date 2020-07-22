@@ -5,30 +5,35 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.dupake.common.pojo.dto.req.user.UserAddRequest;
-import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
-import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.enums.UserStatusEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
+import com.dupake.common.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
+import com.dupake.common.pojo.dto.req.user.UserAddRequest;
+import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
+import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysUserMapper;
 import com.dupake.system.service.BaseService;
 import com.dupake.system.service.SysMenuService;
 import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserService;
-import com.dupake.common.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -115,16 +120,24 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
      * @return
      */
     @Override
-    public CommonResult listByPage(Pageable pageable) {
+    public CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable) {
         log.info(JSONObject.toJSONString(pageable));
 
-        IPage<SysUser> page = new Page<>(pageable.getPageSize(), pageable.getPageNumber());
+        IPage<SysUser> page = new Page<>( pageable.getPageNumber(),pageable.getPageSize());
         LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<SysUser>()
                 .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue());
 
         IPage<SysUser> sysUserIPage = sysUserMapper.selectPage(page, wrapper);
+        List<UserDTO> userDTOList = new ArrayList<>();
+        if(!ObjectUtils.isEmpty(sysUserIPage) && !ObjectUtils.isEmpty(sysUserIPage.getRecords())){
+            userDTOList = sysUserIPage.getRecords().stream().map(a -> {
+                UserDTO userDTO = new UserDTO();
+                BeanUtils.copyProperties(a, userDTO);
+                return userDTO;
+            }).collect(Collectors.toList());
+        }
 
-        return CommonResult.success(sysUserIPage);
+        return CommonResult.success(CommonPage.restPage(userDTOList));
     }
 
     /**
