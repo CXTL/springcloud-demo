@@ -4,17 +4,72 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.dupake.system.entity.SysUser">
-        <id column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="status" property="status" />
-        <result column="untitled2" property="untitled2" />
-        <result column="untitled1" property="untitled1" />
-        <result column="create_id" property="createId" />
-        <result column="create_time" property="createTime" />
-        <result column="update_id" property="updateId" />
-        <result column="update_time" property="updateTime" />
-        <result column="is_deleted" property="isDeleted" />
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="status" property="status"/>
+        <result column="remark" property="remark"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="create_id" property="createId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_id" property="updateId"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
     </resultMap>
+
+
+
+    <update id="updateBatch" parameterType="java.util.List" >
+        update sys_user
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_deleted =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.isDeleted!=null">
+                        when id=#{i.id} then #{i.isDeleted}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.updateTime!=null">
+                        when id=#{i.id} then #{i.updateTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="i" index="index" >
+            id=#{i.id}
+        </foreach>
+    </update>
+
+    <select id="selectUserListPage" resultMap="BaseResultMap">
+        select * from sys_user where
+        id >= (
+        select id from sys_user
+        <where>
+            <if test="username != null and username != ''">
+                username = #{username}
+            </if>
+        </where>
+        order by id limit #{pageNumber} , 1
+        )
+        <if test="username != null and username != ''">
+          and  username = #{username}
+        </if>
+        and is_deleted = 0
+        limit #{size}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        select count(1) from sys_user
+        <where>
+            is_deleted = 0
+            <if test="username != null and username != ''">
+                username = #{username}
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.dupake.common.pojo.dto.req.user;
 
+import com.dupake.common.pojo.dto.req.BasePageRequest;
 import lombok.Data;
 
 /**
@@ -9,8 +10,10 @@ import lombok.Data;
  * @Date 2020/6/9 10:57
  */
 @Data
-public class UserQueryRequest {
+public class UserQueryRequest extends BasePageRequest {
 
+    private static final long serialVersionUID = -1970997896879063951L;
+    
     private String username;
 
     private String phone;

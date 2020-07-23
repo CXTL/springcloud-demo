@@ -19,13 +19,13 @@ public class CommonPage<T> {
     /**
      * 将PageHelper分页后的list转为分页信息
      */
-    public static <T> CommonPage<T> restPage(List<T> list) {
+    public static <T> CommonPage<T> restPage(List<T> list,long total) {
         CommonPage<T> result = new CommonPage<T>();
         PageInfo<T> pageInfo = new PageInfo<T>(list);
         result.setTotalPage(pageInfo.getPages());
         result.setPageNum(pageInfo.getPageNum());
         result.setPageSize(pageInfo.getPageSize());
-        result.setTotal(pageInfo.getTotal());
+        result.setTotal(total);
         result.setList(pageInfo.getList());
         return result;
     }

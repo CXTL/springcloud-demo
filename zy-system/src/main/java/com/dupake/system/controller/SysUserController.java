@@ -2,6 +2,7 @@ package com.dupake.system.controller;
 
 
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
+import com.dupake.common.pojo.dto.req.user.UserQueryRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
 import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.message.CommonPage;
@@ -18,6 +19,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,15 +47,13 @@ public class SysUserController {
 
 
     @ApiOperation("根据用户名或姓名分页获取用户列表")
-    @GetMapping(value = "/listByPage")
+    @PostMapping(value = "/listByPage")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query", value = "1"),
-            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query", value = "10"),
-            @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
-                    value = "id desc")
+            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query", value = "10")
     })
-    public CommonResult<CommonPage<UserDTO>> listByPage(@ApiIgnore Pageable pageable) {
-        return sysUserService.listByPage(pageable);
+    public CommonResult<CommonPage<UserDTO>> listByPage(@RequestBody UserQueryRequest userQueryRequest) {
+        return sysUserService.listByPage(userQueryRequest);
     }
 
 
@@ -76,6 +76,13 @@ public class SysUserController {
     @PostMapping(value = "/delete")
     public CommonResult delete(@RequestParam(value = "userId") Long userId, HttpServletRequest request) {
         return sysUserService.delete(userId,request);
+    }
+
+
+    @ApiOperation("批量删除用户信息")
+    @PostMapping(value = "/deleteBatch")
+    public CommonResult deleteBatch(@RequestParam(value = "ids") List<Long> ids) {
+        return sysUserService.deleteBatch(ids);
     }
 
 

@@ -3,8 +3,6 @@ package com.dupake.system.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dupake.common.constatnts.UserConstant;
 import com.dupake.common.enums.UserStatusEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
@@ -13,8 +11,10 @@ import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
+import com.dupake.common.pojo.dto.req.user.UserQueryRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
 import com.dupake.common.pojo.dto.res.UserDTO;
+import com.dupake.common.utils.DateUtil;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysUserMapper;
 import com.dupake.system.service.BaseService;
@@ -23,7 +23,6 @@ import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
@@ -112,33 +111,30 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     /**
      * 分页查询用户列表
      * 指定页数 和每页显示数量 将此句话放入查询前面 IPage<MchBasePermission> page = new Page<>(pageNum, pageSize);
-     *   总条数  userIPage.getTotal()
-     *   当前页数 userIPage.getCurrent()
-     *   当前每页显示数 userIPage.getSize()
+     * 总条数  userIPage.getTotal()
+     * 当前页数 userIPage.getCurrent()
+     * 当前每页显示数 userIPage.getSize()
      *
-     *
-     * @param pageable
+     * @param userQueryRequest
      * @return
      */
     @Override
-    public CommonResult<CommonPage<UserDTO>> listByPage(Pageable pageable) {
-        log.info(JSONObject.toJSONString(pageable));
+    public CommonResult<CommonPage<UserDTO>> listByPage(UserQueryRequest userQueryRequest) {
 
-        IPage<SysUser> page = new Page<>( pageable.getPageNumber(),pageable.getPageSize());
-        LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<SysUser>()
-                .eq(SysUser::getIsDeleted, YesNoSwitchEnum.NO.getValue());
-
-        IPage<SysUser> sysUserIPage = sysUserMapper.selectPage(page, wrapper);
         List<UserDTO> userDTOList = new ArrayList<>();
-        if(!ObjectUtils.isEmpty(sysUserIPage) && !ObjectUtils.isEmpty(sysUserIPage.getRecords())){
-            userDTOList = sysUserIPage.getRecords().stream().map(a -> {
-                UserDTO userDTO = new UserDTO();
-                BeanUtils.copyProperties(a, userDTO);
-                return userDTO;
-            }).collect(Collectors.toList());
-        }
 
-        return CommonResult.success(CommonPage.restPage(userDTOList));
+        int totalCount = sysUserMapper.getTotalCount(userQueryRequest);
+        if(totalCount>0){
+            List<SysUser> sysUserIPage = sysUserMapper.selectUserListPage(userQueryRequest);
+            if (!ObjectUtils.isEmpty(sysUserIPage)) {
+                userDTOList = sysUserIPage.stream().map(a -> {
+                    UserDTO userDTO = new UserDTO();
+                    BeanUtils.copyProperties(a, userDTO);
+                    return userDTO;
+                }).collect(Collectors.toList());
+            }
+        }
+        return CommonResult.success(CommonPage.restPage(userDTOList,totalCount));
     }
 
     /**
@@ -239,15 +235,6 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
                     BaseResult.SYS_USER_CANNOT_DELETE.getMessage());
         }
 
-        //校验用户是否存在
-
-        SysUser sysUser = sysUserMapper.selectById(userId);
-        if (ObjectUtil.isNull(sysUser)) {
-            log.error("user is not exist");
-            return CommonResult.failed(BaseResult.SYS_USER_IS_NOT_EXIST.getCode(),
-                    BaseResult.SYS_USER_IS_NOT_EXIST.getMessage());
-        }
-
         //todo 校验 商户只能刪除属于自己的商户子账号和代理的信息
 
         try {
@@ -258,6 +245,35 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
             log.error("SysUserServiceImpl delete user error , param:{}, error:{}", userId, e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
+        return CommonResult.success();
+    }
+
+
+    /**
+     * 批量删除
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public CommonResult deleteBatch(List<Long> ids) {
+        Long adminId = Long.valueOf(UserConstant.ADMIN_USER_ID);
+        if (ids.contains(adminId)) {
+            return CommonResult.failed(BaseResult.SYS_USER_CANNOT_DELETE.getCode(),
+                    BaseResult.SYS_USER_CANNOT_DELETE.getMessage());
+        }
+
+        List<SysUser> sysUsers = ids.stream().map(a -> {
+            SysUser sysUser = SysUser.builder().build();
+            sysUser.setId(a);
+            sysUser.setIsDeleted(YesNoSwitchEnum.YES.getValue());
+            sysUser.setUpdateTime(DateUtil.getCurrentTimeMillis());
+            return sysUser;
+        }).collect(Collectors.toList());
+
+        sysUserMapper.updateBatch(sysUsers);
+
         return CommonResult.success();
     }
 
