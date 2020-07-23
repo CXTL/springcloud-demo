@@ -67,15 +67,15 @@ public class SysUserController {
 
     @ApiOperation("修改指定用户信息")
     @PostMapping(value = "/updateUser")
-    public CommonResult updateUser(@Valid @RequestBody UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
-        return sysUserService.updateUser(userUpdateRequest,request);
+    public CommonResult updateUser(@Valid @RequestBody UserUpdateRequest userUpdateRequest) {
+        return sysUserService.updateUser(userUpdateRequest);
     }
 
 
     @ApiOperation("删除指定用户信息")
     @PostMapping(value = "/delete")
-    public CommonResult delete(@RequestParam(value = "userId") Long userId, HttpServletRequest request) {
-        return sysUserService.delete(userId,request);
+    public CommonResult delete(@RequestParam(value = "userId") Long userId) {
+        return sysUserService.delete(userId);
     }
 
 

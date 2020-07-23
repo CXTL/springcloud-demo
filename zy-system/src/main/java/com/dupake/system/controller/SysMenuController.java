@@ -1,16 +1,22 @@
 package com.dupake.system.controller;
 
 
-import com.dupake.common.pojo.dto.res.MenuDTO;
+import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
+import com.dupake.common.pojo.dto.req.menu.MenuAddRequest;
+import com.dupake.common.pojo.dto.req.menu.MenuQueryRequest;
+import com.dupake.common.pojo.dto.req.menu.MenuUpdateRequest;
+import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.system.service.SysMenuService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -31,8 +37,44 @@ public class SysMenuController {
 
     @ApiOperation(value = "获取权限列表(层级结构)")
     @GetMapping(value = "/treeList")
-    public CommonResult<List<MenuDTO>> getUserInfo() {
+    public CommonResult<List<MenuDTO>> treeList() {
         return sysMenuService.treeList();
+    }
+
+
+    @ApiOperation("分页查询菜单列表")
+    @PostMapping(value = "/listByPage")
+    public CommonResult<CommonPage<MenuDTO>> listByPage(@Valid @RequestBody MenuQueryRequest menuQueryRequest) {
+        return sysMenuService.listByPage(menuQueryRequest);
+    }
+
+
+    @ApiOperation("新增指定菜单信息")
+    @PostMapping(value = "/addMenu")
+    public CommonResult addMenu(@Valid @RequestBody MenuAddRequest menuAddRequest) {
+        return sysMenuService.addMenu(menuAddRequest);
+    }
+
+
+
+    @ApiOperation("修改指定菜单信息")
+    @PostMapping(value = "/updateMenu")
+    public CommonResult updateMenu(@Valid @RequestBody MenuUpdateRequest menuUpdateRequest) {
+        return sysMenuService.updateMenu(menuUpdateRequest);
+    }
+
+
+    @ApiOperation("删除指定菜单信息")
+    @PostMapping(value = "/delete")
+    public CommonResult delete(@RequestParam(value = "menuId") Long menuId) {
+        return sysMenuService.delete(menuId);
+    }
+
+
+    @ApiOperation("批量删除菜单信息")
+    @PostMapping(value = "/deleteBatch")
+    public CommonResult deleteBatch(@RequestParam(value = "ids") List<Long> ids) {
+        return sysMenuService.deleteBatch(ids);
     }
 
 

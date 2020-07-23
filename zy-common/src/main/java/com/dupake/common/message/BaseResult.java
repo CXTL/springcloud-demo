@@ -17,7 +17,11 @@ public enum BaseResult implements IErrorCode {
     SYS_PHONE_IS_EXIST(10004, "手机号已存在"),
     SYS_USERNAME_PASSWORD_ERROR(10005, "账号或密码错误"),
     SYS_USERNAME_ERROR(10005, "账号异常"),
-    SYS_USER_CANNOT_DELETE(20014, "系统默认用户不可删除!"),
+    SYS_USER_CANNOT_DELETE(10006, "系统默认用户不可删除!"),
+
+    SYS_MENU_NAME_IS_EXIST(10007, "菜单名称已存在!"),
+    SYS_MENU_PERMISSION_IS_EXIST(10008, "权限标识已存在!"),
+    SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU(10008, "该菜单存在子菜单,无法删除!"),
 
     /***************************************订单模块枚举***************************************/
 

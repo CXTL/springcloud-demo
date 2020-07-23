@@ -2,10 +2,8 @@ package com.dupake.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -20,10 +18,9 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Builder
-public class SysMenu implements Serializable {
+public class SysMenu extends BaseEntity {
 
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = -4871761316414433326L;
     /**
      * id
      */
@@ -46,20 +43,14 @@ public class SysMenu implements Serializable {
     private Integer sort;
 
     /**
-     * 图标
-     */
-    private String icon;
-
-    /**
-     * 菜单标题
-     */
-    private String title;
-
-
-    /**
      * 路径
      */
     private String path;
+
+    /**
+     * 图标
+     */
+    private String icon;
 
     /**
      * 是否隐藏 0:未隐藏1:已隐藏
@@ -72,34 +63,14 @@ public class SysMenu implements Serializable {
     private String permission;
 
     /**
-     * 类型 0:菜单权限1:按钮权限
+     * 类型 0:菜单权限 1:资源权限
      */
     private Integer type;
 
     /**
-     * 创建人
-     */
-    private Long createId;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     */
-    private Long updateId;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
-    /**
      * 是否删除 0:未删除1:已删除
      */
-    private String isDeleted;
+    private Integer isDeleted;
 
     /**
      * 备注

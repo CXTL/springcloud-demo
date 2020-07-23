@@ -31,9 +31,9 @@ public interface SysUserService {
 
     CommonResult addUser(UserAddRequest userAddRequest);
 
-    CommonResult updateUser(UserUpdateRequest userUpdateRequest, HttpServletRequest request);
+    CommonResult updateUser(UserUpdateRequest userUpdateRequest);
 
-    CommonResult delete(Long userId, HttpServletRequest request);
+    CommonResult delete(Long userId);
 
     CommonResult deleteBatch(List<Long>  ids);
 }

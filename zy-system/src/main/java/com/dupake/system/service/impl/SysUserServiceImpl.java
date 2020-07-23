@@ -177,7 +177,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult updateUser(UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
+    public CommonResult updateUser(UserUpdateRequest userUpdateRequest) {
 
         //校验用户是否存在
         SysUser sysUser = sysUserMapper.selectById(userUpdateRequest.getId());
@@ -222,12 +222,11 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
      * 刪除用戶
      *
      * @param userId
-     * @param request
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult delete(Long userId, HttpServletRequest request) {
+    public CommonResult delete(Long userId) {
 
         Long adminId = Long.valueOf(UserConstant.ADMIN_USER_ID);
         if (userId.compareTo(adminId) == 0) {
