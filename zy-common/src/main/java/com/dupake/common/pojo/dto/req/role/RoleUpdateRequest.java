@@ -1,21 +1,17 @@
-package com.dupake.common.pojo.dto.req.menu;
+package com.dupake.common.pojo.dto.req.role;
 
 import lombok.Data;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
- * @ClassName MenuUpdateRequest
- * @Description 修改 菜单 请求实体
+ * @ClassName UserUpdateRequest
+ * @Description 修改 用户 请求实体
  * @Author dupake
  * @Date 2020/6/9 9:59
  */
 @Data
-public class MenuUpdateRequest implements Serializable {
+public class RoleUpdateRequest implements Serializable {
 
     private static final long serialVersionUID = 4371186875731167316L;
 
