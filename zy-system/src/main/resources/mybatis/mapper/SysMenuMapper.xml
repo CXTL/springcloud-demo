@@ -32,7 +32,7 @@
 
     </select>
 
-    <select id="selectUserListPage" resultMap="BaseResultMap">
+    <select id="selectListPage" resultMap="BaseResultMap">
         select * from sys_menu where
         id >= (
         select id from sys_menu
@@ -45,13 +45,13 @@
         order by id limit #{pageNumber} , 1
         )
         <if test="name != null and name != ''">
-            name = #{name}
+            and  name = #{name}
         </if>
         and is_deleted = 0
         limit #{size}
     </select>
     <select id="getTotalCount" resultType="int">
-        select count(1) from sys_user
+        select count(1) from sys_menu
         <where>
             is_deleted = 0
             <if test="name != null and name != ''">

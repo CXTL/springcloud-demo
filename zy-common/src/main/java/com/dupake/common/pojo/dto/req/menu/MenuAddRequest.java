@@ -33,11 +33,6 @@ public class MenuAddRequest {
     private Integer sort;
 
     /**
-     * 菜单标题
-     */
-    private String title;
-
-    /**
      * 路径
      */
     private String path;

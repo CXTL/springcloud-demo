@@ -71,15 +71,8 @@ public interface SysMenuService {
 
     /**
      * 删除菜单
-     * @param menuId
-     * @return
-     */
-    CommonResult delete(Long menuId);
-
-    /**
-     * 批量删除菜单
      * @param ids
      * @return
      */
-    CommonResult deleteBatch(List<Long> ids);
+    CommonResult deleteMenu(List<Long> ids);
 }

@@ -9,13 +9,10 @@ import com.dupake.common.pojo.dto.req.menu.MenuUpdateRequest;
 import com.dupake.common.pojo.dto.res.MenuDTO;
 import com.dupake.system.service.SysMenuService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -64,17 +61,12 @@ public class SysMenuController {
     }
 
 
-    @ApiOperation("删除指定菜单信息")
-    @PostMapping(value = "/delete")
-    public CommonResult delete(@RequestParam(value = "menuId") Long menuId) {
-        return sysMenuService.delete(menuId);
-    }
 
 
     @ApiOperation("批量删除菜单信息")
-    @PostMapping(value = "/deleteBatch")
-    public CommonResult deleteBatch(@RequestParam(value = "ids") List<Long> ids) {
-        return sysMenuService.deleteBatch(ids);
+    @PostMapping(value = "/deleteMenu")
+    public CommonResult deleteMenu(@RequestParam(value = "ids") List<Long> ids) {
+        return sysMenuService.deleteMenu(ids);
     }
 
 

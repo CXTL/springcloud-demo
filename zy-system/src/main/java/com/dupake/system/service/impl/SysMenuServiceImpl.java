@@ -2,10 +2,9 @@ package com.dupake.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.dupake.common.enums.UserStatusEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
-import com.dupake.common.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
@@ -17,6 +16,7 @@ import com.dupake.common.utils.DateUtil;
 import com.dupake.system.entity.SysMenu;
 import com.dupake.system.mapper.SysMenuMapper;
 import com.dupake.system.service.SysMenuService;
+import com.dupake.system.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 
         int totalCount = sysMenuMapper.getTotalCount(menuQueryRequest);
         if (totalCount > 0) {
-            List<SysMenu> sysMenus = sysMenuMapper.selectUserListPage(menuQueryRequest);
+            List<SysMenu> sysMenus = sysMenuMapper.selectListPage(menuQueryRequest);
             if (!ObjectUtils.isEmpty(sysMenus)) {
                 menuDTOS = sysMenus.stream().map(a -> {
                     MenuDTO menuDTO = new MenuDTO();
@@ -80,7 +80,7 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Transactional(rollbackFor = Exception.class)
     public CommonResult addMenu(MenuAddRequest menuAddRequest) {
         //菜单名称校验 权限标识校验
-        checkMenuInfo(menuAddRequest.getName(), menuAddRequest.getPermission());
+        checkMenuInfo(menuAddRequest.getName(), menuAddRequest.getPermission(),null);
 
         //落地菜单数据
         try {
@@ -112,8 +112,16 @@ public class SysMenuServiceImpl implements SysMenuService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult updateMenu(MenuUpdateRequest menuUpdateRequest) {
+
+        SysMenu sysMenu = sysMenuMapper.selectOne(new LambdaQueryWrapper<SysMenu>()
+                .eq(SysMenu::getId, menuUpdateRequest.getId())
+                .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        if(Objects.isNull(sysMenu)){
+            log.error("menu is null");
+            throw new BadRequestException(BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getCode(), BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getMessage());
+        }
         //菜单名称校验 权限标识校验
-        checkMenuInfo(menuUpdateRequest.getName(), menuUpdateRequest.getPermission());
+        checkMenuInfo(menuUpdateRequest.getName(), menuUpdateRequest.getPermission(),sysMenu);
 
         //修改菜单信息
         try {
@@ -139,47 +147,21 @@ public class SysMenuServiceImpl implements SysMenuService {
     }
 
     /**
-     * @param menuId :
-     * @return com.dupake.common.message.CommonResult
-     * @Description 删除菜单 (先删除子菜单 再删除根菜单)
-     **/
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public CommonResult delete(Long menuId) {
-
-        //递归查询菜单及所有子菜单
-        List<SysMenu> sysMenus = sysMenuMapper.selectList(new LambdaUpdateWrapper<SysMenu>().eq(SysMenu::getPid, menuId).eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
-        if (CollectionUtil.isEmpty(sysMenus)) {
-            throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
-                    BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
-        }
-        //修改菜单状态
-        try {
-            sysMenuMapper.updateById(SysMenu.builder().isDeleted(YesNoSwitchEnum.YES.getValue()).build());
-        } catch (Exception e) {
-            log.error("SysMenuServiceImpl update menu error , param:{}, error:{}", JSONObject.toJSONString(menuId), e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
-        }
-        //todo 修改角色菜单表数据
-
-        return CommonResult.success();
-    }
-
-    /**
      * @param ids :
      * @return com.dupake.common.message.CommonResult
      * @Description
      **/
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult deleteBatch(List<Long> ids) {
+    public CommonResult deleteMenu(List<Long> ids) {
         //查询菜单及所有子菜单
         List<SysMenu> sysMenus = sysMenuMapper.selectList(
                 new LambdaUpdateWrapper<SysMenu>()
                         .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue())
                         .in(SysMenu::getPid, ids)
         );
-        if (CollectionUtil.isEmpty(sysMenus)) {
+        if (!CollectionUtil.isEmpty(sysMenus)) {
+            log.error("menu has sub menus");
             throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
                     BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
         }
@@ -209,27 +191,30 @@ public class SysMenuServiceImpl implements SysMenuService {
      * @param name
      * @param permission
      */
-    private void checkMenuInfo(String name, String permission) {
-        if (!Objects.isNull(sysMenuMapper.selectOne(new LambdaUpdateWrapper<SysMenu>()
-                .eq(SysMenu::getName, name)
-                .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        ))) {
-            log.error("menu name:{} is exist", name);
-            throw new BadRequestException(BaseResult.SYS_MENU_NAME_IS_EXIST.getCode(),
-                    BaseResult.SYS_MENU_NAME_IS_EXIST.getMessage());
+    private void checkMenuInfo(String name, String permission,SysMenu menu) {
+        if(Objects.isNull(menu) || !menu.getName().equals(name)){
+            if (!Objects.isNull(sysMenuMapper.selectOne(new LambdaUpdateWrapper<SysMenu>()
+                    .eq(SysMenu::getName, name)
+                    .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue())
+            ))) {
+                log.error("menu name:{} is exist", name);
+                throw new BadRequestException(BaseResult.SYS_MENU_NAME_IS_EXIST.getCode(),
+                        BaseResult.SYS_MENU_NAME_IS_EXIST.getMessage());
 
+            }
         }
-        ;
-        if (!Objects.isNull(sysMenuMapper.selectOne(new LambdaUpdateWrapper<SysMenu>()
-                .eq(SysMenu::getPermission, permission)
-                .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        ))) {
-            log.error("menu permission:{} is exist", permission);
-            throw new BadRequestException(BaseResult.SYS_MENU_PERMISSION_IS_EXIST.getCode(),
-                    BaseResult.SYS_MENU_PERMISSION_IS_EXIST.getMessage());
+        if(Objects.isNull(menu) || !menu.getPermission().equals(permission)){
+            if (!Objects.isNull(sysMenuMapper.selectOne(new LambdaUpdateWrapper<SysMenu>()
+                    .eq(SysMenu::getPermission, permission)
+                    .eq(SysMenu::getIsDeleted, YesNoSwitchEnum.NO.getValue())
+            ))) {
+                log.error("menu permission:{} is exist", permission);
+                throw new BadRequestException(BaseResult.SYS_MENU_PERMISSION_IS_EXIST.getCode(),
+                        BaseResult.SYS_MENU_PERMISSION_IS_EXIST.getMessage());
 
+            }
         }
-        ;
+
     }
 
 

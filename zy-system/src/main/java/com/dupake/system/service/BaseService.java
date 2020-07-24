@@ -1,7 +1,7 @@
 package com.dupake.system.service;
 
 import com.dupake.common.constatnts.UserConstant;
-import com.dupake.common.exception.BadRequestException;
+import com.dupake.system.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.utils.ObjectUtil;

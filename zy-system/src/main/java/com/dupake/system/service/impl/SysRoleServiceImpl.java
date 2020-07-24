@@ -3,7 +3,7 @@ package com.dupake.system.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
-import com.dupake.common.exception.BadRequestException;
+import com.dupake.system.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;

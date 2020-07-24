@@ -1,6 +1,6 @@
 package com.dupake.system.config;
 
-import com.dupake.common.exception.BadRequestException;
+import com.dupake.system.exception.BadRequestException;
 import com.dupake.system.utils.CacheUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;

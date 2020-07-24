@@ -31,7 +31,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @param menuQueryRequest
      * @return
      */
-    List<SysMenu> selectUserListPage(MenuQueryRequest menuQueryRequest);
+    List<SysMenu> selectListPage(MenuQueryRequest menuQueryRequest);
 
     /**
      * 查询菜单列表总数

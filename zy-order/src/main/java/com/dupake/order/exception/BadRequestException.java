@@ -2,7 +2,7 @@
  * Copyright (C) 2018-2020
  * All rights reserved, Designed By www.yixiang.co
  */
-package com.dupake.common.exception;
+package com.dupake.order.exception;
 
 import com.dupake.common.message.BaseResult;
 

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,7 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MenuDTO {
+public class MenuDTO  implements Serializable {
+
+    private static final long serialVersionUID = -6225606748663424690L;
+    private Long id;
 
     /**
      * 名称
@@ -58,6 +62,16 @@ public class MenuDTO {
      * 类型 0:菜单权限1:按钮权限
      */
     private Integer type;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 创建时间
+     */
+    private Long createTime;
 
     /**
      * 子菜单权限

@@ -14,7 +14,7 @@ import com.dupake.system.entity.SysUser;
 import com.dupake.system.event.EmailEventPublisher;
 import com.dupake.system.security.JwtTokenUtil;
 import com.dupake.system.security.UserDetailsServiceImpl;
-import com.dupake.common.exception.BadRequestException;
+import com.dupake.system.exception.BadRequestException;
 import com.dupake.common.utils.RSAEncrypt;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

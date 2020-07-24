@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.dupake.common.constatnts.UserConstant;
 import com.dupake.common.enums.UserStatusEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
-import com.dupake.common.exception.BadRequestException;
+import com.dupake.system.exception.BadRequestException;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;

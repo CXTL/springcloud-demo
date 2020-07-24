@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum BaseResult implements IErrorCode {
     SUCCESS(200, "操作成功！"),
+    SYSTEM_BUSY(201, "系统繁忙！"),
     FAILED(500, "操作失败！"),
     VALIDATE_FAILED(404, "参数检验失败"),
     UNAUTHORIZED(401, "暂未登录或token已经过期"),
@@ -24,6 +25,7 @@ public enum BaseResult implements IErrorCode {
     SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU(10009, "该菜单存在子菜单,无法删除!"),
     SYS_ROLE_NAME_IS_EXIST(10010, "角色名称已存在!"),
     SYS_ROLE_INFO_IS_NOT_EXIST(10011, "角色信息不存在!"),
+    SYS_MENU_INFO_IS_NOT_EXIST(10012, "角色信息不存在!"),
 
     /***************************************订单模块枚举***************************************/
 
