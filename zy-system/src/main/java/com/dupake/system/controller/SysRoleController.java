@@ -6,9 +6,6 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.role.RoleAddRequest;
 import com.dupake.common.pojo.dto.req.role.RoleQueryRequest;
 import com.dupake.common.pojo.dto.req.role.RoleUpdateRequest;
-import com.dupake.common.pojo.dto.req.role.RoleAddRequest;
-import com.dupake.common.pojo.dto.req.role.RoleQueryRequest;
-import com.dupake.common.pojo.dto.req.role.RoleUpdateRequest;
 import com.dupake.common.pojo.dto.res.RoleDTO;
 import com.dupake.system.service.SysRoleService;
 import io.swagger.annotations.Api;
@@ -37,14 +34,14 @@ public class SysRoleController {
     private SysRoleService sysRoleService;
 
 
-    @ApiOperation("分页查询菜单列表")
+    @ApiOperation("分页查询角色列表")
     @PostMapping(value = "/listByPage")
     public CommonResult<CommonPage<RoleDTO>> listByPage(@Valid @RequestBody RoleQueryRequest roleQueryRequest) {
         return sysRoleService.listByPage(roleQueryRequest);
     }
 
 
-    @ApiOperation("新增指定菜单信息")
+    @ApiOperation("新增指定角色信息")
     @PostMapping(value = "/addRole")
     public CommonResult addRole(@Valid @RequestBody RoleAddRequest roleAddRequest) {
         return sysRoleService.addRole(roleAddRequest);
@@ -52,25 +49,19 @@ public class SysRoleController {
 
 
 
-    @ApiOperation("修改指定菜单信息")
+    @ApiOperation("修改指定角色信息")
     @PostMapping(value = "/updateRole")
     public CommonResult updateRole(@Valid @RequestBody RoleUpdateRequest roleUpdateRequest) {
         return sysRoleService.updateRole(roleUpdateRequest);
     }
 
 
-    @ApiOperation("删除指定菜单信息")
+    @ApiOperation("删除角色信息")
     @PostMapping(value = "/delete")
-    public CommonResult delete(@RequestParam(value = "roleId") Long roleId) {
-        return sysRoleService.delete(roleId);
+    public CommonResult delete(@RequestParam(value = "ids") List<Long> ids) {
+        {
+            return sysRoleService.delete(ids);
+        }
+
     }
-
-
-    @ApiOperation("批量删除菜单信息")
-    @PostMapping(value = "/deleteBatch")
-    public CommonResult deleteBatch(@RequestParam(value = "ids") List<Long> ids) {
-        return sysRoleService.deleteBatch(ids);
-    }
-
-
 }

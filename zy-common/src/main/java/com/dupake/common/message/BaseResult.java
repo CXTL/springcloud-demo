@@ -21,7 +21,8 @@ public enum BaseResult implements IErrorCode {
 
     SYS_MENU_NAME_IS_EXIST(10007, "菜单名称已存在!"),
     SYS_MENU_PERMISSION_IS_EXIST(10008, "权限标识已存在!"),
-    SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU(10008, "该菜单存在子菜单,无法删除!"),
+    SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU(10007, "该菜单存在子菜单,无法删除!"),
+    SYS_ROLE_NAME_IS_EXIST(10008, "角色名称已存在!"),
 
     /***************************************订单模块枚举***************************************/
 

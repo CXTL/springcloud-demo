@@ -6,6 +6,67 @@
     <resultMap id="BaseResultMap" type="com.dupake.system.entity.SysRole">
         <id column="id" property="id" />
         <result column="name" property="name" />
+        <result column="create_id" property="createId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_id" property="updateId"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="remark" property="remark"/>
     </resultMap>
+
+
+
+    <update id="updateBatch" parameterType="java.util.List" >
+        update sys_role
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_deleted =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.isDeleted!=null">
+                        when id=#{i.id} then #{i.isDeleted}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.updateTime!=null">
+                        when id=#{i.id} then #{i.updateTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="i" index="index" >
+            id=#{i.id}
+        </foreach>
+    </update>
+
+    <select id="selectListPage" resultMap="BaseResultMap">
+        select * from sys_role where
+        id >= (
+        select id from sys_role
+        <where>
+            <if test="name != null and name != ''">
+                name = #{name}
+            </if>
+        </where>
+        order by id limit #{pageNumber} , 1
+        )
+        <if test="name != null and name != ''">
+            and  name = #{name}
+        </if>
+        and is_deleted = 0
+        limit #{size}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        select count(1) from sys_user
+        <where>
+            is_deleted = 0
+            <if test="name != null and name != ''">
+                name = #{name}
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

@@ -10,7 +10,7 @@ create table if not exists sys_menu
     title        varchar(128) not null comment '标题',
     hidden      int          not null comment '是否隐藏 0:未隐藏1:已隐藏',
     permission   varchar(32)  not null comment '权限',
-    type        int          not null comment '类型 0:菜单权限1:按钮权限',
+    type        int          not null comment '类型 0:菜单权限1:资源权限',
     create_id   bigint       null comment '创建人',
     create_time bigint    null comment '创建时间',
     update_id   bigint       null comment '更新人',
@@ -25,7 +25,7 @@ create table if not exists sys_role
     id          bigint auto_increment comment 'id'
         primary key,
     name        varchar(32) not null comment '名称',
-    level       int         not null comment '级别',
+    is_enable       int         not null comment '是否启用 0:否 1:是',
     remark       varchar(32) null comment '备注',
     create_id   bigint      null comment '创建人',
     create_time bigint   null comment '创建时间',
@@ -40,10 +40,7 @@ create table if not exists sys_role_menu
     id          bigint auto_increment comment 'id'
         primary key,
     role_id     bigint     not null comment '角色ID',
-    menu_id     bigint     not null comment '菜单ID',
-    update_id   bigint     null comment '更新人',
-    update_time bigint  null comment '更新时间',
-    is_deleted  varchar(1) null comment '是否删除 0:未删除1:已删除'
+    menu_id     bigint     not null comment '菜单ID'
 )
     comment '角色菜单表 ';
 
@@ -73,10 +70,7 @@ create table if not exists sys_user_role
     id          bigint auto_increment comment 'id'
         primary key,
     user_id     bigint     not null comment '用户ID',
-    role_id     bigint     not null comment '角色ID',
-    update_id   bigint     null comment '更新人',
-    update_time bigint  null comment '更新时间',
-    is_deleted  varchar(1) null comment '是否删除 0:未删除1:已删除'
+    role_id     bigint     not null comment '角色ID'
 )
     comment '用户角色关联表 ';
 

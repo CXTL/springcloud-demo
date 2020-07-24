@@ -1,11 +1,11 @@
 package com.dupake.system.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -20,10 +20,10 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Builder
-public class SysRole implements Serializable {
+public class SysRole extends BaseEntity  {
 
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = -6273784338638022278L;
     /**
      * id
      */
@@ -36,38 +36,20 @@ public class SysRole implements Serializable {
     private String name;
 
     /**
-     * 级别
+     * 是否启用 1:是 0:否
      */
-    private Integer level;
+    private Integer isEnable;
 
     /**
      * 备注
      */
     private String remark;
 
-    /**
-     * 创建人
-     */
-    private Long createId;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     */
-    private Long updateId;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
 
     /**
      * 是否删除 0:未删除1:已删除
      */
-    private String isDeleted;
+    @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
+    private Integer isDeleted;
 
 }

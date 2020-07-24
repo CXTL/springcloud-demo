@@ -16,18 +16,18 @@ INSERT INTO sys_menu (id, name, title, pid, sort, icon, path, hidden, permission
 INSERT INTO sys_role (id, name, level, remark, create_id, create_time, update_id, update_time, is_deleted) VALUES (1, 'ROLE_ADMIN', 1, '1', 1, null, 1, null, '0');
 
 
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (1, 1, 1, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (2, 1, 2, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (3, 1, 3, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (4, 1, 4, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (5, 1, 5, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (6, 1, 6, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (7, 1, 7, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (8, 1, 8, 1, '2020-02-03 16:50:37', '0');
-INSERT INTO sys_role_menu (id, role_id, menu_id, update_id, update_time, is_deleted) VALUES (9, 1, 9, 1, '2020-02-03 16:50:37', '0');
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (1, 1, 1, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (2, 1, 2, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (3, 1, 3, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (4, 1, 4, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (5, 1, 5, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (6, 1, 6, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (7, 1, 7, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (8, 1, 8, 1);
+INSERT INTO sys_role_menu (id, role_id, menu_id) VALUES (9, 1, 9, 1);
 
 
 INSERT INTO sys_user (id, nick_name, username, password, status, sex, phone, create_id, create_time, update_id, update_time, is_deleted, email) VALUES (1, 'admin', 'admin', 'wg2p+RW6HARvP1vPoklko7AcWGCCDABOwG9Z1p8w0VRKhWVlkCNdSVb8Kj9xHUp4XWZUt8BW1zIX3gYm8Ox3eg==', 1, 1, '13823379117', 1, null, 1, null, 0, 'hb_cxtl@163.com');
 
 
-INSERT INTO sys_user_role (id, user_id, role_id, update_id, update_time, is_deleted) VALUES (1, 1, 1, 1, null, '0');
+INSERT INTO sys_user_role (id, user_id, role_id) VALUES (1, 1, 1);

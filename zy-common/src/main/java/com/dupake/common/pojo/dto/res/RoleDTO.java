@@ -12,14 +12,25 @@ import java.util.List;
  */
 @Data
 public class RoleDTO {
-
     /**
      * 名称
      */
     private String name;
 
     /**
-     * 权限
+     * 是否启用 1:是 0:否
      */
-    private List<MenuDTO> menuList;
+    private Integer isEnable;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 创建时间
+     */
+    private Long createTime;
+
+
 }

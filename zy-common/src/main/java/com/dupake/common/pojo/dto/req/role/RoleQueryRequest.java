@@ -16,7 +16,4 @@ public class RoleQueryRequest extends BasePageRequest {
     
     private String name;
 
-    private String phone;
-
-    private String email;
 }

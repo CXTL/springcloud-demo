@@ -40,19 +40,4 @@ public class SysUserRole implements Serializable {
      */
     private Long roleId;
 
-    /**
-     * 更新人
-     */
-    private Long updateId;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
-    /**
-     * 是否删除 0:未删除1:已删除
-     */
-    private String isDeleted;
-
 }

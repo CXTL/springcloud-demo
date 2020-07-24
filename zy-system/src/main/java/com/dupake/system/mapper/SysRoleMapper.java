@@ -26,4 +26,6 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
     int getTotalCount(RoleQueryRequest roleQueryRequest);
 
     List<SysRole> selectListPage(RoleQueryRequest roleQueryRequest);
+
+    void updateBatch(List<SysRole> sysUsers);
 }
