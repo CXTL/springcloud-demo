@@ -70,4 +70,12 @@ public class SysMenuController {
     }
 
 
+    @ApiOperation("查询角色相关菜单")
+    @GetMapping(value = "/listMenuByRoleId")
+    public CommonResult<List<MenuDTO>> listMenuByRoleId(@RequestParam(value = "roleId") Long roleId) {
+        {
+            return sysMenuService.listMenuByRoleId(roleId);
+        }
+    }
+
 }

@@ -45,4 +45,11 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @param sysMenuList
      */
     void updateBatch(List<SysMenu> sysMenuList);
+
+    /**
+     * 根据角色ID查询关联菜单
+     * @param roleId
+     * @return
+     */
+    List<SysMenu> listMenuByRoleId(@Param("roleId") Long roleId);
 }

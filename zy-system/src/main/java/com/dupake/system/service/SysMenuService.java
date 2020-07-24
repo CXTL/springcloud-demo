@@ -75,4 +75,11 @@ public interface SysMenuService {
      * @return
      */
     CommonResult deleteMenu(List<Long> ids);
+
+    /**
+     * 查询角色关联菜单
+     * @param roleId
+     * @return
+     */
+    CommonResult<List<MenuDTO>> listMenuByRoleId(Long roleId);
 }

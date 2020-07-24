@@ -17,6 +17,7 @@ import com.dupake.system.entity.SysMenu;
 import com.dupake.system.mapper.SysMenuMapper;
 import com.dupake.system.service.SysMenuService;
 import com.dupake.system.exception.BadRequestException;
+import com.dupake.system.service.SysRoleMenuService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 
     @Resource
     private SysMenuMapper sysMenuMapper;
+
 
 
     /**
@@ -182,6 +184,25 @@ public class SysMenuServiceImpl implements SysMenuService {
         }
         //todo 修改角色菜单表数据
         return CommonResult.success();
+    }
+
+    /**
+     * 根据角色id查询角色关联菜单
+     * @param roleId
+     * @return
+     */
+    @Override
+    public CommonResult<List<MenuDTO>> listMenuByRoleId(Long roleId) {
+        List<MenuDTO> menuDTOS =  new ArrayList<>();
+        List<SysMenu> sysMenus = sysMenuMapper.listMenuByRoleId(roleId);
+        if(!CollectionUtils.isEmpty(sysMenus)){
+            menuDTOS = sysMenus.stream().map(a -> {
+                MenuDTO dto = new MenuDTO();
+                BeanUtils.copyProperties(a, dto);
+                return dto;
+            }).collect(Collectors.toList());
+        }
+        return CommonResult.success(menuDTOS);
     }
 
 

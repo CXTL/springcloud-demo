@@ -60,6 +60,12 @@
         </where>
     </select>
 
+    <select id="listMenuByRoleId"  resultMap="BaseResultMap">
+        select sm.* from sys_role_menu srm
+        left join sys_menu sm on srm.menu_id = sm.id
+        where srm.role_id = #{role_id}
+    </select>
+
 
     <update id="updateBatch" parameterType="java.util.List" >
         update sys_menu
