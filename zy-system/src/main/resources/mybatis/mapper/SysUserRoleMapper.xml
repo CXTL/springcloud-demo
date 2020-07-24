@@ -9,4 +9,18 @@
         <result column="role_id" property="roleId" />
     </resultMap>
 
+
+
+    <insert id="insertBatch" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO sys_user_role
+        (user_id, role_id)
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.userId}, #{item.roleId})
+        </foreach >
+    </insert>
+
+
+
 </mapper>

@@ -62,6 +62,21 @@ public class SysRoleController {
         {
             return sysRoleService.deleteRole(ids);
         }
+    }
 
+    @ApiOperation("查询角色信息列表")
+    @GetMapping(value = "/listAll")
+    public CommonResult<List<RoleDTO>> listAll() {
+        {
+            return sysRoleService.listAll();
+        }
+    }
+
+    @ApiOperation("查询用户所属角色")
+    @GetMapping(value = "/listRoleByUserId")
+    public CommonResult<List<RoleDTO>> listRoleByUserId(@RequestParam(value = "userId") Long userId) {
+        {
+            return sysRoleService.listRoleByUserId(userId);
+        }
     }
 }

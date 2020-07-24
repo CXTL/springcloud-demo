@@ -2,6 +2,7 @@ package com.dupake.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
 
 import java.io.Serializable;
@@ -20,10 +21,10 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Builder
-public class SysUserRole implements Serializable {
+public class SysUserRole implements Serializable  {
 
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 1180060045154782553L;
     /**
      * id
      */

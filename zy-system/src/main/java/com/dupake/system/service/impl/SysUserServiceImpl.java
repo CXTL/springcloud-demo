@@ -17,10 +17,7 @@ import com.dupake.common.pojo.dto.res.UserDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysUserMapper;
-import com.dupake.system.service.BaseService;
-import com.dupake.system.service.SysMenuService;
-import com.dupake.system.service.SysRoleService;
-import com.dupake.system.service.SysUserService;
+import com.dupake.system.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -51,7 +48,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     private SysUserMapper sysUserMapper;
 
     @Resource
-    private SysRoleService sysRoleService;
+    private SysUserRoleService sysUserRoleService;
 
     @Resource
     private SysMenuService sysMenuService;
@@ -218,35 +215,6 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
         return CommonResult.success();
     }
 
-    /**
-     * 刪除用戶
-     *
-     * @param userId
-     * @return
-     */
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public CommonResult delete(Long userId) {
-
-        Long adminId = Long.valueOf(UserConstant.ADMIN_USER_ID);
-        if (userId.compareTo(adminId) == 0) {
-            return CommonResult.failed(BaseResult.SYS_USER_CANNOT_DELETE.getCode(),
-                    BaseResult.SYS_USER_CANNOT_DELETE.getMessage());
-        }
-
-        //todo 校验 商户只能刪除属于自己的商户子账号和代理的信息
-
-        try {
-            sysUserMapper.updateById(SysUser.builder()
-                    .id(userId)
-                    .isDeleted(YesNoSwitchEnum.YES.getValue()).build());
-        } catch (Exception e) {
-            log.error("SysUserServiceImpl delete user error , param:{}, error:{}", userId, e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
-        }
-        return CommonResult.success();
-    }
-
 
     /**
      * 批量删除
@@ -256,7 +224,7 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult deleteBatch(List<Long> ids) {
+    public CommonResult deleteUser(List<Long> ids) {
         Long adminId = Long.valueOf(UserConstant.ADMIN_USER_ID);
         if (ids.contains(adminId)) {
             return CommonResult.failed(BaseResult.SYS_USER_CANNOT_DELETE.getCode(),
@@ -274,6 +242,18 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
         sysUserMapper.updateBatch(sysUsers);
 
         return CommonResult.success();
+    }
+
+
+    /**
+     * 分配用户角色
+     * @param userId
+     * @param roleIds
+     * @return
+     */
+    @Override
+    public CommonResult allocRole(Long userId, List<Long> roleIds) {
+        return sysUserRoleService.allocRole(userId,roleIds);
     }
 
     /**

@@ -35,4 +35,7 @@ public interface SysRoleService {
 
     CommonResult deleteRole(List<Long> ids);
 
+    CommonResult<List<RoleDTO>> listAll();
+
+    CommonResult<List<RoleDTO>> listRoleByUserId(Long userId);
 }

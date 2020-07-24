@@ -12,12 +12,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
@@ -72,17 +69,18 @@ public class SysUserController {
     }
 
 
-    @ApiOperation("删除指定用户信息")
-    @PostMapping(value = "/delete")
-    public CommonResult delete(@RequestParam(value = "userId") Long userId) {
-        return sysUserService.delete(userId);
+    @ApiOperation("批量删除用户信息")
+    @PostMapping(value = "/deleteUser")
+    public CommonResult deleteUser(@RequestParam(value = "ids") List<Long> ids) {
+        return sysUserService.deleteUser(ids);
     }
 
 
-    @ApiOperation("批量删除用户信息")
-    @PostMapping(value = "/deleteBatch")
-    public CommonResult deleteBatch(@RequestParam(value = "ids") List<Long> ids) {
-        return sysUserService.deleteBatch(ids);
+    @ApiOperation("分配用户角色信息")
+    @PostMapping(value = "/allocRole")
+    public CommonResult allocRole(@RequestParam(value = "userId") Long userId ,
+                                  @RequestParam(value = "roleIds") List<Long> roleIds) {
+        return sysUserService.allocRole(userId,roleIds);
     }
 
 

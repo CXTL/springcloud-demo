@@ -28,4 +28,6 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
     List<SysRole> selectListPage(RoleQueryRequest roleQueryRequest);
 
     void updateBatch(List<SysRole> sysUsers);
+
+    List<SysRole> listRoleByUserId(@Param("userId") Long userId);
 }

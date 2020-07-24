@@ -18,10 +18,12 @@ import com.dupake.system.entity.SysRole;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysRoleMapper;
 import com.dupake.system.service.SysRoleService;
+import com.dupake.system.service.SysUserRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -44,6 +46,9 @@ public class SysRoleServiceImpl implements SysRoleService {
 
     @Resource
     private SysRoleMapper sysRoleMapper;
+
+    @Resource
+    private SysUserRoleService sysUserRoleService;
 
 
     /**
@@ -166,6 +171,45 @@ public class SysRoleServiceImpl implements SysRoleService {
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
         return CommonResult.success();
+    }
+
+    /**
+     * 查询角色列表
+     * @return
+     */
+    @Override
+    public CommonResult<List<RoleDTO>> listAll() {
+        List<RoleDTO> roleDTOS = new ArrayList<>();
+        List<SysRole> sysRoles = sysRoleMapper.selectList(new LambdaQueryWrapper<SysRole>().eq(SysRole::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        if(!CollectionUtils.isEmpty(sysRoles)){
+            roleDTOS = sysRoles.stream().map(a -> {
+                RoleDTO dto = new RoleDTO();
+                dto.setId(a.getId());
+                dto.setName(a.getName());
+                return dto;
+            }).collect(Collectors.toList());
+        }
+        return CommonResult.success(roleDTOS);
+    }
+
+    /**
+     * 查询用户所属角色
+     * @param userId
+     * @return
+     */
+    @Override
+    public CommonResult<List<RoleDTO>> listRoleByUserId(Long userId) {
+        List<RoleDTO> roleDTOS = new ArrayList<>();
+        List<SysRole> sysRoles = sysRoleMapper.listRoleByUserId(userId);
+        if(!CollectionUtils.isEmpty(sysRoles)){
+            roleDTOS = sysRoles.stream().map(a -> {
+                RoleDTO dto = new RoleDTO();
+                dto.setId(a.getId());
+                dto.setName(a.getName());
+                return dto;
+            }).collect(Collectors.toList());
+        }
+        return CommonResult.success(roleDTOS);
     }
 
     @Override

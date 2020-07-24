@@ -1,5 +1,9 @@
 package com.dupake.system.service;
 
+import com.dupake.common.message.CommonResult;
+
+import java.util.List;
+
 /**
  * <p>
  * 用户角色关联表  服务类
@@ -10,4 +14,5 @@ package com.dupake.system.service;
  */
 public interface SysUserRoleService{
 
+    CommonResult allocRole(Long userId, List<Long> roleIds);
 }

@@ -33,7 +33,7 @@ public interface SysUserService {
 
     CommonResult updateUser(UserUpdateRequest userUpdateRequest);
 
-    CommonResult delete(Long userId);
+    CommonResult deleteUser(List<Long>  ids);
 
-    CommonResult deleteBatch(List<Long>  ids);
+    CommonResult allocRole(Long userId, List<Long> roleIds);
 }
