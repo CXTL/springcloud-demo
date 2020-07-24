@@ -33,6 +33,6 @@ public interface SysRoleService {
 
     CommonResult updateRole(RoleUpdateRequest roleUpdateRequest);
 
-    CommonResult delete( List<Long> ids);
+    CommonResult deleteRole(List<Long> ids);
 
 }

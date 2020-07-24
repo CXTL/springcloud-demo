@@ -49,7 +49,7 @@ public class SysRole extends BaseEntity  {
     /**
      * 是否删除 0:未删除1:已删除
      */
-    @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "is_deleted",fill = FieldFill.INSERT)
     private Integer isDeleted;
 
 }

@@ -2,6 +2,7 @@ package com.dupake.common.pojo.dto.res;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +12,11 @@ import java.util.List;
  * @Date 2020/6/9 15:29
  */
 @Data
-public class RoleDTO {
+public class RoleDTO implements Serializable {
+
+    private static final long serialVersionUID = -9094403471353494485L;
+
+    private Long id;
     /**
      * 名称
      */
@@ -31,6 +36,11 @@ public class RoleDTO {
      * 创建时间
      */
     private Long createTime;
+
+    /**
+     * 用户数量
+     */
+    private Integer userCount;
 
 
 }

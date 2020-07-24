@@ -48,8 +48,9 @@
         id >= (
         select id from sys_user
         <where>
+            is_deleted = 0
             <if test="username != null and username != ''">
-                username = #{username}
+               and username = #{username}
             </if>
         </where>
         order by id limit #{pageNumber} , 1
@@ -66,7 +67,7 @@
         <where>
             is_deleted = 0
             <if test="username != null and username != ''">
-                username = #{username}
+                and username = #{username}
             </if>
         </where>
 

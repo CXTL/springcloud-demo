@@ -63,6 +63,7 @@ public class SysRoleServiceImpl implements SysRoleService {
                 roleDTOS = sysRoles.stream().map(a -> {
                     RoleDTO roleDTO = new RoleDTO();
                     BeanUtils.copyProperties(a, roleDTO);
+                    roleDTO.setUserCount(1);
                     return roleDTO;
                 }).collect(Collectors.toList());
             }
@@ -96,8 +97,18 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult updateRole(RoleUpdateRequest roleUpdateRequest) {
-        //角色名称校验
-        checkRoleInfo(roleUpdateRequest.getName());
+
+        SysRole role = sysRoleMapper.selectOne(new LambdaQueryWrapper<SysRole>()
+                .eq(SysRole::getId, roleUpdateRequest.getId())
+                .eq(SysRole::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        if(Objects.isNull(role)){
+            log.error("role is null");
+            throw new BadRequestException(BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getCode(), BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getMessage());
+        }
+        if(!role.getName().equals(roleUpdateRequest.getName())){
+            //角色名称校验
+            checkRoleInfo(roleUpdateRequest.getName());
+        }
         //修改菜单信息
         try {
             sysRoleMapper.updateById(
@@ -137,7 +148,7 @@ public class SysRoleServiceImpl implements SysRoleService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult delete(List<Long> ids) {
+    public CommonResult deleteRole(List<Long> ids) {
         //todo 管理员角色校验
         try {
             List<SysRole> sysUsers = ids.stream().map(a -> {

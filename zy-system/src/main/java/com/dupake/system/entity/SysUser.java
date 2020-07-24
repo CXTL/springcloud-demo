@@ -77,6 +77,6 @@ public class SysUser extends BaseEntity implements Serializable {
      */
     private String remark;
 
-    @TableField(value = "is_deleted",fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "is_deleted",fill = FieldFill.INSERT)
     private Integer isDeleted;
 }

@@ -37,8 +37,9 @@
         id >= (
         select id from sys_menu
         <where>
+            is_deleted = 0
             <if test="name != null and name != ''">
-                name = #{name}
+                and  name = #{name}
             </if>
         </where>
         order by id limit #{pageNumber} , 1
@@ -54,7 +55,7 @@
         <where>
             is_deleted = 0
             <if test="name != null and name != ''">
-                name = #{name}
+                and  name = #{name}
             </if>
         </where>
     </select>

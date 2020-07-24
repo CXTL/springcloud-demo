@@ -57,10 +57,10 @@ public class SysRoleController {
 
 
     @ApiOperation("删除角色信息")
-    @PostMapping(value = "/delete")
-    public CommonResult delete(@RequestParam(value = "ids") List<Long> ids) {
+    @PostMapping(value = "/deleteRole")
+    public CommonResult deleteRole(@RequestParam(value = "ids") List<Long> ids) {
         {
-            return sysRoleService.delete(ids);
+            return sysRoleService.deleteRole(ids);
         }
 
     }
