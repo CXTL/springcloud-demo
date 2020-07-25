@@ -1,5 +1,9 @@
 package com.dupake.system.service;
 
+import com.dupake.common.message.CommonResult;
+
+import java.util.List;
+
 /**
  * <p>
  * 角色菜单表  服务类
@@ -10,4 +14,5 @@ package com.dupake.system.service;
  */
 public interface SysRoleMenuService {
 
+    CommonResult allocMenu(Long roleId, List<Long> menuIds);
 }

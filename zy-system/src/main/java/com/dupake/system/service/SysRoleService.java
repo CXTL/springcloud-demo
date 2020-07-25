@@ -38,4 +38,6 @@ public interface SysRoleService {
     CommonResult<List<RoleDTO>> listAll();
 
     CommonResult<List<RoleDTO>> listRoleByUserId(Long userId);
+
+    CommonResult allocMenu(Long roleId, List<Long> menuIds);
 }

@@ -17,6 +17,7 @@ import com.dupake.system.entity.SysMenu;
 import com.dupake.system.entity.SysRole;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysRoleMapper;
+import com.dupake.system.service.SysRoleMenuService;
 import com.dupake.system.service.SysRoleService;
 import com.dupake.system.service.SysUserRoleService;
 import lombok.extern.slf4j.Slf4j;
@@ -47,8 +48,9 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Resource
     private SysRoleMapper sysRoleMapper;
 
+
     @Resource
-    private SysUserRoleService sysUserRoleService;
+    private SysRoleMenuService sysRoleMenuService;
 
 
     /**
@@ -210,6 +212,18 @@ public class SysRoleServiceImpl implements SysRoleService {
             }).collect(Collectors.toList());
         }
         return CommonResult.success(roleDTOS);
+    }
+
+    /**
+     * 分配角色菜单
+     * @param roleId
+     * @param menuIds
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public CommonResult allocMenu(Long roleId, List<Long> menuIds) {
+        return sysRoleMenuService.allocMenu(roleId,menuIds);
     }
 
     @Override

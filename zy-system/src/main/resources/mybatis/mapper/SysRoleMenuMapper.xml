@@ -9,4 +9,16 @@
         <result column="menu_id" property="menuId" />
     </resultMap>
 
+
+
+    <insert id="insertBatch" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO sys_role_menu
+        (menu_id, role_id)
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.menuId}, #{item.roleId})
+        </foreach >
+    </insert>
+
 </mapper>

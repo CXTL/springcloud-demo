@@ -81,4 +81,16 @@ public class SysRoleController {
     }
 
 
+    @ApiOperation("分配角色菜单")
+    @PostMapping(value = "/allocMenu")
+    public CommonResult allocMenu(
+            @RequestParam(value = "roleId") Long roleId,
+            @RequestParam(value = "menuIds") List<Long> menuIds
+    ) {
+        {
+            return sysRoleService.allocMenu(roleId, menuIds);
+        }
+    }
+
+
 }
