@@ -1,7 +1,11 @@
 package com.dupake.order.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dupake.common.pojo.dto.req.account.AccountQueryRequest;
 import com.dupake.order.entity.FinAccount;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +15,12 @@ import com.dupake.order.entity.FinAccount;
  * @author dupake
  * @since 2020-07-26
  */
+@Mapper
 public interface FinAccountMapper extends BaseMapper<FinAccount> {
 
+    int getTotalCount(AccountQueryRequest accountQueryRequest);
+
+    List<FinAccount> selectListPage(AccountQueryRequest accountQueryRequest);
+
+    void updateBatch(List<FinAccount> finAccountList);
 }

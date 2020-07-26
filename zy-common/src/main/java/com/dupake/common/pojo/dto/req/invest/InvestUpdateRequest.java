@@ -43,4 +43,9 @@ public class InvestUpdateRequest implements Serializable {
      * 投资比例 %
      */
     private Integer investRatio;
+
+    /**
+     * 备注
+     */
+    private String remark;
 }

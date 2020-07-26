@@ -1,7 +1,10 @@
 package com.dupake.order.mapper;
 
+import com.dupake.common.pojo.dto.req.subject.SubjectQueryRequest;
 import com.dupake.order.entity.FinSubject;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface FinSubjectMapper extends BaseMapper<FinSubject> {
 
+    int getTotalCount(SubjectQueryRequest investQueryRequest);
+
+    List<FinSubject> selectListPage(SubjectQueryRequest investQueryRequest);
+
+    void updateBatch(List<FinSubject> finSubjectList);
 }

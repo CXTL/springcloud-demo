@@ -1,7 +1,10 @@
 package com.dupake.order.mapper;
 
+import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
 import com.dupake.order.entity.FinInvest;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface FinInvestMapper extends BaseMapper<FinInvest> {
 
+    int getTotalCount(InvestQueryRequest investQueryRequest);
+
+    List<FinInvest> selectListPage(InvestQueryRequest investQueryRequest);
+
+    void updateBatch(List<FinInvest> finInvestList);
 }
