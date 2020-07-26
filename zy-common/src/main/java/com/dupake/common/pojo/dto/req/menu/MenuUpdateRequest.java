@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
- * @ClassName MenuUpdateRequest
+ * @ClassName AccountUpdateRequest
  * @Description 修改 菜单 请求实体
  * @Author dupake
  * @Date 2020/6/9 9:59

@@ -1,4 +1,4 @@
-package com.dupake.common.pojo.dto.req.menu;
+package com.dupake.common.pojo.dto.req.subject;
 
 import com.dupake.common.pojo.dto.req.BasePageRequest;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  * @Date 2020/6/9 10:57
  */
 @Data
-public class MenuQueryRequest extends BasePageRequest {
+public class SubjectQueryRequest extends BasePageRequest {
 
     private static final long serialVersionUID = -1970997896879063951L;
     

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.generator.dao.FinInvestmentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.generator.entity.FinInvestment">
+        <id column="id" property="id" />
+        <result column="account_code" property="accountCode" />
+        <result column="investment_name" property="investName" />
+        <result column="investment_fund" property="investFund" />
+        <result column="investment_amount" property="investAmount" />
+        <result column="investment_ratio" property="investRatio" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+</mapper>

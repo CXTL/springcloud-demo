@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.generator.dao.FinSubjectMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.generator.entity.FinSubject">
+        <id column="id" property="id" />
+        <result column="subject_code" property="subjectCode" />
+        <result column="company_name" property="companyName" />
+        <result column="tax_number" property="taxNumber" />
+        <result column="subject_type" property="subjectType" />
+        <result column="brrow_flag" property="brrowFlag" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+</mapper>

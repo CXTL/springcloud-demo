@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
- * @ClassName MenuAddRequest
+ * @ClassName AccountAddRequest
  * @Description 新增菜单 请求实体
  * @Author dupake
  * @Date 2020/6/9 9:59

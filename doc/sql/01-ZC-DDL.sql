@@ -74,3 +74,120 @@ create table if not exists sys_user_role
 )
     comment '用户角色关联表 ';
 
+
+
+
+
+create table if not exists sys_user_account
+(
+    id          bigint auto_increment comment 'id' primary key,
+    user_id     bigint     not null comment '用户ID',
+    account_code     bigint     not null comment '帐套编号'
+)
+    comment '用户帐套关联表 ';
+
+
+
+create table if not exists fin_account
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    account_code        varchar(32)  not null comment '帐套信息编码',
+    account_name        varchar(32)  not null comment '帐套名称',
+    company_name          varchar(50)       not null comment '公司名称',
+    tax_number        varchar(50)          not null comment '纳税识别号',
+    address        varchar(100) not null comment '地址',
+    phone        varchar(13) not null comment '电话',
+    bank_account        varchar(50) not null comment '开户银行',
+    bank_card_number      varchar(50)          not null comment '银行卡号',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-帐套信息表';
+
+-- 资产=负载+所有权益  收入=费用+利润
+
+create table if not exists fin_subject
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    subject_code        varchar(32)  not null comment '科目编号',
+    subject_name         varchar(32)       not null comment '科目名称',
+    parent_code        varchar(32)          not null comment '父科目编号',
+    subject_type        int not null comment '科目类型 1 资产 2负载 3权益 4成本 5其他',
+    borrow_flag        int not null comment '借贷方向 0:借 1:贷',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-会计科目信息表';
+
+
+create table if not exists fin_invest
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    account_code        varchar(32)  not null comment '帐套信息编码',
+    invest_name        varchar(32)  not null comment '投资人名称',
+    invest_fund         decimal(11,2)       not null comment '投资款',
+    invest_amount        decimal(11,2)          not null comment '投资总额',
+    invest_ratio        int          not null comment '投资比例 %',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-投资信息表';
+
+
+create table if not exists fin_balance
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    account_code        varchar(32)  not null comment '帐套信息编码',
+    total_balance        decimal(11,2)  not null comment '总余额',
+    freeze_balance         decimal(11,2)       not null comment '冻结余额',
+    available_balance        decimal(11,2)          not null comment '可用余额',
+    status        int         not null comment '状态',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-余额信息表';
+
+
+
+create table if not exists fin_balance_record
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    account_code        varchar(32)  not null comment '帐套信息编码',
+    subject_code        varchar(32)  not null comment '科目编码',
+    receive_amount         decimal(11,2)       not null comment '应收金额',
+    pay_amount         decimal(11,2)       not null comment '应付金额',
+    real_receive_amount         decimal(11,2)       not null comment '实收金额',
+    real_pay_amount         decimal(11,2)       not null comment '实付金额',
+    amount         decimal(11,2)       not null comment '金额',
+    balance_before         decimal(11,2)       not null comment '变动前余额',
+    balance_after         decimal(11,2)      not null comment '变动后余额',
+    type        int          not null comment '类型 1 收入 2 支出',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-余额记录信息表';
