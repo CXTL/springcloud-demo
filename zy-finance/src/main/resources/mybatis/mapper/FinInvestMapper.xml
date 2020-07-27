@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.finance.mapper.FinInvestMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.FinInvest">
+        <id column="id" property="id" />
+        <result column="account_code" property="accountCode" />
+        <result column="invest_name" property="investName" />
+        <result column="invest_fund" property="investFund" />
+        <result column="invest_amount" property="investAmount" />
+        <result column="invest_ratio" property="investRatio" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <select id="selectListPage" resultMap="BaseResultMap">
+        select * from fin_investment where
+        id >= (
+        select id from fin_investment
+        <where>
+            is_deleted = 0
+            <if test="accountCode != null and accountCode != ''">
+                and  account_code = #{accountCode}
+            </if>
+        </where>
+        order by id limit #{pageNumber} , 1
+        )
+        <if test="accountCode != null and accountCode != ''">
+            and  account_code = #{accountCode}
+        </if>
+        and is_deleted = 0
+        limit #{size}
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(1) from fin_investment
+        <where>
+            is_deleted = 0
+            <if test="accountCode != null and accountCode != ''">
+                and  account_code = #{accountCode}
+            </if>
+        </where>
+    </select>
+
+
+    <update id="updateBatch" parameterType="java.util.List" >
+        update fin_investment
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_deleted =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.isDeleted!=null">
+                        when id=#{i.id} then #{i.isDeleted}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.updateTime!=null">
+                        when id=#{i.id} then #{i.updateTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="i" index="index" >
+            id=#{i.id}
+        </foreach>
+    </update>
+
+
+
+</mapper>

@@ -220,8 +220,42 @@ $ reboot
 #### nginx
 
 ``````kotlin
-$ docker run -p 8081:80 --name nginx -v $PWD/www:/www -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/logs:/wwwlogs  -d nginx
+$ docker run -d -p 80:80 --name nginx  nginx
+
+$ docker cp nginx:/etc/nginx/nginx.conf /home/xt/data/docker/nginx/conf.d
+
+$ docker cp nginx:/etc/nginx/nginx.conf /home/xt/data/docker/nginx/nginx.conf
+
+$ docker stop/rm/rmi nginx
+
+$ docker run -d -p 80:80 --name nginx -v /home/xt/data/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/xt/data/docker/nginx/conf.d:/etc/nginx/conf.d -v /home/xt/data/docker/nginx/logs:/var/log/nginx nginx
+
 ``````
+
+`````
+$ vim conf.d/default.conf
+
+server {
+    listen       80;
+    server_name dupake.cn;
+    location / {
+        proxy_pass   http://10.0.105.50:7106;
+    }
+    location /finance/ {
+        proxy_pass   http://10.0.105.50:7106;
+    }
+    location /system/ {
+        proxy_pass   http://10.0.105.50:7506;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+
+`````
+
+
 
 #### rabbitmq
 

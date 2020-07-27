@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.finance.mapper.FinBalanceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.FinBalance">
+        <id column="id" property="id" />
+        <result column="account_code" property="accountCode" />
+        <result column="total_balance" property="totalBalance" />
+        <result column="freeze_balance" property="freezeBalance" />
+        <result column="available_balance" property="availableBalance" />
+        <result column="status" property="status" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+</mapper>

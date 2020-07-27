@@ -13,7 +13,7 @@
     <modules>
         <module>zy-system</module>
         <module>zy-gateway</module>
-        <module>zy-order</module>
+        <module>zy-finance</module>
         <module>zy-search</module>
         <module>zy-commodity</module>
         <module>zy-common</module>
