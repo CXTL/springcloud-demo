@@ -19,9 +19,9 @@
     </resultMap>
 
     <select id="selectListPage" resultMap="BaseResultMap">
-        select * from fin_investment where
+        select * from fin_invest where
         id >= (
-        select id from fin_investment
+        select id from fin_invest
         <where>
             is_deleted = 0
             <if test="accountCode != null and accountCode != ''">
@@ -37,7 +37,7 @@
         limit #{size}
     </select>
     <select id="getTotalCount" resultType="int">
-        select count(1) from fin_investment
+        select count(1) from fin_invest
         <where>
             is_deleted = 0
             <if test="accountCode != null and accountCode != ''">
@@ -48,7 +48,7 @@
 
 
     <update id="updateBatch" parameterType="java.util.List" >
-        update fin_investment
+        update fin_invest
         <trim prefix="set" suffixOverrides=",">
             <trim prefix="is_deleted =case" suffix="end,">
                 <foreach collection="list" item="i" index="index">

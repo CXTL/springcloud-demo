@@ -1,6 +1,6 @@
 package com.dupake.finance.mapper;
 
-import com.dupake.finance.entity.FinBalanceRecord;
+import com.dupake.finance.entity.FinAssetRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author dupake
  * @since 2020-07-26
  */
-public interface FinBalanceRecordMapper extends BaseMapper<FinBalanceRecord> {
+public interface FinAssetRecordMapper extends BaseMapper<FinAssetRecord> {
 
 }

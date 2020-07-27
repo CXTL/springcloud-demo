@@ -1,7 +1,5 @@
-package com.dupake.common.pojo.dto.req.balance;
+package com.dupake.common.pojo.dto.req.asset;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,7 +12,7 @@ import java.math.BigDecimal;
  * @Date 2020/6/9 9:59
  */
 @Data
-public class BalanceUpdateRequest implements Serializable {
+public class AssetUpdateRequest implements Serializable {
 
     private static final long serialVersionUID = 4371186875731167316L;
 

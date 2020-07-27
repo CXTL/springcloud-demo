@@ -1,4 +1,4 @@
-package com.dupake.common.pojo.dto.req.balance;
+package com.dupake.common.pojo.dto.req.asset;
 
 import com.dupake.common.pojo.dto.req.BasePageRequest;
 import lombok.Data;
@@ -10,10 +10,10 @@ import lombok.Data;
  * @Date 2020/6/9 10:57
  */
 @Data
-public class BalanceQueryRequest extends BasePageRequest {
+public class AssetQueryRequest extends BasePageRequest {
 
     private static final long serialVersionUID = -1970997896879063951L;
     
-    private String name;
+    private String accountCode;
 
 }

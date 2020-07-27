@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BalanceDTO implements Serializable {
+public class AssetDTO implements Serializable {
 
     private static final long serialVersionUID = -6225606748663424690L;
     private Long id;

@@ -16,7 +16,7 @@ public class InvestAddRequest {
 
 
     /**
-     * 帐套信息编码
+     * 帐套编码
      */
     private String accountCode;
 

@@ -130,6 +130,7 @@ public class FinInvestServiceImpl implements FinInvestService {
                     .investName(investUpdateRequest.getInvestName())
                     .investRatio(investUpdateRequest.getInvestRatio())
                     .remark(investUpdateRequest.getRemark())
+                    .id(investUpdateRequest.getId())
                     .build());
         } catch (Exception e) {
             log.error("FinInvestServiceImpl update invest error , param:{}, error:{}", JSONObject.toJSONString(investUpdateRequest), e);
@@ -148,16 +149,7 @@ public class FinInvestServiceImpl implements FinInvestService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult deleteInvest(List<Long> ids) {
-        //查询投资及所有子投资
-        List<FinInvest> finInvests = finInvestMapper.selectList(
-                new LambdaUpdateWrapper<FinInvest>()
-                        .eq(FinInvest::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        );
-        if (!CollectionUtil.isEmpty(finInvests)) {
-            log.error("invest has sub invests");
-            throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
-                    BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
-        }
+
         //批量修改投资状态
         List<FinInvest> finInvestList = ids.stream().map(a -> {
             FinInvest finInvest = new FinInvest();

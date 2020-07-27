@@ -24,7 +24,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @Builder
-public class FinBalance extends BaseEntity implements Serializable {
+public class FinAsset extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
