@@ -1,5 +1,7 @@
 package com.dupake.common.constatnts;
 
+import java.math.BigDecimal;
+
 /**
  * @ClassName NumberConstant
  * @Description 数字常量
@@ -18,4 +20,7 @@ public class NumberConstant {
     public final static int NUMBER_3600 = 60 * 60;
     public final static int NUMBER_86400 = 60 * 60 * 24;
     public final static int NUMBER_604800 = 60 * 60 * 24 * 7;
+
+
+    public final static BigDecimal BIGDECIMAL_0 = new BigDecimal(0);
 }

@@ -25,6 +25,11 @@ public class AssetUpdateRequest implements Serializable {
     private String accountCode;
 
     /**
+     * 资产ID
+     */
+    private Long assetId;
+
+    /**
      * 科目编码
      */
     private String subjectCode;
@@ -49,20 +54,6 @@ public class AssetUpdateRequest implements Serializable {
      */
     private BigDecimal realPayAmount;
 
-    /**
-     * 金额
-     */
-    private BigDecimal amount;
-
-    /**
-     * 变动前余额
-     */
-    private BigDecimal balanceBefore;
-
-    /**
-     * 变动后余额
-     */
-    private BigDecimal balanceAfter;
 
     /**
      * 类型 1 收入 2 支出

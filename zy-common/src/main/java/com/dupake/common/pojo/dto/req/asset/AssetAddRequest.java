@@ -13,9 +13,8 @@ import java.math.BigDecimal;
 @Data
 public class AssetAddRequest {
 
-
     /**
-     * 帐套信息编码
+     * 帐套编码
      */
     private String accountCode;
 
@@ -44,20 +43,7 @@ public class AssetAddRequest {
      */
     private BigDecimal realPayAmount;
 
-    /**
-     * 金额
-     */
-    private BigDecimal amount;
 
-    /**
-     * 变动前余额
-     */
-    private BigDecimal balanceBefore;
-
-    /**
-     * 变动后余额
-     */
-    private BigDecimal balanceAfter;
 
     /**
      * 类型 1 收入 2 支出

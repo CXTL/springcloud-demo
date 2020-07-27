@@ -1,6 +1,8 @@
 package com.dupake.common.pojo.dto.res;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +26,11 @@ public class AssetDTO implements Serializable {
 
     private static final long serialVersionUID = -6225606748663424690L;
     private Long id;
+
+    /**
+     * 资产ID
+     */
+    private Long assetId;
 
     /**
      * 帐套信息编码
@@ -75,10 +82,6 @@ public class AssetDTO implements Serializable {
      */
     private Integer type;
 
-    /**
-     * 是否删除 0:未删除1:已删除
-     */
-    private Integer isDeleted;
 
     /**
      * 备注

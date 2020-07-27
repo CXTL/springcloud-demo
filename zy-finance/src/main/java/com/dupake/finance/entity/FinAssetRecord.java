@@ -35,6 +35,11 @@ public class FinAssetRecord extends BaseEntity implements Serializable {
     private Long id;
 
     /**
+     * 资产ID
+     */
+    private Long assetId;
+
+    /**
      * 帐套信息编码
      */
     private String accountCode;

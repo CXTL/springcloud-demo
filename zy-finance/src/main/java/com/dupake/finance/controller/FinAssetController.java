@@ -25,9 +25,9 @@ import java.util.List;
  * @since 2020-07-26
  */
 
-@Api(tags = "财务：余额信息")
+@Api(tags = "财务：资产信息")
 @RestController
-@RequestMapping("/finance/balance")
+@RequestMapping("/finance/asset")
 public class FinAssetController {
 
 
@@ -42,26 +42,26 @@ public class FinAssetController {
 
 
     @ApiOperation("新增指定帐套信息")
-    @PostMapping(value = "/addBalance")
-    public CommonResult addBalance(@Valid @RequestBody AssetAddRequest assetAddRequest) {
-        return balanceService.addBalance(assetAddRequest);
+    @PostMapping(value = "/addAsset")
+    public CommonResult addAsset(@Valid @RequestBody AssetAddRequest assetAddRequest) {
+        return balanceService.addAsset(assetAddRequest);
     }
 
 
 
     @ApiOperation("修改指定帐套信息")
-    @PostMapping(value = "/updateBalance")
-    public CommonResult updateBalance(@Valid @RequestBody AssetUpdateRequest assetUpdateRequest) {
-        return balanceService.updateBalance(assetUpdateRequest);
+    @PostMapping(value = "/updateAsset")
+    public CommonResult updateAsset(@Valid @RequestBody AssetUpdateRequest assetUpdateRequest) {
+        return balanceService.updateAsset(assetUpdateRequest);
     }
 
 
 
 
     @ApiOperation("批量删除帐套信息")
-    @PostMapping(value = "/deleteBalance")
-    public CommonResult deleteBalance(@RequestParam(value = "ids") List<Long> ids) {
-        return balanceService.deleteBalance(ids);
+    @PostMapping(value = "/deleteAsset")
+    public CommonResult deleteAsset(@RequestParam(value = "ids") List<Long> ids) {
+        return balanceService.deleteAsset(ids);
     }
     
 }

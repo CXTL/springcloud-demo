@@ -149,7 +149,7 @@ create table if not exists fin_invest
     comment '财务-投资信息表';
 
 
-create table if not exists fin_balance
+create table if not exists fin_asset
 (
     id          bigint auto_increment comment 'id'
         primary key,
@@ -169,10 +169,11 @@ create table if not exists fin_balance
 
 
 
-create table if not exists fin_balance_record
+create table if not exists fin_asset_record
 (
     id          bigint auto_increment comment 'id'
         primary key,
+    asset_id   bigint       null comment '创建人',
     account_code        varchar(32)  null comment '帐套信息编码',
     subject_code        varchar(32)  null comment '科目编码',
     receive_amount         decimal(11,2)       null comment '应收金额',

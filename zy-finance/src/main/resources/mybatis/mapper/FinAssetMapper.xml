@@ -18,4 +18,32 @@
         <result column="remark" property="remark" />
     </resultMap>
 
+
+
+
+    <update id="updateBatch" parameterType="java.util.List" >
+        update fin_asset
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_deleted =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.isDeleted!=null">
+                        when id=#{i.id} then #{i.isDeleted}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.updateTime!=null">
+                        when id=#{i.id} then #{i.updateTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="i" index="index" >
+            id=#{i.id}
+        </foreach>
+    </update>
+
+
 </mapper>

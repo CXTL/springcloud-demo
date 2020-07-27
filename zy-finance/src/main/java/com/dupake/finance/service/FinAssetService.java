@@ -21,9 +21,9 @@ public interface FinAssetService {
 
     CommonResult<CommonPage<AssetDTO>> listByPage(AssetQueryRequest assetQueryRequest);
 
-    CommonResult addBalance(AssetAddRequest assetAddRequest);
+    CommonResult addAsset(AssetAddRequest assetAddRequest);
 
-    CommonResult updateBalance(AssetUpdateRequest assetUpdateRequest);
+    CommonResult updateAsset(AssetUpdateRequest assetUpdateRequest);
 
-    CommonResult deleteBalance(List<Long> ids);
+    CommonResult deleteAsset(List<Long> ids);
 }

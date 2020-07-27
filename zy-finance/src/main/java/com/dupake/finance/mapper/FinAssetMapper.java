@@ -1,7 +1,10 @@
 package com.dupake.finance.mapper;
 
+import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.finance.entity.FinAsset;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface FinAssetMapper extends BaseMapper<FinAsset> {
 
+
+    void updateBatch(List<FinAsset> finAssets);
 }
