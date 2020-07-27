@@ -29,7 +29,7 @@ import java.util.Map;
  */
 @Api(tags = "系统：用户管理")
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/system/users")
 public class SysUserController {
 
     @Resource

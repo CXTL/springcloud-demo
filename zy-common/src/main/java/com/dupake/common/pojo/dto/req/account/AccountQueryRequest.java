@@ -14,6 +14,6 @@ public class AccountQueryRequest extends BasePageRequest {
 
     private static final long serialVersionUID = -1970997896879063951L;
     
-    private String name;
+    private String accountCode;
 
 }

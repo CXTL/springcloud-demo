@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Api(tags = "财务：投资信息")
 @RestController
-@RequestMapping("/api/fin/invest")
+@RequestMapping("/finance/invest")
 public class FinInvestController {
 
     @Resource

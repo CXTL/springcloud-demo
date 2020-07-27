@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Api(tags = "财务：科目信息")
 @RestController
-@RequestMapping("/api/fin/subject")
+@RequestMapping("/finance/subject")
 public class FinSubjectController {
 
 

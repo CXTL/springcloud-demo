@@ -133,6 +133,7 @@ public class FinAccountServiceImpl implements FinAccountService {
                     .companyName(accountUpdateRequest.getCompanyName())
                     .phone(accountUpdateRequest.getPhone())
                     .taxNumber(accountUpdateRequest.getTaxNumber())
+                    .id(accountUpdateRequest.getId())
                     .build());
         } catch (Exception e) {
             log.error("FinAccountServiceImpl update account error , param:{}, error:{}", JSONObject.toJSONString(accountUpdateRequest), e);
@@ -151,16 +152,16 @@ public class FinAccountServiceImpl implements FinAccountService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult deleteAccount(List<Long> ids) {
-        //查询帐套及所有子帐套
-        List<FinAccount> finAccounts = finAccountMapper.selectList(
-                new LambdaUpdateWrapper<FinAccount>()
-                        .eq(FinAccount::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        );
-        if (!CollectionUtil.isEmpty(finAccounts)) {
-            log.error("account has sub accounts");
-            throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
-                    BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
-        }
+        //todo admin 帐号可可删除 查询帐套
+//        List<FinAccount> finAccounts = finAccountMapper.selectList(
+//                new LambdaUpdateWrapper<FinAccount>()
+//                        .eq(FinAccount::getIsDeleted, YesNoSwitchEnum.NO.getValue())
+//        );
+//        if (!CollectionUtil.isEmpty(finAccounts)) {
+//            log.error("account has sub accounts");
+//            throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
+//                    BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
+//        }
         //批量修改帐套状态
         List<FinAccount> finAccountList = ids.stream().map(a -> {
             FinAccount finAccount = new FinAccount();

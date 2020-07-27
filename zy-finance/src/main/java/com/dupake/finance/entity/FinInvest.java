@@ -1,7 +1,10 @@
 package com.dupake.finance.entity;
 
 import java.math.BigDecimal;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
@@ -60,6 +63,7 @@ public class FinInvest extends BaseEntity implements Serializable {
     /**
      * 是否删除 0:未删除1:已删除
      */
+    @TableField(value = "is_deleted",fill = FieldFill.INSERT)
     private Integer isDeleted;
 
     /**

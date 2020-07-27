@@ -27,7 +27,7 @@ import java.util.List;
 
 @Api(tags = "财务：余额信息")
 @RestController
-@RequestMapping("/api/fin/balance")
+@RequestMapping("/finance/balance")
 public class FinBalanceController {
 
 
