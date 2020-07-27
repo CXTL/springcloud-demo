@@ -21,12 +21,12 @@ public class SubjectAddRequest {
     /**
      * 科目名称
      */
-    private String companyName;
+    private String subjectName;
 
     /**
      * 父科目编号
      */
-    private String taxNumber;
+    private String parentCode;
 
     /**
      * 科目类型 1 资产 2负载 3权益 4成本 5其他

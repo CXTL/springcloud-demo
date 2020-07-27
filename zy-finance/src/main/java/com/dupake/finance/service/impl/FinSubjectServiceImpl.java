@@ -48,49 +48,52 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
 
 
     /**
-     * @param investQueryRequest :
+     * @param subjectQueryRequest :
      * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.SubjectDTO>>
      * @Description 分页查询投资列表
      **/
     @Override
-    public CommonResult<CommonPage<SubjectDTO>> listByPage(SubjectQueryRequest investQueryRequest) {
-        List<SubjectDTO> investDTOS = new ArrayList<>();
+    public CommonResult<CommonPage<SubjectDTO>> listByPage(SubjectQueryRequest subjectQueryRequest) {
+        List<SubjectDTO> subjectDTOS = new ArrayList<>();
 
-        int totalCount = finSubjectMapper.getTotalCount(investQueryRequest);
+        int totalCount = finSubjectMapper.getTotalCount(subjectQueryRequest);
         if (totalCount > 0) {
-            List<FinSubject> finSubjects = finSubjectMapper.selectListPage(investQueryRequest);
+            List<FinSubject> finSubjects = finSubjectMapper.selectListPage(subjectQueryRequest);
             if (!ObjectUtils.isEmpty(finSubjects)) {
-                investDTOS = finSubjects.stream().map(a -> {
-                    SubjectDTO investDTO = new SubjectDTO();
-                    BeanUtils.copyProperties(a, investDTO);
-                    return investDTO;
+                subjectDTOS = finSubjects.stream().map(a -> {
+                    SubjectDTO subjectDTO = new SubjectDTO();
+                    BeanUtils.copyProperties(a, subjectDTO);
+                    return subjectDTO;
                 }).collect(Collectors.toList());
             }
         }
-        return CommonResult.success(CommonPage.restPage(investDTOS, totalCount));
+        return CommonResult.success(CommonPage.restPage(subjectDTOS, totalCount));
     }
 
 
     /**
-     * @param investAddRequest :
+     * @param subjectAddRequest :
      * @return com.dupake.common.message.CommonResult
      * @Description 新增投资
      **/
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult addSubject(SubjectAddRequest investAddRequest) {
+    public CommonResult addSubject(SubjectAddRequest subjectAddRequest) {
         //投资名称校验 权限标识校验
-//        checkSubjectInfo(investAddRequest.getName(), investAddRequest.getPermission(),null);
+//        checkSubjectInfo(subjectAddRequest.getName(), subjectAddRequest.getPermission(),null);
 
         //落地投资数据
         try {
             finSubjectMapper.insert(FinSubject.builder()
-                    .borrowFlag(investAddRequest.getBorrowFlag())
-                    .companyName(investAddRequest.getCompanyName())
-
+                    .borrowFlag(subjectAddRequest.getBorrowFlag())
+                    .remark(subjectAddRequest.getRemark())
+                    .subjectCode(subjectAddRequest.getSubjectCode())
+                    .parentCode(subjectAddRequest.getParentCode())
+                    .subjectType(subjectAddRequest.getSubjectType())
+                    .subjectName(subjectAddRequest.getSubjectName())
                     .build());
         } catch (Exception e) {
-            log.error("FinSubjectServiceImpl add subject error , param:{}, error:{}", JSONObject.toJSONString(investAddRequest), e);
+            log.error("FinSubjectServiceImpl add subject error , param:{}, error:{}", JSONObject.toJSONString(subjectAddRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
@@ -99,33 +102,37 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
 
 
     /**
-     * @param investUpdateRequest :
+     * @param subjectUpdateRequest :
      * @return com.dupake.common.message.CommonResult
      * @Description 修改投资
      **/
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public CommonResult updateSubject(SubjectUpdateRequest investUpdateRequest) {
+    public CommonResult updateSubject(SubjectUpdateRequest subjectUpdateRequest) {
 
         FinSubject finSubject = finSubjectMapper.selectOne(new LambdaQueryWrapper<FinSubject>()
-                .eq(FinSubject::getId, investUpdateRequest.getId())
+                .eq(FinSubject::getId, subjectUpdateRequest.getId())
                 .eq(FinSubject::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
         if(Objects.isNull(finSubject)){
             log.error("subject is null");
             throw new BadRequestException(BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getCode(), BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getMessage());
         }
         //投资名称校验 权限标识校验
-//        checkSubjectInfo(investUpdateRequest.getName(), investUpdateRequest.getPermission(),finSubject);
+//        checkSubjectInfo(subjectUpdateRequest.getName(), subjectUpdateRequest.getPermission(),finSubject);
 
         //修改投资信息
         try {
             finSubjectMapper.updateById(FinSubject.builder()
-                    .borrowFlag(investUpdateRequest.getBorrowFlag())
-                    .companyName(investUpdateRequest.getCompanyName())
-                    .remark(investUpdateRequest.getRemark())
+                    .borrowFlag(subjectUpdateRequest.getBorrowFlag())
+                    .remark(subjectUpdateRequest.getRemark())
+                    .subjectCode(subjectUpdateRequest.getSubjectCode())
+                    .parentCode(subjectUpdateRequest.getParentCode())
+                    .subjectType(subjectUpdateRequest.getSubjectType())
+                    .subjectName(subjectUpdateRequest.getSubjectName())
+                    .id(subjectUpdateRequest.getId())
                     .build());
         } catch (Exception e) {
-            log.error("FinSubjectServiceImpl update subject error , param:{}, error:{}", JSONObject.toJSONString(investUpdateRequest), e);
+            log.error("FinSubjectServiceImpl update subject error , param:{}, error:{}", JSONObject.toJSONString(subjectUpdateRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
@@ -141,16 +148,8 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult deleteSubject(List<Long> ids) {
-        //查询投资及所有子投资
-        List<FinSubject> finSubjects = finSubjectMapper.selectList(
-                new LambdaUpdateWrapper<FinSubject>()
-                        .eq(FinSubject::getIsDeleted, YesNoSwitchEnum.NO.getValue())
-        );
-        if (!CollectionUtil.isEmpty(finSubjects)) {
-            log.error("subject has sub invests");
-            throw new BadRequestException(BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getCode(),
-                    BaseResult.SYS_MENU_DELETE_ERROR_EXIST_SUB_MENU.getMessage());
-        }
+        //todo  科目下存在数据 无法删除此科目 , 管理员可删除
+
         //批量修改投资状态
         List<FinSubject> finSubjectList = ids.stream().map(a -> {
             FinSubject finSubject = new FinSubject();

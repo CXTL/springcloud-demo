@@ -25,15 +25,15 @@ public class SubjectUpdateRequest implements Serializable {
     /**
      * 科目名称
      */
-    private String companyName;
+    private String subjectName;
 
     /**
      * 父科目编号
      */
-    private String taxNumber;
+    private String parentCode;
 
     /**
-     * 科目类型 1 资产 2负载 3权益 4成本 5其他
+     * 科目类型 1 资产 2 负载 3 权益 4 成本 5 其他
      */
     private Integer subjectType;
 
@@ -41,7 +41,6 @@ public class SubjectUpdateRequest implements Serializable {
      * 借贷方向 0:借 1:贷
      */
     private Integer borrowFlag;
-
     /**
      * 备注
      */

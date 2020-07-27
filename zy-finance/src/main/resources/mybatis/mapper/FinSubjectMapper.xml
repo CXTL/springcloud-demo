@@ -26,14 +26,14 @@
         select id from fin_subject
         <where>
             is_deleted = 0
-            <if test="accountCode != null and accountCode != ''">
-                and  account_code = #{accountCode}
+            <if test="subjectCode != null and subjectCode != ''">
+                and  subject_code = #{subjectCode}
             </if>
         </where>
         order by id limit #{pageNumber} , 1
         )
-        <if test="accountCode != null and accountCode != ''">
-            and  account_code = #{accountCode}
+        <if test="subjectCode != null and subjectCode != ''">
+            and  subject_code = #{subjectCode}
         </if>
         and is_deleted = 0
         limit #{size}
@@ -42,8 +42,8 @@
         select count(1) from fin_subject
         <where>
             is_deleted = 0
-            <if test="accountCode != null and accountCode != ''">
-                and  account_code = #{accountCode}
+            <if test="subjectCode != null and subjectCode != ''">
+                and  subject_code = #{subjectCode}
             </if>
         </where>
     </select>

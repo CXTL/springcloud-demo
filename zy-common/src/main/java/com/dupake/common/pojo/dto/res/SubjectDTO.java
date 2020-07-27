@@ -1,5 +1,9 @@
 package com.dupake.common.pojo.dto.res;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,51 +27,35 @@ public class SubjectDTO implements Serializable {
     private Long id;
 
     /**
-     * 帐套信息编码
+     * 科目编号
      */
-    private String accountCode;
+    private String subjectCode;
 
     /**
-     * 帐套名称
+     * 科目名称
      */
-    private String accountName;
+    private String subjectName;
 
     /**
-     * 公司名称
+     * 父科目编号
      */
-    private String companyName;
+    private String parentCode;
 
     /**
-     * 纳税识别号
+     * 父科目编号名称
      */
-    private String taxNumber;
+    private String parentName;
 
     /**
-     * 地址
+     * 科目类型 1 资产 2负载 3权益 4成本 5其他
      */
-    private String address;
+    private Integer subjectType;
 
     /**
-     * 电话
+     * 借贷方向 0:借 1:贷
      */
-    private String phone;
+    private Integer borrowFlag;
 
-    /**
-     * 开户银行
-     */
-    private String bankAccount;
-
-    /**
-     * 银行卡号
-     */
-    private String bankCardNumber;
-
-
-
-    /**
-     * 是否删除 0:未删除1:已删除
-     */
-    private Integer isDeleted;
 
     /**
      * 备注

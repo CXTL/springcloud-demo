@@ -36,23 +36,23 @@ public class FinSubjectController {
 
     @ApiOperation("分页查询科目列表")
     @PostMapping(value = "/listByPage")
-    public CommonResult<CommonPage<SubjectDTO>> listByPage(@Valid @RequestBody SubjectQueryRequest aubjectQueryRequest) {
-        return subjectService.listByPage(aubjectQueryRequest);
+    public CommonResult<CommonPage<SubjectDTO>> listByPage(@Valid @RequestBody SubjectQueryRequest subjectQueryRequest) {
+        return subjectService.listByPage(subjectQueryRequest);
     }
 
 
     @ApiOperation("新增指定科目信息")
     @PostMapping(value = "/addSubject")
-    public CommonResult addSubject(@Valid @RequestBody SubjectAddRequest aubjectAddRequest) {
-        return subjectService.addSubject(aubjectAddRequest);
+    public CommonResult addSubject(@Valid @RequestBody SubjectAddRequest subjectAddRequest) {
+        return subjectService.addSubject(subjectAddRequest);
     }
 
 
 
     @ApiOperation("修改指定科目信息")
     @PostMapping(value = "/updateSubject")
-    public CommonResult updateSubject(@Valid @RequestBody SubjectUpdateRequest aubjectUpdateRequest) {
-        return subjectService.updateSubject(aubjectUpdateRequest);
+    public CommonResult updateSubject(@Valid @RequestBody SubjectUpdateRequest subjectUpdateRequest) {
+        return subjectService.updateSubject(subjectUpdateRequest);
     }
 
 
