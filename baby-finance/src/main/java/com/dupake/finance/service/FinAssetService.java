@@ -5,7 +5,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
-import com.dupake.common.pojo.dto.res.AssetDTO;
+import com.dupake.common.pojo.dto.res.finance.AssetDTO;
 
 import java.util.List;
 

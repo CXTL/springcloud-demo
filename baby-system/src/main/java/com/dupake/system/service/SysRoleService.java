@@ -5,8 +5,8 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.role.RoleAddRequest;
 import com.dupake.common.pojo.dto.req.role.RoleQueryRequest;
 import com.dupake.common.pojo.dto.req.role.RoleUpdateRequest;
-import com.dupake.common.pojo.dto.res.MenuDTO;
-import com.dupake.common.pojo.dto.res.RoleDTO;
+import com.dupake.common.pojo.dto.res.system.MenuDTO;
+import com.dupake.common.pojo.dto.res.system.RoleDTO;
 import com.dupake.system.entity.SysRole;
 
 import java.util.List;

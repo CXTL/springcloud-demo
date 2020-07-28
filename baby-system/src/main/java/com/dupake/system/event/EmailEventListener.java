@@ -1,6 +1,6 @@
 package com.dupake.system.event;
 
-import com.dupake.common.pojo.dto.res.EmailDTO;
+import com.dupake.common.pojo.dto.res.system.EmailDTO;
 import com.dupake.common.message.BaseResult;
 import com.dupake.system.exception.BadRequestException;
 import com.dupake.system.service.MailService;

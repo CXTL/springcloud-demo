@@ -6,7 +6,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.menu.MenuAddRequest;
 import com.dupake.common.pojo.dto.req.menu.MenuQueryRequest;
 import com.dupake.common.pojo.dto.req.menu.MenuUpdateRequest;
-import com.dupake.common.pojo.dto.res.MenuDTO;
+import com.dupake.common.pojo.dto.res.system.MenuDTO;
 import com.dupake.system.service.SysMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

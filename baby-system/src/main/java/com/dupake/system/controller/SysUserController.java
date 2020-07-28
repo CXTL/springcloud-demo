@@ -4,7 +4,7 @@ package com.dupake.system.controller;
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
 import com.dupake.common.pojo.dto.req.user.UserQueryRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
-import com.dupake.common.pojo.dto.res.UserDTO;
+import com.dupake.common.pojo.dto.res.system.UserDTO;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.service.SysUserService;

@@ -3,13 +3,11 @@ package com.dupake.system.service;
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
 import com.dupake.common.pojo.dto.req.user.UserQueryRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
-import com.dupake.common.pojo.dto.res.UserDTO;
+import com.dupake.common.pojo.dto.res.system.UserDTO;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysUser;
-import org.springframework.data.domain.Pageable;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 

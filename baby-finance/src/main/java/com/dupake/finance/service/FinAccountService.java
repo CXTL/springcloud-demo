@@ -5,7 +5,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.account.AccountAddRequest;
 import com.dupake.common.pojo.dto.req.account.AccountQueryRequest;
 import com.dupake.common.pojo.dto.req.account.AccountUpdateRequest;
-import com.dupake.common.pojo.dto.res.AccountDTO;
+import com.dupake.common.pojo.dto.res.finance.AccountDTO;
 
 import java.util.List;
 

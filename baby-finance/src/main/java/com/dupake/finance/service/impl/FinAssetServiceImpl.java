@@ -11,11 +11,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
-import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
-import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
-import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
-import com.dupake.common.pojo.dto.res.AssetDTO;
-import com.dupake.common.pojo.dto.res.AssetDTO;
+import com.dupake.common.pojo.dto.res.finance.AssetDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinAsset;
 import com.dupake.finance.entity.FinAssetRecord;
@@ -55,7 +51,7 @@ public class FinAssetServiceImpl implements FinAssetService {
     
     /**
      * @param assetQueryRequest :
-     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.AssetDTO>>
+     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.finance.AssetDTO>>
      * @Description 分页查询投资列表
      **/
     @Override

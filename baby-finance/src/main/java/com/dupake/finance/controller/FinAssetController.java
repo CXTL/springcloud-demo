@@ -6,7 +6,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
-import com.dupake.common.pojo.dto.res.AssetDTO;
+import com.dupake.common.pojo.dto.res.finance.AssetDTO;
 import com.dupake.finance.service.FinAssetService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

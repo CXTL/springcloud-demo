@@ -1,4 +1,4 @@
-package com.dupake.common.pojo.dto.res;
+package com.dupake.common.pojo.dto.res.finance;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;

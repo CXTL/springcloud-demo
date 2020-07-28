@@ -1,6 +1,6 @@
 package com.dupake.commodity.service;
 
-import com.dupake.common.pojo.dto.res.OrderDTO;
+import com.dupake.common.pojo.dto.res.finance.OrderDTO;
 
 /**
  * @author dupake

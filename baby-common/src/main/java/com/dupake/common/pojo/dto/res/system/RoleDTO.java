@@ -1,4 +1,4 @@
-package com.dupake.common.pojo.dto.res;
+package com.dupake.common.pojo.dto.res.system;
 
 import lombok.Data;
 

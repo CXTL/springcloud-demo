@@ -1,9 +1,7 @@
 package com.dupake.finance.service.impl;
 
-import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -11,7 +9,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.subject.SubjectAddRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectQueryRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectUpdateRequest;
-import com.dupake.common.pojo.dto.res.SubjectDTO;
+import com.dupake.common.pojo.dto.res.finance.SubjectDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinSubject;
 import com.dupake.finance.exception.BadRequestException;
@@ -49,7 +47,7 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
 
     /**
      * @param subjectQueryRequest :
-     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.SubjectDTO>>
+     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.finance.SubjectDTO>>
      * @Description 分页查询投资列表
      **/
     @Override

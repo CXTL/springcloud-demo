@@ -4,7 +4,7 @@ import com.dupake.common.message.CommonPage;
 import com.dupake.common.pojo.dto.req.menu.MenuAddRequest;
 import com.dupake.common.pojo.dto.req.menu.MenuQueryRequest;
 import com.dupake.common.pojo.dto.req.menu.MenuUpdateRequest;
-import com.dupake.common.pojo.dto.res.MenuDTO;
+import com.dupake.common.pojo.dto.res.system.MenuDTO;
 import com.dupake.common.message.CommonResult;
 import com.dupake.system.entity.SysMenu;
 

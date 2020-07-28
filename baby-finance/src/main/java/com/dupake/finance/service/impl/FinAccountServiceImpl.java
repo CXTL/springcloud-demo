@@ -1,9 +1,7 @@
 package com.dupake.finance.service.impl;
 
-import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -11,7 +9,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.account.AccountAddRequest;
 import com.dupake.common.pojo.dto.req.account.AccountQueryRequest;
 import com.dupake.common.pojo.dto.req.account.AccountUpdateRequest;
-import com.dupake.common.pojo.dto.res.AccountDTO;
+import com.dupake.common.pojo.dto.res.finance.AccountDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.exception.BadRequestException;
@@ -49,7 +47,7 @@ public class FinAccountServiceImpl implements FinAccountService {
 
     /**
      * @param accountQueryRequest :
-     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.AccountDTO>>
+     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.finance.AccountDTO>>
      * @Description 分页查询帐套列表
      **/
     @Override

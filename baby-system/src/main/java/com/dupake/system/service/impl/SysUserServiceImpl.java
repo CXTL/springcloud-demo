@@ -13,7 +13,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.user.UserAddRequest;
 import com.dupake.common.pojo.dto.req.user.UserQueryRequest;
 import com.dupake.common.pojo.dto.req.user.UserUpdateRequest;
-import com.dupake.common.pojo.dto.res.UserDTO;
+import com.dupake.common.pojo.dto.res.system.UserDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.system.entity.SysUser;
 import com.dupake.system.mapper.SysUserMapper;
@@ -25,7 +25,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

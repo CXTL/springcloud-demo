@@ -3,7 +3,7 @@ package com.dupake.commodity.service.impl;
 import com.dupake.commodity.entity.Point;
 import com.dupake.commodity.mapper.PointMapper;
 import com.dupake.commodity.service.PointService;
-import com.dupake.common.pojo.dto.res.OrderDTO;
+import com.dupake.common.pojo.dto.res.finance.OrderDTO;
 import com.dupake.common.utils.IdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

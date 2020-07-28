@@ -6,7 +6,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.role.RoleAddRequest;
 import com.dupake.common.pojo.dto.req.role.RoleQueryRequest;
 import com.dupake.common.pojo.dto.req.role.RoleUpdateRequest;
-import com.dupake.common.pojo.dto.res.RoleDTO;
+import com.dupake.common.pojo.dto.res.system.RoleDTO;
 import com.dupake.system.service.SysRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

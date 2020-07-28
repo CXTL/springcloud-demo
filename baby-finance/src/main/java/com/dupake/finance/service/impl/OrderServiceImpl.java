@@ -1,6 +1,6 @@
 package com.dupake.finance.service.impl;
 
-import com.dupake.common.pojo.dto.res.OrderDTO;
+import com.dupake.common.pojo.dto.res.finance.OrderDTO;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.finance.entity.Order;
 import com.dupake.finance.entity.TransactionLog;

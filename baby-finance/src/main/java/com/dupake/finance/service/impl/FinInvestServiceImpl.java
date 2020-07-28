@@ -1,9 +1,7 @@
 package com.dupake.finance.service.impl;
 
-import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -11,7 +9,7 @@ import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.invest.InvestAddRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestUpdateRequest;
-import com.dupake.common.pojo.dto.res.InvestDTO;
+import com.dupake.common.pojo.dto.res.finance.InvestDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
@@ -50,7 +48,7 @@ public class FinInvestServiceImpl implements FinInvestService {
 
     /**
      * @param investQueryRequest :
-     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.InvestDTO>>
+     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.finance.InvestDTO>>
      * @Description 分页查询投资列表
      **/
     @Override

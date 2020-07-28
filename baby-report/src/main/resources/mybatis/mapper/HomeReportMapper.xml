@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.report.mapper.HomeReportMapper">
+
+    <select id="getHomeTableData" resultType="com.dupake.common.pojo.dto.res.report.HomeTableDTO">
+        select
+                ifnull(sum(real_receive_amount), 0) as incomeToday,
+                ifnull(sum(real_pay_amount), 0)     as expenditureToday
+        from fin_asset_record
+        where account_code = 12
+          and create_time between 1588057644000 and  1587798444000
+        group by account_code
+    </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-package com.dupake.common.pojo.dto.res;
+package com.dupake.common.pojo.dto.res.finance;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @ClassName PermissionDTO
@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class InvestDTO implements Serializable {
+public class AccountDTO implements Serializable {
 
     private static final long serialVersionUID = -6225606748663424690L;
     private Long id;
@@ -29,24 +29,39 @@ public class InvestDTO implements Serializable {
     private String accountCode;
 
     /**
-     * 投资人名称
+     * 帐套名称
      */
-    private String investName;
+    private String accountName;
 
     /**
-     * 投资款
+     * 公司名称
      */
-    private BigDecimal investFund;
+    private String companyName;
 
     /**
-     * 投资总额
+     * 纳税识别号
      */
-    private BigDecimal investAmount;
+    private String taxNumber;
 
     /**
-     * 投资比例 %
+     * 地址
      */
-    private Integer investRatio;
+    private String address;
+
+    /**
+     * 电话
+     */
+    private String phone;
+
+    /**
+     * 开户银行
+     */
+    private String bankAccount;
+
+    /**
+     * 银行卡号
+     */
+    private String bankCardNumber;
 
 
     /**
