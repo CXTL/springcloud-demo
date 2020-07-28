@@ -21,6 +21,13 @@
     </properties>
 
     <dependencies>
+
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!--公共依赖-->
         <dependency>
             <groupId>com.dupake</groupId>

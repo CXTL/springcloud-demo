@@ -2,7 +2,6 @@ package com.dupake.gateway.exception;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
-import com.google.gson.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;

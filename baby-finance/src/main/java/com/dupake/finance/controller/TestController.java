@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
 @RestController
 @Api(tags = "Test控制器")
 @Slf4j
-@RequestMapping("finance")
+//@RequestMapping("pro")
 public class TestController {
 
 
@@ -37,6 +37,12 @@ public class TestController {
 
     @Resource
     private IMessageProvider messageProvider;
+
+
+    @GetMapping("/helloProvider")
+    public String helloProvider(){
+        return "hello report______________________";
+    }
 
 
     @ApiOperation(value = "redis测试", notes = "redis测试 - for-web")

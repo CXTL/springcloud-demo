@@ -14,8 +14,10 @@ import java.util.List;
  * @author star
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/report")
 public class UserController {
+
+
 
     @Autowired
     private EsUserService esUserService;

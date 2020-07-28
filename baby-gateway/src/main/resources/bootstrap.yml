@@ -1,9 +1,8 @@
 server:
-  port: 7806
+  port: 7306
 spring:
   application:
-    name: commodity
-
+    name: gateway
   cloud:
     nacos:
       discovery:
@@ -13,3 +12,9 @@ spring:
         file-extension: yaml #这里我们获取的yaml格式的配置
   main:
     allow-bean-definition-overriding: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
