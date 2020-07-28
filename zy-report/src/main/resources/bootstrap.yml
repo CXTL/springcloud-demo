@@ -1,8 +1,8 @@
 server:
-  port: 7106
+  port: 7806
 spring:
   application:
-    name: finance
+    name: report
   cloud:
     nacos:
       discovery:
