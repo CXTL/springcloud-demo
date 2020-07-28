@@ -4,15 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.dupake</groupId>
-        <artifactId>zy-parent</artifactId>
+        <artifactId>baby-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
 
     <groupId>com.dupake</groupId>
-    <artifactId>zy-system</artifactId>
+    <artifactId>baby-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zy-system</name>
+    <name>baby-system</name>
     <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
 
@@ -24,8 +24,8 @@
         <!--公共依赖-->
         <dependency>
             <groupId>com.dupake</groupId>
-            <artifactId>zy-common</artifactId>
-            <version>${zy-common.version}</version>
+            <artifactId>baby-common</artifactId>
+            <version>${baby-common.version}</version>
         </dependency>
         <!-- jwt -->
         <dependency>

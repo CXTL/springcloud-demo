@@ -10,9 +10,9 @@
         </parent>
 
         <groupId>com.dupake</groupId>
-        <artifactId>zy-gateway</artifactId>
+        <artifactId>baby-gateway</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <name>zy-gateway</name>
+        <name>baby-gateway</name>
         <packaging>jar</packaging>
         <description>Demo project for Spring Boot</description>
 

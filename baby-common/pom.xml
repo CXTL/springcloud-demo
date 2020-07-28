@@ -7,13 +7,13 @@
 
     <parent>
         <groupId>org.dupake</groupId>
-        <artifactId>zy-parent</artifactId>
+        <artifactId>baby-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
 
     <groupId>com.dupake</groupId>
-    <artifactId>zy-common</artifactId>
+    <artifactId>baby-common</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

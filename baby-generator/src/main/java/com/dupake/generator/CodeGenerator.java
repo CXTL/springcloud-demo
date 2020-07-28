@@ -32,8 +32,8 @@ public class CodeGenerator {
         //全局配置
         GlobalConfig gc = new GlobalConfig();
 //        String projectPath = System.getProperty("user.dir");
-//        String projectPath = "/Users/xt/data/workspace/hm-workspace/springcloud-demo/zy-generator";
-        String projectPath = "D:\\work\\workspace\\xt-workspace\\springcloud-demo\\zy-generator";
+//        String projectPath = "/Users/xt/data/workspace/hm-workspace/springcloud-demo/baby-generator";
+        String projectPath = "D:\\work\\workspace\\xt-workspace\\springcloud-demo\\baby-generator";
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("dupake");
         gc.setServiceName("%sService");//自定义Service接口生成的文件名

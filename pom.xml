@@ -5,22 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dupake</groupId>
-    <artifactId>zy-parent</artifactId>
+    <artifactId>baby-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
 
     <modules>
-        <module>zy-system</module>
-        <module>zy-gateway</module>
-        <module>zy-finance</module>
-        <module>zy-report</module>
-        <module>zy-commodity</module>
-        <module>zy-common</module>
-        <module>zy-generator</module>
+        <module>baby-system</module>
+        <module>baby-gateway</module>
+        <module>baby-finance</module>
+        <module>baby-report</module>
+        <module>baby-commodity</module>
+        <module>baby-common</module>
+        <module>baby-generator</module>
     </modules>
 
-    <name>zy-server</name>
+    <name>baby-server</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -40,7 +40,7 @@
         <swagger.version>2.9.2</swagger.version>
         <jjwt.version>0.6.0</jjwt.version>
         <fastjson.version>1.2.54</fastjson.version>
-        <zy-common.version>1.0-SNAPSHOT</zy-common.version>
+        <baby-common.version>1.0-SNAPSHOT</baby-common.version>
         <zy-tools.version>1.0-SNAPSHOT</zy-tools.version>
         <openfeign.version>2.1.1.RELEASE</openfeign.version>
         <rabbit.version>2.1.2.RELEASE</rabbit.version>
