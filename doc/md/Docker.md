@@ -239,7 +239,13 @@ server {
     listen       80;
     server_name dupake.cn;
     location / {
-        proxy_pass   http://10.0.105.50:7106;
+        proxy_pass   http://10.0.105.50:8081;
+    }
+    location /gateway/ {
+        proxy_pass   http://10.0.105.50:7306/;
+    }
+  location /report/ {
+        proxy_pass   http://10.0.105.50:7806/;
     }
     location /finance/ {
         proxy_pass   http://10.0.105.50:7106;
@@ -252,6 +258,7 @@ server {
         root   /usr/share/nginx/html;
     }
 }
+
 
 `````
 

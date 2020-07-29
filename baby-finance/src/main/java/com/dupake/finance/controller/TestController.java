@@ -3,14 +3,12 @@ package com.dupake.finance.controller;
 import com.dupake.finance.entity.Order;
 import com.dupake.finance.service.IMessageProvider;
 import com.dupake.finance.service.IdGeneratorService;
+import com.dupake.finance.service.ReportAssetService;
 import com.dupake.finance.utils.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.concurrent.ExecutorService;
@@ -25,7 +23,6 @@ import java.util.concurrent.Executors;
 @RestController
 @Api(tags = "Test控制器")
 @Slf4j
-//@RequestMapping("pro")
 public class TestController {
 
 
@@ -39,9 +36,22 @@ public class TestController {
     private IMessageProvider messageProvider;
 
 
-    @GetMapping("/helloProvider")
-    public String helloProvider(){
-        return "hello report______________________";
+    @Resource
+    private ReportAssetService reportAssetService;
+
+    /**
+     * 每天一点生成昨天的数据
+     */
+//    @Scheduled(cron="*/6 * * * * ?")
+    @GetMapping("/insertReportAsset")
+    public void insertReportAsset(){
+        reportAssetService.insertReportAsset();
+    }
+
+
+    @PostMapping("/helloProvider")
+    public String helloProvider(@RequestParam(value = "name") String name){
+        return "hello report______________________" + name;
     }
 
 

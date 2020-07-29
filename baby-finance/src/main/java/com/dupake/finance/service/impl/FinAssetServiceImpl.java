@@ -89,11 +89,11 @@ public class FinAssetServiceImpl implements FinAssetService {
             //落地投资总数据 查询后计算
             FinAsset asset = FinAsset.builder()
                     .accountCode(assetAddRequest.getAccountCode())
-                    .freezeBalance(NumberConstant.BIGDECIMAL_0)
-                    .availableBalance(NumberConstant.BIGDECIMAL_0)
+                    .freezeBalance(assetAddRequest.getPayAmount())
+                    .availableBalance(assetAddRequest.getPayAmount())
                     .remark("test")
                     .status(1)
-                    .totalBalance(NumberConstant.BIGDECIMAL_0)
+                    .totalBalance(assetAddRequest.getPayAmount())
                     .build();
             finAssetMapper.insert(asset);
 
@@ -101,8 +101,8 @@ public class FinAssetServiceImpl implements FinAssetService {
             finAssetRecordMapper.insert(FinAssetRecord.builder()
                     .accountCode(assetAddRequest.getAccountCode())
                     .amount(assetAddRequest.getRealPayAmount().add(assetAddRequest.getRealReceiveAmount()))
-                    .balanceAfter(NumberConstant.BIGDECIMAL_0)
-                    .balanceBefore(NumberConstant.BIGDECIMAL_0)
+                    .balanceAfter(assetAddRequest.getPayAmount())
+                    .balanceBefore(assetAddRequest.getPayAmount())
                     .payAmount(assetAddRequest.getPayAmount())
                     .realPayAmount(assetAddRequest.getRealPayAmount())
                     .realReceiveAmount(assetAddRequest.getRealReceiveAmount())

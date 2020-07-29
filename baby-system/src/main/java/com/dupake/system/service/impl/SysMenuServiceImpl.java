@@ -17,6 +17,7 @@ import com.dupake.system.entity.SysMenu;
 import com.dupake.system.mapper.SysMenuMapper;
 import com.dupake.system.service.SysMenuService;
 import com.dupake.system.exception.BadRequestException;
+import com.dupake.system.service.SysRoleMenuService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -50,7 +51,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 
     /**
      * @param menuQueryRequest :
-     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.system.MenuDTO>>
+     * @return com.dupake.common.message.CommonResult<com.dupake.common.message.CommonPage < com.dupake.common.pojo.dto.res.MenuDTO>>
      * @Description 分页查询菜单列表
      **/
     @Override

@@ -50,7 +50,7 @@ public class DateUtil {
     public static long getLastTime(long time){
         LocalDateTime localDateTime = LocalDateTime.ofEpochSecond(time, 0, ZoneOffset.ofHours(8));
         LocalDateTime plusDays = localDateTime.plusDays(-1);
-        Long seconds = getSecondsByTime(localDateTime.plusDays(-1));
+        Long seconds = getMilliByTime(localDateTime.plusDays(-1));
         return seconds;
     }
 
@@ -128,4 +128,8 @@ public class DateUtil {
                 .withNano(999999999);
     }
 
+    public static void main(String[] args) {
+        System.out.println(getDayStart(LocalDateTime.now()));
+        System.out.println(getDayEnd(LocalDateTime.now()));
+    }
 }

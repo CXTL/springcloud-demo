@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.finance.mapper.ReportAssetMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.ReportAsset">
+        <id column="id" property="id" />
+        <result column="account_code" property="accountCode" />
+        <result column="total_asset" property="totalAsset" />
+        <result column="total_profit" property="totalProfit" />
+        <result column="total_income" property="totalIncome" />
+        <result column="total_expenditure" property="totalExpenditure" />
+        <result column="create_time" property="createTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+    </resultMap>
+
+    <insert id="insertBatch" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO report_asset
+        (account_code, total_asset, total_profit, total_income, total_expenditure
+        , create_time, is_deleted, remark, start_time, end_time)
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.accountCode}, #{item.totalAsset}, #{item.totalProfit},
+             #{item.totalIncome}, #{item.totalExpenditure},
+             #{item.createTime}, #{item.isDeleted}, #{item.remark},
+              #{item.startTime}, #{item.endTime})
+        </foreach >
+    </insert>
+
+    <select id="listYesByTime" resultMap="BaseResultMap">
+
+select fa.account_code, ifnull(total_income,0) total_income ,
+       ifnull(total_expenditure,0) total_expenditure,
+       ifnull(total_asset,0) total_asset
+from fin_account fa left join (
+
+    select t1.account_code, total_income, total_expenditure, total_asset
+    from (
+             select account_code, balance_after as total_asset
+             from fin_asset_record
+             where id in (
+                 select max(id) id
+                 from fin_asset_record
+                 where create_time between #{startTime} and #{endTime}
+                 group by account_code
+             )
+         ) t1
+
+             left join (
+        select account_code, sum(real_receive_amount) total_income, sum(real_pay_amount) total_expenditure
+        from fin_asset_record
+        where create_time between #{startTime} and #{endTime}
+        group by account_code
+    ) t2
+                       on t1.account_code = t2.account_code
+
+) t on fa.account_code = t.account_code
+where fa.is_deleted = 0
+
+    </select>
+
+
+    <select id="selectListByTime"  resultMap="BaseResultMap">
+            select * from report_asset
+            where is_deleted = 0 and create_time between #{startTime} and #{endTime}
+            and account_code in
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.accountCode}
+        </foreach>
+    </select>
+
+
+
+</mapper>

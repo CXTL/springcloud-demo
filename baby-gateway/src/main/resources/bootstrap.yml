@@ -13,6 +13,11 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+logging:
+  path: /home/xt/data/workspace/xt-workspace
+  pattern:
+    file: utf-8
+
 management:
   endpoints:
     web:

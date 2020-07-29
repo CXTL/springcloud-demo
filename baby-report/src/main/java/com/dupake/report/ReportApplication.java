@@ -9,7 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient//注册到consul
 @EnableFeignClients//开启feign
-//@EnableHystrix//开启熔断
 @MapperScan(value = "com.dupake.*.mapper*")
 public class ReportApplication {
 

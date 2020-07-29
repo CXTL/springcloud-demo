@@ -2,6 +2,7 @@ package com.dupake.finance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -177,5 +178,17 @@ public class FinAccountServiceImpl implements FinAccountService {
         }
         //todo 修改角色帐套表数据
         return CommonResult.success();
+    }
+
+
+    /**
+     * 获取全部帐套信息
+     * @return
+     */
+    @Override
+    public List<FinAccount> listAll() {
+        return finAccountMapper.selectList(
+                new LambdaUpdateWrapper<FinAccount>()
+                        .eq(FinAccount::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
     }
 }

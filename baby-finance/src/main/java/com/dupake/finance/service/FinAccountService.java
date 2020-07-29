@@ -6,6 +6,7 @@ import com.dupake.common.pojo.dto.req.account.AccountAddRequest;
 import com.dupake.common.pojo.dto.req.account.AccountQueryRequest;
 import com.dupake.common.pojo.dto.req.account.AccountUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.AccountDTO;
+import com.dupake.finance.entity.FinAccount;
 
 import java.util.List;
 
@@ -26,4 +27,6 @@ public interface FinAccountService  {
     CommonResult updateAccount(AccountUpdateRequest accountUpdateRequest);
 
     CommonResult deleteAccount(List<Long> ids);
+
+    List<FinAccount> listAll();
 }

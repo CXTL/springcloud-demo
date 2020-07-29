@@ -58,32 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        return new IgnoreUrlsConfig();
 //    }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence charSequence) {
-                return charSequence.toString();
-            }
 
-            @Override
-            public boolean matches(CharSequence charSequence, String s) {
-                return s.equals(charSequence.toString());
-            }
-        };
-    }
-
-
-    /**
-     * 从容器中取出 AuthenticationManagerBuilder，执行方法里面的逻辑之后，放回容器
-     *
-     * @param authenticationManagerBuilder
-     * @throws Exception
-     */
-    @Autowired
-    public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -149,6 +124,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence charSequence) {
+                return charSequence.toString();
+            }
 
+            @Override
+            public boolean matches(CharSequence charSequence, String s) {
+                return s.equals(charSequence.toString());
+            }
+        };
+    }
+
+
+    /**
+     * 从容器中取出 AuthenticationManagerBuilder，执行方法里面的逻辑之后，放回容器
+     *
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
+    @Autowired
+    public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
 }

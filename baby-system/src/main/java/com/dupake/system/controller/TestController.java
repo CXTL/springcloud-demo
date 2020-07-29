@@ -19,12 +19,17 @@ import javax.annotation.Resource;
  */
 @RestController
 @Api(tags = "Test控制器")
-@RequestMapping(value = "test")
+@RequestMapping(value = "system")
 public class TestController {
 
 
     @Resource
     private HelloService helloService;
+
+    @PostMapping("/helloProvider")
+    public String helloProvider(@RequestParam(value = "name") String name){
+        return "hello report______________________" + name;
+    }
 
     /**
      * 获取唯一ID
