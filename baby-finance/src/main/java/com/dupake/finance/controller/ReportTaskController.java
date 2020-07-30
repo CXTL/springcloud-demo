@@ -2,9 +2,11 @@ package com.dupake.finance.controller;
 
 import com.dupake.finance.service.ReportAssetService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 /**
  * @Description
@@ -19,10 +21,11 @@ public class ReportTaskController {
     private ReportAssetService reportAssetService;
 
     /**
-     * 每天一点生成昨天的数据
+     * 每天12:00:10生成昨天的数据
      */
-//    @Scheduled(cron="*/6 * * * * ?")
+    @Scheduled(cron="10 00 00 * * ?")
     public void insertReportAsset(){
+        log.info("ReportTaskController insertReportAsset time :{}", LocalDateTime.now());
         reportAssetService.insertReportAsset();
     }
 

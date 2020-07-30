@@ -46,6 +46,8 @@ $ sudo ufw allow 7722/tcp
 > gg 文件头
 >
 > G 文件尾
+>
+> :set nu
 
 ### alien
 

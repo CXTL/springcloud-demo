@@ -272,8 +272,13 @@ $ docker run -d -it --hostname rbq --name rmq -p 5671:5671 -p 5672:5672 -p 4369:
 
 #### mysql
 
-``````c
+``````kotlin
 $ docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0
+// 修改时区
+$ docker cp mysql:/etc/mysql/my.cnf /home/xt/data/docker/
+$ vim my.cnf
+default-time-zone = '+08:00'
+$ docker cp ./my.cnf mysql:/etc/mysql/
 ``````
 
 #### redis 

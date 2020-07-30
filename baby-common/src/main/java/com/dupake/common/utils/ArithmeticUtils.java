@@ -2,6 +2,7 @@ package com.dupake.common.utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
 
 /**
  * @Description
@@ -324,7 +325,20 @@ public class ArithmeticUtils {
      * @return
      */
     public static double countRate(BigDecimal v1, BigDecimal v2){
-       return div(sub(v1,v2),v2).doubleValue();
+       return checkBigDecimalZero(v2)? v1.doubleValue(): div(sub(v1,v2),v2).doubleValue();
+    }
+
+
+    /**
+     * 校验 0
+     * @param value
+     * @return
+     */
+    public static Boolean checkBigDecimalZero(BigDecimal value){
+        if(BigDecimal.ZERO.compareTo(value) == 0){
+            return true;
+        }
+        return false;
     }
 
 }

@@ -62,5 +62,18 @@ public class HomeTableDTO implements Serializable {
      */
     private double rateProfit;
 
+    /**
+     * 今日资产
+     */
+    private BigDecimal assetToday;
+    /**
+     *昨日资产
+     */
+    private BigDecimal assetYesterday;
+    /**
+     * 资产 昨日资产 / 今日资产
+     */
+    private double rateAsset;
+
 
 }
