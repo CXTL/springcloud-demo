@@ -3,6 +3,7 @@ package com.dupake.report.controller;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.HomeReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeAssetDTO;
+import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 import com.dupake.common.pojo.dto.res.report.HomeTableDTO;
 import com.dupake.report.service.HomeReportService;
 import io.swagger.annotations.Api;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @Description
@@ -45,7 +47,7 @@ public class HomeReportController {
 
     @ApiOperation("查询首页报表统计数据")
     @PostMapping(value = "/getHomeChartData")
-    public CommonResult getHomeChartData(@Valid @RequestBody HomeReportQueryRequest reportQueryRequest) {
+    public CommonResult<List<HomeReportAssetDTO>> getHomeChartData(@Valid @RequestBody HomeReportQueryRequest reportQueryRequest) {
         return homeReportService.getHomeChartData(reportQueryRequest);
     }
 

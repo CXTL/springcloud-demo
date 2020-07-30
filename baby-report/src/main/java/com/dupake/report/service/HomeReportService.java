@@ -3,7 +3,10 @@ package com.dupake.report.service;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.HomeReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeAssetDTO;
+import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 import com.dupake.common.pojo.dto.res.report.HomeTableDTO;
+
+import java.util.List;
 
 /**
  * @Description 首页报表
@@ -16,5 +19,5 @@ public interface HomeReportService {
 
     CommonResult<HomeAssetDTO> getHomeAssetData(HomeReportQueryRequest reportQueryRequest);
 
-    CommonResult getHomeChartData(HomeReportQueryRequest reportQueryRequest);
+    CommonResult<List<HomeReportAssetDTO>> getHomeChartData(HomeReportQueryRequest reportQueryRequest);
 }

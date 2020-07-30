@@ -36,6 +36,9 @@ public class HomeReportImpl implements HomeReportService {
     public CommonResult<HomeTableDTO> getHomeTableData(HomeReportQueryRequest reportQueryRequest) {
 
 
+        reportQueryRequest.setStartTime(DateUtil.getMilliByTime(DateUtil.getDayStart(LocalDateTime.now())));
+        reportQueryRequest.setEndTime(DateUtil.getMilliByTime(DateUtil.getDayEnd(LocalDateTime.now())));
+
         //查询今日资产 收入 支出
         HomeReportAssetDTO tableDataToday = homeReportMapper.getHomeTableDataByTime(reportQueryRequest);
         BigDecimal incomeToday = tableDataToday.getTotalIncome();
@@ -115,7 +118,7 @@ public class HomeReportImpl implements HomeReportService {
     }
 
     @Override
-    public CommonResult getHomeChartData(HomeReportQueryRequest reportQueryRequest) {
+    public CommonResult<List<HomeReportAssetDTO>> getHomeChartData(HomeReportQueryRequest reportQueryRequest) {
 
         List<HomeReportAssetDTO> targetReportAssetList = new ArrayList<>();
         

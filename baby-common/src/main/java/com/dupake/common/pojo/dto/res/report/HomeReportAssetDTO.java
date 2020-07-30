@@ -51,5 +51,13 @@ public class HomeReportAssetDTO {
      * 结束时间
      */
     private String endTime;
+    /**
+     *
+     */
+    private String date;
 
+
+    public String getDate() {
+        return getStartTime();
+    }
 }
