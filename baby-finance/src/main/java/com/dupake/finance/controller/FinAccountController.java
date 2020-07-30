@@ -47,7 +47,6 @@ public class FinAccountController {
     }
 
 
-
     @ApiOperation("修改指定帐套信息")
     @PostMapping(value = "/updateAccount")
     public CommonResult updateAccount(@Valid @RequestBody AccountUpdateRequest accountUpdateRequest) {
@@ -55,12 +54,16 @@ public class FinAccountController {
     }
 
 
-
-
     @ApiOperation("批量删除帐套信息")
     @PostMapping(value = "/deleteAccount")
     public CommonResult deleteAccount(@RequestParam(value = "ids") List<Long> ids) {
         return accountService.deleteAccount(ids);
+    }
+
+    @ApiOperation("查询全部帐套信息")
+    @GetMapping(value = "/listAll")
+    public CommonResult<List<AccountDTO>> listAll() {
+        return accountService.listAll();
     }
 
 }

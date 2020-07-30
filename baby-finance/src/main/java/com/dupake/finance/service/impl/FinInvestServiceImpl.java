@@ -2,6 +2,7 @@ package com.dupake.finance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.dupake.common.constatnts.RedisKeyConstant;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -11,10 +12,12 @@ import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.InvestDTO;
 import com.dupake.common.utils.DateUtil;
+import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinInvestMapper;
 import com.dupake.finance.service.FinInvestService;
+import com.dupake.finance.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -39,6 +42,8 @@ import java.util.stream.Collectors;
 @Slf4j
 public class FinInvestServiceImpl implements FinInvestService {
 
+    @Resource
+    private RedisUtil redisUtil;
 
 
     @Resource
@@ -55,15 +60,39 @@ public class FinInvestServiceImpl implements FinInvestService {
     public CommonResult<CommonPage<InvestDTO>> listByPage(InvestQueryRequest investQueryRequest) {
         List<InvestDTO> investDTOS = new ArrayList<>();
 
+
+
+
+
         int totalCount = finInvestMapper.getTotalCount(investQueryRequest);
         if (totalCount > 0) {
             List<FinInvest> finInvests = finInvestMapper.selectListPage(investQueryRequest);
             if (!ObjectUtils.isEmpty(finInvests)) {
-                investDTOS = finInvests.stream().map(a -> {
-                    InvestDTO investDTO = new InvestDTO();
-                    BeanUtils.copyProperties(a, investDTO);
-                    return investDTO;
-                }).collect(Collectors.toList());
+
+                for(FinInvest finInvest : finInvests){
+                    String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(investQueryRequest.getAccountCode()).toString();
+                    Object o = redisUtil.get(redisKey);
+                    Object hget = redisUtil.hget(redisKey, redisKey);
+
+                    InvestDTO dto = new InvestDTO();
+                    BeanUtils.copyProperties(finInvest, dto);
+//                    dto.setAccountName(name);
+
+                    investDTOS.add(dto);
+                }
+
+//                investDTOS = finInvests.stream().map(a -> {
+//
+//                    String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(a.getAccountCode()).toString();
+//                    FinAccount finAccount = (FinAccount) redisUtil.hget(redisKey, redisKey);
+//
+//                    InvestDTO investDTO = new InvestDTO();
+//                    BeanUtils.copyProperties(a, investDTO);
+//
+//                    investDTO.setAccountName(Objects.isNull(finAccount) ? a.getAccountCode() : finAccount.getAccountName());
+//
+//                    return investDTO;
+//                }).collect(Collectors.toList());
             }
         }
         return CommonResult.success(CommonPage.restPage(investDTOS, totalCount));
@@ -81,6 +110,7 @@ public class FinInvestServiceImpl implements FinInvestService {
         //投资名称校验 权限标识校验
 //        checkInvestInfo(investAddRequest.getName(), investAddRequest.getPermission(),null);
 
+        String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(investAddRequest.getAccountCode()).toString();
         //落地投资数据
         try {
             finInvestMapper.insert(FinInvest.builder()
@@ -91,6 +121,10 @@ public class FinInvestServiceImpl implements FinInvestService {
                     .investRatio(investAddRequest.getInvestRatio())
                     .remark(investAddRequest.getRemark())
                     .build());
+
+            //落地资产数据
+
+
         } catch (Exception e) {
             log.error("FinInvestServiceImpl add invest error , param:{}, error:{}", JSONObject.toJSONString(investAddRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());

@@ -28,5 +28,5 @@ public interface FinAccountService  {
 
     CommonResult deleteAccount(List<Long> ids);
 
-    List<FinAccount> listAll();
+    CommonResult<List<AccountDTO>> listAll();
 }

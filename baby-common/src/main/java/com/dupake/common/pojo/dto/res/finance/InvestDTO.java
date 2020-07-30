@@ -27,6 +27,10 @@ public class InvestDTO implements Serializable {
      * 帐套信息编码
      */
     private String accountCode;
+    /**
+     * 帐套名称
+     */
+    private String accountName;
 
     /**
      * 投资人名称

@@ -62,4 +62,5 @@ public class FinInvestController {
         return accountService.deleteInvest(ids);
     }
 
+
 }

@@ -22,10 +22,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @Builder
-public class FinAccount  extends BaseEntity implements Serializable {
+public class FinAccount  extends BaseEntity  {
 
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = -4027869981500881705L;
     /**
      * id
      */

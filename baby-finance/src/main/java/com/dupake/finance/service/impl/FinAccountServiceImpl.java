@@ -3,6 +3,7 @@ package com.dupake.finance.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.dupake.common.constatnts.RedisKeyConstant;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -16,10 +17,12 @@ import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinAccountMapper;
 import com.dupake.finance.service.FinAccountService;
+import com.dupake.finance.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -44,6 +47,8 @@ public class FinAccountServiceImpl implements FinAccountService {
     @Resource
     private FinAccountMapper finAccountMapper;
 
+    @Resource
+    private RedisUtil redisUtil;
 
 
     /**
@@ -80,10 +85,10 @@ public class FinAccountServiceImpl implements FinAccountService {
     public CommonResult addAccount(AccountAddRequest accountAddRequest) {
         //帐套名称校验 权限标识校验
 //        checkAccountInfo(accountAddRequest.getName(), accountAddRequest.getPermission(),null);
-
+        String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(accountAddRequest.getAccountCode()).toString();
         //落地帐套数据
         try {
-            finAccountMapper.insert(FinAccount.builder()
+            FinAccount account = FinAccount.builder()
                     .accountCode(accountAddRequest.getAccountCode())
                     .accountName(accountAddRequest.getAccountName())
                     .address(accountAddRequest.getAddress())
@@ -92,8 +97,18 @@ public class FinAccountServiceImpl implements FinAccountService {
                     .companyName(accountAddRequest.getCompanyName())
                     .phone(accountAddRequest.getPhone())
                     .taxNumber(accountAddRequest.getTaxNumber())
-                    .build());
+                    .build();
+
+            finAccountMapper.insert(account);
+
+            redisUtil.hset(redisKey,redisKey,account);
+
+
+
         } catch (Exception e) {
+
+            redisUtil.hdel(redisKey,redisKey);
+
             log.error("FinAccountServiceImpl add account error , param:{}, error:{}", JSONObject.toJSONString(accountAddRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
@@ -186,9 +201,21 @@ public class FinAccountServiceImpl implements FinAccountService {
      * @return
      */
     @Override
-    public List<FinAccount> listAll() {
-        return finAccountMapper.selectList(
+    public CommonResult<List<AccountDTO>> listAll() {
+        List<AccountDTO> collect = new ArrayList<>();
+        //todo 根据角色ID查询角色所拥有帐套
+        List<FinAccount> finAccounts = finAccountMapper.selectList(
                 new LambdaUpdateWrapper<FinAccount>()
                         .eq(FinAccount::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        if(!CollectionUtils.isEmpty(finAccounts)){
+            collect = finAccounts.stream().map(a -> {
+                AccountDTO dto = new AccountDTO();
+                BeanUtils.copyProperties(a, dto);
+                return dto;
+            }).collect(Collectors.toList());
+        }
+
+
+        return CommonResult.success(collect);
     }
 }
