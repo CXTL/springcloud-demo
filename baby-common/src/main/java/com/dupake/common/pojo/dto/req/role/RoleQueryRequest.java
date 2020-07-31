@@ -16,4 +16,8 @@ public class RoleQueryRequest extends BasePageRequest {
     
     private String name;
 
+    private Long startTime;
+
+    private Long endTime;
+
 }

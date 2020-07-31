@@ -16,4 +16,9 @@ public class MenuQueryRequest extends BasePageRequest {
     
     private String name;
 
+
+    private Long startTime;
+
+    private Long endTime;
+
 }

@@ -62,7 +62,7 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
 
         List<InvestDTO> investDTOS = new ArrayList<>();
         Map<String, String> accountMap = getAccountMap();
-
+        Map<String, String> subjectMap = getSubjectMap();
 
         int totalCount = finInvestMapper.getTotalCount(investQueryRequest);
         if (totalCount > 0) {
@@ -72,6 +72,7 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
                     InvestDTO dto = new InvestDTO();
                     BeanUtils.copyProperties(a, dto);
                     dto.setAccountName(accountMap.get(dto.getAccountCode()));
+                    dto.setSubjectName(subjectMap.get(dto.getSubjectCode()));
                     return dto;
                 }).collect(Collectors.toList());
             }

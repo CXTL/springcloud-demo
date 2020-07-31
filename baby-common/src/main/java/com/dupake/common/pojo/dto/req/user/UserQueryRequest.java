@@ -19,4 +19,8 @@ public class UserQueryRequest extends BasePageRequest {
     private String phone;
 
     private String email;
+
+    private Long startTime;
+
+    private Long endTime;
 }
