@@ -41,6 +41,11 @@ public class SubjectDTO implements Serializable {
     private String parentCode;
 
     /**
+     * 父科目名称
+     */
+    private String parentName;
+
+    /**
      * 科目类型 1 资产 2负载 3权益 4成本 5其他
      */
     private Integer subjectType;

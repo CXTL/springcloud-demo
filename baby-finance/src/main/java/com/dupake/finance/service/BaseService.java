@@ -39,5 +39,19 @@ public class BaseService {
         return accountMap;
     }
 
+    /**
+     * 获取科目map数据
+     * @return
+     */
+    public Map<String,String> getSubjectMap(){
+        Map<String, String> subjectMap = new HashMap<>();
+        String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_SUBJECT_KEY).toString();
+        Object obj = redisUtil.hget(redisKey, redisKey);
+        if(!Objects.isNull(obj)){
+            subjectMap = JSONObject.parseObject((String)obj,Map.class);
+        }
+        return subjectMap;
+    }
+
 
 }

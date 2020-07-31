@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtConfig {
     public static final String REDIS_TOKEN_KEY_PREFIX = "TOKEN_";
-    private static long time;     // 过期时间
+    private static long time = 86400000;     // 过期时间
     private static String secret; // JWT密码
     private static String prefix; // Token前缀
     private static String header; // 存放Token的Header Key
     private static String claims; // 存放Token的Header Key
 
     public static long getTime() {
-        return time;
+        return 86400000;
     }
 
     public void setTime(long time) {

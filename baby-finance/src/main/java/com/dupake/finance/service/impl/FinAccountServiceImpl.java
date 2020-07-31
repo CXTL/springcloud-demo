@@ -118,7 +118,6 @@ public class FinAccountServiceImpl extends BaseService implements FinAccountServ
         }catch (Exception e){
             redisUtil.hdel(redisKey,redisKey);
             log.error("FinAccountServiceImpl redis add account error , param:{}, error:{}", JSONObject.toJSONString(accountAddRequest), e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
 
@@ -174,7 +173,6 @@ public class FinAccountServiceImpl extends BaseService implements FinAccountServ
         }catch (Exception e){
             redisUtil.hdel(redisKey,redisKey);
             log.error("FinAccountServiceImpl redis update account error , param:{}, error:{}", JSONObject.toJSONString(accountUpdateRequest), e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
 
@@ -230,7 +228,6 @@ public class FinAccountServiceImpl extends BaseService implements FinAccountServ
         }catch (Exception e){
             redisUtil.hdel(redisKey,redisKey);
             log.error("FinAccountServiceImpl redis del account error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
         return CommonResult.success();

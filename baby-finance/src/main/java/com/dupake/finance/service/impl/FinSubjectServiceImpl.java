@@ -3,6 +3,8 @@ package com.dupake.finance.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.dupake.common.constatnts.FinConstant;
+import com.dupake.common.constatnts.RedisKeyConstant;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -13,9 +15,11 @@ import com.dupake.common.pojo.dto.req.subject.SubjectUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.SubjectDTO;
 import com.dupake.common.pojo.dto.res.system.MenuDTO;
 import com.dupake.common.utils.DateUtil;
+import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.entity.FinSubject;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinSubjectMapper;
+import com.dupake.finance.service.BaseService;
 import com.dupake.finance.service.FinSubjectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +31,7 @@ import org.springframework.util.ObjectUtils;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -40,11 +45,13 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class FinSubjectServiceImpl  implements FinSubjectService {
+public class FinSubjectServiceImpl extends BaseService implements FinSubjectService {
 
 
     @Resource
     private FinSubjectMapper finSubjectMapper;
+
+    private final String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_SUBJECT_KEY).toString();
 
 
 
@@ -56,7 +63,7 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
     @Override
     public CommonResult<CommonPage<SubjectDTO>> listByPage(SubjectQueryRequest subjectQueryRequest) {
         List<SubjectDTO> subjectDTOS = new ArrayList<>();
-
+        Map<String, String> subjectMap = getSubjectMap();
         int totalCount = finSubjectMapper.getTotalCount(subjectQueryRequest);
         if (totalCount > 0) {
             List<FinSubject> finSubjects = finSubjectMapper.selectListPage(subjectQueryRequest);
@@ -64,6 +71,8 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
                 subjectDTOS = finSubjects.stream().map(a -> {
                     SubjectDTO subjectDTO = new SubjectDTO();
                     BeanUtils.copyProperties(a, subjectDTO);
+                    subjectDTO.setParentName(Objects.isNull(subjectMap.get(subjectDTO.getParentCode())) ?
+                            subjectDTO.getParentCode() : subjectMap.get(subjectDTO.getParentCode()));
                     return subjectDTO;
                 }).collect(Collectors.toList());
             }
@@ -96,6 +105,16 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
         } catch (Exception e) {
             log.error("FinSubjectServiceImpl add subject error , param:{}, error:{}", JSONObject.toJSONString(subjectAddRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+        }
+
+        try {
+            //redis设置科目信息
+            Map<String, String> subjectMap = getSubjectMap();
+            subjectMap.put(subjectAddRequest.getSubjectCode(),subjectAddRequest.getSubjectName());
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(subjectMap));
+        }catch (Exception e){
+            redisUtil.hdel(redisKey,redisKey);
+            log.error("FinSubjectServiceImpl redis add subject error , param:{}, error:{}", JSONObject.toJSONString(subjectAddRequest), e);
         }
 
         return CommonResult.success();
@@ -138,6 +157,18 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
         }
 
 
+        try {
+            //redis设置科目信息
+            Map<String, String> subjectMap = getSubjectMap();
+            subjectMap.put(subjectUpdateRequest.getSubjectCode(),subjectUpdateRequest.getSubjectName());
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(subjectMap));
+        }catch (Exception e){
+            redisUtil.hdel(redisKey,redisKey);
+            log.error("FinSubjectServiceImpl redis update subject error , param:{}, error:{}", JSONObject.toJSONString(subjectUpdateRequest), e);
+        }
+
+
+
         return CommonResult.success();
     }
 
@@ -152,21 +183,56 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
         //todo  科目下存在数据 无法删除此科目 , 管理员可删除
 
         //批量修改投资状态
-        List<FinSubject> finSubjectList = ids.stream().map(a -> {
-            FinSubject finSubject = new FinSubject();
-            finSubject.setIsDeleted(YesNoSwitchEnum.YES.getValue());
-            finSubject.setUpdateTime(DateUtil.getCurrentTimeMillis());
-            finSubject.setId(a);
-            return finSubject;
-        }).collect(Collectors.toList());
+        List<FinSubject> finSubjectList = finSubjectMapper.selectList(new LambdaQueryWrapper<FinSubject>().eq(FinSubject::getIsDeleted, YesNoSwitchEnum.NO.getValue()).in(FinSubject::getId, ids));
+        if(!CollectionUtils.isEmpty(finSubjectList)){
 
-        try {
-            finSubjectMapper.updateBatch(finSubjectList);
-        } catch (Exception e) {
-            log.error("FinSubjectServiceImpl update subject error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
-            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+            List<FinSubject> finSubjects = ids.stream().map(a -> {
+                FinSubject finSubject = new FinSubject();
+                finSubject.setIsDeleted(YesNoSwitchEnum.YES.getValue());
+                finSubject.setUpdateTime(DateUtil.getCurrentTimeMillis());
+                finSubject.setId(a);
+                return finSubject;
+            }).collect(Collectors.toList());
+
+
+            List<String> codes = finSubjectList.stream().map(a -> a.getSubjectCode()).collect(Collectors.toList());
+            List<FinSubject> subjects = finSubjectMapper.selectList(new LambdaQueryWrapper<FinSubject>()
+                    .eq(FinSubject::getIsDeleted, YesNoSwitchEnum.NO.getValue()).in(FinSubject::getParentCode, codes));
+            if(!CollectionUtils.isEmpty(subjects)){
+                log.error("FinSubjectServiceImpl fin_subject_delete_error_exist_sub_subject , param:{}", JSONObject.toJSONString(ids));
+                throw new BadRequestException(BaseResult.FIN_SUBJECT_DELETE_ERROR_EXIST_SUB_SUBJECT.getCode(),
+                        BaseResult.FIN_SUBJECT_DELETE_ERROR_EXIST_SUB_SUBJECT.getMessage());
+            }
+            try {
+                finSubjectMapper.updateBatch(finSubjects);
+            } catch (Exception e) {
+                log.error("FinSubjectServiceImpl update subject error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
+                throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+            }
+
+
+            try {
+                Map<String, String> subjectMap = getSubjectMap();
+                Map<String, String> stringMap = finSubjectList.stream().collect(Collectors.toMap(FinSubject::getSubjectCode, FinSubject::getSubjectName));
+                subjectMap.forEach((k,v)->{
+                    if(!Objects.isNull(stringMap.get(k))){
+                        subjectMap.remove(k);
+                    }
+                });
+                redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(subjectMap));
+
+            }catch (Exception e){
+                redisUtil.hdel(redisKey,redisKey);
+                log.error("FinAccountServiceImpl redis del subject error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
+            }
+
         }
+
         //todo 修改角色投资表数据
+
+
+
+
         return CommonResult.success();
     }
 
@@ -194,6 +260,26 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
                     .filter(subject -> subject.getParentCode().equals("0"))
                     .map(subject -> covert(subject, finSubjectList)).collect(Collectors.toList());
 
+        }else {
+            finSubjectMapper.insert(
+                    FinSubject.builder()
+                            .subjectCode(FinConstant.FIN_TOP_SUBJECT_CODE)
+                            .parentCode(FinConstant.FIN_TOP_SUBJECT_PARENT_CODE)
+                            .subjectName(FinConstant.FIN_TOP_SUBJECT_NAME)
+                            .build()
+            );
+
+
+            subjectDTOS.add(SubjectDTO.builder()
+                    .subjectCode(FinConstant.FIN_TOP_SUBJECT_CODE)
+                    .parentCode(FinConstant.FIN_TOP_SUBJECT_PARENT_CODE)
+                    .subjectName(FinConstant.FIN_TOP_SUBJECT_NAME)
+                    .build());
+
+
+            Map<String, String> subjectMap = getSubjectMap();
+            subjectMap.put(FinConstant.FIN_TOP_SUBJECT_CODE,FinConstant.FIN_TOP_SUBJECT_NAME);
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(subjectMap));
         }
         return subjectDTOS;
     }
