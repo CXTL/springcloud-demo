@@ -16,6 +16,7 @@ import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinInvestMapper;
+import com.dupake.finance.service.BaseService;
 import com.dupake.finance.service.FinInvestService;
 import com.dupake.finance.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ import org.springframework.util.ObjectUtils;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -40,7 +42,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class FinInvestServiceImpl implements FinInvestService {
+public class FinInvestServiceImpl extends BaseService implements FinInvestService {
 
     @Resource
     private RedisUtil redisUtil;
@@ -58,41 +60,22 @@ public class FinInvestServiceImpl implements FinInvestService {
      **/
     @Override
     public CommonResult<CommonPage<InvestDTO>> listByPage(InvestQueryRequest investQueryRequest) {
+
+
         List<InvestDTO> investDTOS = new ArrayList<>();
-
-
-
+        Map<String, String> accountMap = getAccountMap();
 
 
         int totalCount = finInvestMapper.getTotalCount(investQueryRequest);
         if (totalCount > 0) {
             List<FinInvest> finInvests = finInvestMapper.selectListPage(investQueryRequest);
             if (!ObjectUtils.isEmpty(finInvests)) {
-
-                for(FinInvest finInvest : finInvests){
-                    String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(investQueryRequest.getAccountCode()).toString();
-                    Object o = redisUtil.get(redisKey);
-                    Object hget = redisUtil.hget(redisKey, redisKey);
-
+                investDTOS = finInvests.stream().map(a -> {
                     InvestDTO dto = new InvestDTO();
-                    BeanUtils.copyProperties(finInvest, dto);
-//                    dto.setAccountName(name);
-
-                    investDTOS.add(dto);
-                }
-
-//                investDTOS = finInvests.stream().map(a -> {
-//
-//                    String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(a.getAccountCode()).toString();
-//                    FinAccount finAccount = (FinAccount) redisUtil.hget(redisKey, redisKey);
-//
-//                    InvestDTO investDTO = new InvestDTO();
-//                    BeanUtils.copyProperties(a, investDTO);
-//
-//                    investDTO.setAccountName(Objects.isNull(finAccount) ? a.getAccountCode() : finAccount.getAccountName());
-//
-//                    return investDTO;
-//                }).collect(Collectors.toList());
+                    BeanUtils.copyProperties(a, dto);
+                    dto.setAccountName(accountMap.get(dto.getAccountCode()));
+                    return dto;
+                }).collect(Collectors.toList());
             }
         }
         return CommonResult.success(CommonPage.restPage(investDTOS, totalCount));

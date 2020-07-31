@@ -1,6 +1,7 @@
 package com.dupake.finance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONPObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.constatnts.RedisKeyConstant;
@@ -16,8 +17,10 @@ import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinAccountMapper;
+import com.dupake.finance.service.BaseService;
 import com.dupake.finance.service.FinAccountService;
 import com.dupake.finance.utils.RedisUtil;
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -26,9 +29,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -41,7 +42,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class FinAccountServiceImpl implements FinAccountService {
+public class FinAccountServiceImpl extends BaseService implements FinAccountService {
 
 
     @Resource
@@ -50,6 +51,8 @@ public class FinAccountServiceImpl implements FinAccountService {
     @Resource
     private RedisUtil redisUtil;
 
+
+    private final String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).toString();
 
     /**
      * @param accountQueryRequest :
@@ -83,12 +86,14 @@ public class FinAccountServiceImpl implements FinAccountService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult addAccount(AccountAddRequest accountAddRequest) {
+
         //帐套名称校验 权限标识校验
 //        checkAccountInfo(accountAddRequest.getName(), accountAddRequest.getPermission(),null);
-        String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(accountAddRequest.getAccountCode()).toString();
+
         //落地帐套数据
         try {
-            FinAccount account = FinAccount.builder()
+
+            finAccountMapper.insert(FinAccount.builder()
                     .accountCode(accountAddRequest.getAccountCode())
                     .accountName(accountAddRequest.getAccountName())
                     .address(accountAddRequest.getAddress())
@@ -97,21 +102,25 @@ public class FinAccountServiceImpl implements FinAccountService {
                     .companyName(accountAddRequest.getCompanyName())
                     .phone(accountAddRequest.getPhone())
                     .taxNumber(accountAddRequest.getTaxNumber())
-                    .build();
-
-            finAccountMapper.insert(account);
-
-            redisUtil.hset(redisKey,redisKey,account);
-
-
+                    .remark(accountAddRequest.getRemark())
+                    .build());
 
         } catch (Exception e) {
-
-            redisUtil.hdel(redisKey,redisKey);
-
             log.error("FinAccountServiceImpl add account error , param:{}, error:{}", JSONObject.toJSONString(accountAddRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
+
+        try {
+            //redis设置帐套信息
+            Map<String, String> accountMap = getAccountMap();
+            accountMap.put(accountAddRequest.getAccountCode(),accountAddRequest.getAccountName());
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(accountMap));
+        }catch (Exception e){
+            redisUtil.hdel(redisKey,redisKey);
+            log.error("FinAccountServiceImpl redis add account error , param:{}, error:{}", JSONObject.toJSONString(accountAddRequest), e);
+            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+        }
+
 
         return CommonResult.success();
     }
@@ -149,8 +158,21 @@ public class FinAccountServiceImpl implements FinAccountService {
                     .taxNumber(accountUpdateRequest.getTaxNumber())
                     .id(accountUpdateRequest.getId())
                     .build());
+
+
+
         } catch (Exception e) {
             log.error("FinAccountServiceImpl update account error , param:{}, error:{}", JSONObject.toJSONString(accountUpdateRequest), e);
+            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+        }
+
+        try {
+            Map<String, String> accountMap = getAccountMap();
+            accountMap.put(accountUpdateRequest.getAccountCode(),accountUpdateRequest.getAccountName());
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(accountMap));
+        }catch (Exception e){
+            redisUtil.hdel(redisKey,redisKey);
+            log.error("FinAccountServiceImpl redis update account error , param:{}, error:{}", JSONObject.toJSONString(accountUpdateRequest), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
 
@@ -191,7 +213,25 @@ public class FinAccountServiceImpl implements FinAccountService {
             log.error("FinAccountServiceImpl update account error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
         }
+
         //todo 修改角色帐套表数据
+
+
+        try {
+            Map<String, String> accountMap = getAccountMap();
+            Map<String, String> stringMap = finAccountList.stream().collect(Collectors.toMap(FinAccount::getAccountCode, FinAccount::getAccountName));
+            accountMap.forEach((k,v)->{
+                if(!Objects.isNull(stringMap.get(k))){
+                    accountMap.remove(k);
+                }
+            });
+            redisUtil.hset(redisKey,redisKey, JSONObject.toJSONString(accountMap));
+        }catch (Exception e){
+            redisUtil.hdel(redisKey,redisKey);
+            log.error("FinAccountServiceImpl redis del account error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
+            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+        }
+
         return CommonResult.success();
     }
 

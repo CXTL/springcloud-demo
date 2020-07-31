@@ -1,5 +1,7 @@
 package com.dupake.finance.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.dupake.common.pojo.dto.res.finance.OrderDTO;
 import com.dupake.finance.entity.Order;
 import com.dupake.finance.service.IMessageProvider;
 import com.dupake.finance.service.IdGeneratorService;
@@ -58,14 +60,15 @@ public class TestController {
     @ApiOperation(value = "redis测试", notes = "redis测试 - for-web")
     @GetMapping("/testRedis")
     public void testRedis() {
-        Order order = new Order();
+        OrderDTO order = new OrderDTO();
         order.setId(1L);
-        order.setName("测试REDIS");
-        order.setCreateTime(System.currentTimeMillis());
-        redisUtil.set("redistest", order);
-        boolean exists = redisUtil.hasKey("redistest");
+        order.setOrderNo("测试REDIS");
+        order.setStatus(1);
+        redisUtil.hset("redistest1","redistest1", order);
+        redisUtil.hset("order1", "order1",JSONObject.toJSONString(order));
+        boolean exists = redisUtil.hasKey("order1");
         System.out.println("redis是否存在相应的key" + exists);
-        Order getUser = (Order) redisUtil.get("redistest");
+        OrderDTO getUser = (OrderDTO) redisUtil.hget("redistest1","redistest1");
         System.out.println("从redis数据库获取的user:" + getUser.toString());
     }
 

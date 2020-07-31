@@ -1,9 +1,12 @@
 package com.dupake.system.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dupake.common.annotation.SubmitToken;
 import com.dupake.common.message.CommonResult;
+import com.dupake.common.pojo.dto.res.finance.OrderDTO;
 import com.dupake.system.feign.HelloService;
 import com.dupake.system.utils.CacheUtil;
+import com.dupake.system.utils.RedisUtil;
 import com.dupake.system.utils.UUIDUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,6 +24,10 @@ import javax.annotation.Resource;
 @Api(tags = "Test控制器")
 @RequestMapping(value = "system")
 public class TestController {
+
+
+    @Resource
+    private RedisUtil redisUtil;
 
 
     @Resource
@@ -58,6 +65,16 @@ public class TestController {
     public CommonResult feign(@PathVariable String str)  {
         String hello = helloService.hello(str);
         return CommonResult.success(hello);
+    }
+
+    @ApiOperation(value = "redisTest", notes = "redisTest - for-web")
+    @GetMapping("/redisTest")
+    public CommonResult redisTest()  {
+        Object hget = redisUtil.hget("order1","order1");
+        OrderDTO dto = JSONObject.parseObject((String) hget,OrderDTO.class);
+
+
+        return CommonResult.success(dto);
     }
 
 
