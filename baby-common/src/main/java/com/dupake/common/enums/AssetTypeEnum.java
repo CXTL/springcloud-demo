@@ -6,7 +6,7 @@ package com.dupake.common.enums;
 public enum AssetTypeEnum {
     INCOME(1, "收入"),
     EXPENDITURE(2, "支出"),
-    NO_KNOW(0, "未知"),
+    NO_KNOW(0, "其他"),
 
     ;
 

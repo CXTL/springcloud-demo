@@ -38,9 +38,18 @@ public class AssetDTO implements Serializable {
     private String accountCode;
 
     /**
+     * 帐套信息名称
+     */
+    private String accountName;
+
+    /**
      * 科目编码
      */
     private String subjectCode;
+    /**
+     * 科目编码
+     */
+    private String subjectName;
 
     /**
      * 应收金额

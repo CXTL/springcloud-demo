@@ -31,7 +31,7 @@
         id >= (
         select id from fin_asset_record
         <where>
-            is_deleted = 0
+            is_deleted = 0   and create_time between #{startTime} and #{endTime}
             <if test="accountCode != null and accountCode != ''">
                 and  account_code = #{accountCode}
             </if>
@@ -41,13 +41,13 @@
         <if test="accountCode != null and accountCode != ''">
             and  account_code = #{accountCode}
         </if>
-        and is_deleted = 0
+        and is_deleted = 0   and create_time between #{startTime} and #{endTime}
         limit #{size}
     </select>
     <select id="getTotalCount" resultType="int">
         select count(1) from fin_asset_record
         <where>
-            is_deleted = 0
+            is_deleted = 0   and create_time between #{startTime} and #{endTime}
             <if test="accountCode != null and accountCode != ''">
                 and  account_code = #{accountCode}
             </if>

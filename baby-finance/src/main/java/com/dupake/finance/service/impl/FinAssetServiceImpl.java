@@ -21,6 +21,7 @@ import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinAssetMapper;
 import com.dupake.finance.mapper.FinAssetRecordMapper;
+import com.dupake.finance.service.BaseService;
 import com.dupake.finance.service.FinAssetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -44,7 +45,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class FinAssetServiceImpl implements FinAssetService {
+public class FinAssetServiceImpl extends BaseService implements FinAssetService {
 
     @Resource
     private FinAssetMapper finAssetMapper;
@@ -60,6 +61,8 @@ public class FinAssetServiceImpl implements FinAssetService {
     @Override
     public CommonResult<CommonPage<AssetDTO>> listByPage(AssetQueryRequest assetQueryRequest) {
         List<AssetDTO> assetDTOS = new ArrayList<>();
+        Map<String, String> subjectMap = getSubjectMap();
+        Map<String, String> accountMap = getAccountMap();
 
         int totalCount = finAssetRecordMapper.getTotalCount(assetQueryRequest);
         if (totalCount > 0) {
@@ -68,6 +71,8 @@ public class FinAssetServiceImpl implements FinAssetService {
                 assetDTOS = finAssets.stream().map(a -> {
                     AssetDTO assetDTO = new AssetDTO();
                     BeanUtils.copyProperties(a, assetDTO);
+                    assetDTO.setSubjectName(subjectMap.get(assetDTO.getSubjectCode()));
+                    assetDTO.setAccountName(accountMap.get(assetDTO.getAccountCode()));
                     return assetDTO;
                 }).collect(Collectors.toList());
             }
@@ -84,28 +89,42 @@ public class FinAssetServiceImpl implements FinAssetService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult addAsset(AssetAddRequest assetAddRequest) {
-        //投资名称校验 权限标识校验
-//        checkAssetInfo(assetAddRequest.getName(), assetAddRequest.getPermission(),null);
-
         try {
 
-            //落地投资总数据 查询后计算
-            FinAsset asset = FinAsset.builder()
-                    .accountCode(assetAddRequest.getAccountCode())
-                    .freezeBalance(assetAddRequest.getPayAmount())
-                    .availableBalance(assetAddRequest.getPayAmount())
-                    .remark("test")
-                    .status(1)
-                    .totalBalance(assetAddRequest.getPayAmount())
-                    .build();
-            finAssetMapper.insert(asset);
+            BigDecimal amount = ArithmeticUtils.sub(assetAddRequest.getRealReceiveAmount(),assetAddRequest.getRealPayAmount()).abs();
+
+            //查询该帐套下是否第一次是否有资产
+            FinAsset asset = finAssetMapper.selectOne(
+                    new LambdaQueryWrapper<FinAsset>()
+                            .eq(FinAsset::getAccountCode, assetAddRequest.getAccountCode())
+                            .eq(FinAsset::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+
+
+            if(Objects.isNull(asset)){
+                asset = FinAsset.builder()
+                        .accountCode(assetAddRequest.getAccountCode())
+                        .totalBalance(amount)
+                        .status(YesNoSwitchEnum.NO.getValue())
+                        .availableBalance(amount)
+                        .freezeBalance(NumberConstant.BIGDECIMAL_0)
+                        .isDeleted(YesNoSwitchEnum.NO.getValue())
+                        .build();
+                finAssetMapper.insert(asset);
+            }else {
+                finAssetMapper.updateById(FinAsset.builder()
+                        .id(asset.getId())
+                        .totalBalance(ArithmeticUtils.add(asset.getTotalBalance(),amount))
+                        .availableBalance(ArithmeticUtils.add(asset.getAvailableBalance(),amount))
+                        .build());
+            }
+
 
             //落地投资数据详情
             finAssetRecordMapper.insert(FinAssetRecord.builder()
                     .accountCode(assetAddRequest.getAccountCode())
-                    .amount(assetAddRequest.getRealPayAmount().add(assetAddRequest.getRealReceiveAmount()))
-                    .balanceAfter(assetAddRequest.getPayAmount())
-                    .balanceBefore(assetAddRequest.getPayAmount())
+                    .amount(amount)
+                    .balanceAfter(asset.getTotalBalance())
+                    .balanceBefore(ArithmeticUtils.add(asset.getTotalBalance(),amount))
                     .payAmount(assetAddRequest.getPayAmount())
                     .realPayAmount(assetAddRequest.getRealPayAmount())
                     .realReceiveAmount(assetAddRequest.getRealReceiveAmount())
@@ -123,11 +142,6 @@ public class FinAssetServiceImpl implements FinAssetService {
         }
 
         return CommonResult.success();
-    }
-
-
-    private void insertAssetRecord(){
-
     }
 
 
@@ -246,9 +260,9 @@ public class FinAssetServiceImpl implements FinAssetService {
             asset = FinAsset.builder()
                     .accountCode(invest.getAccountCode())
                     .totalBalance(invest.getInvestAmount())
-                    .status(AssetTypeEnum.INCOME.getValue())
-                    .availableBalance(NumberConstant.BIGDECIMAL_0)
-                    .freezeBalance(invest.getInvestAmount())
+                    .status(YesNoSwitchEnum.NO.getValue())
+                    .availableBalance(invest.getInvestAmount())
+                    .freezeBalance(NumberConstant.BIGDECIMAL_0)
                     .isDeleted(YesNoSwitchEnum.NO.getValue())
                     .build();
             finAssetMapper.insert(asset);
