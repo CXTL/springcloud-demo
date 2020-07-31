@@ -2,7 +2,6 @@ package com.dupake.finance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.dupake.common.constatnts.RedisKeyConstant;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -12,13 +11,12 @@ import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.InvestDTO;
 import com.dupake.common.utils.DateUtil;
-import com.dupake.finance.entity.FinAccount;
 import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinInvestMapper;
 import com.dupake.finance.service.BaseService;
+import com.dupake.finance.service.FinAssetService;
 import com.dupake.finance.service.FinInvestService;
-import com.dupake.finance.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -44,12 +42,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class FinInvestServiceImpl extends BaseService implements FinInvestService {
 
-    @Resource
-    private RedisUtil redisUtil;
-
 
     @Resource
     private FinInvestMapper finInvestMapper;
+
+    @Resource
+    private FinAssetService assetService;
 
 
 
@@ -90,22 +88,24 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
     @Override
     @Transactional(rollbackFor = Exception.class)
     public CommonResult addInvest(InvestAddRequest investAddRequest) {
-        //投资名称校验 权限标识校验
-//        checkInvestInfo(investAddRequest.getName(), investAddRequest.getPermission(),null);
 
-        String redisKey = new StringBuffer(RedisKeyConstant.BABY_FINANCE_ACCOUNT_KEY).append(investAddRequest.getAccountCode()).toString();
         //落地投资数据
         try {
-            finInvestMapper.insert(FinInvest.builder()
+
+            FinInvest invest = FinInvest.builder()
                     .accountCode(investAddRequest.getAccountCode())
                     .investAmount(investAddRequest.getInvestAmount())
                     .investFund(investAddRequest.getInvestFund())
                     .investName(investAddRequest.getInvestName())
                     .investRatio(investAddRequest.getInvestRatio())
+                    .subjectCode(investAddRequest.getSubjectCode())
                     .remark(investAddRequest.getRemark())
-                    .build());
+                    .build();
+
+            finInvestMapper.insert(invest);
 
             //落地资产数据
+            assetService.addAssetInvest(invest);
 
 
         } catch (Exception e) {
@@ -115,6 +115,21 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
 
         return CommonResult.success();
     }
+
+//    /**
+//     * 投资名称唯一性校验
+//     * @param investName
+//     */
+//    private void checkInvestInfo(String investName) {
+//        FinInvest finInvest = finInvestMapper.selectOne(
+//                new LambdaQueryWrapper<FinInvest>()
+//                        .eq(FinInvest::getInvestName, investName)
+//                        .eq(FinInvest::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+//        if(!Objects.isNull(finInvest)){
+//            log.error("FinInvestServiceImpl finInvest is exist , param:{}", JSONObject.toJSONString(investName));
+//            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
+//        }
+//    }
 
 
     /**

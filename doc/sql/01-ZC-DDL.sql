@@ -138,6 +138,7 @@ create table if not exists fin_invest
     invest_name        varchar(32)  null comment '投资人名称',
     invest_fund         decimal(11,2)       null comment '投资款',
     invest_amount        decimal(11,2)          null comment '投资总额',
+    subject_code varchar(32)  default null comment '科目编码',
     invest_ratio        int          null comment '投资比例 %',
     create_id   bigint       null comment '创建人',
     create_time bigint    null comment '创建时间',

@@ -24,6 +24,12 @@ public class InvestUpdateRequest implements Serializable {
      */
     private String accountCode;
 
+
+    /**
+     * 科目编码
+     */
+    private String subjectCode;
+
     /**
      * 投资人名称
      */

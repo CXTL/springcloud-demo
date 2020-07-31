@@ -34,6 +34,17 @@ public class ArithmeticUtils {
      * @param v2 加数
      * @return 两个参数的和
      */
+    public static BigDecimal add(BigDecimal v1, BigDecimal v2) {
+        return v1.add(v2);
+    }
+
+    /**
+     * 提供精确的加法运算
+     *
+     * @param v1 被加数
+     * @param v2 加数
+     * @return 两个参数的和
+     */
     public static BigDecimal add(String v1, String v2) {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);

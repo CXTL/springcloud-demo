@@ -45,6 +45,11 @@ public class FinInvest extends BaseEntity implements Serializable {
     private String investName;
 
     /**
+     * 科目编码
+     */
+    private String subjectCode;
+
+    /**
      * 投资款
      */
     private BigDecimal investFund;

@@ -7,6 +7,7 @@ import com.dupake.common.pojo.dto.req.subject.SubjectAddRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectQueryRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.SubjectDTO;
+import com.dupake.common.pojo.dto.res.system.MenuDTO;
 import com.dupake.finance.service.FinSubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -63,6 +64,14 @@ public class FinSubjectController {
     public CommonResult deleteSubject(@RequestParam(value = "ids") List<Long> ids) {
         return subjectService.deleteSubject(ids);
     }
+
+
+    @ApiOperation(value = "获取科目列表(层级结构)")
+    @GetMapping(value = "/treeList")
+    public CommonResult<List<SubjectDTO>> treeList() {
+        return subjectService.treeList();
+    }
+
 
 
 }

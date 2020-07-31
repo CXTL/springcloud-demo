@@ -26,4 +26,6 @@ public interface FinSubjectService  {
     CommonResult updateSubject(SubjectUpdateRequest aubjectUpdateRequest);
 
     CommonResult deleteSubject(List<Long> ids);
+
+    CommonResult<List<SubjectDTO>> treeList();
 }

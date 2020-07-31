@@ -2,6 +2,7 @@ package com.dupake.finance.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -10,6 +11,7 @@ import com.dupake.common.pojo.dto.req.subject.SubjectAddRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectQueryRequest;
 import com.dupake.common.pojo.dto.req.subject.SubjectUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.SubjectDTO;
+import com.dupake.common.pojo.dto.res.system.MenuDTO;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinSubject;
 import com.dupake.finance.exception.BadRequestException;
@@ -19,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -165,5 +168,50 @@ public class FinSubjectServiceImpl  implements FinSubjectService {
         }
         //todo 修改角色投资表数据
         return CommonResult.success();
+    }
+
+    @Override
+    public CommonResult<List<SubjectDTO>> treeList() {
+        List<FinSubject> sysMenuList = finSubjectMapper.selectList(
+                new LambdaUpdateWrapper<FinSubject>().eq(FinSubject::getIsDeleted, YesNoSwitchEnum.NO.getValue())
+        );
+        List<SubjectDTO> subjectDTOS = conventMenu(sysMenuList);
+
+        return CommonResult.success(subjectDTOS);
+    }
+
+    /**
+     * 递归菜单树
+     *
+     * @param finSubjectList
+     * @return
+     */
+    private List<SubjectDTO> conventMenu(List<FinSubject> finSubjectList) {
+        List<SubjectDTO> subjectDTOS = new ArrayList<>(finSubjectList.size());
+        //递归获取权限树
+        if (!CollectionUtils.isEmpty(finSubjectList)) {
+            subjectDTOS = finSubjectList.stream()
+                    .filter(subject -> subject.getParentCode().equals("0"))
+                    .map(subject -> covert(subject, finSubjectList)).collect(Collectors.toList());
+
+        }
+        return subjectDTOS;
+    }
+
+    /**
+     * 当找不到子级权限的时候map操作不会递归调用
+     *
+     * @param subject
+     * @param finSubjects
+     * @return
+     */
+    private SubjectDTO covert(FinSubject subject, List<FinSubject> finSubjects) {
+        SubjectDTO dto = SubjectDTO.builder().build();
+        BeanUtils.copyProperties(subject, dto);
+        List<SubjectDTO> children = finSubjects.stream()
+                .filter(subMenu -> subMenu.getParentCode().equals(subject.getSubjectCode()))
+                .map(subMenu -> covert(subMenu, finSubjects)).collect(Collectors.toList());
+        dto.setChildren(children);
+        return dto;
     }
 }

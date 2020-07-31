@@ -156,6 +156,7 @@ public class FinAccountServiceImpl extends BaseService implements FinAccountServ
                     .companyName(accountUpdateRequest.getCompanyName())
                     .phone(accountUpdateRequest.getPhone())
                     .taxNumber(accountUpdateRequest.getTaxNumber())
+                    .remark(accountUpdateRequest.getRemark())
                     .id(accountUpdateRequest.getId())
                     .build());
 

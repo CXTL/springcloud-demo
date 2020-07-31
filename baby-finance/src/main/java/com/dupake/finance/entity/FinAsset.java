@@ -55,7 +55,7 @@ public class FinAsset extends BaseEntity implements Serializable {
     private BigDecimal availableBalance;
 
     /**
-     * 状态
+     * 状态 1:收入 2:支出
      */
     private Integer status;
 

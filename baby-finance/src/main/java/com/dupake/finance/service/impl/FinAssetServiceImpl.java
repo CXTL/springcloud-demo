@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.dupake.common.constatnts.NumberConstant;
+import com.dupake.common.enums.AssetTypeEnum;
 import com.dupake.common.enums.YesNoSwitchEnum;
 import com.dupake.common.message.BaseResult;
 import com.dupake.common.message.CommonPage;
@@ -12,9 +13,11 @@ import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.AssetDTO;
+import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinAsset;
 import com.dupake.finance.entity.FinAssetRecord;
+import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
 import com.dupake.finance.mapper.FinAssetMapper;
 import com.dupake.finance.mapper.FinAssetRecordMapper;
@@ -123,6 +126,11 @@ public class FinAssetServiceImpl implements FinAssetService {
     }
 
 
+    private void insertAssetRecord(){
+
+    }
+
+
     /**
      * @param assetUpdateRequest :
      * @return com.dupake.common.message.CommonResult
@@ -218,5 +226,56 @@ public class FinAssetServiceImpl implements FinAssetService {
         }
         //todo 修改角色投资表数据
         return CommonResult.success();
+    }
+
+    /**
+     * 落地投资数据
+     * @param invest
+     */
+    @Override
+    public void addAssetInvest(FinInvest invest) {
+        //查询该帐套下是否第一次是否有资产
+        FinAsset asset = finAssetMapper.selectOne(
+                new LambdaQueryWrapper<FinAsset>()
+                        .eq(FinAsset::getAccountCode, invest.getAccountCode())
+                        .eq(FinAsset::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+
+
+
+        if(Objects.isNull(asset)){
+            asset = FinAsset.builder()
+                    .accountCode(invest.getAccountCode())
+                    .totalBalance(invest.getInvestAmount())
+                    .status(AssetTypeEnum.INCOME.getValue())
+                    .availableBalance(NumberConstant.BIGDECIMAL_0)
+                    .freezeBalance(invest.getInvestAmount())
+                    .isDeleted(YesNoSwitchEnum.NO.getValue())
+                    .build();
+            finAssetMapper.insert(asset);
+        }else {
+            finAssetMapper.updateById(FinAsset.builder()
+                    .id(asset.getId())
+                    .totalBalance(ArithmeticUtils.add(asset.getTotalBalance(),invest.getInvestAmount()))
+                    .availableBalance(ArithmeticUtils.add(asset.getAvailableBalance(),invest.getInvestAmount()))
+                    .build());
+        }
+
+        //落地资产记录
+        finAssetRecordMapper.insert(FinAssetRecord.builder()
+                .accountCode(invest.getAccountCode())
+                .amount(invest.getInvestAmount())
+                .balanceAfter(asset.getTotalBalance())
+                .balanceBefore(ArithmeticUtils.add(asset.getTotalBalance(),invest.getInvestAmount()))
+                .payAmount(NumberConstant.BIGDECIMAL_0)
+                .realPayAmount(NumberConstant.BIGDECIMAL_0)
+                .realReceiveAmount(invest.getInvestAmount())
+                .receiveAmount(invest.getInvestAmount())
+                .subjectCode(invest.getSubjectCode())
+                .remark(invest.getRemark())
+                .type(AssetTypeEnum.INCOME.getValue())
+                .assetId(asset.getId())
+                .build());
+
+
     }
 }

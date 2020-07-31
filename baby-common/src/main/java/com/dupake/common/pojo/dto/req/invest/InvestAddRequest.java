@@ -20,6 +20,12 @@ public class InvestAddRequest {
      */
     private String accountCode;
 
+
+    /**
+     * 科目编码
+     */
+    private String subjectCode;
+
     /**
      * 投资人名称
      */

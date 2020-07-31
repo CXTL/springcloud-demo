@@ -1,15 +1,14 @@
 package com.dupake.common.pojo.dto.res.finance;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @ClassName PermissionDTO
@@ -42,11 +41,6 @@ public class SubjectDTO implements Serializable {
     private String parentCode;
 
     /**
-     * 父科目编号名称
-     */
-    private String parentName;
-
-    /**
      * 科目类型 1 资产 2负载 3权益 4成本 5其他
      */
     private Integer subjectType;
@@ -61,10 +55,15 @@ public class SubjectDTO implements Serializable {
      * 备注
      */
     private String remark;
-
     /**
      * 创建时间
      */
     private Long createTime;
+
+
+    /**
+     * 子科目
+     */
+    private List<SubjectDTO> children;
 
 }

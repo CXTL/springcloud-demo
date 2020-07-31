@@ -16,4 +16,7 @@ public class InvestQueryRequest extends BasePageRequest {
     
     private String accountCode;
 
+    private Long startTime;
+
+    private Long endTime;
 }
