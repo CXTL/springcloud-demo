@@ -17,6 +17,7 @@
 
     <dependencies>
 
+
         <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,6 +36,7 @@
             <artifactId>spring-cloud-starter-zipkin</artifactId>
             <version>${zipkin.version}</version>
         </dependency>
+
 
     </dependencies>
 

@@ -61,6 +61,18 @@ sudo alien -i jdk-7u71-linux-x64.rpm // rpm->deb
 dpkg -i electron-ssr_0.2.6-120_amd64.deb
 ``````
 
+### ip
+
+``````kotlin
+$ telnet 118.89.173.93 80
+
+$ ssh -v -p 80 root@118.89.173.93
+
+$ curl 118.89.173.93:80
+
+$ wget 118.89.173.93:80
+``````
+
 
 
 

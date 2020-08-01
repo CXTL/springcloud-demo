@@ -118,14 +118,6 @@ public class IdUtil {
         return System.currentTimeMillis();
     }
 
-    //---------------测试---------------
-    public static void main(String[] args) {
-        IdUtil worker = new IdUtil(1, 1, 1);
-        for (int i = 0; i < 30; i++) {
-            System.out.println(worker.nextId());
-        }
-        //1252487246397968385
-        //1252487131893469213
-    }
+
 
 }

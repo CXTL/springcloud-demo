@@ -329,19 +329,4 @@ public class DateUtil {
     }
 
 
-
-    public static void main(String[] args) {
-//        subTime(LocalDateTime.now(), LocalDateTime.now().plusDays(1));
-
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime with = now.with(TemporalAdjusters.firstDayOfMonth());
-        LocalDateTime monday = now.with(TemporalAdjusters.previous(DayOfWeek.SUNDAY)).minusDays(1);
-        LocalDateTime sunday = now.with(TemporalAdjusters.previous(DayOfWeek.MONDAY)).minusDays(1);
-
-        System.out.println(now);
-        System.out.println(getWeekStart(now));
-        System.out.println(getWeekStart(now.plusWeeks(-1)));
-        System.out.println(getMilliByTime(getWeekStart(now.plusWeeks(1))));
-
-    }
 }

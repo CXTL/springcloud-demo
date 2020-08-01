@@ -222,36 +222,37 @@ $ reboot
 ``````kotlin
 $ docker run -d -p 80:80 --name nginx  nginx
 
-$ docker cp nginx:/etc/nginx/nginx.conf /home/xt/data/docker/nginx/conf.d
+///home/data/docker/nginx
+$ docker cp nginx:/etc/nginx/conf.d /home/data/docker/nginx/conf.d
 
-$ docker cp nginx:/etc/nginx/nginx.conf /home/xt/data/docker/nginx/nginx.conf
+$ docker cp nginx:/etc/nginx/nginx.conf /home/data/docker/nginx/nginx.conf
 
 $ docker stop/rm/rmi nginx
 
-$ docker run -d -p 80:80 --name nginx -v /home/xt/data/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/xt/data/docker/nginx/conf.d:/etc/nginx/conf.d -v /home/xt/data/docker/nginx/logs:/var/log/nginx nginx
+$ docker run -d -p 80:80 --name nginx -v /home/data/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/data/docker/nginx/conf.d:/etc/nginx/conf.d -v /home/data/docker/nginx/logs:/var/log/nginx nginx
 
 ``````
 
-`````
+`````kotlin
 $ vim conf.d/default.conf
 
 server {
     listen       80;
     server_name dupake.cn;
     location / {
-        proxy_pass   http://10.0.105.50:8081;
+        proxy_pass   http://172.17.0.4:8081;
     }
     location /gateway/ {
-        proxy_pass   http://10.0.105.50:7306/;
+        proxy_pass   http://172.17.0.4:7306/;
     }
   location /report/ {
-        proxy_pass   http://10.0.105.50:7806/;
+        proxy_pass   http://172.17.0.4:7806/;
     }
     location /finance/ {
-        proxy_pass   http://10.0.105.50:7106;
+        proxy_pass   http://172.17.0.4:7106;
     }
     location /system/ {
-        proxy_pass   http://10.0.105.50:7506;
+        proxy_pass   http://172.17.0.4:7506;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {

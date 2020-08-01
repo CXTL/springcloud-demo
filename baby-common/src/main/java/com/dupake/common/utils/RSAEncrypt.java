@@ -138,17 +138,4 @@ public class RSAEncrypt {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        //生成公钥和私钥
-        Map<String, String> keyMap = genKeyPair();
-        //加密字符串
-        String message = "123456";
-        System.out.println("随机生成的公钥为:" + keyMap.get(PUBLIC_KEY_FILE));
-        System.out.println("随机生成的私钥为:" + keyMap.get(PRIVATE_KEY_FILE));
-//        String messageEn = encrypt(message, keyMap.get(PUBLIC_KEY_FILE));
-        String messageEn = encrypt(message, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCMYZ+0v00bkqA5RZ6A365r9B9SSb2KhVBFmqNbtzmNSBkGppc9VLJ2RlZ1fSONSO/L/6EQiwDHxA4rvYp0ryzwl0MgIlAUqXyWvXXX+dHS5atGF1yFwqdjbsbqgfje5iAd8TilfMiYuUuxaEjewBVUZY6eF8beZYso5sq3EguLowIDAQAB");
-        System.out.println(message + "\t加密后的字符串为:" + messageEn);
-        String messageDe = decrypt(messageEn, keyMap.get(PRIVATE_KEY_FILE));
-        System.out.println("还原后的字符串为:" + messageDe);
-    }
 }
