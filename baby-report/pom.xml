@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>com.dupake</groupId>
-    <artifactId>report</artifactId>
+    <artifactId>baby-report</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>baby-report</name>
     <packaging>jar</packaging>

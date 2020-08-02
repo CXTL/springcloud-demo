@@ -223,13 +223,13 @@ $ reboot
 $ docker run -d -p 80:80 --name nginx  nginx
 
 ///home/data/docker/nginx
-$ docker cp nginx:/etc/nginx/conf.d /home/data/docker/nginx/conf.d
+$ docker cp nginx:/etc/nginx/conf.d /Users/xt/data/docker/nginx/conf.d
 
-$ docker cp nginx:/etc/nginx/nginx.conf /home/data/docker/nginx/nginx.conf
+$ docker cp nginx:/etc/nginx/nginx.conf /Users/xt/data/docker/nginx/nginx.conf
 
 $ docker stop/rm/rmi nginx
 
-$ docker run -d -p 80:80 --name nginx -v /home/data/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/data/docker/nginx/conf.d:/etc/nginx/conf.d -v /home/data/docker/nginx/logs:/var/log/nginx nginx
+$ docker run -d -p 80:80 --name nginx -v /Users/xt/data/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -v /Users/xt/data/docker/nginx/conf.d:/etc/nginx/conf.d -v /Users/xt/data/docker/nginx/logs:/var/log/nginx nginx
 
 ``````
 
@@ -240,19 +240,19 @@ server {
     listen       80;
     server_name dupake.cn;
     location / {
-        proxy_pass   http://172.17.0.4:8081;
+        proxy_pass   http://192.168.0.101:8081;
     }
     location /gateway/ {
-        proxy_pass   http://172.17.0.4:7306/;
+        proxy_pass   http://192.168.0.101:7306;
     }
   location /report/ {
-        proxy_pass   http://172.17.0.4:7806/;
+        proxy_pass   http://192.168.0.101:7806;
     }
     location /finance/ {
-        proxy_pass   http://172.17.0.4:7106;
+        proxy_pass   http://192.168.0.101:7106;
     }
     location /system/ {
-        proxy_pass   http://172.17.0.4:7506;
+        proxy_pass   http://192.168.0.101:7506;
     }
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
@@ -303,7 +303,8 @@ $ docker run -d -p 27017:27017 --name mongodb -e MONGO_INITDB_ROOT_USERNAME=mong
 #### nacos
 
 ``````c
-$ docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server:1.0.0
+$ docker pull nacos/nacos-server
+$ docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 ``````
 
 #### jenkins

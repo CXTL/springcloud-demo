@@ -21,7 +21,7 @@ axel -n 100 "http://xxxxx"
 ###  scp 
 
 ``````c
-scp apache-maven-3.6.3-bin.tar.gz root@118.89.173.93:/home  //上传文件
+scp apache-maven-3.6.3-bin.tar.gz root@118.89.173.93:/home/  //上传文件
 
 scp -r test root@118.89.173.93:/home  //上传目录
 
@@ -147,4 +147,164 @@ $ git revert <commit ID> //生成一个新的提交来撤销某次提交
 ``````kotlin
 $ sudo ln -s /usr/bin/python2.7 /usr/bin/python
 ``````
+
+
+
+## 换源
+
+``````kotlin
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+``````
+
+### mysql 8.0
+
+``````kotlin
+$ wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+rpm -ivh mysql80-community-release-el7-3.noarch.rpm
+
+$ yum clean all && yum makecache
+
+#安装
+sudo yum install -y mysql-community-server
+
+#启动服务
+sudo systemctl start mysqld
+
+#查看版本信息
+mysql -V
+
+#1、查看MySQL为Root账号生成的临时密码
+grep "A temporary password" /var/log/mysqld.log
+
+#2、进入MySQL shell
+mysql -u root -p
+
+#3、修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mypwd123!';
+
+#CentOS 7
+#开放端口
+firewall-cmd --add-port=3306/tcp --permanent
+
+#重新加载防火墙设置
+firewall-cmd --reload
+
+# 登陆授权
+mysql -u root -p
+
+mysql>use mysql;
+
+mysql>update user set host = '%' where user = 'root';
+
+mysql>select host, user from user;
+
+mysql>FLUSH   PRIVILEGES;  
+``````
+
+配置文件
+
+``````kotlin
+
+``````
+
+启动服务
+
+``````kotlin
+#启动服务
+systemctl start mysqld
+
+#查看版本信息
+mysql -V
+
+#查看状态
+systemctl status mysqld
+
+##开机启动
+systemctl enable mysqld
+systemctl daemon-reload
+``````
+
+修改账号密码
+
+``````kotlin
+#1、查看MySQL为Root账号生成的临时密码
+grep "A temporary password" /var/log/mysqld.log
+
+#2、进入MySQL shell
+mysql -u root -p
+
+#3、修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+``````
+
+### redis 6
+
+``````
+# 依赖升级
+$ yum install centos-release-scl scl-utils-build -y
+
+$ yum list all --enablerepo='centos-sclo-rh' | grep "devtoolset-"
+
+$ yum install devtoolset-8-toolchain -y
+
+$ scl enable devtoolset-8 bash 
+
+$ gcc --version
+
+$ echo "source /opt/rh/devtoolset-8/enable" >>/etc/profile
+
+$ yum install tcl -y
+
+# 下载
+$ wget http://download.redis.io/releases/redis-6.0.5.tar.gz
+tar xvf redis-6.0.5.tar.gz
+mv redis-6.0.5 /usr/local/redis
+cd /usr/local/redis/
+make
+make test
+make install
+
+$  vi redis.conf 
+
+bind 192.168.1.7
+daemonize yes
+logfile "/data/redis6/logs/redis.log"
+dir /data/redis6/data/
+maxmemory 128MB 
+
+# 配置
+$ vi /etc/systemd/system/redis.service
+
+Description=Redis
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/redis_6379.pid
+ExecStart=/usr/local/soft/redis6/bin/redis-server /usr/local/redis/conf/redis.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+# 刷新 
+$  systemctl daemon-reload 
+
+$ systemctl start redis
+
+# 验证
+$ /usr/local/redis/bin/redis-cli -h 127.0.0.1
+``````
+
+
+
+### nacos
+
+### nginx
+
+### rabbitmq
+
+### es
 
