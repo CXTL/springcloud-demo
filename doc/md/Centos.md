@@ -47,7 +47,9 @@ $ sudo ufw allow 7722/tcp
 >
 > G 文件尾
 >
-> :set nu
+> :set nu 数字
+>
+> :0,$d 清除全部
 
 ### alien
 
@@ -71,6 +73,9 @@ $ ssh -v -p 80 root@118.89.173.93
 $ curl 118.89.173.93:80
 
 $ wget 118.89.173.93:80
+
+$ netstat -ntl
+
 ``````
 
 
@@ -266,11 +271,11 @@ make install
 
 $  vi redis.conf 
 
-bind 192.168.1.7
 daemonize yes
-logfile "/data/redis6/logs/redis.log"
-dir /data/redis6/data/
+logfile "/data/redis/logs/redis.log"
+dir /data/redis/data/
 maxmemory 128MB 
+bind 127.0.0.1修改为bind 0.0.0.0
 
 # 配置
 $ vi /etc/systemd/system/redis.service
@@ -295,16 +300,106 @@ $  systemctl daemon-reload
 $ systemctl start redis
 
 # 验证
-$ /usr/local/redis/bin/redis-cli -h 127.0.0.1
+$ /usr/local/redis/bin/redis-cli -h 127.0.0.1   -p 6379 -a Cxt1997116
 ``````
 
 
 
 ### nacos
 
+``````kotlin
+$ vim nacos/conf/application.properties
+
+spring.datasource.platform=mysql
+ 
+db.num=1
+db.url.0=jdbc:mysql://121.52.33.213:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
+db.user=root
+db.password=123456
+
+
+
+$ mysql 执行 nacos/conf/nacos-mysql.sql
+
+
+$ firewall-cmd --add-port=8848/tcp --permanent
+
+$ firewall-cmd --reload
+
+//cd nacos/bin
+$ sh startup.sh -m standalone
+
+$ sh shutdown.sh
+
+//vim startup.sh 修改vim启动大小
+``````
+
+
+
 ### nginx
+
+``````kotlin
+$ sudo yum -y install nginx   # 安装 nginx
+$ sudo yum remove nginx  # 卸载 nginx
+$ sudo systemctl enable nginx # 设置开机启动 
+$ sudo service nginx start # 启动 nginx 服务
+$ sudo service nginx stop # 停止 nginx 服务
+$ sudo service nginx restart # 重启 nginx 服务
+$ sudo service nginx reload # 重新加载配置，一般是在修改过 nginx 配置文件时使用。
+
+$ 使用 yum 进行 Nginx 安装时，Nginx 配置文件在 /etc/nginx 目录下。
+
+// 开启 80 443 端口
+sudo firewall-cmd --permanent --zone=public --add-service=http
+sudo firewall-cmd --permanent --zone=public --add-service=https
+sudo firewall-cmd --reload
+``````
+
+
 
 ### rabbitmq
 
 ### es
+
+
+
+
+
+``````
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+ 
+    include /etc/nginx/conf.d/*.conf;
+
+}
+
+``````
+
+
 

@@ -32,7 +32,6 @@ public class UserAddRequest {
      * 密码
      */
     @NotNull(message = "密码不能为空")
-    @Pattern(regexp = "^[0-9]+$", message = "密码必须是6位数字")
     private String password;
 
     /**
