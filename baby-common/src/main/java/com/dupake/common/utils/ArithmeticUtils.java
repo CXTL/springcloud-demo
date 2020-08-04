@@ -352,4 +352,20 @@ public class ArithmeticUtils {
         return false;
     }
 
+
+    /**
+     * 校验资产 收入 支出 是否都为0
+     * @param value
+     * @return
+     */
+    public static Boolean checkAssetRecordIsZero( BigDecimal... value ){
+        int count = 0;
+        for(BigDecimal v : value){
+            if(ArithmeticUtils.checkBigDecimalZero(v)){
+                count ++;
+            }
+        }
+        return count == value.length ? true : false;
+    }
+
 }

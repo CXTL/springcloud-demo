@@ -37,13 +37,6 @@ public class HomeReportController {
     }
 
 
-    @ApiOperation("查询首页报表资产数据")
-    @PostMapping(value = "/getHomeAssetData")
-    public CommonResult<HomeAssetDTO> getHomeAssetData(@Valid @RequestBody HomeReportQueryRequest reportQueryRequest) {
-        return homeReportService.getHomeAssetData(reportQueryRequest);
-    }
-
-
 
     @ApiOperation("查询首页报表统计数据")
     @PostMapping(value = "/getHomeChartData")
@@ -52,11 +45,6 @@ public class HomeReportController {
     }
 
 
-//    @ApiOperation("查询首页待处理数据")
-//    @GetMapping(value = "/getHomeWaitData")
-//    public CommonResult getHomeWaitData(@RequestParam(value = "accountCode") String accountCode) {
-//        return homeReportService.getHomeWaitData(accountCode);
-//    }
 
 
 }

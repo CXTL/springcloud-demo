@@ -17,7 +17,5 @@ public interface HomeReportService {
 
     CommonResult<HomeTableDTO> getHomeTableData(HomeReportQueryRequest reportQueryRequest);
 
-    CommonResult<HomeAssetDTO> getHomeAssetData(HomeReportQueryRequest reportQueryRequest);
-
     CommonResult<List<HomeReportAssetDTO>> getHomeChartData(HomeReportQueryRequest reportQueryRequest);
 }
