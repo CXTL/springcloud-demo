@@ -37,6 +37,6 @@ public class SysUserAccount implements Serializable {
     /**
      * 帐套编号
      */
-    private Long accountCode;
+    private String accountCode;
 
 }

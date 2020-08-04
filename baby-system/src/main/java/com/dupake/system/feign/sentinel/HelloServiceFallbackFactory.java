@@ -4,10 +4,10 @@ import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HelloServiceFallbackFactory implements FallbackFactory<HelloServiceFallback> {
+public class HelloServiceFallbackFactory implements FallbackFactory<FinanceServiceFallback> {
 
     @Override
-    public HelloServiceFallback create(Throwable throwable) {
-        return new HelloServiceFallback(throwable);
+    public FinanceServiceFallback create(Throwable throwable) {
+        return new FinanceServiceFallback(throwable);
     }
 }

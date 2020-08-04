@@ -53,6 +53,10 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     @Resource
     private SysMenuService sysMenuService;
 
+
+    @Resource
+    private SysUserAccountService sysUserAccountService;
+
     /**
      * 根据名称查询用户信息
      *
@@ -254,6 +258,17 @@ public class SysUserServiceImpl extends BaseService implements SysUserService {
     @Override
     public CommonResult allocRole(Long userId, List<Long> roleIds) {
         return sysUserRoleService.allocRole(userId,roleIds);
+    }
+
+    /**
+     * 分配用户帐套信息
+     * @param userId
+     * @param accountCodes
+     * @return
+     */
+    @Override
+    public CommonResult allocAccount(Long userId, List<String> accountCodes) {
+        return sysUserAccountService.allocAccount(userId,accountCodes);
     }
 
     /**

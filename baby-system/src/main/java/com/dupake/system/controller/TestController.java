@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dupake.common.annotation.SubmitToken;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.res.finance.OrderDTO;
-import com.dupake.system.feign.HelloService;
+import com.dupake.system.feign.FinanceService;
 import com.dupake.system.utils.CacheUtil;
 import com.dupake.system.utils.RedisUtil;
 import com.dupake.system.utils.UUIDUtil;
@@ -31,7 +31,7 @@ public class TestController {
 
 
     @Resource
-    private HelloService helloService;
+    private FinanceService financeService;
 
     @PostMapping("/helloProvider")
     public String helloProvider(@RequestParam(value = "name") String name){
@@ -63,8 +63,8 @@ public class TestController {
     @ApiOperation(value = "测试feign/sentinel", notes = "测试feign和融断 - for-web")
     @GetMapping("/hello-feign/{str}")
     public CommonResult feign(@PathVariable String str)  {
-        String hello = helloService.hello(str);
-        return CommonResult.success(hello);
+//        String hello = financeService.hello(str);
+        return CommonResult.success();
     }
 
     @ApiOperation(value = "redisTest", notes = "redisTest - for-web")

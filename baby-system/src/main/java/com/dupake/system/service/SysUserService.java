@@ -36,4 +36,6 @@ public interface SysUserService {
     CommonResult deleteUser(List<Long>  ids);
 
     CommonResult allocRole(Long userId, List<Long> roleIds);
+
+    CommonResult allocAccount(Long userId, List<String> accountCodes);
 }

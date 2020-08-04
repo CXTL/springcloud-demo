@@ -85,5 +85,14 @@ public class SysUserController {
 
 
 
+    @ApiOperation("分配用户帐套信息")
+    @PostMapping(value = "/allocAccount")
+    public CommonResult allocAccount(@RequestParam(value = "userId") Long userId ,
+                                  @RequestParam(value = "accountCodes") List<String> accountCodes) {
+        return sysUserService.allocAccount(userId,accountCodes);
+    }
+
+
+
 
 }

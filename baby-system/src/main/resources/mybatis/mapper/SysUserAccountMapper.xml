@@ -9,4 +9,15 @@
         <result column="account_code" property="accountCode" />
     </resultMap>
 
+    <insert id="insertBatch" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO sys_user_account
+        (user_id, account_code)
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.userId}, #{item.accountCode})
+        </foreach >
+    </insert>
+
+
 </mapper>
