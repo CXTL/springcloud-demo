@@ -1,11 +1,9 @@
 package com.dupake.report.controller;
 
+import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
-import com.dupake.common.pojo.dto.req.report.HomeReportQueryRequest;
-import com.dupake.common.pojo.dto.res.report.AssetInfoDTO;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
-import com.dupake.common.pojo.dto.res.report.HomeTableDTO;
 import com.dupake.report.service.AssetReportService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -40,9 +40,18 @@ public class AssetReportController {
 
 
     @ApiOperation("查询资产报详情数据")
-    @PostMapping(value = "/getAssetInfoData")
-    public CommonResult<List<AssetInfoDTO>> getAssetInfoData(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
-        return assetReportService.getAssetInfoData(reportQueryRequest);
+    @PostMapping(value = "/listAssetInfoByPage")
+    public CommonResult<CommonPage<HomeReportAssetDTO>> getAssetInfoData(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
+        return assetReportService.listAssetInfoByPage(reportQueryRequest);
+    }
+
+
+    @ApiOperation("导出资产报表数据")
+    @PostMapping(value = "/exportAsset")
+    public void exportAsset( HttpServletResponse response) {
+        AssetReportQueryRequest reportQueryRequest = new AssetReportQueryRequest();
+
+          assetReportService.exportAsset(reportQueryRequest,response);
     }
 
 

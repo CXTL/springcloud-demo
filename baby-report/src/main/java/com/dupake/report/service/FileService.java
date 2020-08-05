@@ -1,5 +1,6 @@
 package com.dupake.report.service;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.dupake.report.entity.User;
 import com.dupake.report.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -7,9 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
 
 @Service
@@ -41,4 +41,6 @@ public class FileService {
         userList.forEach(user -> log.info(user.getEmail()));
 
     }
+
+
 }

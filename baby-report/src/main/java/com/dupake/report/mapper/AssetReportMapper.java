@@ -1,6 +1,7 @@
 package com.dupake.report.mapper;
 
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
+import com.dupake.common.pojo.dto.res.report.AssetInfoDTO;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 
 import java.util.List;
@@ -32,5 +33,6 @@ public interface AssetReportMapper {
      * @return
      */
     List<HomeReportAssetDTO>  getReportAsset(AssetReportQueryRequest reportQueryRequest);
-    
+
+    List<HomeReportAssetDTO> getAssetDataByHour(AssetReportQueryRequest reportQueryRequest);
 }

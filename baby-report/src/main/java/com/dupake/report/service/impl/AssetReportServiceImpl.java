@@ -1,22 +1,29 @@
 package com.dupake.report.service.impl;
 
+import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
-import com.dupake.common.pojo.dto.res.report.AssetInfoDTO;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
+import com.dupake.report.dto.ExportAssetDTO;
+import com.dupake.report.entity.User;
 import com.dupake.report.mapper.AssetReportMapper;
-import com.dupake.report.mapper.HomeReportMapper;
 import com.dupake.report.service.AssetReportService;
+import com.dupake.report.util.FileUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @Description
@@ -110,9 +117,32 @@ public class AssetReportServiceImpl implements AssetReportService {
      * @return
      */
     @Override
-    public CommonResult<List<AssetInfoDTO>> getAssetInfoData(AssetReportQueryRequest reportQueryRequest) {
+    public CommonResult<CommonPage<HomeReportAssetDTO>> listAssetInfoByPage(AssetReportQueryRequest reportQueryRequest) {
         //按小时分组
+        List<HomeReportAssetDTO> list = assetReportMapper.getAssetDataByHour(reportQueryRequest);
+        return CommonResult.success(CommonPage.restPage(list,24));
+    }
 
-        return null;
+    /**
+     * 资产数据导出
+     * @param reportQueryRequest
+     * @param response
+     * @return
+     */
+    @Override
+    public void exportAsset(AssetReportQueryRequest reportQueryRequest,HttpServletResponse response) {
+
+        String fileName = "asset.xls";
+
+        List<ExportAssetDTO> exportAssetDTOS = new ArrayList<>();
+        List<HomeReportAssetDTO> list = assetReportMapper.getAssetDataByHour(reportQueryRequest);
+        if(!CollectionUtils.isEmpty(list)){
+            exportAssetDTOS = list.stream().map(a -> {
+                ExportAssetDTO dto = new ExportAssetDTO();
+                BeanUtils.copyProperties(a, dto);
+                return dto;
+            }).collect(Collectors.toList());
+        }
+        FileUtil.exportExcel(exportAssetDTOS, "资产统计", "资产统计", ExportAssetDTO.class, fileName, response);
     }
 }

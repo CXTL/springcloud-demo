@@ -1,5 +1,7 @@
 package com.dupake.common.pojo.dto.req.report;
 
+import com.dupake.common.pojo.dto.req.BasePageRequest;
+import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,7 +12,7 @@ import java.io.Serializable;
  * @Date 2020/8/4 上午11:27
  */
 @Data
-public class AssetReportQueryRequest  implements Serializable {
+public class AssetReportQueryRequest extends BasePageRequest implements Serializable {
     private static final long serialVersionUID = -1225268187626076765L;
 
     private String accountCode;
