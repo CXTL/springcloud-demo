@@ -70,4 +70,5 @@ public class FinAsset extends BaseEntity implements Serializable {
      */
     private String remark;
 
+
 }

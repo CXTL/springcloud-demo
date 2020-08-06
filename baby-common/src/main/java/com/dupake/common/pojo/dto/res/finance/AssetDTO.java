@@ -102,4 +102,11 @@ public class AssetDTO implements Serializable {
      */
     private Long createTime;
 
+
+
+    /**
+     * 收支日期
+     */
+    private Long assetDate;
+
 }

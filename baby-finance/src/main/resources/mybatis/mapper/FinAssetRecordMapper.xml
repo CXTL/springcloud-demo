@@ -21,6 +21,7 @@
         <result column="update_time" property="updateTime" />
         <result column="is_deleted" property="isDeleted" />
         <result column="remark" property="remark" />
+        <result column="asset_date" property="assetDate" />
     </resultMap>
 
 

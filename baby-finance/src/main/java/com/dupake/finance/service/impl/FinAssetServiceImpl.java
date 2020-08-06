@@ -133,6 +133,7 @@ public class FinAssetServiceImpl extends BaseService implements FinAssetService 
                     .remark(assetAddRequest.getRemark())
                     .type(assetAddRequest.getType())
                     .assetId(asset.getId())
+                    .assetDate(assetAddRequest.getAssetDate())
                     .build());
 
 
@@ -171,6 +172,7 @@ public class FinAssetServiceImpl extends BaseService implements FinAssetService 
                 .remark(assetUpdateRequest.getRemark())
                 .type(assetUpdateRequest.getType())
                 .id(assetUpdateRequest.getId())
+                .assetDate(assetUpdateRequest.getAssetDate())
                 .build());
 
             //  修改投资信息

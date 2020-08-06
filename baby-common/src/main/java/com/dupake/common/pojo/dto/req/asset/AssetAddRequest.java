@@ -50,6 +50,12 @@ public class AssetAddRequest {
      */
     private Integer type;
 
+
+    /**
+     * 收支日期
+     */
+    private Long assetDate;
+
     /**
      * 备注
      */

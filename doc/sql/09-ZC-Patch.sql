@@ -11,6 +11,9 @@ alter table fin_invest
 alter table fin_invest
 	add invest_date bigint null comment '投资日期';
 
+alter table fin_asset_record
+	add asset_date bigint null comment '收支日期';
+
 	alter table fin_invest modify invest_ratio double null comment '投资比例 %';
 
 
