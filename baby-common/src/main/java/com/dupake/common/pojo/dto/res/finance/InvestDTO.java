@@ -58,7 +58,7 @@ public class InvestDTO implements Serializable {
     /**
      * 投资比例 %
      */
-    private Integer investRatio;
+    private Double investRatio;
 
 
     /**
@@ -70,5 +70,15 @@ public class InvestDTO implements Serializable {
      * 创建时间
      */
     private Long createTime;
+
+    /**
+     * 应投资总额
+     */
+    private BigDecimal shouldInvestAmount;
+
+    /**
+     * 投资日期
+     */
+    private Long investDate;
 
 }

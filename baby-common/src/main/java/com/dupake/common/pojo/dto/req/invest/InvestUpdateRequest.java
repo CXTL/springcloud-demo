@@ -41,17 +41,17 @@ public class InvestUpdateRequest implements Serializable {
     private BigDecimal investFund;
 
     /**
-     * 投资总额
-     */
-    private BigDecimal investAmount;
-
-    /**
-     * 投资比例 %
-     */
-    private Integer investRatio;
-
-    /**
      * 备注
      */
     private String remark;
+
+    /**
+     * 应投资总额
+     */
+    private BigDecimal shouldInvestAmount;
+
+    /**
+     * 投资日期
+     */
+    private Long investDate;
 }

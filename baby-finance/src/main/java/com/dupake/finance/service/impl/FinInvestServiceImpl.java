@@ -10,6 +10,7 @@ import com.dupake.common.pojo.dto.req.invest.InvestAddRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
 import com.dupake.common.pojo.dto.req.invest.InvestUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.InvestDTO;
+import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.finance.entity.FinInvest;
 import com.dupake.finance.exception.BadRequestException;
@@ -24,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -93,20 +95,32 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
         //落地投资数据
         try {
 
+            //todo 考虑投资人名称重复
+
+            //查询该帐套下该投资人是否投资过
+            FinInvest finInvest = finInvestMapper.selectInfoByAccountCode(
+                    investAddRequest.getAccountCode(),investAddRequest.getInvestName());
+            BigDecimal totalInvestAmount = investAddRequest.getInvestFund();
+            if(!Objects.isNull(finInvest)){
+                totalInvestAmount = ArithmeticUtils.add(totalInvestAmount,finInvest.getInvestAmount());
+            }
+
             FinInvest invest = FinInvest.builder()
                     .accountCode(investAddRequest.getAccountCode())
-                    .investAmount(investAddRequest.getInvestAmount())
+                    .investAmount(totalInvestAmount)
                     .investFund(investAddRequest.getInvestFund())
                     .investName(investAddRequest.getInvestName())
-                    .investRatio(investAddRequest.getInvestRatio())
+                    .investRatio(ArithmeticUtils.div(investAddRequest.getInvestFund(),totalInvestAmount).doubleValue())
                     .subjectCode(investAddRequest.getSubjectCode())
                     .remark(investAddRequest.getRemark())
+                    .investDate(investAddRequest.getInvestDate())
+                    .shouldInvestAmount(investAddRequest.getShouldInvestAmount())
                     .build();
 
             finInvestMapper.insert(invest);
 
             //落地资产数据
-            assetService.addAssetInvest(invest);
+//            assetService.addAssetInvest(invest);
 
 
         } catch (Exception e) {
@@ -152,15 +166,25 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
         //投资名称校验 权限标识校验
 //        checkInvestInfo(investUpdateRequest.getName(), investUpdateRequest.getPermission(),finInvest);
 
+
+        //计算投资金额 投资比例
+        BigDecimal oldInvestAmount = ArithmeticUtils.sub(finInvest.getInvestAmount(),finInvest.getInvestFund());
+        BigDecimal newInvestAmount = ArithmeticUtils.add(oldInvestAmount,investUpdateRequest.getInvestFund());
+        Double investRatio =  ArithmeticUtils.div(investUpdateRequest.getInvestFund(),newInvestAmount).doubleValue();
+
+
+
         //修改投资信息
         try {
             finInvestMapper.updateById(FinInvest.builder()
                     .accountCode(investUpdateRequest.getAccountCode())
-                    .investAmount(investUpdateRequest.getInvestAmount())
+                    .investAmount(newInvestAmount)
                     .investFund(investUpdateRequest.getInvestFund())
                     .investName(investUpdateRequest.getInvestName())
-                    .investRatio(investUpdateRequest.getInvestRatio())
+                    .investRatio(investRatio)
                     .remark(investUpdateRequest.getRemark())
+                    .shouldInvestAmount(investUpdateRequest.getShouldInvestAmount())
+                    .investDate(investUpdateRequest.getInvestDate())
                     .id(investUpdateRequest.getId())
                     .build());
         } catch (Exception e) {

@@ -17,6 +17,8 @@
         <result column="update_time" property="updateTime" />
         <result column="is_deleted" property="isDeleted" />
         <result column="remark" property="remark" />
+        <result column="should_invest_amount" property="shouldInvestAmount" />
+        <result column="invest_date" property="investDate" />
     </resultMap>
 
     <select id="selectListPage" resultMap="BaseResultMap">
@@ -47,6 +49,12 @@
         </where>
     </select>
 
+    <select id="selectInfoByAccountCode" resultMap="BaseResultMap">
+        select * from fin_invest
+        where is_deleted = 0 and  account_code = #{accountCode} and  invest_name = #{investName}
+        order by id desc
+        limit 1
+    </select>
 
     <update id="updateBatch" parameterType="java.util.List" >
         update fin_invest
