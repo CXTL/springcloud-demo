@@ -164,7 +164,7 @@ curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-
 ### mysql 8.0
 
 ``````kotlin
-$ wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+$ wget https://dev.mysql.sql.com/get/mysql80-community-release-el7-3.noarch.rpm
 rpm -ivh mysql80-community-release-el7-3.noarch.rpm
 
 $ yum clean all && yum makecache
