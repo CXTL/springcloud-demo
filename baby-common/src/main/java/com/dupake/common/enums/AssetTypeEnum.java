@@ -6,6 +6,7 @@ package com.dupake.common.enums;
 public enum AssetTypeEnum {
     INCOME(1, "收入"),
     EXPENDITURE(2, "支出"),
+    INVEST(3, "投资"),
     NO_KNOW(0, "其他"),
 
     ;
@@ -37,6 +38,8 @@ public enum AssetTypeEnum {
                 return INCOME;
             case 2:
                 return EXPENDITURE;
+            case 3:
+                return INVEST;
             default:
                 return NO_KNOW;
         }

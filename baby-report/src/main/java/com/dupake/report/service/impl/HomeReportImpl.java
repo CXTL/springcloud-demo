@@ -54,8 +54,8 @@ public class HomeReportImpl implements HomeReportService {
         BigDecimal expenditureYes = tableDataYes.getTotalExpenditure();
 
         //计算利润
-        BigDecimal proToday = ArithmeticUtils.sub(incomeToday, expenditureToday);
-        BigDecimal proYes = ArithmeticUtils.sub(incomeYes,expenditureYes);
+//        BigDecimal proToday = ArithmeticUtils.sub(incomeToday, expenditureToday);
+//        BigDecimal proYes = ArithmeticUtils.sub(incomeYes,expenditureYes);
 
         //今日总资产 昨日总资产
         BigDecimal totalAssetToday = tableDataToday.getTotalAsset();
@@ -65,17 +65,17 @@ public class HomeReportImpl implements HomeReportService {
         HomeTableDTO tableDTO = HomeTableDTO.builder()
                 .incomeToday(incomeToday)
                 .expenditureToday(expenditureToday)
-                .profitToday(proToday)
+//                .profitToday(proToday)
                 .assetToday(totalAssetToday)
 
                 .incomeYesterday(incomeYes)
                 .expenditureYesterday(expenditureYes)
-                .profitYesterday(proYes)
+//                .profitYesterday(proYes)
                 .assetYesterday(totalAssetYes)
 
                 .rateIncome(ArithmeticUtils.countRate(incomeToday,incomeYes))
                 .rateExpenditure(ArithmeticUtils.countRate(expenditureToday,expenditureYes))
-                .rateProfit(ArithmeticUtils.countRate(proToday,proYes))
+//                .rateProfit(ArithmeticUtils.countRate(proToday,proYes))
                 .rateAsset(ArithmeticUtils.countRate(totalAssetToday,totalAssetYes))
 
 
@@ -125,7 +125,7 @@ public class HomeReportImpl implements HomeReportService {
                         firstAssetDto.setTotalAsset(reportAssetDTO.getTotalAsset());
                         firstAssetDto.setTotalExpenditure(reportAssetDTO.getTotalExpenditure());
                         firstAssetDto.setTotalIncome(reportAssetDTO.getTotalIncome());
-                        firstAssetDto.setTotalProfit(reportAssetDTO.getTotalProfit());
+//                        firstAssetDto.setTotalProfit(reportAssetDTO.getTotalProfit());
                     }
                 }
                 //转换数据
@@ -156,7 +156,7 @@ public class HomeReportImpl implements HomeReportService {
             currentDto.setTotalAsset(lastDto.getTotalAsset());
             currentDto.setTotalExpenditure(lastDto.getTotalExpenditure());
             currentDto.setTotalIncome(lastDto.getTotalIncome());
-            currentDto.setTotalProfit(lastDto.getTotalProfit());
+//            currentDto.setTotalProfit(lastDto.getTotalProfit());
         }
     }
 

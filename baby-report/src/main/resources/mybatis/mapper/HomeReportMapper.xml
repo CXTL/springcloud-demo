@@ -7,7 +7,6 @@
         <result property="totalIncome" column="total_income"/>
         <result property="totalExpenditure" column="total_expenditure"/>
         <result property="totalAsset" column="total_asset"/>
-        <result property="totalProfit" column="total_profit"/>
         <result property="startTime" column="start_time"/>
         <result property="endTime" column="end_time"/>
     </resultMap>

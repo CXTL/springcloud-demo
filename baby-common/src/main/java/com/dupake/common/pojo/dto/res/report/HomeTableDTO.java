@@ -52,15 +52,15 @@ public class HomeTableDTO implements Serializable {
     /**
      * 今日利润
      */
-    private BigDecimal profitToday;
-    /**
-     *昨日利润
-     */
-    private BigDecimal profitYesterday;
-    /**
-     * 利润比例 昨日利润 / 今日利润
-     */
-    private double rateProfit;
+//    private BigDecimal profitToday;
+//    /**
+//     *昨日利润
+//     */
+//    private BigDecimal profitYesterday;
+//    /**
+//     * 利润比例 昨日利润 / 今日利润
+//     */
+//    private double rateProfit;
 
     /**
      * 今日资产

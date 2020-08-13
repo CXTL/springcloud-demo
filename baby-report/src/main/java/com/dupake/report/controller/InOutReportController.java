@@ -4,7 +4,7 @@ import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
-import com.dupake.report.service.AssetReportService;
+import com.dupake.report.service.InOutReportService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -26,10 +25,10 @@ import java.util.List;
 @Api(tags = "报表：资产信息")
 @RestController
 @RequestMapping("/report/asset")
-public class AssetReportController {
+public class InOutReportController {
 
     @Resource
-    private AssetReportService assetReportService;
+    private InOutReportService assetReportService;
 
 
     @ApiOperation("查询资产报表统计数据")

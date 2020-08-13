@@ -13,7 +13,7 @@ import java.util.List;
  * @Authror xt
  * @Date 2020/8/4 上午11:21
  */
-public interface AssetReportService {
+public interface InOutReportService {
 
     CommonResult<List<HomeReportAssetDTO>> getAssetChartData(AssetReportQueryRequest reportQueryRequest);
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dupake.report.mapper.AssetReportMapper">
+<mapper namespace="com.dupake.report.mapper.InOutReportMapper">
 
 
     <resultMap id="BaseAssetMap" type="com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO">
@@ -143,8 +143,7 @@ left join (
         start_time,
         ifnull(sum(total_asset),0) as total_asset,
         ifnull(sum(total_expenditure),0) as total_expenditure,
-        ifnull(sum(total_income),0) as total_income,
-        ifnull(sum(total_profit),0) as total_profit
+        ifnull(sum(total_income),0) as total_income
 
         from (
 
@@ -153,12 +152,15 @@ left join (
         date_format(from_unixtime(start_time / 1000), '%Y-%m-%d') start_time,
         total_asset,
         total_income,
-        total_expenditure,
-        total_profit
+        total_expenditure
         from report_asset
         where   create_time between #{startTime} and #{endTime}
+        and (type = #{inType} or type=#{outType})
         <if test="accountCode != null and accountCode != ''">
             and account_code = #{accountCode}
+        </if>
+        <if test="subjectCode != null and subjectCode != ''">
+            and subject_code = #{subjectCode}
         </if>
         ) t
         group by start_time

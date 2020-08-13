@@ -288,7 +288,7 @@ public class FinAssetServiceImpl extends BaseService implements FinAssetService 
                 .receiveAmount(invest.getInvestAmount())
                 .subjectCode(invest.getSubjectCode())
                 .remark(invest.getRemark())
-                .type(AssetTypeEnum.INCOME.getValue())
+                .type(AssetTypeEnum.INVEST.getValue())
                 .assetId(asset.getId())
                 .build());
 

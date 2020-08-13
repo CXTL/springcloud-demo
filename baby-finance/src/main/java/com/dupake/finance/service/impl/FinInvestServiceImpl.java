@@ -120,7 +120,7 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
             finInvestMapper.insert(invest);
 
             //落地资产数据
-//            assetService.addAssetInvest(invest);
+            assetService.addAssetInvest(invest);
 
 
         } catch (Exception e) {

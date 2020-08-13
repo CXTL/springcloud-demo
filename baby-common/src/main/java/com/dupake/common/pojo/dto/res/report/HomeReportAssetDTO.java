@@ -41,7 +41,7 @@ public class HomeReportAssetDTO {
     /**
      * 总利润
      */
-    private BigDecimal totalProfit;
+//    private BigDecimal totalProfit;
     /**
      * 开始时间
      */
