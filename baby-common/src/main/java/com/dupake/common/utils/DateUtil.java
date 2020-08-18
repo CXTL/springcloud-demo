@@ -6,7 +6,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalUnit;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName DateUtil
@@ -322,10 +325,36 @@ public class DateUtil {
      * @return 1天：24 小时：1440 分钟：86400000 毫秒：86400000199000 纳秒】
      */
     public static long subTime(LocalDateTime minTime, LocalDateTime maxTime) {
-        System.out.println("计算两个时间的差：" + minTime + "-----------" + maxTime);
+//        System.out.println("计算两个时间的差：" + minTime + "-----------" + maxTime);
         Duration duration = Duration.between(minTime, maxTime);
         long days = duration.toDays(); //相差的天数
         return days;
+    }
+
+
+    /**
+     * 构建连续日期
+     * @param startTime 开始时间
+     * @param endTime 结束时间
+     * @return
+     */
+    public static  synchronized List<String> buildDateList(LocalDateTime startTime, LocalDateTime endTime){
+        LocalDateTime tmpTime = startTime;
+        List<String> dateList = new ArrayList<>();
+        dateList.add(DateUtil.formatTime(tmpTime, "yyyy-MM-dd"));
+        while (subTime(tmpTime,endTime)>0){
+            tmpTime = tmpTime.plusDays(1);
+            String time = DateUtil.formatTime(tmpTime, "yyyy-MM-dd");
+            dateList.add(time);
+        }
+        return dateList;
+    }
+
+
+    public static void main(String[] args) {
+        buildDateList(
+                DateUtil.getLocalDateTimeOfMillisecond(1595001600000L),
+                DateUtil.getLocalDateTimeOfMillisecond(1597680000000L));
     }
 
 

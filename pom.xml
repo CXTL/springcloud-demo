@@ -16,7 +16,7 @@
         <module>baby-finance</module>
         <module>baby-report</module>
         <module>baby-common</module>
-        <module>baby-generator</module>
+<!--        <module>baby-generator</module>-->
     </modules>
 
     <name>baby-server</name>

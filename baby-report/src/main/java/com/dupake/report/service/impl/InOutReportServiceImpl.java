@@ -4,6 +4,7 @@ import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
+import com.dupake.common.pojo.dto.res.report.InOutDTO;
 import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
 import com.dupake.report.dto.ExportAssetDTO;
@@ -38,7 +39,9 @@ public class InOutReportServiceImpl implements InOutReportService {
 
         List<HomeReportAssetDTO> targetReportAssetList = new ArrayList<>();
 
-//        targetReportAssetList = inOutReportMapper.getReportAsset(reportQueryRequest);
+        //时间计算 是否包含今天
+
+        targetReportAssetList = inOutReportMapper.getReportAsset(reportQueryRequest);
 
         //时间计算 是否包含今天
         if(reportQueryRequest.getEndTime() > DateUtil.getMilliByTime(DateUtil.getDayStart(LocalDateTime.now()))){//包含
@@ -53,7 +56,6 @@ public class InOutReportServiceImpl implements InOutReportService {
                 targetReportAssetList.add(dto);
             }
         }
-
         return CommonResult.success(targetReportAssetList);
     }
 
