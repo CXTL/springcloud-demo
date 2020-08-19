@@ -1,10 +1,8 @@
 package com.dupake.report.mapper;
 
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
-import com.dupake.common.pojo.dto.req.report.HomeReportQueryRequest;
-import com.dupake.common.pojo.dto.res.report.AssetInfoDTO;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
-import org.apache.ibatis.annotations.Param;
+import com.dupake.common.pojo.dto.res.report.InOutDTO;
 
 import java.util.List;
 
@@ -15,26 +13,13 @@ import java.util.List;
  */
 public interface InOutReportMapper {
 
-    /**
-     * 获取某天的资产记录
-     * @param reportQueryRequest
-     * @return
-     */
-    HomeReportAssetDTO getHomeTableDataByTime(AssetReportQueryRequest reportQueryRequest);
-
-    /**
-     * 查询每小时资产变更记录
-     * @param reportQueryRequest
-     * @return
-     */
-    List<HomeReportAssetDTO> getHomeChartDataByHour(AssetReportQueryRequest reportQueryRequest);
 
     /**
      * 获取非今日的时间段内的报表数据
      * @param reportQueryRequest
      * @return
      */
-    List<HomeReportAssetDTO>  getReportAsset(AssetReportQueryRequest reportQueryRequest);
+    List<InOutDTO>  getReportAsset(AssetReportQueryRequest reportQueryRequest);
 
     List<HomeReportAssetDTO> getAssetDataByHour(AssetReportQueryRequest reportQueryRequest);
 }

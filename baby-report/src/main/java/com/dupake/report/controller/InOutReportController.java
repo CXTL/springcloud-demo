@@ -3,7 +3,7 @@ package com.dupake.report.controller;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
-import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
+import com.dupake.common.pojo.dto.res.report.InOutDTO;
 import com.dupake.report.service.InOutReportService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,16 +32,16 @@ public class InOutReportController {
 
 
     @ApiOperation("查询资产报表统计数据")
-    @PostMapping(value = "/getAssetChartData")
-    public CommonResult<List<HomeReportAssetDTO>> getAssetChartData(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
-        return assetReportService.getAssetChartData(reportQueryRequest);
+    @PostMapping(value = "/getInOutChartData")
+    public CommonResult<List<InOutDTO>> getInOutChartData(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
+        return assetReportService.getInOutChartData(reportQueryRequest);
     }
 
 
-    @ApiOperation("查询资产报详情数据")
-    @PostMapping(value = "/listAssetInfoByPage")
-    public CommonResult<CommonPage<HomeReportAssetDTO>> getAssetInfoData(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
-        return assetReportService.listAssetInfoByPage(reportQueryRequest);
+    @ApiOperation("查询收支分页数据")
+    @PostMapping(value = "/listInOutAssetInfoByPage")
+    public CommonResult<CommonPage<InOutDTO>> listInOutAssetInfoByPage(@Valid @RequestBody AssetReportQueryRequest reportQueryRequest) {
+        return assetReportService.listInOutAssetInfoByPage(reportQueryRequest);
     }
 
 

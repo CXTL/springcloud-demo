@@ -3,154 +3,30 @@
 <mapper namespace="com.dupake.report.mapper.InOutReportMapper">
 
 
-    <resultMap id="BaseAssetMap" type="com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO">
+    <resultMap id="BaseAssetMap" type="com.dupake.common.pojo.dto.res.report.InOutDTO">
         <result property="totalIncome" column="total_income"/>
         <result property="totalExpenditure" column="total_expenditure"/>
-        <result property="totalAsset" column="total_asset"/>
-        <result property="startTime" column="start_time"/>
-        <result property="endTime" column="end_time"/>
+        <result property="assetDate" column="asset_date"/>
     </resultMap>
-
-    <select id="getHomeTableDataByTime" resultMap="BaseAssetMap">
-        select
-        date_format(from_unixtime(#{startTime} / 1000), '%Y-%m-%d') start_time,
-        sum(total_income) total_income,
-         sum(total_expenditure) total_expenditure,
-          sum(total_asset) total_asset
-        from (
-        select ifnull(total_income, 0)      total_income,
-        ifnull(total_expenditure, 0) total_expenditure,
-        ifnull(total_asset, 0)       total_asset
-        from fin_account fa left join (
-
-        select t1.account_code, total_income, total_expenditure, total_asset
-        from (
-        select account_code, balance_after as total_asset
-        from fin_asset_record
-        where id in (
-        select max(id) id
-        from fin_asset_record
-        where create_time between #{startTime} and #{endTime}
-        group by account_code
-        )
-        ) t1
-
-        left join (
-        select account_code, sum(real_receive_amount) total_income, sum(real_pay_amount) total_expenditure
-        from fin_asset_record
-        where create_time between #{startTime} and #{endTime}
-        group by account_code
-        ) t2
-        on t1.account_code = t2.account_code
-
-        ) t on fa.account_code = t.account_code
-        where fa.is_deleted = 0
-        <if test="accountCode != null and accountCode != ''">
-            and fa.account_code = #{accountCode}
-        </if>
-
-        ) t
-    </select>
-
-
-    <select id="getHomeChartDataByHour" resultMap="BaseAssetMap">
-
-
-select
-       hour_time as start_time,
-       INSERT(hour_time,15,19,'59:59') as end_time,
-       ifnull(total_asset,0) as total_asset,
-       ifnull(total_expenditure,0) as total_expenditure,
-       ifnull(total_income,0) as total_income
-
-from (
-                  SELECT   DATE_FORMAT( DATE_SUB( DATE_FORMAT( from_unixtime(#{startTime} / 1000),'%Y-%m-%d'),INTERVAL ( -(@i:=@i+1) ) HOUR ) ,'%Y-%m-%d %H:00:00') AS hour_time
-                  FROM (
-                           SELECT a  FROM
-                               (SELECT '1' AS a UNION SELECT '2' UNION SELECT '3' UNION SELECT '4'   ) AS a
-                                   JOIN ( SELECT  '1' UNION SELECT '2' UNION SELECT '3' UNION SELECT '4' UNION SELECT '5' UNION SELECT '6' ) AS b
-                                        ON 1
-                       ) AS b  ,(SELECT @i:=-1)  AS i
-
-                  ) data_hour
-
-left join (
-
-    select
-        start_hour,
-        sum(balance_after) total_asset,
-        sum(total_expenditure) total_expenditure,
-        sum(total_income) total_income
-    from (
-             <!-- 查询总资产 -->
-             select account_code,
-                    date_format(from_unixtime(create_time / 1000), '%Y-%m-%d %H:00:00') start_hour,
-                    balance_after
-             from fin_asset_record
-             where
-                create_time between #{startTime} and #{endTime}
-                <if test="accountCode != null and accountCode != ''">
-                    and fa.account_code = #{accountCode}
-                </if>
-               and id in (
-                 select max(id)
-                 from (
-                          select id,
-                                 account_code,
-                                 date_format(from_unixtime(create_time / 1000), '%Y-%m-%d %H:00:00') format_hour
-                          from fin_asset_record
-                          where  create_time between #{startTime} and #{endTime}
-                            <if test="accountCode != null and accountCode != ''">
-                                and fa.account_code = #{accountCode}
-                            </if>
-                      ) t
-
-                 group by account_code, format_hour
-
-             )
-         ) t1
-             left join (
-        <!-- 查询总收入 总支出 -->
-         select account_code, format_hour, sum(real_receive_amount) total_income, sum(real_pay_amount) total_expenditure
-         from (
-                  select account_code,
-                         real_receive_amount,
-                         real_pay_amount,
-                         date_format(from_unixtime(create_time / 1000), '%Y-%m-%d %H:00:00') format_hour
-                  from fin_asset_record
-                  where  create_time between #{startTime} and #{endTime}
-                    <if test="accountCode != null and accountCode != ''">
-                        and fa.account_code = #{accountCode}
-                    </if>
-              ) t
-         group by account_code, format_hour
-     ) t2 on t1.account_code = t2.account_code and t1.start_hour = t2.format_hour
-     group by start_hour
-
-     ) orgin_data on data_hour.hour_time = orgin_data.start_hour
-
-     </select>
 
 
     <select id="getReportAsset" resultMap="BaseAssetMap">
 
-        select
-        start_time,
-        ifnull(sum(total_asset),0) as total_asset,
-        ifnull(sum(total_expenditure),0) as total_expenditure,
-        ifnull(sum(total_income),0) as total_income
 
+        select
+        asset_date,
+        sum(total_income) total_income,
+        sum(total_expenditure) total_expenditure
         from (
-
-        select
-        account_code,
-        date_format(from_unixtime(start_time / 1000), '%Y-%m-%d') start_time,
-        total_asset,
-        total_income,
-        total_expenditure
-        from report_asset
-        where   create_time between #{startTime} and #{endTime}
-        and (type = #{inType} or type=#{outType})
+        select format_hour as asset_date, sum(real_receive_amount) total_income, sum(real_pay_amount) total_expenditure
+        from (
+        select account_code,
+        real_receive_amount,
+        real_pay_amount,
+        subject_code,
+        date_format(from_unixtime(asset_date / 1000), '%Y-%m-%d') format_hour
+        from fin_asset_record
+        where asset_date between #{startTime} and #{endTime}
         <if test="accountCode != null and accountCode != ''">
             and account_code = #{accountCode}
         </if>
@@ -158,9 +34,14 @@ left join (
             and subject_code = #{subjectCode}
         </if>
         ) t
-        group by start_time
+        group by account_code, subject_code,format_hour
+
+        ) s
+
+        group by asset_date
+
 
     </select>
 
 
-        </mapper>
+</mapper>

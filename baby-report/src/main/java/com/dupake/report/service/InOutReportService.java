@@ -4,6 +4,7 @@ import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
+import com.dupake.common.pojo.dto.res.report.InOutDTO;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -15,9 +16,9 @@ import java.util.List;
  */
 public interface InOutReportService {
 
-    CommonResult<List<HomeReportAssetDTO>> getAssetChartData(AssetReportQueryRequest reportQueryRequest);
+    CommonResult<List<InOutDTO>> getInOutChartData(AssetReportQueryRequest reportQueryRequest);
 
-    CommonResult<CommonPage<HomeReportAssetDTO>> listAssetInfoByPage(AssetReportQueryRequest reportQueryRequest);
+    CommonResult<CommonPage<InOutDTO>> listInOutAssetInfoByPage(AssetReportQueryRequest reportQueryRequest);
 
 
     void exportAsset(AssetReportQueryRequest reportQueryRequest, HttpServletResponse response);

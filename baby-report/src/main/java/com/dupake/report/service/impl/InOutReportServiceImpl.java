@@ -1,12 +1,13 @@
 package com.dupake.report.service.impl;
 
+import com.dupake.common.constatnts.NumberConstant;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
 import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 import com.dupake.common.pojo.dto.res.report.InOutDTO;
-import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
+import com.dupake.common.utils.PageUtil;
 import com.dupake.report.dto.ExportAssetDTO;
 import com.dupake.report.mapper.InOutReportMapper;
 import com.dupake.report.service.InOutReportService;
@@ -17,10 +18,9 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -35,72 +35,92 @@ public class InOutReportServiceImpl implements InOutReportService {
     private InOutReportMapper inOutReportMapper;
 
     @Override
-    public CommonResult<List<HomeReportAssetDTO>> getAssetChartData(AssetReportQueryRequest reportQueryRequest) {
+    public CommonResult<List<InOutDTO>> getInOutChartData(AssetReportQueryRequest reportQueryRequest) {
 
-        List<HomeReportAssetDTO> targetReportAssetList = new ArrayList<>();
+        //查询收支记录
+        Long endByTime = DateUtil.getMilliByTime(DateUtil.getDayEnd(DateUtil.convertLongToLDT(reportQueryRequest.getEndTime())));
+        reportQueryRequest.setEndTime(endByTime);
+        List<InOutDTO> targetReportAssetList = inOutReportMapper.getReportAsset(reportQueryRequest);
 
-        //时间计算 是否包含今天
+        //构建时间list
+        List<String> dateList = DateUtil.buildDateList(DateUtil.convertLongToLDT(reportQueryRequest.getStartTime())
+                , DateUtil.convertLongToLDT(endByTime));
 
-        targetReportAssetList = inOutReportMapper.getReportAsset(reportQueryRequest);
+        // 组合数据
+        List<InOutDTO> inOutDTOS = new ArrayList<>();
 
-        //时间计算 是否包含今天
-        if(reportQueryRequest.getEndTime() > DateUtil.getMilliByTime(DateUtil.getDayStart(LocalDateTime.now()))){//包含
-            //查询时间段内的资产变动统计
-            Long startTime = DateUtil.getMilliByTime(DateUtil.getDayStart(LocalDateTime.now()));
-            Long endByTime = DateUtil.getMilliByTime(DateUtil.getDayEnd(LocalDateTime.now()));
-            reportQueryRequest.setStartTime(startTime);
-            reportQueryRequest.setEndTime(endByTime);
-            //查询今天的总资产 总收入 总支出  总利润 开始时间 结束时间
-            HomeReportAssetDTO dto = inOutReportMapper.getHomeTableDataByTime(reportQueryRequest);
-            if(!Objects.isNull(dto)){
-                targetReportAssetList.add(dto);
-            }
+        if (!CollectionUtils.isEmpty(targetReportAssetList)) {
+            Map<String, List<InOutDTO>> listMap = targetReportAssetList.stream().collect(Collectors.groupingBy(InOutDTO::getAssetDate));
+            inOutDTOS = dateList.stream().map(a -> {
+                InOutDTO dto = new InOutDTO();
+                dto.setAssetDate(a);
+                if (!CollectionUtils.isEmpty(listMap.get(a))) {
+                    InOutDTO inOutDTO = listMap.get(a).get(0);
+                    dto.setTotalIncome(inOutDTO.getTotalIncome());
+                    dto.setTotalExpenditure(inOutDTO.getTotalExpenditure());
+                } else {
+                    dto.setTotalIncome(NumberConstant.BIGDECIMAL_0);
+                    dto.setTotalExpenditure(NumberConstant.BIGDECIMAL_0);
+                }
+                return dto;
+            }).collect(Collectors.toList());
+        } else {
+            inOutDTOS = dateList.stream().map(a -> {
+                InOutDTO dto = new InOutDTO();
+                dto.setAssetDate(a);
+                dto.setTotalIncome(NumberConstant.BIGDECIMAL_0);
+                dto.setTotalExpenditure(NumberConstant.BIGDECIMAL_0);
+                return dto;
+            }).collect(Collectors.toList());
         }
-        return CommonResult.success(targetReportAssetList);
+
+
+        return CommonResult.success(inOutDTOS);
     }
 
-
-    /**
-     * 数据转换
-     * @param lastDto 上一条数据
-     * @param currentDto 当前数据
-     */
-    private void conversionAssetData(HomeReportAssetDTO lastDto, HomeReportAssetDTO currentDto){
-        //当前时间资产记录无变动
-        if(ArithmeticUtils.checkAssetRecordIsZero(currentDto.getTotalIncome(),currentDto.getTotalExpenditure(),currentDto.getTotalAsset())){
-            currentDto.setTotalAsset(lastDto.getTotalAsset());
-            currentDto.setTotalExpenditure(lastDto.getTotalExpenditure());
-            currentDto.setTotalIncome(lastDto.getTotalIncome());
-//            currentDto.setTotalProfit(lastDto.getTotalProfit());
-        }
-    }
 
     /**
      * 获取表单数据
+     *
      * @param reportQueryRequest
      * @return
      */
     @Override
-    public CommonResult<CommonPage<HomeReportAssetDTO>> listAssetInfoByPage(AssetReportQueryRequest reportQueryRequest) {
+    public CommonResult<CommonPage<InOutDTO>> listInOutAssetInfoByPage(AssetReportQueryRequest reportQueryRequest) {
         //按小时分组
-        List<HomeReportAssetDTO> list = inOutReportMapper.getAssetDataByHour(reportQueryRequest);
-        return CommonResult.success(CommonPage.restPage(list,24));
+        List<InOutDTO> inOutDTOList = getInOutChartData(reportQueryRequest).getData();
+        //构建分页数据
+        List<InOutDTO> targetList = buildPageData(inOutDTOList, reportQueryRequest.getPage(), reportQueryRequest.getSize());
+
+        return CommonResult.success(CommonPage.restPage(targetList, inOutDTOList.size()));
+    }
+
+    /**
+     * 构建分页数据
+     *
+     * @param inOutDTOList 总数据
+     * @param page  分页  1
+     * @param size  每页数据 10
+     */
+    private List<InOutDTO> buildPageData(List<InOutDTO> inOutDTOList, Integer page, Integer size) {
+        return (List<InOutDTO>) PageUtil.getPageContentByApi(inOutDTOList,page,size);
     }
 
     /**
      * 资产数据导出
+     *
      * @param reportQueryRequest
      * @param response
      * @return
      */
     @Override
-    public void exportAsset(AssetReportQueryRequest reportQueryRequest,HttpServletResponse response) {
+    public void exportAsset(AssetReportQueryRequest reportQueryRequest, HttpServletResponse response) {
 
         String fileName = "asset.xls";
 
         List<ExportAssetDTO> exportAssetDTOS = new ArrayList<>();
         List<HomeReportAssetDTO> list = inOutReportMapper.getAssetDataByHour(reportQueryRequest);
-        if(!CollectionUtils.isEmpty(list)){
+        if (!CollectionUtils.isEmpty(list)) {
             exportAssetDTOS = list.stream().map(a -> {
                 ExportAssetDTO dto = new ExportAssetDTO();
                 BeanUtils.copyProperties(a, dto);
