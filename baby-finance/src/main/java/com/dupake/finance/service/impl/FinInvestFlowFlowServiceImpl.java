@@ -12,12 +12,12 @@ import com.dupake.common.pojo.dto.req.invest.InvestUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.InvestDTO;
 import com.dupake.common.utils.ArithmeticUtils;
 import com.dupake.common.utils.DateUtil;
-import com.dupake.finance.entity.FinInvest;
+import com.dupake.finance.entity.FinInvestFlow;
 import com.dupake.finance.exception.BadRequestException;
-import com.dupake.finance.mapper.FinInvestMapper;
+import com.dupake.finance.mapper.FinInvestFlowMapper;
 import com.dupake.finance.service.BaseService;
 import com.dupake.finance.service.FinAssetService;
-import com.dupake.finance.service.FinInvestService;
+import com.dupake.finance.service.FinInvestFlowService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -42,11 +42,11 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class FinInvestServiceImpl extends BaseService implements FinInvestService {
+public class FinInvestFlowFlowServiceImpl extends BaseService implements FinInvestFlowService {
 
 
     @Resource
-    private FinInvestMapper finInvestMapper;
+    private FinInvestFlowMapper finInvestFlowMapper;
 
     @Resource
     private FinAssetService assetService;
@@ -66,11 +66,11 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
         Map<String, String> accountMap = getAccountMap();
         Map<String, String> subjectMap = getSubjectMap();
 
-        int totalCount = finInvestMapper.getTotalCount(investQueryRequest);
+        int totalCount = finInvestFlowMapper.getTotalCount(investQueryRequest);
         if (totalCount > 0) {
-            List<FinInvest> finInvests = finInvestMapper.selectListPage(investQueryRequest);
-            if (!ObjectUtils.isEmpty(finInvests)) {
-                investDTOS = finInvests.stream().map(a -> {
+            List<FinInvestFlow> finInvestFlows = finInvestFlowMapper.selectListPage(investQueryRequest);
+            if (!ObjectUtils.isEmpty(finInvestFlows)) {
+                investDTOS = finInvestFlows.stream().map(a -> {
                     InvestDTO dto = new InvestDTO();
                     BeanUtils.copyProperties(a, dto);
                     dto.setAccountName(accountMap.get(dto.getAccountCode()));
@@ -95,32 +95,29 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
         //落地投资数据
         try {
 
-            //todo 考虑投资人名称重复
-
             //查询该帐套下该投资人是否投资过
-            FinInvest finInvest = finInvestMapper.selectInfoByAccountCode(
-                    investAddRequest.getAccountCode(),investAddRequest.getInvestName());
-            BigDecimal totalInvestAmount = investAddRequest.getInvestFund();
-            if(!Objects.isNull(finInvest)){
-                totalInvestAmount = ArithmeticUtils.add(totalInvestAmount,finInvest.getInvestAmount());
-            }
+            FinInvestFlow lastFinInvestFlow = finInvestFlowMapper.selectInfoByAccountCode(
+                    investAddRequest.getAccountCode(),investAddRequest.getInvestorId());
 
-            FinInvest invest = FinInvest.builder()
+            BigDecimal totalInvestAmount = !Objects.isNull(lastFinInvestFlow) ?
+                    ArithmeticUtils.add(investAddRequest.getActualInvestAmount(), lastFinInvestFlow.getTotalInvestAmount())
+                    : investAddRequest.getActualInvestAmount();
+
+            FinInvestFlow invest = FinInvestFlow.builder()
                     .accountCode(investAddRequest.getAccountCode())
-                    .investAmount(totalInvestAmount)
-                    .investFund(investAddRequest.getInvestFund())
-                    .investName(investAddRequest.getInvestName())
-                    .investRatio(ArithmeticUtils.div(investAddRequest.getInvestFund(),totalInvestAmount).doubleValue())
+                    .totalInvestAmount(totalInvestAmount)
+                    .actualInvestAmount(investAddRequest.getActualInvestAmount())
+                    .investorId(investAddRequest.getInvestorId())
+                    .investRatio(ArithmeticUtils.div(investAddRequest.getActualInvestAmount(),totalInvestAmount).doubleValue())
                     .subjectCode(investAddRequest.getSubjectCode())
                     .remark(investAddRequest.getRemark())
                     .investDate(investAddRequest.getInvestDate())
                     .shouldInvestAmount(investAddRequest.getShouldInvestAmount())
                     .build();
 
-            finInvestMapper.insert(invest);
+            finInvestFlowMapper.insert(invest);
 
             //落地资产数据
-            assetService.addAssetInvest(invest);
 
 
         } catch (Exception e) {
@@ -131,20 +128,6 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
         return CommonResult.success();
     }
 
-//    /**
-//     * 投资名称唯一性校验
-//     * @param investName
-//     */
-//    private void checkInvestInfo(String investName) {
-//        FinInvest finInvest = finInvestMapper.selectOne(
-//                new LambdaQueryWrapper<FinInvest>()
-//                        .eq(FinInvest::getInvestName, investName)
-//                        .eq(FinInvest::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
-//        if(!Objects.isNull(finInvest)){
-//            log.error("FinInvestServiceImpl finInvest is exist , param:{}", JSONObject.toJSONString(investName));
-//            throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());
-//        }
-//    }
 
 
     /**
@@ -156,10 +139,10 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
     @Transactional(rollbackFor = Exception.class)
     public CommonResult updateInvest(InvestUpdateRequest investUpdateRequest) {
 
-        FinInvest finInvest = finInvestMapper.selectOne(new LambdaQueryWrapper<FinInvest>()
-                .eq(FinInvest::getId, investUpdateRequest.getId())
-                .eq(FinInvest::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
-        if(Objects.isNull(finInvest)){
+        FinInvestFlow finInvestFlow = finInvestFlowMapper.selectOne(new LambdaQueryWrapper<FinInvestFlow>()
+                .eq(FinInvestFlow::getId, investUpdateRequest.getId())
+                .eq(FinInvestFlow::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        if(Objects.isNull(finInvestFlow)){
             log.error("invest is null");
             throw new BadRequestException(BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getCode(), BaseResult.SYS_ROLE_INFO_IS_NOT_EXIST.getMessage());
         }
@@ -168,19 +151,19 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
 
 
         //计算投资金额 投资比例
-        BigDecimal oldInvestAmount = ArithmeticUtils.sub(finInvest.getInvestAmount(),finInvest.getInvestFund());
-        BigDecimal newInvestAmount = ArithmeticUtils.add(oldInvestAmount,investUpdateRequest.getInvestFund());
-        Double investRatio =  ArithmeticUtils.div(investUpdateRequest.getInvestFund(),newInvestAmount).doubleValue();
+        BigDecimal oldInvestAmount = ArithmeticUtils.sub(finInvestFlow.getTotalInvestAmount(), finInvestFlow.getActualInvestAmount());
+        BigDecimal newInvestAmount = ArithmeticUtils.add(oldInvestAmount,investUpdateRequest.getActualInvestAmount());
+        Double investRatio =  ArithmeticUtils.div(investUpdateRequest.getActualInvestAmount(),newInvestAmount).doubleValue();
 
 
 
         //修改投资信息
         try {
-            finInvestMapper.updateById(FinInvest.builder()
+            finInvestFlowMapper.updateById(FinInvestFlow.builder()
                     .accountCode(investUpdateRequest.getAccountCode())
-                    .investAmount(newInvestAmount)
-                    .investFund(investUpdateRequest.getInvestFund())
-                    .investName(investUpdateRequest.getInvestName())
+                    .totalInvestAmount(newInvestAmount)
+                    .actualInvestAmount(investUpdateRequest.getActualInvestAmount())
+                    .investorId(investUpdateRequest.getInvestorId())
                     .investRatio(investRatio)
                     .remark(investUpdateRequest.getRemark())
                     .shouldInvestAmount(investUpdateRequest.getShouldInvestAmount())
@@ -206,16 +189,16 @@ public class FinInvestServiceImpl extends BaseService implements FinInvestServic
     public CommonResult deleteInvest(List<Long> ids) {
 
         //批量修改投资状态
-        List<FinInvest> finInvestList = ids.stream().map(a -> {
-            FinInvest finInvest = new FinInvest();
-            finInvest.setIsDeleted(YesNoSwitchEnum.YES.getValue());
-            finInvest.setUpdateTime(DateUtil.getCurrentTimeMillis());
-            finInvest.setId(a);
-            return finInvest;
+        List<FinInvestFlow> finInvestFlowList = ids.stream().map(a -> {
+            FinInvestFlow finInvestFlow = new FinInvestFlow();
+            finInvestFlow.setIsDeleted(YesNoSwitchEnum.YES.getValue());
+            finInvestFlow.setUpdateTime(DateUtil.getCurrentTimeMillis());
+            finInvestFlow.setId(a);
+            return finInvestFlow;
         }).collect(Collectors.toList());
 
         try {
-            finInvestMapper.updateBatch(finInvestList);
+            finInvestFlowMapper.updateBatch(finInvestFlowList);
         } catch (Exception e) {
             log.error("FinInvestServiceImpl update invest error , param:{}, error:{}", JSONObject.toJSONString(ids), e);
             throw new BadRequestException(BaseResult.FAILED.getCode(), BaseResult.FAILED.getMessage());

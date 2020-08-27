@@ -166,4 +166,25 @@ public class FinInvestorServiceImpl extends BaseService implements FinInvestorSe
         }
         return CommonResult.success();
     }
+
+    /**
+     *获取投资人列表
+     * @return
+     */
+    @Override
+    public CommonResult<List<InvestorDTO>> listInvestor() {
+
+        List<FinInvestor> finInvestors = finInvestorMapper.selectList(
+                new LambdaQueryWrapper<FinInvestor>()
+                        .eq(FinInvestor::getIsDeleted, YesNoSwitchEnum.NO.getValue()));
+        List<InvestorDTO> investorDTOS = new ArrayList<>(finInvestors.size());
+        if(!CollectionUtils.isEmpty(finInvestors)){
+            investorDTOS = finInvestors.stream().map(a -> {
+                InvestorDTO dto = new InvestorDTO();
+                BeanUtils.copyProperties(a, dto);
+                return dto;
+            }).collect(Collectors.toList());
+        }
+        return CommonResult.success(investorDTOS);
+    }
 }

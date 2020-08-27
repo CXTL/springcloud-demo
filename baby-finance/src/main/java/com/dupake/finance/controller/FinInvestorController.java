@@ -62,4 +62,12 @@ public class FinInvestorController {
         return finInvestorService.deleteInvestor(ids);
     }
 
+
+
+    @ApiOperation("获取投资人列表")
+    @PostMapping(value = "/listInvestor")
+    public CommonResult<List<InvestorDTO>> listInvestor() {
+        return finInvestorService.listInvestor();
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.dupake.finance.entity;
 
+import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,22 +10,21 @@ import com.dupake.common.pojo.entity.BaseEntity;
 import lombok.*;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  * <p>
- * 财务-投资流水信息表
+ * 财务-投资信息表
  * </p>
  *
  * @author dupake
- * @since 2020-08-27
+ * @since 2020-07-26
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Builder
-public class FinInvestFlow  extends BaseEntity implements Serializable {
+public class FinInvestFlow extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,7 @@ public class FinInvestFlow  extends BaseEntity implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+
     /**
      * 帐套信息编码
      */
@@ -41,7 +43,7 @@ public class FinInvestFlow  extends BaseEntity implements Serializable {
     /**
      * 投资人id
      */
-    private String investorId;
+    private Long investorId;
 
     /**
      * 实际投资金额
@@ -66,13 +68,12 @@ public class FinInvestFlow  extends BaseEntity implements Serializable {
     /**
      * 投资比例 %
      */
-    private Integer investRatio;
+    private Double investRatio;
 
     /**
      * 投资日期
      */
     private Long investDate;
-
 
 
     /**
@@ -85,6 +86,10 @@ public class FinInvestFlow  extends BaseEntity implements Serializable {
      * 备注
      */
     private String remark;
-
+    /**
+     * 投资人名称
+     */
+    @TableField(exist = false)
+    private String investorName;
 
 }

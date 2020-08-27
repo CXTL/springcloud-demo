@@ -31,14 +31,19 @@ public class InvestUpdateRequest implements Serializable {
     private String subjectCode;
 
     /**
-     * 投资人名称
+     * 投资人ID
      */
-    private String investName;
+    private Long investorId;
 
     /**
-     * 投资款
+     * 实际投资金额
      */
-    private BigDecimal investFund;
+    private BigDecimal actualInvestAmount;
+
+    /**
+     * 投资总额
+     */
+    private BigDecimal totalInvestAmount;
 
     /**
      * 备注

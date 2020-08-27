@@ -17,7 +17,7 @@ import java.util.List;
  * @author dupake
  * @since 2020-07-26
  */
-public interface FinInvestService {
+public interface FinInvestFlowService {
 
     CommonResult<CommonPage<InvestDTO>> listByPage(InvestQueryRequest accountQueryRequest);
 

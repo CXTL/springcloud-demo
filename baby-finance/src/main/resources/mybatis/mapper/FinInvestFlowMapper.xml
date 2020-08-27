@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dupake.finance.mapper.FinInvestMapper">
+<mapper namespace="com.dupake.finance.mapper.FinInvestFlowMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.FinInvest">
-        <id column="id" property="id" />
+    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.FinInvestFlow">
         <result column="account_code" property="accountCode" />
+        <result column="investor_id" property="investorId" />
+        <result column="actual_invest_amount" property="actualInvestAmount" />
+        <result column="total_invest_amount" property="totalInvestAmount" />
+        <result column="should_invest_amount" property="shouldInvestAmount" />
         <result column="subject_code" property="subjectCode" />
-        <result column="invest_name" property="investName" />
-        <result column="invest_fund" property="investFund" />
-        <result column="invest_amount" property="investAmount" />
         <result column="invest_ratio" property="investRatio" />
+        <result column="invest_date" property="investDate" />
         <result column="create_id" property="createId" />
         <result column="create_time" property="createTime" />
         <result column="update_id" property="updateId" />
         <result column="update_time" property="updateTime" />
         <result column="is_deleted" property="isDeleted" />
         <result column="remark" property="remark" />
-        <result column="should_invest_amount" property="shouldInvestAmount" />
-        <result column="invest_date" property="investDate" />
+        <result column="investor_name" property="investorName" />
     </resultMap>
 
     <select id="selectListPage" resultMap="BaseResultMap">
-        select * from fin_invest where
+
+        select a.*, b.investor_name from (
+
+        select * from fin_invest_flow where
         id >= (
-        select id from fin_invest
+        select id from fin_invest_flow
         <where>
             is_deleted = 0   and create_time between #{startTime} and #{endTime}
             <if test="accountCode != null and accountCode != ''">
@@ -38,9 +41,11 @@
         </if>
         and is_deleted = 0   and create_time between #{startTime} and #{endTime}
         limit #{size}
+        ) a
+        left join fin_investor b on a.investor_id = b.id
     </select>
     <select id="getTotalCount" resultType="int">
-        select count(1) from fin_invest
+        select count(1) from fin_invest_flow
         <where>
             is_deleted = 0   and create_time between #{startTime} and #{endTime}
             <if test="accountCode != null and accountCode != ''">
@@ -50,14 +55,14 @@
     </select>
 
     <select id="selectInfoByAccountCode" resultMap="BaseResultMap">
-        select * from fin_invest
-        where is_deleted = 0 and  account_code = #{accountCode} and  invest_name = #{investName}
+        select * from fin_invest_flow
+        where is_deleted = 0 and  account_code = #{accountCode} and  investor_id = #{investorId}
         order by id desc
         limit 1
     </select>
 
     <update id="updateBatch" parameterType="java.util.List" >
-        update fin_invest
+        update fin_invest_flow
         <trim prefix="set" suffixOverrides=",">
             <trim prefix="is_deleted =case" suffix="end,">
                 <foreach collection="list" item="i" index="index">

@@ -1,7 +1,7 @@
 package com.dupake.finance.mapper;
 
 import com.dupake.common.pojo.dto.req.invest.InvestQueryRequest;
-import com.dupake.finance.entity.FinInvest;
+import com.dupake.finance.entity.FinInvestFlow;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,13 +15,13 @@ import java.util.List;
  * @author dupake
  * @since 2020-07-26
  */
-public interface FinInvestMapper extends BaseMapper<FinInvest> {
+public interface FinInvestFlowMapper extends BaseMapper<FinInvestFlow> {
 
     int getTotalCount(InvestQueryRequest investQueryRequest);
 
-    List<FinInvest> selectListPage(InvestQueryRequest investQueryRequest);
+    List<FinInvestFlow> selectListPage(InvestQueryRequest investQueryRequest);
 
-    void updateBatch(List<FinInvest> finInvestList);
+    void updateBatch(List<FinInvestFlow> finInvestFlowList);
 
-    FinInvest selectInfoByAccountCode(@Param("accountCode") String accountCode, @Param("investName") String investName);
+    FinInvestFlow selectInfoByAccountCode(@Param("accountCode") String accountCode, @Param("investorId") Long investorId);
 }

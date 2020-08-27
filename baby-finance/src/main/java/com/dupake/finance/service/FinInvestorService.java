@@ -27,4 +27,5 @@ public interface FinInvestorService {
 
     CommonResult deleteInvestor(List<Long> ids);
 
+    CommonResult<List<InvestorDTO>> listInvestor();
 }

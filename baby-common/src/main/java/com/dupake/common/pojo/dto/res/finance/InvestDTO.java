@@ -43,18 +43,17 @@ public class InvestDTO implements Serializable {
     /**
      * 投资人名称
      */
-    private String investName;
+    private String investorName;
 
     /**
-     * 投资款
+     * 实际投资金额
      */
-    private BigDecimal investFund;
+    private BigDecimal actualInvestAmount;
 
     /**
      * 投资总额
      */
-    private BigDecimal investAmount;
-
+    private BigDecimal totalInvestAmount;
     /**
      * 投资比例 %
      */

@@ -6,7 +6,6 @@ import com.dupake.common.pojo.dto.req.asset.AssetAddRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetQueryRequest;
 import com.dupake.common.pojo.dto.req.asset.AssetUpdateRequest;
 import com.dupake.common.pojo.dto.res.finance.AssetDTO;
-import com.dupake.finance.entity.FinInvest;
 
 import java.util.List;
 
@@ -28,5 +27,4 @@ public interface FinAssetService {
 
     CommonResult deleteAsset(List<Long> ids);
 
-    void addAssetInvest(FinInvest invest);
 }
