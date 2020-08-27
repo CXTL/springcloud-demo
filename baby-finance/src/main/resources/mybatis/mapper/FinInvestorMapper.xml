@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.finance.mapper.FinInvestorMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dupake.finance.entity.FinInvestor">
+        <id column="id" property="id" />
+        <result column="investor_name" property="investorName" />
+        <result column="investor_phone" property="investorPhone" />
+        <result column="investor_address" property="investorAddress" />
+        <result column="create_id" property="createId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+
+    <select id="selectListPage" resultMap="BaseResultMap">
+        select * from fin_investor where
+        id >= (
+        select id from fin_investor
+        <where>
+            is_deleted = 0  and create_time between #{startTime} and #{endTime}
+            <if test="investorName != null and investorName != ''">
+                and  investor_name = #{investorName}
+            </if>
+        </where>
+        order by id limit #{pageNumber} , 1
+        )
+        <if test="investorName != null and investorName != ''">
+            and  investor_name = #{investorName}
+        </if>
+        and is_deleted = 0  and create_time between #{startTime} and #{endTime}
+        limit #{size}
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(1) from fin_investor
+        <where>
+            is_deleted = 0 and create_time between #{startTime} and #{endTime}
+            <if test="investorName != null and investorName != ''">
+                and  investor_name = #{investorName}
+            </if>
+        </where>
+    </select>
+
+
+    <update id="updateBatch" parameterType="java.util.List" >
+        update fin_investor
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_deleted =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.isDeleted!=null">
+                        when id=#{i.id} then #{i.isDeleted}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="update_time =case" suffix="end,">
+                <foreach collection="list" item="i" index="index">
+                    <if test="i.updateTime!=null">
+                        when id=#{i.id} then #{i.updateTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="i" index="index" >
+            id=#{i.id}
+        </foreach>
+    </update>
+    
+</mapper>

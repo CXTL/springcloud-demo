@@ -193,3 +193,44 @@ create table if not exists fin_asset_record
     remark      varchar(128) null comment '备注'
 )
     comment '财务-余额记录信息表';
+
+
+
+create table if not exists fin_investor
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    investor_name        varchar(32)  null comment '投资人名称',
+    investor_phone       varchar(13)  null comment '投资人电话',
+    investor_address       varchar(13)  null comment '投资人地址',
+
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-投资人信息表';
+
+
+create table if not exists fin_invest_flow
+(
+    id          bigint auto_increment comment 'id'
+        primary key,
+    account_code        varchar(32)  null comment '帐套信息编码',
+    investor_id        varchar(32)  null comment '投资人id',
+    actual_invest_amount        decimal(11,2)       null comment '实际投资金额',
+    total_invest_amount        decimal(11,2)          null comment '投资总额',
+    should_invest_amount        decimal(11,2)          null comment '应投资金额',
+    subject_code varchar(32)  default null comment '科目编码',
+    invest_ratio        int          null comment '投资比例 %',
+    invest_date bigint    null comment '投资日期',
+    create_id   bigint       null comment '创建人',
+    create_time bigint    null comment '创建时间',
+    update_id   bigint       null comment '更新人',
+    update_time bigint    null comment '更新时间',
+    is_deleted  int   null comment '是否删除 0:未删除1:已删除',
+    remark      varchar(128) null comment '备注'
+)
+    comment '财务-投资流水信息表';

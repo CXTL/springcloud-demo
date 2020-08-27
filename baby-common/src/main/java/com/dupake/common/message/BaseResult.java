@@ -28,7 +28,9 @@ public enum BaseResult implements IErrorCode {
     SYS_MENU_INFO_IS_NOT_EXIST(10012, "角色信息不存在!"),
 
     /***************************************财务模块枚举***************************************/
-    FIN_SUBJECT_DELETE_ERROR_EXIST_SUB_SUBJECT(10010, "该科目存在子科目,无法删除!"),
+    FIN_SUBJECT_DELETE_ERROR_EXIST_SUB_SUBJECT(20010, "该科目存在子科目,无法删除!"),
+    FIN_INVESTOR_NAME_IS_EXIST(20011, "投资人名称已存在!"),
+    FIN_INVESTOR_INFO_IS_NOT_EXIST(20012, "投资人信息不存在!"),
     /***************************************统计模块枚举***************************************/
     ;
 

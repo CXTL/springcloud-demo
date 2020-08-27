@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dupake.report.mapper.InvestReportMapper">
+
+
+    <resultMap id="BaseAssetMap" type="com.dupake.common.pojo.dto.res.report.InvestReportDTO">
+        <result property="investDate" column="invest_date"/>
+        <result property="investFund" column="invest_fund"/>
+        <result property="shouldInvestAmount" column="should_invest_amount"/>
+        <result property="investName" column="invest_name"/>
+    </resultMap>
+
+
+    <select id="getReportInvestAsset" resultMap="BaseAssetMap">
+
+        select  invest_date,invest_name, sum(invest_fund) invest_fund, max(invest_amount) invest_amount
+        from (
+        select account_code,
+        invest_name,
+        invest_fund,
+        invest_amount,
+        date_format(from_unixtime(invest_date / 1000), '%Y-%m-%d') invest_date
+        from fin_invest
+        where invest_date between #{startTime} and #{endTime}
+        <if test="accountCode != null and accountCode != ''">
+            and account_code = #{accountCode}
+        </if>
+
+        date_format(from_unixtime(invest_date / 1000), '%Y-%m-%d %H:%i:%s') between  '2020-08-16 00:00:00' and '2020-08-30 00:00:00'
+        ) t
+        group by account_code,invest_date,invest_name
+
+    </select>
+
+
+</mapper>

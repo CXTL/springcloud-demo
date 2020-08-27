@@ -157,16 +157,17 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Transactional(rollbackFor = Exception.class)
     public CommonResult deleteRole(List<Long> ids) {
         //todo 管理员角色校验
+        List<SysRole> sysRoles = ids.stream().map(a -> {
+            SysRole sysRole = SysRole.builder().build();
+            sysRole.setId(a);
+            sysRole.setIsDeleted(YesNoSwitchEnum.YES.getValue());
+            sysRole.setUpdateTime(DateUtil.getCurrentTimeMillis());
+            return sysRole;
+        }).collect(Collectors.toList());
         try {
-            List<SysRole> sysUsers = ids.stream().map(a -> {
-                SysRole sysRole = SysRole.builder().build();
-                sysRole.setId(a);
-                sysRole.setIsDeleted(YesNoSwitchEnum.YES.getValue());
-                sysRole.setUpdateTime(DateUtil.getCurrentTimeMillis());
-                return sysRole;
-            }).collect(Collectors.toList());
-
-            sysRoleMapper.updateBatch(sysUsers);
+            if(!CollectionUtils.isEmpty(sysRoles)){
+                sysRoleMapper.updateBatch(sysRoles);
+            }
 
         }catch (Exception e){
             log.error("SysRoleServiceImpl delete role error , param:{}, error:{}", JSONObject.toJSONString(ids), e);

@@ -3,7 +3,6 @@ package com.dupake.report.service;
 import com.dupake.common.message.CommonPage;
 import com.dupake.common.message.CommonResult;
 import com.dupake.common.pojo.dto.req.report.AssetReportQueryRequest;
-import com.dupake.common.pojo.dto.res.report.HomeReportAssetDTO;
 import com.dupake.common.pojo.dto.res.report.InOutDTO;
 
 import javax.servlet.http.HttpServletResponse;
